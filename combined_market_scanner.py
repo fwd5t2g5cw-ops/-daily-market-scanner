@@ -10,10 +10,9 @@ legacy_dir=out/'legacy'; bz_dir=out/'big_zone'
 legacy_dir.mkdir(parents=True,exist_ok=True); bz_dir.mkdir(parents=True,exist_ok=True)
 
 # build_universes.py calls Hong Kong "hk", while this combined scanner calls it "hkex".
-# Translate the market key here so data/hk_universe.txt is actually created.
-universe_market={'tsx':'tsx','hkex':'hk'}.get(market)
-if universe_market:
-    subprocess.run([sys.executable,'build_universes.py','--markets',universe_market],check=True)
+# Build the correct fresh universe for every market before either scanner runs.
+universe_market={'us':'us','tsx':'tsx','hkex':'hk'}[market]
+subprocess.run([sys.executable,'build_universes.py','--markets',universe_market],check=True)
 
 symbol_files={'tsx':'data/tsx_universe.txt','hkex':'data/hk_universe.txt'}
 legacy_output=legacy_dir/'scan_results.csv'
