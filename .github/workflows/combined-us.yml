@@ -2,7 +2,6 @@ name: 🇺🇸 US Combined Scanner
 on:
   workflow_dispatch:
   schedule:
-    # 18:30 America/Toronto during EDT (Mar-Nov). A second EST cron is gated below.
     - cron: '30 22 * * 1-5'
     - cron: '30 23 * * 1-5'
 jobs:
@@ -11,7 +10,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-      - name: Gate to 18:30 Toronto
+      - name: Gate scheduled runs to 18:30 Toronto
+        if: github.event_name == 'schedule'
         run: |
           python - <<'PY'
           from datetime import datetime
