@@ -10,7 +10,8 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-      - name: Gate to 18:30 Toronto
+      - name: Gate scheduled runs to 18:30 Toronto
+        if: github.event_name == 'schedule'
         run: |
           python - <<'PY'
           from datetime import datetime
