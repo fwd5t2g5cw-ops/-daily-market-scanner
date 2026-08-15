@@ -1,0 +1,52 @@
+name: TSX HKEX Legacy
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scanner.py','build_universes.py','.github/workflows/legacy.yml']
+  schedule:
+    - cron: '0 18 * * 1-5'
+      timezone: 'America/Toronto'
+jobs:
+  canada:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt openpyxl
+      - run: python build_universes.py --markets tsx
+      - name: Run TSX Playbook + VCP
+        run: |
+          mkdir -p results/canada
+          python scanner.py --symbols data/tsx_universe.txt --output results/canada/scan_results.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: canada-tsx-scan-results
+          path: results/canada/
+          retention-days: 30
+  hkex:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt openpyxl
+      - run: python build_universes.py --markets hk
+      - name: Run HKEX Playbook + VCP
+        run: |
+          mkdir -p results/hkex
+          python scanner.py --symbols data/hk_universe.txt --output results/hkex/scan_results.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hkex-scan-results
+          path: results/hkex/
+          retention-days: 30
