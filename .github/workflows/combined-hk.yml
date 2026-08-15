@@ -1,0 +1,33 @@
+name: 🇭🇰 Hong Kong Combined Scanner
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 22 * * 1-5'
+    - cron: '30 23 * * 1-5'
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Gate to 18:30 Toronto
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          now=datetime.now(ZoneInfo('America/Toronto'))
+          if not (now.weekday()<5 and now.hour==18 and 25<=now.minute<=40):
+              raise SystemExit('Not 18:30 Toronto; skip duplicate DST/EST cron')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt openpyxl
+      - run: python combined_market_scanner.py --market hkex
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hk-combined-results-${{ github.run_number }}
+          path: combined_results/hkex/
+          retention-days: 30
