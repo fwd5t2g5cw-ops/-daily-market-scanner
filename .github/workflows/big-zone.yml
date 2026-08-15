@@ -9,7 +9,7 @@ on:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -17,12 +17,13 @@ jobs:
           python-version: '3.12'
           cache: pip
       - run: pip install -r requirements.txt openpyxl
-      - run: python build_universes.py --markets us,tsx,hk
-      - name: Run Big Zone US + TSX + HK
-        run: python big_zone_scanner.py --us-file data/us_universe.txt --tsx-file data/tsx_universe.txt --hk-file data/hk_universe.txt
+      - name: Build TSX universe only
+        run: python build_universes.py --markets tsx
+      - name: Run Big Zone Canada TSX only
+        run: python big_zone_scanner.py --tsx-file data/tsx_universe.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: big-zone-results-${{ github.run_number }}
+          name: big-zone-canada-results-${{ github.run_number }}
           path: big_zone_results/
           retention-days: 30
