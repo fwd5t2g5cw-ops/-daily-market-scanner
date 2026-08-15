@@ -41,8 +41,15 @@ def symcol(df):
         if c in df.columns:return c
     return None
 
-legacy=load_csv(legacy_output)
+# IMPORTANT: Legacy means the original actionable VCP/Playbook list, NOT every generic WATCH
+# row in scan_results.csv. scanner.py already writes the original trade-plan files using
+# PLAYBOOK_TRIGGER / VCP_BREAKOUT first, then VCP_WATCH / PLAYBOOK_WATCH ranked by watch quality.
+stock_plans=load_csv(legacy_dir/'trade_plans.csv')
+etf_plans=load_csv(legacy_dir/'etf_trade_plans.csv')
+plan_parts=[d for d in [stock_plans,etf_plans] if not d.empty]
+legacy=pd.concat(plan_parts,ignore_index=True) if plan_parts else pd.DataFrame()
 bz=load_csv(bz_dir/'big_zone_all.csv')
+
 ls,bs=symcol(legacy),symcol(bz)
 if ls: legacy['_symbol']=legacy[ls].astype(str).str.upper()
 if bs: bz['_symbol']=bz[bs].astype(str).str.upper()
@@ -60,17 +67,27 @@ legacy_symbols=set(legacy['_symbol']) if '_symbol' in legacy.columns else set()
 bz_symbols=set(bz['_symbol']) if '_symbol' in bz.columns else set()
 overlap_symbols=legacy_symbols & bz_symbols
 
-# 1) Legacy Top 12 — original Playbook/VCP/trend-continuation ranking.
+# 1) Legacy Top 12 — restore the ORIGINAL VCP/Playbook trade-plan behaviour.
+# Trigger/Breakout are executable signals. Pending Watch names are ranked by watch_score,
+# trigger distance and RS, exactly in the spirit of scanner.py's prior output.
 if not legacy.empty:
     legacy['overlap']=legacy['_symbol'].isin(overlap_symbols)
-    legacy_sort=['_legacy_score','overlap']
-    legacy_asc=[False,False]
-    # Prefer trigger/grade fields as tie breakers when present.
-    for c in ['trade_grade','Trade_Grade','grade','Grade']:
-        if c in legacy.columns:
-            legacy['_grade_rank']=legacy[c].astype(str).str.upper().map({'A':3,'B':2,'C':1}).fillna(0)
-            legacy_sort.append('_grade_rank'); legacy_asc.append(False); break
-    legacy_ranked=legacy.sort_values(legacy_sort,ascending=legacy_asc)
+    pt=legacy.get('plan_type',pd.Series('',index=legacy.index)).fillna('').astype(str)
+    legacy['_action_rank']=pt.map({
+        'PLAYBOOK_TRIGGER':4,
+        'VCP_BREAKOUT':4,
+        'PLAYBOOK_WATCH_PENDING_TRIGGER':3,
+        'VCP_WATCH_PENDING_BREAKOUT':3,
+    }).fillna(0)
+    legacy['_grade_score_sort']=pd.to_numeric(legacy.get('grade_score',0),errors='coerce').fillna(0)
+    legacy['_watch_score_sort']=pd.to_numeric(legacy.get('watch_score',0),errors='coerce').fillna(0)
+    legacy['_trigger_distance_sort']=pd.to_numeric(legacy.get('trigger_distance_pct',999),errors='coerce').fillna(999)
+    legacy['_rs_sort']=pd.to_numeric(legacy.get('rs_percentile',0),errors='coerce').fillna(0)
+    # Keep triggers first. Within pending watches, favour the old watch_score + proximity + RS logic.
+    legacy_ranked=legacy.sort_values(
+        ['_action_rank','_grade_score_sort','_watch_score_sort','_trigger_distance_sort','_rs_sort','overlap'],
+        ascending=[False,False,False,True,False,False]
+    )
 else:
     legacy_ranked=legacy.copy()
 legacy_ranked.head(12).to_csv(out/'legacy_top12.csv',index=False)
@@ -87,7 +104,8 @@ else:
     bz_ranked=bz.copy()
 bz_ranked.head(12).to_csv(out/'big_zone_top12.csv',index=False)
 
-# 3) Combined Top 12 — Legacy + Big Zone + 3-point overlap bonus.
+# 3) Combined Top 12 — ONLY actionable Legacy VCP/Playbook names participate on the Legacy side.
+# This prevents generic high-RS WATCH names that are already extended from dominating Combined.
 if ls and bs:
     merged=pd.merge(legacy,bz,on='_symbol',how='outer',suffixes=('_legacy','_bigzone'))
 elif ls:
@@ -105,13 +123,14 @@ merged['combined_score']=merged['_legacy_score']+merged['_big_zone_score']+merge
 merged=merged.sort_values(['combined_score','overlap','_big_zone_score','_legacy_score'],ascending=[False,False,False,False])
 merged.to_csv(out/'combined_all.csv',index=False)
 merged.head(12).to_csv(out/'combined_top12.csv',index=False)
-# Keep old filename for backwards compatibility.
 merged.head(12).to_csv(out/'top12.csv',index=False)
 merged[merged.overlap].sort_values('combined_score',ascending=False).to_csv(out/'overlap.csv',index=False)
 
-print('\n=== LEGACY TOP 12 ===')
+print('\n=== LEGACY TOP 12 (ORIGINAL VCP / PLAYBOOK) ===')
 if legacy_ranked.empty: print('(none)')
-else: print(legacy_ranked[['_symbol','_legacy_score','overlap']].head(12).to_string(index=False))
+else:
+    cols=[c for c in ['_symbol','plan_type','signals','watch_score','watch_grade','trigger_distance_pct','grade_score','trade_grade','rs_percentile','overlap'] if c in legacy_ranked.columns]
+    print(legacy_ranked[cols].head(12).to_string(index=False))
 
 print('\n=== BIG ZONE TOP 12 ===')
 if bz_ranked.empty: print('(none)')
