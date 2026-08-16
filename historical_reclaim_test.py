@@ -17,7 +17,7 @@ def s(x):
         if x.shape[1] == 0:
             return pd.Series(dtype=float)
         x = x.iloc[:, 0]
-    return pd.to_numeric(x, errors='coerce').dropna().astype(float)
+    return pd.to_numeric(x, errors='coerce').astype(float)
 
 
 def load_us_symbols():
@@ -40,75 +40,117 @@ def frame(data, symbol, single=False):
     return d if len(d) >= 220 else None
 
 
-def analyze_reclaim(d: pd.DataFrame, as_of: str):
+def analyze_reclaim(d: pd.DataFrame, spy: pd.DataFrame, as_of: str):
+    """Reproduce Trend Pullback Stock Screener v1.1 ENTRY logic as closely as possible."""
     cutoff = pd.Timestamp(as_of)
     try:
         x = d.loc[pd.to_datetime(d.index).normalize() <= cutoff].copy()
+        sx = spy.loc[pd.to_datetime(spy.index).normalize() <= cutoff].copy()
     except Exception:
         return None
-    if len(x) < 220:
+    if len(x) < 220 or len(sx) < 70:
         return None
 
-    c,h,l,v = map(s,[x.Close,x.High,x.Low,x.Volume])
-    ma20 = c.ewm(span=20, adjust=False).mean()
-    ma50 = c.rolling(50).mean(); ma150 = c.rolling(150).mean(); ma200 = c.rolling(200).mean()
-    h52 = h.rolling(252,min_periods=200).max(); l52=l.rolling(252,min_periods=200).min()
-    av20=v.rolling(20).mean()
-    if any(pd.isna(z.iloc[-1]) for z in [ma50,ma150,ma200,h52,l52,av20]):
+    c,h,l,v,o = map(s,[x.Close,x.High,x.Low,x.Volume,x.Open])
+    sc = s(sx.Close)
+
+    # Pine v1.1 defaults.
+    ema20 = c.ewm(span=20, adjust=False).mean()
+    ema50 = c.ewm(span=50, adjust=False).mean()
+    sma200 = c.rolling(200).mean()
+    avgvol = v.rolling(20).mean()
+    avgdollar = (c * v).rolling(20).mean()
+    yearhigh = h.rolling(252, min_periods=20).max()
+
+    spy_ema20 = sc.ewm(span=20, adjust=False).mean()
+    spy_ema50 = sc.ewm(span=50, adjust=False).mean()
+
+    vals = [ema20.iloc[-1], ema50.iloc[-1], sma200.iloc[-1], avgvol.iloc[-1], avgdollar.iloc[-1], yearhigh.iloc[-1], spy_ema20.iloc[-1], spy_ema50.iloc[-1]]
+    if any(pd.isna(z) for z in vals) or len(c) <= 63 or len(sc) <= 63:
         return None
 
-    close=float(c.iloc[-1]); low=float(l.iloc[-1]); high=float(h.iloc[-1]); vol=float(v.iloc[-1]); avg=float(av20.iloc[-1])
-    m20=float(ma20.iloc[-1]); m50=float(ma50.iloc[-1]); m150=float(ma150.iloc[-1]); m200=float(ma200.iloc[-1]); m200old=float(ma200.iloc[-21])
-    hi52=float(h52.iloc[-1]); lo52=float(l52.iloc[-1])
+    close=float(c.iloc[-1]); high=float(h.iloc[-1]); low=float(l.iloc[-1]); open_=float(o.iloc[-1]); vol=float(v.iloc[-1])
+    e20=float(ema20.iloc[-1]); e50=float(ema50.iloc[-1]); s200=float(sma200.iloc[-1]); hi52=float(yearhigh.iloc[-1])
+    av=float(avgvol.iloc[-1]); adv=float(avgdollar.iloc[-1])
 
-    # Keep the same broad trend/quality gate as the Legacy scanner.
-    liquid = close >= 5 and avg >= 300000 and close*avg >= 5_000_000
-    trend = close > m50 > m150 > m200 and m200 > m200old and close >= 1.30*lo52 and close >= .75*hi52
-    if not (liquid and trend):
+    # 2. Trend calculation: close > EMA20 > EMA50 > SMA200, EMA50 rising vs 10 bars,
+    # SMA200 rising vs 20 bars, and <=12% above EMA20.
+    if len(ema50) <= 10 or len(sma200) <= 20:
         return None
+    trend_alignment = close > e20 > e50 > s200
+    ema50_rising = e50 > float(ema50.iloc[-11])
+    sma200_rising = s200 > float(sma200.iloc[-21])
+    strong_uptrend = bool(trend_alignment and ema50_rising and sma200_rising)
+    pct_above_ema20 = ((close/e20)-1)*100 if e20 > 0 else np.nan
+    not_overextended = bool(pd.notna(pct_above_ema20) and pct_above_ema20 <= 12.0)
 
-    # Build historical breakout levels from prior 50-bar highs.  A level only becomes
-    # eligible after price has actually broken above it, so the later signal is a RETEST/RECLAIM,
-    # not a fresh breakout.
-    prior50 = h.shift(1).rolling(50).max()
-    breakout = (c > prior50) & (c.shift(1) <= prior50)
+    # 3. Liquidity defaults from Pine.
+    liquid = bool(close >= 10 and av >= 500_000 and adv >= 20_000_000)
+
+    # 4. <=20% below 52-week high and positive 63-session relative return vs SPY.
+    pct_below_high = ((hi52-close)/hi52)*100 if hi52 > 0 else np.nan
+    near_year_high = bool(pd.notna(pct_below_high) and pct_below_high <= 20.0)
+    stock_return = close/float(c.iloc[-64])-1 if float(c.iloc[-64]) > 0 else np.nan
+    spy_return = float(sc.iloc[-1])/float(sc.iloc[-64])-1 if float(sc.iloc[-64]) > 0 else np.nan
+    relative_strength = stock_return - spy_return if pd.notna(stock_return) and pd.notna(spy_return) else np.nan
+    outperforming_spy = bool(pd.notna(relative_strength) and relative_strength > 0)
+
+    # 5. Market filter: SPY > EMA20 > EMA50.
+    spy_close=float(sc.iloc[-1]); se20=float(spy_ema20.iloc[-1]); se50=float(spy_ema50.iloc[-1])
+    market_pass = bool(spy_close > se20 > se50)
+
+    # 6. Pine breakout logic exactly:
+    # priorResistance = highest(high[1], 50)
+    # breakout = close > priorResistance*1.01 and close[1] <= priorResistance
+    prior = h.shift(1).rolling(50).max()
+    threshold = prior * 1.01
+    breakout = (c > threshold) & (c.shift(1) <= prior)
+
     bo_idx = np.flatnonzero(breakout.fillna(False).to_numpy())
     if len(bo_idx) == 0:
         return None
-
-    # Look backward for the most recent established breakout level before today.
     today_i = len(c)-1
     eligible = [i for i in bo_idx if i < today_i]
     if not eligible:
         return None
-    bi = int(eligible[-1]); level=float(prior50.iloc[bi])
-    if not np.isfinite(level) or level <= 0:
+    bi = int(eligible[-1])
+    level = float(prior.iloc[bi])
+    bars_since = today_i-bi
+    valid_breakout_age = bool(1 <= bars_since <= 30)
+    if not valid_breakout_age or not np.isfinite(level) or level <= 0:
         return None
 
-    # Reclaim signal: within the last 3 sessions price trades through/under the old breakout
-    # level, and today's close is back above it but not already too extended.
-    recent_low=float(l.iloc[-3:].min())
-    undercut_pct=(recent_low/level-1)*100
-    close_above_pct=(close/level-1)*100
-    reclaimed = recent_low <= level and close > level
-    near_level = -3.0 <= undercut_pct <= 0 and 0 < close_above_pct <= 3.0
-    not_extended = close <= m20*1.12
-    candle_body=abs(close-float(s(x.Open).iloc[-1]))/close
-    clean_candle=candle_body <= .10
-    trigger=bool(reclaimed and near_level and not_extended and clean_candle)
-    if not trigger:
+    # 8. Pine reclaim trigger is SAME-DAY low undercut and same-day close reclaim.
+    lowest_allowed = level * 0.97
+    slight_undercut = bool(low < level and low >= lowest_allowed)
+    reclaimed = bool(close > level)
+    bullish_candle = bool(close > open_ and close >= (high+low)/2.0)
+    candle_range = high-low
+    strong_bearish = bool(candle_range > 0 and close < open_ and (open_-close)/candle_range >= 0.65)
+    reclaim_trigger = bool(valid_breakout_age and slight_undercut and reclaimed and bullish_candle and not strong_bearish)
+
+    entry_candidate = bool(
+        strong_uptrend and not_overextended and liquid and near_year_high and
+        outperforming_spy and market_pass and reclaim_trigger
+    )
+    if not entry_candidate:
         return None
 
     return {
         'date': as_of,
         'close': round(close,2),
-        'reclaim_level': round(level,2),
-        'undercut_pct': round(undercut_pct,2),
-        'close_above_level_pct': round(close_above_pct,2),
-        'pct_from_52w_high': round((close/hi52-1)*100,2),
-        'pct_above_ema20': round((close/m20-1)*100,2),
-        'relative_volume': round(vol/avg if avg else 0,2),
-        'reclaim_trigger': True,
+        'breakout_date': str(pd.Timestamp(x.index[bi]).date()),
+        'breakout_level': round(level,2),
+        'bars_since_breakout': bars_since,
+        'intraday_undercut_pct': round((low/level-1)*100,2),
+        'close_above_level_pct': round((close/level-1)*100,2),
+        'pct_below_52w_high': round(pct_below_high,2),
+        'pct_above_ema20': round(pct_above_ema20,2),
+        'rs_vs_spy_pct': round(relative_strength*100,2),
+        'avg_volume_20d': int(av),
+        'avg_dollar_volume_m': round(adv/1_000_000,2),
+        'market_pass': market_pass,
+        'entry_candidate': True,
     }
 
 
@@ -121,6 +163,13 @@ def main():
     dates=[x.strip() for x in a.dates.split(',') if x.strip()]
     parsed=[datetime.strptime(x,'%Y-%m-%d').date() for x in dates]
     start=(min(parsed)-timedelta(days=650)).isoformat(); end=(max(parsed)+timedelta(days=1)).isoformat()
+
+    spy=yf.download('SPY',start=start,end=end,interval='1d',auto_adjust=True,progress=False)
+    if spy is None or spy.empty:
+        raise RuntimeError('SPY download failed')
+    if isinstance(spy.columns,pd.MultiIndex):
+        spy.columns=spy.columns.get_level_values(0)
+
     syms=load_us_symbols(); rows=[]
     for st in range(0,len(syms),a.batch_size):
         batch=syms[st:st+a.batch_size]
@@ -135,19 +184,21 @@ def main():
             if d is None: continue
             for dt in dates:
                 try:
-                    r=analyze_reclaim(d,dt)
+                    r=analyze_reclaim(d,spy,dt)
                     if r:
                         r['symbol']=sym; rows.append(r)
                 except Exception as e:
                     print('skip',sym,dt,e)
         time.sleep(.35)
+
     out=Path(a.outdir); out.mkdir(parents=True,exist_ok=True)
     df=pd.DataFrame(rows)
     if not df.empty:
-        df=df.sort_values(['date','pct_from_52w_high','close_above_level_pct'],ascending=[True,False,True])
+        df=df.sort_values(['date','rs_vs_spy_pct','pct_below_52w_high'],ascending=[True,False,True])
     df.to_csv(out/'reclaim_candidates.csv',index=False)
     psx=df[df.symbol.eq('PSX')] if not df.empty and 'symbol' in df.columns else pd.DataFrame()
     psx.to_csv(out/'psx_check.csv',index=False)
+
     print('\n=== PSX CHECK ===')
     print('(none)' if psx.empty else psx.to_string(index=False))
     print('\n=== COUNTS ===')
