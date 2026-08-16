@@ -1,0 +1,24 @@
+name: 📐 Re-score Reclaim MA Support
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rescore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install pandas yfinance
+      - name: Re-score existing Aug 4-7 candidates
+        run: python rescore_reclaim_ma_support.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: reclaim-ma-support-rescore
+          path: reclaim_rescore_results/
+          retention-days: 90
