@@ -2,8 +2,6 @@ from __future__ import annotations
 
 import argparse
 import random
-import subprocess
-import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -22,9 +20,15 @@ def s(x):
 
 
 def load_us_symbols():
-    subprocess.run([sys.executable, 'build_universes.py', '--markets', 'us'], check=True)
-    p = Path('data/us_universe.txt')
-    return list(dict.fromkeys(x.strip().upper() for x in p.read_text().splitlines() if x.strip() and not x.startswith('#')))
+    p = Path('data/us_1b_universe.txt')
+    if not p.exists():
+        raise FileNotFoundError('data/us_1b_universe.txt not found. Run the US $1B+ universe builder first.')
+    syms = list(dict.fromkeys(
+        x.strip().upper() for x in p.read_text().splitlines()
+        if x.strip() and not x.startswith('#')
+    ))
+    print(f'US $1B+ universe: {len(syms)} symbols')
+    return syms
 
 
 def frame(data, symbol, single=False):
@@ -208,7 +212,6 @@ def main():
     failed = []
     processed = set()
 
-    # Calibration symbol first so PSX can never be lost because of a late-run rate limit.
     print('=== PRIORITY PSX DOWNLOAD ===')
     psx = download_single('PSX', start, end, attempts=5, base_wait=5)
     if psx is not None:
@@ -234,7 +237,6 @@ def main():
                 add_symbol_rows(rows, sym, d, spy, dates)
         time.sleep(random.uniform(1.4, 2.4))
 
-    # One controlled recovery pass for anything missing from the batch scan.
     failed = list(dict.fromkeys(failed))
     recovered = []
     still_failed = []
