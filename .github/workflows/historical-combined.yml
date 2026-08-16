@@ -1,0 +1,48 @@
+name: 🕰️ Historical Combined Scanner
+
+on:
+  workflow_dispatch:
+    inputs:
+      as_of:
+        description: 'Historical cutoff date (YYYY-MM-DD)'
+        required: true
+        default: '2026-08-06'
+      market:
+        description: 'Market to scan'
+        required: true
+        type: choice
+        options:
+          - us
+          - tsx
+          - hkex
+        default: us
+
+jobs:
+  historical-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy requests yfinance openpyxl lxml html5lib beautifulsoup4
+
+      - name: Run historical combined scanner
+        run: |
+          python historical_combined_scanner.py --market "${{ inputs.market }}" --as-of "${{ inputs.as_of }}"
+
+      - name: Upload historical results
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-${{ inputs.market }}-${{ inputs.as_of }}
+          path: historical_results/${{ inputs.as_of }}/${{ inputs.market }}/
+          if-no-files-found: error
+          retention-days: 90
