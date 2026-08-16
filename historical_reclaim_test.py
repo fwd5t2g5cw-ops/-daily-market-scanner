@@ -85,6 +85,96 @@ def download_batch(batch, start: str, end: str, attempts: int = 3, base_wait: fl
     return None
 
 
+def congestion_metrics(c, h, l, v, breakout_index, today_index, breakout_level):
+    """Score whether a congestion/base existed before breakout or is forming after breakout.
+
+    Score 0-4, used only for ranking; it never creates or removes an ENTRY signal.
+      +1 pre-breakout 20-bar range <= 12%
+      +1 pre-breakout last-10-bar range contracted >= 25% vs the 20-bar range
+      +1 post-breakout/current action is tight around the breakout level
+      +1 recent 10-bar average volume <= 85% of 20-bar average volume
+    """
+    score = 0
+    pre_tight = False
+    pre_contract = False
+    forming = False
+    vol_contract = False
+    pre_range_pct = np.nan
+    pre10_range_pct = np.nan
+    post_range_pct = np.nan
+    near_level_ratio = np.nan
+
+    pre_start = max(0, breakout_index - 20)
+    pre_h = h.iloc[pre_start:breakout_index]
+    pre_l = l.iloc[pre_start:breakout_index]
+    if len(pre_h) >= 10:
+        pre_hi = float(pre_h.max())
+        pre_lo = float(pre_l.min())
+        if pre_lo > 0:
+            pre_range_pct = (pre_hi / pre_lo - 1.0) * 100
+            pre_tight = pre_range_pct <= 12.0
+            if pre_tight:
+                score += 1
+
+        last10_h = pre_h.iloc[-10:]
+        last10_l = pre_l.iloc[-10:]
+        if len(last10_h) >= 8:
+            r10_hi = float(last10_h.max())
+            r10_lo = float(last10_l.min())
+            if r10_lo > 0:
+                pre10_range_pct = (r10_hi / r10_lo - 1.0) * 100
+                if pd.notna(pre_range_pct) and pre_range_pct > 0:
+                    pre_contract = pre10_range_pct <= pre_range_pct * 0.75
+                    if pre_contract:
+                        score += 1
+
+    post = slice(breakout_index + 1, today_index + 1)
+    post_c = c.iloc[post]
+    post_h = h.iloc[post]
+    post_l = l.iloc[post]
+    if len(post_c) >= 5 and breakout_level > 0:
+        p_hi = float(post_h.max())
+        p_lo = float(post_l.min())
+        if p_lo > 0:
+            post_range_pct = (p_hi / p_lo - 1.0) * 100
+        near_level = ((post_c / breakout_level - 1.0).abs() <= 0.06)
+        near_level_ratio = float(near_level.mean()) if len(near_level) else np.nan
+        forming = bool(pd.notna(post_range_pct) and post_range_pct <= 10.0 and
+                       pd.notna(near_level_ratio) and near_level_ratio >= 0.60)
+        if forming:
+            score += 1
+
+    if len(v) >= 20:
+        v10 = float(v.iloc[-10:].mean())
+        v20 = float(v.iloc[-20:].mean())
+        if v20 > 0:
+            vol_contract = v10 <= v20 * 0.85
+            if vol_contract:
+                score += 1
+
+    if (pre_tight or pre_contract) and forming:
+        status = 'BOTH'
+    elif pre_tight or pre_contract:
+        status = 'PRE_BREAKOUT'
+    elif forming:
+        status = 'FORMING_NOW'
+    else:
+        status = 'NONE'
+
+    return {
+        'congestion_score': int(score),
+        'congestion_status': status,
+        'pre_congestion_range_pct': round(pre_range_pct, 2) if pd.notna(pre_range_pct) else np.nan,
+        'pre_10d_range_pct': round(pre10_range_pct, 2) if pd.notna(pre10_range_pct) else np.nan,
+        'post_breakout_range_pct': round(post_range_pct, 2) if pd.notna(post_range_pct) else np.nan,
+        'near_breakout_level_ratio': round(near_level_ratio, 2) if pd.notna(near_level_ratio) else np.nan,
+        'congestion_pre_tight': bool(pre_tight),
+        'congestion_pre_contracting': bool(pre_contract),
+        'congestion_forming_now': bool(forming),
+        'congestion_volume_contracting': bool(vol_contract),
+    }
+
+
 def analyze_reclaim(d: pd.DataFrame, spy: pd.DataFrame, as_of: str):
     """Reproduce Trend Pullback Stock Screener v1.1 ENTRY logic as closely as possible."""
     cutoff = pd.Timestamp(as_of)
@@ -162,7 +252,9 @@ def analyze_reclaim(d: pd.DataFrame, spy: pd.DataFrame, as_of: str):
     if not entry_candidate:
         return None
 
-    return {
+    congestion = congestion_metrics(c, h, l, v, bi, today_i, level)
+
+    result = {
         'date': as_of,
         'close': round(close, 2),
         'breakout_date': str(pd.Timestamp(x.index[bi]).date()),
@@ -178,6 +270,8 @@ def analyze_reclaim(d: pd.DataFrame, spy: pd.DataFrame, as_of: str):
         'market_pass': market_pass,
         'entry_candidate': True,
     }
+    result.update(congestion)
+    return result
 
 
 def add_symbol_rows(rows, sym, d, spy, dates):
@@ -259,7 +353,8 @@ def main():
     df = pd.DataFrame(rows)
     if not df.empty:
         df = df.drop_duplicates(subset=['date', 'symbol']).sort_values(
-            ['date', 'rs_vs_spy_pct', 'pct_below_52w_high'], ascending=[True, False, True])
+            ['date', 'congestion_score', 'rs_vs_spy_pct', 'pct_below_52w_high'],
+            ascending=[True, False, False, True])
     df.to_csv(out / 'reclaim_candidates.csv', index=False)
 
     psxdf = df[df.symbol.eq('PSX')] if not df.empty and 'symbol' in df.columns else pd.DataFrame()
@@ -276,6 +371,10 @@ def main():
     print('(none)' if psxdf.empty else psxdf.to_string(index=False))
     print('\n=== COUNTS ===')
     print('(none)' if df.empty else df.groupby('date').size().to_string())
+    if not df.empty:
+        print('\n=== TOP BY CONGESTION SCORE ===')
+        cols = ['date', 'symbol', 'congestion_score', 'congestion_status', 'rs_vs_spy_pct', 'breakout_level']
+        print(df[cols].groupby('date', group_keys=False).head(10).to_string(index=False))
     print(f'\nRecovered after retry: {len(recovered)}')
     print(f'Still failed: {len(still_failed)}')
 
