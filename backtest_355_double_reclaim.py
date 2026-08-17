@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
-from datetime import datetime, time
+from datetime import time
 import numpy as np
 import pandas as pd
 import yfinance as yf
 
 NY = 'America/New_York'
 FIB_ENTRY = 0.786
-FIB_DEN = 1.0 - FIB_ENTRY  # 0.214
+FIB_DEN = 1.0 - FIB_ENTRY
 
 
 def _flat(df: pd.DataFrame) -> pd.DataFrame:
@@ -48,6 +48,17 @@ def _ema20_from_candidate(row: pd.Series) -> float:
     return close / (1.0 + pct / 100.0)
 
 
+def _grade(rs: float, cluster_pct: float) -> str:
+    if pd.notna(rs) and pd.notna(cluster_pct):
+        if rs >= 15.0 and cluster_pct <= 0.5:
+            return 'A'
+        if rs >= 10.0 and cluster_pct <= 1.0:
+            return 'B'
+        if rs >= 10.0 and cluster_pct <= 2.0:
+            return 'C'
+    return 'D'
+
+
 def evaluate_candidate(row: pd.Series, intraday: pd.DataFrame, end_date: pd.Timestamp,
                        touch_tolerance_pct: float = 0.25,
                        max_undercut_pct: float = 3.0):
@@ -56,7 +67,6 @@ def evaluate_candidate(row: pd.Series, intraday: pd.DataFrame, end_date: pd.Time
     if day.empty:
         return None
 
-    # 3:55 PM decision point: use the OPEN of the 15:55 five-minute bar.
     entry_rows = day[day.index.time >= time(15, 55)]
     if entry_rows.empty:
         return None
@@ -78,23 +88,33 @@ def evaluate_candidate(row: pd.Series, intraday: pd.DataFrame, end_date: pd.Time
     above_both = entry_price > breakout and entry_price > ema20
     strict_double_reclaim = bool(touched_breakout and touched_ema20 and not_too_deep and above_both)
 
+    cluster_pct = abs(ema20 / breakout - 1.0) * 100.0 if breakout > 0 else np.nan
+    rs = pd.to_numeric(pd.Series([row.get('rs_vs_spy_pct', np.nan)]), errors='coerce').iloc[0]
+    trade_grade = _grade(float(rs) if pd.notna(rs) else np.nan, cluster_pct)
+
+    common = {
+        'date': str(dt), 'symbol': row['symbol'],
+        'entry_time': str(entry_ts), 'entry_price': round(entry_price, 4),
+        'day_low_before_entry': round(day_low, 4),
+        'breakout_level': round(breakout, 4), 'ema20_est': round(ema20, 4),
+        'ema20_breakout_distance_pct': round(cluster_pct, 3) if pd.notna(cluster_pct) else np.nan,
+        'trade_grade': trade_grade,
+        'touched_breakout': touched_breakout, 'touched_ema20': touched_ema20,
+        'above_both_355': above_both,
+        'congestion_score': row.get('congestion_score', np.nan),
+        'congestion_status': row.get('congestion_status', ''),
+        'rs_vs_spy_pct': row.get('rs_vs_spy_pct', np.nan),
+        'pct_below_52w_high': row.get('pct_below_52w_high', np.nan),
+    }
+
     if not strict_double_reclaim:
-        return {
-            'date': str(dt), 'symbol': row['symbol'], 'strict_double_reclaim': False,
-            'entry_time': str(entry_ts), 'entry_price': round(entry_price, 4),
-            'day_low_before_entry': round(day_low, 4), 'breakout_level': round(breakout, 4),
-            'ema20_est': round(ema20, 4), 'touched_breakout': touched_breakout,
-            'touched_ema20': touched_ema20, 'above_both_355': above_both,
-            'outcome': 'NO_TRADE'
-        }
+        return {**common, 'strict_double_reclaim': False, 'outcome': 'NO_TRADE'}
 
     stop = day_low
     risk = entry_price - stop
     if risk <= 0:
         return None
 
-    # Fib convention observed in the user's chart:
-    # 1.000 = stop/day low, 0.786 = entry, 0.000 = final target.
     target0 = stop + risk / FIB_DEN
     fib0382 = stop + ((1.0 - 0.382) / FIB_DEN) * risk
     target_r = (target0 - entry_price) / risk
@@ -113,7 +133,6 @@ def evaluate_candidate(row: pd.Series, intraday: pd.DataFrame, end_date: pd.Time
         hit_stop = lo <= stop
         hit_target = hi >= target0
         if hit_stop and hit_target:
-            # Conservative when both are inside the same 5-minute bar.
             outcome = 'STOP_SAME_BAR_AMBIGUOUS'
             exit_ts = ts; exit_price = stop; realized_r = -1.0
             break
@@ -127,22 +146,31 @@ def evaluate_candidate(row: pd.Series, intraday: pd.DataFrame, end_date: pd.Time
             break
 
     return {
-        'date': str(dt), 'symbol': row['symbol'], 'strict_double_reclaim': True,
-        'entry_time': str(entry_ts), 'entry_price': round(entry_price, 4),
-        'day_low_before_entry': round(day_low, 4), 'stop': round(stop, 4),
-        'breakout_level': round(breakout, 4), 'ema20_est': round(ema20, 4),
-        'fib_0382': round(fib0382, 4), 'target0': round(target0, 4),
-        'risk_per_share': round(risk, 4), 'target_r': round(target_r, 3),
-        'touched_breakout': touched_breakout, 'touched_ema20': touched_ema20,
-        'above_both_355': above_both, 'outcome': outcome,
+        **common,
+        'strict_double_reclaim': True,
+        'stop': round(stop, 4), 'fib_0382': round(fib0382, 4),
+        'target0': round(target0, 4), 'risk_per_share': round(risk, 4),
+        'target_r': round(target_r, 3), 'outcome': outcome,
         'exit_time': '' if pd.isna(exit_ts) else str(exit_ts),
         'exit_price': '' if pd.isna(exit_price) else round(float(exit_price), 4),
         'realized_r': '' if pd.isna(realized_r) else round(float(realized_r), 3),
         'bars_5m_to_exit': bars if outcome != 'OPEN' else '',
-        'congestion_score': row.get('congestion_score', np.nan),
-        'congestion_status': row.get('congestion_status', ''),
-        'rs_vs_spy_pct': row.get('rs_vs_spy_pct', np.nan),
-        'pct_below_52w_high': row.get('pct_below_52w_high', np.nan),
+    }
+
+
+def _summarize(g: pd.DataFrame, label: str, key: str):
+    resolved = g[g['outcome'].isin(['TARGET0','STOP','STOP_SAME_BAR_AMBIGUOUS'])]
+    wins = int((resolved['outcome'] == 'TARGET0').sum())
+    losses = int((resolved['outcome'] != 'TARGET0').sum())
+    return {
+        key: label,
+        'trades': len(g),
+        'resolved': len(resolved),
+        'wins': wins,
+        'losses': losses,
+        'win_rate_pct': round(100*wins/len(resolved), 2) if len(resolved) else np.nan,
+        'open': int((g['outcome'] == 'OPEN').sum()),
+        'avg_realized_r': round(pd.to_numeric(resolved['realized_r'], errors='coerce').mean(), 3) if len(resolved) else np.nan,
     }
 
 
@@ -183,32 +211,34 @@ def main():
     all_df.to_csv(outdir / 'all_candidates_355.csv', index=False)
     trades = all_df[all_df['strict_double_reclaim'] == True].copy() if not all_df.empty else pd.DataFrame()
     if not trades.empty:
-        trades = trades.sort_values(['date','congestion_score','rs_vs_spy_pct'], ascending=[True,False,False])
+        grade_order = {'A':0, 'B':1, 'C':2, 'D':3}
+        trades['_grade_order'] = trades['trade_grade'].map(grade_order).fillna(9)
+        trades = trades.sort_values(['date','_grade_order','congestion_score','rs_vs_spy_pct'], ascending=[True,True,False,False]).drop(columns=['_grade_order'])
     trades.to_csv(outdir / 'strict_double_reclaim_trades.csv', index=False)
     pd.DataFrame({'symbol': failed}).to_csv(outdir / 'failed_symbols.csv', index=False)
 
-    summary = []
+    by_date = []
+    by_grade = []
     if not trades.empty:
         for dt, g in trades.groupby('date'):
-            resolved = g[g['outcome'].isin(['TARGET0','STOP','STOP_SAME_BAR_AMBIGUOUS'])]
-            wins = int((resolved['outcome'] == 'TARGET0').sum())
-            losses = int((resolved['outcome'] != 'TARGET0').sum())
-            summary.append({
-                'date': dt,
-                'trades': len(g),
-                'resolved': len(resolved),
-                'wins': wins,
-                'losses': losses,
-                'win_rate_pct': round(100*wins/len(resolved),2) if len(resolved) else np.nan,
-                'open': int((g['outcome']=='OPEN').sum()),
-                'avg_realized_r': round(pd.to_numeric(resolved['realized_r'], errors='coerce').mean(),3) if len(resolved) else np.nan,
-            })
-    pd.DataFrame(summary).to_csv(outdir / 'summary_by_date.csv', index=False)
+            by_date.append(_summarize(g, dt, 'date'))
+        for grade in ['A','B','C','D']:
+            g = trades[trades['trade_grade'] == grade]
+            if len(g):
+                by_grade.append(_summarize(g, grade, 'trade_grade'))
+        abc = trades[trades['trade_grade'].isin(['A','B','C'])]
+        if len(abc):
+            by_grade.append(_summarize(abc, 'A+B+C', 'trade_grade'))
+
+    pd.DataFrame(by_date).to_csv(outdir / 'summary_by_date.csv', index=False)
+    pd.DataFrame(by_grade).to_csv(outdir / 'summary_by_grade.csv', index=False)
 
     print('Strict double-reclaim trades:', len(trades))
     print('Failed symbols:', len(failed))
     if not trades.empty:
-        print(trades[['date','symbol','entry_price','stop','target0','outcome','realized_r']].to_string(index=False))
+        print(trades[['date','symbol','trade_grade','rs_vs_spy_pct','ema20_breakout_distance_pct','entry_price','stop','target0','outcome','realized_r']].to_string(index=False))
+        print('\n=== GRADE SUMMARY ===')
+        print(pd.DataFrame(by_grade).to_string(index=False))
 
 if __name__ == '__main__':
     main()
