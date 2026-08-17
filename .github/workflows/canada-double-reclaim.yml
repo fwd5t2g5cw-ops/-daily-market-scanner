@@ -43,6 +43,9 @@ jobs:
       - name: Run Canada Double Reclaim scanner
         run: python canada_double_reclaim_scanner.py
 
+      - name: Add blue-marker reclaim output
+        run: python add_blue_marker_columns.py --dir double_reclaim_results/canada --prefix canada
+
       - name: Upload results
         uses: actions/upload-artifact@v4
         if: always()
