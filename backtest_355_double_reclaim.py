@@ -92,12 +92,36 @@ def evaluate_candidate(row: pd.Series, intraday: pd.DataFrame, end_date: pd.Time
     rs = pd.to_numeric(pd.Series([row.get('rs_vs_spy_pct', np.nan)]), errors='coerce').iloc[0]
     trade_grade = _grade(float(rs) if pd.notna(rs) else np.nan, cluster_pct)
 
+    undercut_pct = max(0.0, (breakout - day_low) / breakout * 100.0) if breakout > 0 else np.nan
+    if pd.isna(undercut_pct):
+        shallow_bonus = 0
+    elif undercut_pct <= 0.5:
+        shallow_bonus = 2
+    elif undercut_pct <= 1.0:
+        shallow_bonus = 1
+    else:
+        shallow_bonus = 0
+
+    below_high = pd.to_numeric(pd.Series([row.get('pct_below_52w_high', np.nan)]), errors='coerce').iloc[0]
+    headroom_pct = abs(float(below_high)) if pd.notna(below_high) else np.nan
+    headroom_bonus = 1 if pd.notna(headroom_pct) and 2.0 <= headroom_pct <= 8.0 else 0
+    congestion = pd.to_numeric(pd.Series([row.get('congestion_score', np.nan)]), errors='coerce').iloc[0]
+    congestion_bonus = int(congestion) if pd.notna(congestion) else 0
+    setup_quality_score = shallow_bonus + headroom_bonus + congestion_bonus
+    a_plus = bool(trade_grade == 'A' and shallow_bonus >= 1 and headroom_bonus == 1)
+
     common = {
         'date': str(dt), 'symbol': row['symbol'],
         'entry_time': str(entry_ts), 'entry_price': round(entry_price, 4),
         'day_low_before_entry': round(day_low, 4),
         'breakout_level': round(breakout, 4), 'ema20_est': round(ema20, 4),
         'ema20_breakout_distance_pct': round(cluster_pct, 3) if pd.notna(cluster_pct) else np.nan,
+        'breakout_undercut_pct': round(undercut_pct, 3) if pd.notna(undercut_pct) else np.nan,
+        'shallow_reclaim_bonus': shallow_bonus,
+        'headroom_52w_pct': round(headroom_pct, 3) if pd.notna(headroom_pct) else np.nan,
+        'headroom_bonus': headroom_bonus,
+        'setup_quality_score': setup_quality_score,
+        'a_plus': a_plus,
         'trade_grade': trade_grade,
         'touched_breakout': touched_breakout, 'touched_ema20': touched_ema20,
         'above_both_355': above_both,
@@ -213,7 +237,7 @@ def main():
     if not trades.empty:
         grade_order = {'A':0, 'B':1, 'C':2, 'D':3}
         trades['_grade_order'] = trades['trade_grade'].map(grade_order).fillna(9)
-        trades = trades.sort_values(['date','_grade_order','congestion_score','rs_vs_spy_pct'], ascending=[True,True,False,False]).drop(columns=['_grade_order'])
+        trades = trades.sort_values(['date','a_plus','_grade_order','setup_quality_score','rs_vs_spy_pct'], ascending=[True,False,True,False,False]).drop(columns=['_grade_order'])
     trades.to_csv(outdir / 'strict_double_reclaim_trades.csv', index=False)
     pd.DataFrame({'symbol': failed}).to_csv(outdir / 'failed_symbols.csv', index=False)
 
@@ -233,12 +257,21 @@ def main():
     pd.DataFrame(by_date).to_csv(outdir / 'summary_by_date.csv', index=False)
     pd.DataFrame(by_grade).to_csv(outdir / 'summary_by_grade.csv', index=False)
 
+    aplus_rows = []
+    if not trades.empty:
+        aplus = trades[trades['a_plus'] == True]
+        if len(aplus):
+            aplus_rows.append(_summarize(aplus, 'A+', 'setup_grade'))
+    pd.DataFrame(aplus_rows).to_csv(outdir / 'summary_a_plus.csv', index=False)
+
     print('Strict double-reclaim trades:', len(trades))
     print('Failed symbols:', len(failed))
     if not trades.empty:
-        print(trades[['date','symbol','trade_grade','rs_vs_spy_pct','ema20_breakout_distance_pct','entry_price','stop','target0','outcome','realized_r']].to_string(index=False))
+        print(trades[['date','symbol','trade_grade','a_plus','setup_quality_score','rs_vs_spy_pct','ema20_breakout_distance_pct','breakout_undercut_pct','headroom_52w_pct','entry_price','stop','target0','outcome','realized_r']].to_string(index=False))
         print('\n=== GRADE SUMMARY ===')
         print(pd.DataFrame(by_grade).to_string(index=False))
+        print('\n=== A+ SUMMARY ===')
+        print(pd.DataFrame(aplus_rows).to_string(index=False))
 
 if __name__ == '__main__':
     main()
