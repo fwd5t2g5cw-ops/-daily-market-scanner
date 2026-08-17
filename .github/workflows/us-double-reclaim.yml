@@ -43,6 +43,9 @@ jobs:
       - name: Run US $1B+ Double Reclaim scanner
         run: python us_double_reclaim_scanner.py
 
+      - name: Add blue-marker reclaim output
+        run: python add_blue_marker_columns.py --dir double_reclaim_results/us --prefix us
+
       - name: Upload results
         uses: actions/upload-artifact@v4
         if: always()
