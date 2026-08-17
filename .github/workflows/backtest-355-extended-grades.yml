@@ -1,0 +1,48 @@
+name: 🧪 Extended 3:55 Grade Backtest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance
+
+      - name: Generate full US reclaim candidates for Aug 3-14
+        run: |
+          python historical_reclaim_test.py \
+            --dates 2026-08-03,2026-08-04,2026-08-05,2026-08-06,2026-08-07,2026-08-10,2026-08-11,2026-08-12,2026-08-13,2026-08-14 \
+            --outdir extended_reclaim_candidates
+
+      - name: Run 3:55 double-reclaim graded backtest
+        run: |
+          python backtest_355_double_reclaim.py \
+            --input extended_reclaim_candidates/reclaim_candidates.csv \
+            --end-date 2026-08-14 \
+            --touch-tolerance-pct 0.25 \
+            --outdir backtest_355_extended_results
+
+      - name: Upload reclaim candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: extended-reclaim-candidates-2026-08-03-to-08-14
+          path: extended_reclaim_candidates/
+
+      - name: Upload graded backtest results
+        uses: actions/upload-artifact@v4
+        with:
+          name: backtest-355-extended-grades
+          path: backtest_355_extended_results/
