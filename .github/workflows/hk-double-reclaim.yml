@@ -2,6 +2,12 @@ name: 🇭🇰 HK Double Reclaim Scanner
 
 on:
   workflow_dispatch:
+  schedule:
+    # 3:00 PM Hong Kong (one hour before HKEX close)
+    - cron: '0 7 * * 1-5'
+    # 6:00 PM Toronto, DST-safe pair
+    - cron: '0 22 * * 1-5'
+    - cron: '0 23 * * 1-5'
 
 permissions:
   contents: read
@@ -13,6 +19,20 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+
+      - name: Gate scheduled runs to HK 3PM or Toronto 6PM
+        if: github.event_name == 'schedule'
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          hk = datetime.now(ZoneInfo('Asia/Hong_Kong'))
+          tor = datetime.now(ZoneInfo('America/Toronto'))
+          hk_preclose = hk.weekday() < 5 and hk.hour == 15 and hk.minute <= 10
+          tor_evening = tor.weekday() < 5 and tor.hour == 18 and tor.minute <= 10
+          if not (hk_preclose or tor_evening):
+              raise SystemExit('Outside HK 3PM / Toronto 6PM scan window; skip duplicate DST cron')
+          PY
 
       - uses: actions/setup-python@v5
         with:
