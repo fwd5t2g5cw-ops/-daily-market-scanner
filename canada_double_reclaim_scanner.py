@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+import time
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -22,6 +23,12 @@ RS_LOOKBACK = 63
 MIN_MARKET_CAP = 1_000_000_000  # CAD 1B
 
 
+def _is_common_tsx_symbol(symbol: str) -> bool:
+    """Drop obvious preferred-share series that create many invalid Yahoo requests."""
+    s = symbol.upper()
+    return '-PR-' not in s and '-PF-' not in s
+
+
 def _split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataFrame]:
     out: dict[str, pd.DataFrame] = {}
     if raw is None or raw.empty:
@@ -33,35 +40,73 @@ def _split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataF
             for s in symbols:
                 try:
                     x = raw.xs(s, axis=1, level=1, drop_level=True).dropna(how='all')
-                    if not x.empty: out[s] = x
-                except Exception: pass
+                    if not x.empty:
+                        out[s] = x
+                except Exception:
+                    pass
         else:
             for s in symbols:
                 try:
                     x = raw.xs(s, axis=1, level=0, drop_level=True).dropna(how='all')
-                    if not x.empty: out[s] = x
-                except Exception: pass
+                    if not x.empty:
+                        out[s] = x
+                except Exception:
+                    pass
     elif len(symbols) == 1:
         out[symbols[0]] = raw.dropna(how='all')
     return out
 
 
-def _batch_daily(symbols: list[str], chunk: int = 160) -> dict[str, pd.DataFrame]:
-    out = {}
+def _download_single_daily(symbol: str, attempts: int = 4) -> pd.DataFrame:
+    """Fetch the benchmark separately so a late universe rate limit cannot kill RS."""
+    for attempt in range(1, attempts + 1):
+        try:
+            raw = yf.download(symbol, period='18mo', interval='1d', auto_adjust=True,
+                              progress=False, threads=False)
+            if raw is not None and not raw.empty:
+                if isinstance(raw.columns, pd.MultiIndex):
+                    try:
+                        raw = raw.xs(symbol, axis=1, level=1, drop_level=True)
+                    except Exception:
+                        try:
+                            raw.columns = raw.columns.get_level_values(0)
+                        except Exception:
+                            pass
+                if 'Close' in raw.columns:
+                    return raw.dropna(how='all')
+        except Exception as exc:
+            print(f'benchmark fetch attempt {attempt}/{attempts} failed:', exc)
+        if attempt < attempts:
+            wait = 3 * attempt
+            print(f'Waiting {wait}s before benchmark retry...')
+            time.sleep(wait)
+    return pd.DataFrame()
+
+
+def _batch_daily(symbols: list[str], chunk: int = 100) -> dict[str, pd.DataFrame]:
+    out: dict[str, pd.DataFrame] = {}
     for i in range(0, len(symbols), chunk):
         group = symbols[i:i+chunk]
         print(f'Daily batch {i+1}-{min(i+chunk,len(symbols))}/{len(symbols)}')
-        try:
-            raw = yf.download(group, period='18mo', interval='1d', auto_adjust=True,
-                              progress=False, threads=True, group_by='ticker')
-            out.update(_split_download(raw, group))
-        except Exception as e:
-            print('daily batch failed', e)
+        for attempt in range(1, 3):
+            try:
+                raw = yf.download(group, period='18mo', interval='1d', auto_adjust=True,
+                                  progress=False, threads=True, group_by='ticker')
+                got = _split_download(raw, group)
+                out.update(got)
+                if got:
+                    break
+            except Exception as exc:
+                print(f'daily batch attempt {attempt} failed', exc)
+            if attempt == 1:
+                time.sleep(3)
+        # Gentle pacing materially reduces Yahoo 429/rate-limit failures.
+        time.sleep(1.2)
     return out
 
 
-def _batch_intraday(symbols: list[str], chunk: int = 80) -> dict[str, pd.DataFrame]:
-    out = {}
+def _batch_intraday(symbols: list[str], chunk: int = 60) -> dict[str, pd.DataFrame]:
+    out: dict[str, pd.DataFrame] = {}
     for i in range(0, len(symbols), chunk):
         group = symbols[i:i+chunk]
         print(f'5m batch {i+1}-{min(i+chunk,len(symbols))}/{len(symbols)}')
@@ -69,26 +114,33 @@ def _batch_intraday(symbols: list[str], chunk: int = 80) -> dict[str, pd.DataFra
             raw = yf.download(group, period='1d', interval='5m', auto_adjust=True,
                               prepost=False, progress=False, threads=True, group_by='ticker')
             out.update(_split_download(raw, group))
-        except Exception as e:
-            print('5m batch failed', e)
+        except Exception as exc:
+            print('5m batch failed', exc)
+        time.sleep(1.0)
     return out
 
 
 def _market_cap(symbol: str) -> float:
-    try:
-        v = yf.Ticker(symbol).fast_info.market_cap
-        return float(v) if v is not None else np.nan
-    except Exception as e:
-        print('market cap failed', symbol, e)
-        return np.nan
+    for attempt in range(1, 3):
+        try:
+            v = yf.Ticker(symbol).fast_info.market_cap
+            return float(v) if v is not None else np.nan
+        except Exception as exc:
+            print('market cap failed', symbol, exc)
+            if attempt == 1:
+                time.sleep(1.5)
+    return np.nan
 
 
 def _completed_daily(df: pd.DataFrame) -> pd.DataFrame:
+    if df is None or df.empty or 'Close' not in df.columns:
+        return pd.DataFrame()
     x = df.copy().dropna(subset=['Close'])
+    if x.empty:
+        return x
     idx = pd.DatetimeIndex(x.index)
-    dates = idx.date
     today = datetime.now(CA_TZ).date()
-    if len(x) and dates[-1] == today:
+    if len(x) and idx.date[-1] == today:
         x = x.iloc[:-1]
     return x
 
@@ -152,12 +204,21 @@ def _dynamic_ema20(completed_closes: pd.Series, current: float) -> float:
 
 def main():
     OUTDIR.mkdir(parents=True, exist_ok=True)
-    symbols=build_tsx()
-    print('TSX universe',len(symbols),'| minimum market cap CAD',f'{MIN_MARKET_CAP:,}')
-    daily=_batch_daily(symbols+[BENCHMARK])
-    bench=_completed_daily(daily.get(BENCHMARK,pd.DataFrame()))
-    if bench.empty or len(bench)<RS_LOOKBACK+2: raise RuntimeError('benchmark data unavailable')
+    raw_symbols=build_tsx()
+    symbols=[s for s in raw_symbols if _is_common_tsx_symbol(s)]
+    symbols=list(dict.fromkeys(symbols))
+    print('TSX universe',len(raw_symbols),'| common/non-preferred candidates',len(symbols),
+          '| minimum market cap CAD',f'{MIN_MARKET_CAP:,}')
+
+    # Protect the benchmark from being lost if Yahoo rate-limits a later bulk batch.
+    benchmark_raw = _download_single_daily(BENCHMARK)
+    bench = _completed_daily(benchmark_raw)
+    if bench.empty or len(bench)<RS_LOOKBACK+2:
+        raise RuntimeError('benchmark XIU.TO unavailable after retries; aborting safely')
     bench_ret=float(bench['Close'].iloc[-1]/bench['Close'].iloc[-1-RS_LOOKBACK]-1)
+
+    daily=_batch_daily(symbols)
+    print('Daily data successfully loaded for',len(daily),'of',len(symbols),'symbols')
 
     prelim=[]
     for sym in symbols:
@@ -185,7 +246,9 @@ def main():
         cap=_market_cap(x['symbol'])
         if pd.isna(cap) or cap<MIN_MARKET_CAP: continue
         x['market_cap']=cap; shortlist.append(x)
-        if i%25==0: print('Market-cap checked',i,'/',len(prelim),'| kept',len(shortlist))
+        if i%20==0:
+            print('Market-cap checked',i,'/',len(prelim),'| kept',len(shortlist))
+        time.sleep(0.25)
     print('Shortlist after CAD 1B market-cap filter',len(shortlist))
 
     intra=_batch_intraday([x['symbol'] for x in shortlist])
@@ -193,6 +256,7 @@ def main():
     for x in shortlist:
         sym=x['symbol']; intr=intra.get(sym)
         if intr is None or intr.empty: continue
+        if 'Close' not in intr.columns or 'Low' not in intr.columns: continue
         intr=intr.dropna(subset=['Close','Low'])
         if intr.empty: continue
         current=float(intr['Close'].iloc[-1]); day_low=float(intr['Low'].min())
@@ -231,6 +295,7 @@ def main():
     if out.empty:
         out.to_csv(OUTDIR/'canada_double_reclaim_all.csv',index=False)
         out.to_csv(OUTDIR/'canada_double_reclaim_top30.csv',index=False)
+        out.to_csv(OUTDIR/'canada_double_reclaim_ready_now.csv',index=False)
         print('No candidates'); return
     status_order={'READY_NOW':0,'RECLAIM_PENDING':1,'WATCH_CLUSTER':2}
     grade_order={'A+':0,'A':1,'B':2,'C':3,'D':4}
