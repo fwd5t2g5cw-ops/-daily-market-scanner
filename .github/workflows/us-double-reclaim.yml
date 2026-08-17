@@ -2,6 +2,13 @@ name: 🇺🇸 US Double Reclaim Scanner
 
 on:
   workflow_dispatch:
+  schedule:
+    # 3:00 PM Toronto (one hour before NYSE/Nasdaq close), DST-safe pair
+    - cron: '0 19 * * 1-5'
+    - cron: '0 20 * * 1-5'
+    # 6:00 PM Toronto, DST-safe pair
+    - cron: '0 22 * * 1-5'
+    - cron: '0 23 * * 1-5'
 
 permissions:
   contents: read
@@ -13,6 +20,17 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+
+      - name: Gate scheduled runs to 3PM or 6PM Toronto
+        if: github.event_name == 'schedule'
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          now = datetime.now(ZoneInfo('America/Toronto'))
+          if not (now.weekday() < 5 and now.hour in (15, 18) and now.minute <= 10):
+              raise SystemExit('Outside 3PM/6PM Toronto scan window; skip duplicate DST cron')
+          PY
 
       - uses: actions/setup-python@v5
         with:
