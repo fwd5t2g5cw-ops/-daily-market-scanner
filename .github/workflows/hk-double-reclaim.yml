@@ -16,7 +16,7 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -45,8 +45,8 @@ jobs:
       - name: Run fast HK Double Reclaim scanner
         run: python hk_double_reclaim_scanner.py
 
-      - name: Add blue-marker reclaim output
-        run: python add_blue_marker_columns.py --dir double_reclaim_results/hk --prefix hk
+      - name: Run exact TradingView Pine ENTRY scanner
+        run: python pine_entry_scanner.py --market hk
 
       - name: Upload results
         uses: actions/upload-artifact@v4
