@@ -1,0 +1,37 @@
+name: 🧮 US Option EV Backtest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  option-ev:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt openpyxl
+
+      - name: Rebuild one-year US signal backtest
+        run: python us_1y_signal_backtest.py
+
+      - name: Run 30D ATM Call option EV model
+        run: python option_ev_from_us_1y.py
+
+      - name: Upload option EV results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: us-option-ev-backtest-${{ github.run_number }}
+          path: backtest_us_1y_results/
+          retention-days: 30
