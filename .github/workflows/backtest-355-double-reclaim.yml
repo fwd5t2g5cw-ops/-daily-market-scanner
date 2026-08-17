@@ -1,0 +1,45 @@
+name: 🧪 3:55 Double-Reclaim Backtest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance
+
+      - name: Download prior reclaim candidate artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p input_reclaim
+          gh run download 31961898970 \
+            -n historical-reclaim-test-2026-08-04-to-08-07 \
+            -D input_reclaim
+          ls -la input_reclaim
+
+      - name: Run 3:55 backtest
+        run: |
+          python backtest_355_double_reclaim.py \
+            --input input_reclaim/reclaim_candidates.csv \
+            --end-date 2026-08-14 \
+            --touch-tolerance-pct 0.25
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: backtest-355-double-reclaim
+          path: backtest_355_results/
