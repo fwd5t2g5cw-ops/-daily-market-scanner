@@ -3,7 +3,6 @@ from __future__ import annotations
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
-import math
 import numpy as np
 import pandas as pd
 import yfinance as yf
@@ -20,6 +19,7 @@ MAX_BREAKOUT_AGE = 30
 TOUCH_TOL_PCT = 0.25
 MAX_UNDERCUT_PCT = 3.0
 RS_LOOKBACK = 63
+MIN_MARKET_CAP = 5_000_000_000  # HKD 5B
 
 
 def _split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataFrame]:
@@ -28,7 +28,6 @@ def _split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataF
         return out
     if isinstance(raw.columns, pd.MultiIndex):
         level0 = set(map(str, raw.columns.get_level_values(0)))
-        level1 = set(map(str, raw.columns.get_level_values(1)))
         fields = {'Open','High','Low','Close','Adj Close','Volume'}
         if len(fields & level0) >= 3:
             for s in symbols:
@@ -75,6 +74,15 @@ def _batch_intraday(symbols: list[str], chunk: int = 80) -> dict[str, pd.DataFra
         except Exception as e:
             print('5m batch failed', e)
     return out
+
+
+def _market_cap(symbol: str) -> float:
+    try:
+        v = yf.Ticker(symbol).fast_info.market_cap
+        return float(v) if v is not None else np.nan
+    except Exception as e:
+        print('market cap failed', symbol, e)
+        return np.nan
 
 
 def _completed_daily(df: pd.DataFrame) -> pd.DataFrame:
@@ -153,7 +161,7 @@ def _dynamic_ema20(completed_closes: pd.Series, current: float) -> float:
 def main():
     OUTDIR.mkdir(parents=True, exist_ok=True)
     symbols = build_hk()
-    print('HK universe', len(symbols))
+    print('HK universe', len(symbols), '| minimum market cap HKD', f'{MIN_MARKET_CAP:,}')
 
     daily = _batch_daily(symbols + [BENCHMARK])
     bench = _completed_daily(daily.get(BENCHMARK, pd.DataFrame()))
@@ -161,7 +169,7 @@ def main():
         raise RuntimeError('benchmark data unavailable')
     bench_ret = float(bench['Close'].iloc[-1] / bench['Close'].iloc[-1-RS_LOOKBACK] - 1)
 
-    shortlist = []
+    prelim = []
     for sym in symbols:
         d0 = daily.get(sym)
         if d0 is None or d0.empty:
@@ -180,17 +188,27 @@ def main():
             continue
         stock_ret = float(close / float(d['Close'].iloc[-1-RS_LOOKBACK]) - 1)
         rs = (stock_ret - bench_ret)*100
-        # Keep a broad watch universe; grade filtering happens after the live 5m update.
         if rs < 0:
             continue
         cong, cong_status = _congestion_score(d, bpos, level)
-        shortlist.append({
+        prelim.append({
             'symbol': sym, 'breakout_level': level, 'breakout_age': age,
             'rs_prev_pct': rs, 'congestion_score': cong, 'congestion_status': cong_status,
             '_daily': d,
         })
 
-    print('Shortlist before intraday', len(shortlist))
+    print('Preliminary technical shortlist', len(prelim))
+    shortlist = []
+    for i, x in enumerate(prelim, 1):
+        cap = _market_cap(x['symbol'])
+        if pd.isna(cap) or cap < MIN_MARKET_CAP:
+            continue
+        x['market_cap'] = cap
+        shortlist.append(x)
+        if i % 25 == 0:
+            print('Market-cap checked', i, '/', len(prelim), '| kept', len(shortlist))
+
+    print('Shortlist after HKD 5B market-cap filter', len(shortlist))
     intra = _batch_intraday([x['symbol'] for x in shortlist])
     rows = []
     for x in shortlist:
@@ -224,8 +242,7 @@ def main():
         shallow_bonus = 2 if depth <= 0.5 else (1 if depth <= 1.0 else 0)
         headroom_bonus = 1 if 2.0 <= pct_below_high <= 8.0 else 0
         a_plus = grade == 'A' and depth <= 1.0 and 2.0 <= pct_below_high <= 8.0
-        if a_plus: final_grade = 'A+'
-        else: final_grade = grade
+        final_grade = 'A+' if a_plus else grade
 
         if double_reclaim:
             status = 'READY_NOW'
@@ -238,6 +255,8 @@ def main():
                    + int(x['congestion_score']) + shallow_bonus + headroom_bonus)
         rows.append({
             'symbol': sym, 'status': status, 'grade': final_grade, 'quality_score': quality,
+            'market_cap_hkd': round(float(x['market_cap']), 0),
+            'market_cap_hkd_bn': round(float(x['market_cap'])/1_000_000_000, 2),
             'current_price': round(current,3), 'day_low': round(day_low,3),
             'breakout_level': round(level,3), 'ema20_live': round(ema20,3),
             'ema20_breakout_distance_pct': round(cluster,3),
@@ -267,8 +286,8 @@ def main():
     ready = out[out['status']=='READY_NOW']
     ready.to_csv(OUTDIR/'hk_double_reclaim_ready_now.csv', index=False)
 
-    print('\n=== TOP 30 ===')
-    cols = ['symbol','status','grade','quality_score','current_price','breakout_level','ema20_live',
+    print('\n=== TOP 30 (HKD 5B+) ===')
+    cols = ['symbol','status','grade','quality_score','market_cap_hkd_bn','current_price','breakout_level','ema20_live',
             'ema20_breakout_distance_pct','rs_vs_2800_pct','pct_below_52w_high','congestion_score']
     print(out[cols].head(30).to_string(index=False))
     print('\nREADY_NOW', len(ready), 'TOTAL WATCH', len(out))
