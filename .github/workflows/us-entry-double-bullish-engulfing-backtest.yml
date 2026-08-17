@@ -1,0 +1,30 @@
+name: 🟩 US ENTRY+Double Bullish Engulfing Backtest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt openpyxl
+      - name: Run backtest
+        run: python us_entry_double_bullish_engulfing_backtest.py
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: us-entry-double-bullish-engulfing-${{ github.run_number }}
+          path: backtest_us_entry_double_bullish_engulfing_results/
+          retention-days: 30
