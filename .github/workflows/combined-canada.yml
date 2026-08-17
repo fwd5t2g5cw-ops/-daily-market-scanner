@@ -1,25 +1,12 @@
 name: 🇨🇦 Canada Combined Scanner
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '30 22 * * 1-5'
-    - cron: '30 23 * * 1-5'
 jobs:
   scan:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-      - name: Gate scheduled runs to 18:30 Toronto
-        if: github.event_name == 'schedule'
-        run: |
-          python - <<'PY'
-          from datetime import datetime
-          from zoneinfo import ZoneInfo
-          now=datetime.now(ZoneInfo('America/Toronto'))
-          if not (now.weekday()<5 and now.hour==18 and 25<=now.minute<=40):
-              raise SystemExit('Not 18:30 Toronto; skip duplicate DST/EST cron')
-          PY
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
