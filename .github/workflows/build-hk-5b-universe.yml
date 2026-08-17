@@ -1,0 +1,49 @@
+name: 🧱 Build HK $5B+ Universe
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 10 * * 0'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt openpyxl
+
+      - name: Build HKD 5B+ universe
+        run: python build_hk_5b_universe.py
+
+      - name: Commit refreshed universe
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hk_5b_universe.txt data/hk_5b_universe.csv
+          if git diff --cached --quiet; then
+            echo "No universe changes"
+          else
+            git commit -m "Refresh HKD 5B+ universe"
+            git push
+          fi
+
+      - name: Upload universe artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hk-5b-universe-${{ github.run_number }}
+          path: |
+            data/hk_5b_universe.txt
+            data/hk_5b_universe.csv
+          retention-days: 30
