@@ -46,6 +46,9 @@ jobs:
       - name: Run exact TradingView Pine ENTRY scanner
         run: python pine_entry_scanner.py --market us
 
+      - name: Merge ENTRY, Double Reclaim, Reclaim Breakout and candle patterns
+        run: python merge_signal_candles.py --market us
+
       - name: Upload results
         uses: actions/upload-artifact@v4
         if: always()
