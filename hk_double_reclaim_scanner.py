@@ -7,11 +7,11 @@ import numpy as np
 import pandas as pd
 import yfinance as yf
 
-from build_universes import build_hk
-
 HK_TZ = ZoneInfo('Asia/Hong_Kong')
 BENCHMARK = '2800.HK'
 OUTDIR = Path('double_reclaim_results/hk')
+UNIVERSE_TXT = Path('data/hk_5b_universe.txt')
+UNIVERSE_CSV = Path('data/hk_5b_universe.csv')
 
 BREAKOUT_LOOKBACK = 50
 BREAKOUT_MIN_PCT = 1.0
@@ -20,6 +20,23 @@ TOUCH_TOL_PCT = 0.25
 MAX_UNDERCUT_PCT = 3.0
 RS_LOOKBACK = 63
 MIN_MARKET_CAP = 5_000_000_000  # HKD 5B
+
+
+def _load_universe() -> tuple[list[str], dict[str, float]]:
+    if not UNIVERSE_TXT.exists():
+        raise RuntimeError('data/hk_5b_universe.txt missing. Run the HKD 5B+ universe builder first.')
+    symbols = [x.strip().upper() for x in UNIVERSE_TXT.read_text().splitlines() if x.strip()]
+    cap_map: dict[str, float] = {}
+    if UNIVERSE_CSV.exists():
+        try:
+            x = pd.read_csv(UNIVERSE_CSV)
+            if {'symbol','market_cap_hkd'}.issubset(x.columns):
+                cap_map = dict(zip(x['symbol'].astype(str).str.upper(), pd.to_numeric(x['market_cap_hkd'], errors='coerce')))
+        except Exception as exc:
+            print('Could not read HK market-cap CSV:', exc)
+    if not symbols:
+        raise RuntimeError('HKD 5B+ universe file is empty')
+    return list(dict.fromkeys(symbols)), cap_map
 
 
 def _split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataFrame]:
@@ -34,15 +51,13 @@ def _split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataF
                 try:
                     x = raw.xs(s, axis=1, level=1, drop_level=True).dropna(how='all')
                     if not x.empty: out[s] = x
-                except Exception:
-                    pass
+                except Exception: pass
         else:
             for s in symbols:
                 try:
                     x = raw.xs(s, axis=1, level=0, drop_level=True).dropna(how='all')
                     if not x.empty: out[s] = x
-                except Exception:
-                    pass
+                except Exception: pass
     elif len(symbols) == 1:
         out[symbols[0]] = raw.dropna(how='all')
     return out
@@ -76,15 +91,6 @@ def _batch_intraday(symbols: list[str], chunk: int = 80) -> dict[str, pd.DataFra
     return out
 
 
-def _market_cap(symbol: str) -> float:
-    try:
-        v = yf.Ticker(symbol).fast_info.market_cap
-        return float(v) if v is not None else np.nan
-    except Exception as e:
-        print('market cap failed', symbol, e)
-        return np.nan
-
-
 def _completed_daily(df: pd.DataFrame) -> pd.DataFrame:
     x = df.copy().dropna(subset=['Close'])
     idx = pd.DatetimeIndex(x.index)
@@ -103,12 +109,9 @@ def _recent_breakout(df: pd.DataFrame):
     resistance = h.shift(1).rolling(BREAKOUT_LOOKBACK).max()
     breakout = (c > resistance * (1 + BREAKOUT_MIN_PCT/100.0)) & (c.shift(1) <= resistance)
     hits = np.flatnonzero(breakout.fillna(False).to_numpy())
-    if len(hits) == 0:
-        return None
-    pos = int(hits[-1])
-    age = len(df) - 1 - pos
-    if age < 1 or age > MAX_BREAKOUT_AGE:
-        return None
+    if len(hits) == 0: return None
+    pos = int(hits[-1]); age = len(df) - 1 - pos
+    if age < 1 or age > MAX_BREAKOUT_AGE: return None
     return pos, float(resistance.iloc[pos]), age
 
 
@@ -117,181 +120,134 @@ def _congestion_score(df: pd.DataFrame, breakout_pos: int, breakout_level: float
     pre = df.iloc[max(0, breakout_pos-20):breakout_pos]
     pre10 = df.iloc[max(0, breakout_pos-10):breakout_pos]
     post = df.iloc[breakout_pos+1:]
-    pre_flag = False
-    post_flag = False
+    pre_flag = post_flag = False
     if len(pre) >= 15:
-        lo20 = float(pre['Low'].min()); hi20 = float(pre['High'].max())
-        r20 = (hi20/lo20 - 1)*100 if lo20 > 0 else 999
-        if r20 <= 12:
-            score += 1; pre_flag = True
-        if len(pre10) >= 7:
-            lo10 = float(pre10['Low'].min()); hi10 = float(pre10['High'].max())
-            r10 = (hi10/lo10 - 1)*100 if lo10 > 0 else 999
-            if r20 > 0 and r10 <= r20*0.75:
-                score += 1; pre_flag = True
-    if len(post) >= 5:
-        plo = float(post['Low'].min()); phi = float(post['High'].max())
-        pr = (phi/plo - 1)*100 if plo > 0 else 999
-        closes = pd.to_numeric(post['Close'], errors='coerce')
-        near = ((closes >= breakout_level*0.94) & (closes <= breakout_level*1.06)).mean()
-        if pr <= 10 and near >= 0.60:
-            score += 1; post_flag = True
-    v = pd.to_numeric(df['Volume'], errors='coerce')
-    if len(v) >= 20 and v.tail(10).mean() <= 0.85*v.tail(20).mean():
-        score += 1; post_flag = True
-    if pre_flag and post_flag: status = 'BOTH'
-    elif pre_flag: status = 'PRE_BREAKOUT'
-    elif post_flag: status = 'FORMING_NOW'
-    else: status = 'NONE'
-    return score, status
+        lo20=float(pre['Low'].min()); hi20=float(pre['High'].max())
+        r20=(hi20/lo20-1)*100 if lo20>0 else 999
+        if r20<=12: score+=1; pre_flag=True
+        if len(pre10)>=7:
+            lo10=float(pre10['Low'].min()); hi10=float(pre10['High'].max())
+            r10=(hi10/lo10-1)*100 if lo10>0 else 999
+            if r20>0 and r10<=r20*.75: score+=1; pre_flag=True
+    if len(post)>=5:
+        plo=float(post['Low'].min()); phi=float(post['High'].max())
+        pr=(phi/plo-1)*100 if plo>0 else 999
+        closes=pd.to_numeric(post['Close'], errors='coerce')
+        near=((closes>=breakout_level*.94)&(closes<=breakout_level*1.06)).mean()
+        if pr<=10 and near>=.60: score+=1; post_flag=True
+    v=pd.to_numeric(df['Volume'], errors='coerce')
+    if len(v)>=20 and v.tail(10).mean()<=.85*v.tail(20).mean(): score+=1; post_flag=True
+    if pre_flag and post_flag: status='BOTH'
+    elif pre_flag: status='PRE_BREAKOUT'
+    elif post_flag: status='FORMING_NOW'
+    else: status='NONE'
+    return score,status
 
 
 def _grade(rs: float, cluster: float) -> str:
-    if rs >= 15 and cluster <= 0.5: return 'A'
-    if rs >= 10 and cluster <= 1.0: return 'B'
-    if rs >= 10 and cluster <= 2.0: return 'C'
+    if rs>=15 and cluster<=.5: return 'A'
+    if rs>=10 and cluster<=1.0: return 'B'
+    if rs>=10 and cluster<=2.0: return 'C'
     return 'D'
 
 
 def _dynamic_ema20(completed_closes: pd.Series, current: float) -> float:
-    s = pd.concat([pd.to_numeric(completed_closes, errors='coerce').dropna(), pd.Series([current])], ignore_index=True)
-    return float(s.ewm(span=20, adjust=False).mean().iloc[-1])
+    s=pd.concat([pd.to_numeric(completed_closes,errors='coerce').dropna(),pd.Series([current])],ignore_index=True)
+    return float(s.ewm(span=20,adjust=False).mean().iloc[-1])
 
 
 def main():
     OUTDIR.mkdir(parents=True, exist_ok=True)
-    symbols = build_hk()
-    print('HK universe', len(symbols), '| minimum market cap HKD', f'{MIN_MARKET_CAP:,}')
-
-    daily = _batch_daily(symbols + [BENCHMARK])
+    symbols, cap_map = _load_universe()
+    print('HK PRE-FILTERED universe', len(symbols), '| minimum market cap HKD', f'{MIN_MARKET_CAP:,}')
+    daily = _batch_daily(symbols + ([BENCHMARK] if BENCHMARK not in symbols else []))
     bench = _completed_daily(daily.get(BENCHMARK, pd.DataFrame()))
-    if bench.empty or len(bench) < RS_LOOKBACK + 2:
-        raise RuntimeError('benchmark data unavailable')
+    if bench.empty or len(bench) < RS_LOOKBACK + 2: raise RuntimeError('benchmark data unavailable')
     bench_ret = float(bench['Close'].iloc[-1] / bench['Close'].iloc[-1-RS_LOOKBACK] - 1)
 
-    prelim = []
+    shortlist = []
     for sym in symbols:
         d0 = daily.get(sym)
-        if d0 is None or d0.empty:
-            continue
+        if d0 is None or d0.empty: continue
         d = _completed_daily(d0)
-        if len(d) < 260:
-            continue
+        if len(d) < 260: continue
         bo = _recent_breakout(d)
-        if bo is None:
-            continue
+        if bo is None: continue
         bpos, level, age = bo
         close = float(d['Close'].iloc[-1])
         ema20_prev = float(pd.to_numeric(d['Close'], errors='coerce').ewm(span=20, adjust=False).mean().iloc[-1])
         cluster_prev = abs(ema20_prev/level - 1)*100 if level > 0 else 999
-        if cluster_prev > 3.0:
-            continue
+        if cluster_prev > 3.0: continue
         stock_ret = float(close / float(d['Close'].iloc[-1-RS_LOOKBACK]) - 1)
         rs = (stock_ret - bench_ret)*100
-        if rs < 0:
-            continue
+        if rs < 0: continue
         cong, cong_status = _congestion_score(d, bpos, level)
-        prelim.append({
+        shortlist.append({
             'symbol': sym, 'breakout_level': level, 'breakout_age': age,
             'rs_prev_pct': rs, 'congestion_score': cong, 'congestion_status': cong_status,
-            '_daily': d,
+            'market_cap': cap_map.get(sym, np.nan), '_daily': d,
         })
 
-    print('Preliminary technical shortlist', len(prelim))
-    shortlist = []
-    for i, x in enumerate(prelim, 1):
-        cap = _market_cap(x['symbol'])
-        if pd.isna(cap) or cap < MIN_MARKET_CAP:
-            continue
-        x['market_cap'] = cap
-        shortlist.append(x)
-        if i % 25 == 0:
-            print('Market-cap checked', i, '/', len(prelim), '| kept', len(shortlist))
-
-    print('Shortlist after HKD 5B market-cap filter', len(shortlist))
+    print('Technical shortlist from pre-filtered HKD 5B universe', len(shortlist))
     intra = _batch_intraday([x['symbol'] for x in shortlist])
     rows = []
     for x in shortlist:
-        sym = x['symbol']; intr = intra.get(sym)
-        if intr is None or intr.empty:
-            continue
-        intr = intr.dropna(subset=['Close','Low'])
+        sym=x['symbol']; intr=intra.get(sym)
+        if intr is None or intr.empty: continue
+        intr=intr.dropna(subset=['Close','Low'])
         if intr.empty: continue
-        current = float(intr['Close'].iloc[-1])
-        day_low = float(intr['Low'].min())
-        d = x['_daily']; level = float(x['breakout_level'])
-        ema20 = _dynamic_ema20(d['Close'], current)
-        cluster = abs(ema20/level - 1)*100 if level > 0 else np.nan
-        if cluster > 3.0:
-            continue
-
-        stock_ret = current / float(d['Close'].iloc[-RS_LOOKBACK]) - 1
-        rs = (stock_ret - bench_ret)*100
-        high52 = float(pd.to_numeric(d['High'], errors='coerce').tail(252).max())
-        pct_below_high = (1-current/high52)*100 if high52 > 0 else np.nan
-        touched_breakout = day_low <= level*(1+TOUCH_TOL_PCT/100)
-        touched_ema20 = day_low <= ema20*(1+TOUCH_TOL_PCT/100)
-        not_too_deep = day_low >= level*(1-MAX_UNDERCUT_PCT/100)
-        above_both = current > level and current > ema20
-        double_reclaim = touched_breakout and touched_ema20 and not_too_deep and above_both
-        touched_both = touched_breakout and touched_ema20 and not_too_deep
-        grade = _grade(rs, cluster)
-
-        undercut = (day_low/level - 1)*100
-        depth = max(0.0, -undercut)
-        shallow_bonus = 2 if depth <= 0.5 else (1 if depth <= 1.0 else 0)
-        headroom_bonus = 1 if 2.0 <= pct_below_high <= 8.0 else 0
-        a_plus = grade == 'A' and depth <= 1.0 and 2.0 <= pct_below_high <= 8.0
-        final_grade = 'A+' if a_plus else grade
-
-        if double_reclaim:
-            status = 'READY_NOW'
-        elif touched_both:
-            status = 'RECLAIM_PENDING'
-        else:
-            status = 'WATCH_CLUSTER'
-
-        quality = ({'A+':8,'A':6,'B':4,'C':2,'D':0}[final_grade]
-                   + int(x['congestion_score']) + shallow_bonus + headroom_bonus)
+        current=float(intr['Close'].iloc[-1]); day_low=float(intr['Low'].min())
+        d=x['_daily']; level=float(x['breakout_level'])
+        ema20=_dynamic_ema20(d['Close'],current)
+        cluster=abs(ema20/level-1)*100 if level>0 else np.nan
+        if cluster>3: continue
+        stock_ret=current/float(d['Close'].iloc[-RS_LOOKBACK])-1
+        rs=(stock_ret-bench_ret)*100
+        high52=float(pd.to_numeric(d['High'],errors='coerce').tail(252).max())
+        pct_below=(1-current/high52)*100 if high52>0 else np.nan
+        touched_bo=day_low<=level*(1+TOUCH_TOL_PCT/100)
+        touched_ema=day_low<=ema20*(1+TOUCH_TOL_PCT/100)
+        not_deep=day_low>=level*(1-MAX_UNDERCUT_PCT/100)
+        above=current>level and current>ema20
+        double=touched_bo and touched_ema and not_deep and above
+        touched_both=touched_bo and touched_ema and not_deep
+        grade=_grade(rs,cluster)
+        undercut=(day_low/level-1)*100
+        depth=max(0.0,-undercut)
+        shallow=2 if depth<=.5 else (1 if depth<=1.0 else 0)
+        headroom=1 if 2<=pct_below<=8 else 0
+        final='A+' if grade=='A' and depth<=1.0 and 2<=pct_below<=8 else grade
+        status='READY_NOW' if double else ('RECLAIM_PENDING' if touched_both else 'WATCH_CLUSTER')
+        quality={'A+':8,'A':6,'B':4,'C':2,'D':0}[final]+int(x['congestion_score'])+shallow+headroom
+        cap = x['market_cap']
         rows.append({
-            'symbol': sym, 'status': status, 'grade': final_grade, 'quality_score': quality,
-            'market_cap_hkd': round(float(x['market_cap']), 0),
-            'market_cap_hkd_bn': round(float(x['market_cap'])/1_000_000_000, 2),
-            'current_price': round(current,3), 'day_low': round(day_low,3),
-            'breakout_level': round(level,3), 'ema20_live': round(ema20,3),
-            'ema20_breakout_distance_pct': round(cluster,3),
-            'rs_vs_2800_pct': round(rs,2), 'pct_below_52w_high': round(pct_below_high,2),
-            'breakout_age_days': x['breakout_age'],
-            'undercut_vs_breakout_pct': round(undercut,2),
-            'shallow_bonus': shallow_bonus, 'headroom_bonus': headroom_bonus,
-            'congestion_score': x['congestion_score'], 'congestion_status': x['congestion_status'],
-            'touched_breakout_today': touched_breakout, 'touched_ema20_today': touched_ema20,
-            'above_both_now': above_both,
-        })
+            'symbol':sym,'status':status,'grade':final,'quality_score':quality,
+            'market_cap_hkd':round(float(cap),0) if pd.notna(cap) else np.nan,
+            'market_cap_hkd_bn':round(float(cap)/1e9,2) if pd.notna(cap) else np.nan,
+            'current_price':round(current,3),'day_low':round(day_low,3),'breakout_level':round(level,3),'ema20_live':round(ema20,3),
+            'ema20_breakout_distance_pct':round(cluster,3),'rs_vs_2800_pct':round(rs,2),'pct_below_52w_high':round(pct_below,2),
+            'breakout_age_days':x['breakout_age'],'undercut_vs_breakout_pct':round(undercut,2),
+            'shallow_bonus':shallow,'headroom_bonus':headroom,'congestion_score':x['congestion_score'],
+            'congestion_status':x['congestion_status'],'touched_breakout_today':touched_bo,'touched_ema20_today':touched_ema,
+            'above_both_now':above})
 
-    out = pd.DataFrame(rows)
+    out=pd.DataFrame(rows)
     if out.empty:
-        out.to_csv(OUTDIR/'hk_double_reclaim_all.csv', index=False)
-        out.to_csv(OUTDIR/'hk_double_reclaim_top30.csv', index=False)
-        print('No candidates')
-        return
-
-    status_order = {'READY_NOW':0,'RECLAIM_PENDING':1,'WATCH_CLUSTER':2}
-    grade_order = {'A+':0,'A':1,'B':2,'C':3,'D':4}
-    out['_s'] = out['status'].map(status_order).fillna(9)
-    out['_g'] = out['grade'].map(grade_order).fillna(9)
-    out = out.sort_values(['_s','_g','quality_score','rs_vs_2800_pct'], ascending=[True,True,False,False]).drop(columns=['_s','_g'])
-    out.to_csv(OUTDIR/'hk_double_reclaim_all.csv', index=False)
-    out.head(30).to_csv(OUTDIR/'hk_double_reclaim_top30.csv', index=False)
-    ready = out[out['status']=='READY_NOW']
-    ready.to_csv(OUTDIR/'hk_double_reclaim_ready_now.csv', index=False)
-
-    print('\n=== TOP 30 (HKD 5B+) ===')
-    cols = ['symbol','status','grade','quality_score','market_cap_hkd_bn','current_price','breakout_level','ema20_live',
-            'ema20_breakout_distance_pct','rs_vs_2800_pct','pct_below_52w_high','congestion_score']
+        out.to_csv(OUTDIR/'hk_double_reclaim_all.csv',index=False)
+        out.to_csv(OUTDIR/'hk_double_reclaim_top30.csv',index=False)
+        print('No candidates'); return
+    status_order={'READY_NOW':0,'RECLAIM_PENDING':1,'WATCH_CLUSTER':2}
+    grade_order={'A+':0,'A':1,'B':2,'C':3,'D':4}
+    out['_s']=out['status'].map(status_order).fillna(9); out['_g']=out['grade'].map(grade_order).fillna(9)
+    out=out.sort_values(['_s','_g','quality_score','rs_vs_2800_pct'],ascending=[True,True,False,False]).drop(columns=['_s','_g'])
+    out.to_csv(OUTDIR/'hk_double_reclaim_all.csv',index=False)
+    out.head(30).to_csv(OUTDIR/'hk_double_reclaim_top30.csv',index=False)
+    ready=out[out['status']=='READY_NOW']; ready.to_csv(OUTDIR/'hk_double_reclaim_ready_now.csv',index=False)
+    print('\n=== TOP 30 (HKD 5B+ PRE-FILTERED) ===')
+    cols=['symbol','status','grade','quality_score','market_cap_hkd_bn','current_price','breakout_level','ema20_live','ema20_breakout_distance_pct','rs_vs_2800_pct','pct_below_52w_high','congestion_score']
     print(out[cols].head(30).to_string(index=False))
-    print('\nREADY_NOW', len(ready), 'TOTAL WATCH', len(out))
+    print('\nREADY_NOW',len(ready),'TOTAL WATCH',len(out))
 
 
-if __name__ == '__main__':
+if __name__=='__main__':
     main()
