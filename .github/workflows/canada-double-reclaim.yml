@@ -1,0 +1,34 @@
+name: 🇨🇦 Canada Double Reclaim Scanner
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt openpyxl
+
+      - name: Run Canada Double Reclaim scanner
+        run: python canada_double_reclaim_scanner.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: canada-double-reclaim-${{ github.run_number }}
+          path: double_reclaim_results/canada/
+          retention-days: 30
