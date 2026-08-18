@@ -27,7 +27,6 @@ MAX_RETEST_BARS = 30
 MAX_UNDERCUT_PCT = 3.0
 MAX_ABOVE_EMA20 = 12.0
 RS_LOOKBACK = 63
-BENCHMARK = 'SPY'
 
 MARKETS = {
     'us': {
@@ -36,6 +35,8 @@ MARKETS = {
         'universe': Path('data/us_1b_universe.txt'),
         'cap_min': 1_000_000_000,
         'cap_label': 'market_cap_usd',
+        'benchmark': 'SPY',
+        'benchmark_tz': 'America/New_York',
     },
     'hk': {
         'tz': 'Asia/Hong_Kong',
@@ -43,6 +44,9 @@ MARKETS = {
         'universe': Path('data/hk_5b_universe.txt'),
         'cap_min': 5_000_000_000,
         'cap_label': 'market_cap_hkd',
+        # Preserve the existing HK behaviour for now; Canada is the targeted fix.
+        'benchmark': 'SPY',
+        'benchmark_tz': 'America/New_York',
     },
     'canada': {
         'tz': 'America/Toronto',
@@ -50,6 +54,8 @@ MARKETS = {
         'universe': None,
         'cap_min': 1_000_000_000,
         'cap_label': 'market_cap_cad',
+        'benchmark': 'XIU.TO',
+        'benchmark_tz': 'America/Toronto',
     },
 }
 
@@ -104,10 +110,13 @@ def _batch_download(symbols: list[str], *, period: str, interval: str, chunk: in
     for i in range(0, len(symbols), chunk):
         group = symbols[i:i + chunk]
         print(f'{interval} batch {i+1}-{min(i+chunk, len(symbols))}/{len(symbols)}')
+        pending = list(group)
         for attempt in range(1, 3):
+            if not pending:
+                break
             try:
                 raw = yf.download(
-                    group,
+                    pending,
                     period=period,
                     interval=interval,
                     auto_adjust=True,
@@ -116,14 +125,18 @@ def _batch_download(symbols: list[str], *, period: str, interval: str, chunk: in
                     threads=True,
                     group_by='ticker',
                 )
-                got = _split_download(raw, group)
+                got = _split_download(raw, pending)
                 out.update(got)
-                if got:
-                    break
+                pending = [s for s in pending if s not in got]
+                if pending:
+                    print(f'{interval} retry pending {len(pending)} symbol(s) in this batch')
             except Exception as exc:
                 print(f'{interval} batch attempt {attempt} failed:', exc)
-            if attempt == 1:
+            if attempt == 1 and pending:
                 time.sleep(2)
+        if pending:
+            print(f'{interval} unavailable after retry: {len(pending)} symbol(s):', ', '.join(pending[:20]),
+                  '...' if len(pending) > 20 else '')
         time.sleep(0.5)
     return out
 
@@ -226,13 +239,16 @@ def _market_cap(symbol: str) -> float:
     return np.nan
 
 
-def _benchmark_state() -> dict[str, float | bool]:
-    daily_raw = _single_download(BENCHMARK, period='18mo', interval='1d')
-    completed = _completed_daily(daily_raw, 'America/New_York')
-    intr = _single_download(BENCHMARK, period='1d', interval='5m')
+def _benchmark_state(market: str) -> dict[str, float | bool | str]:
+    cfg = MARKETS[market]
+    symbol = str(cfg['benchmark'])
+    benchmark_tz = str(cfg['benchmark_tz'])
+    daily_raw = _single_download(symbol, period='18mo', interval='1d')
+    completed = _completed_daily(daily_raw, benchmark_tz)
+    intr = _single_download(symbol, period='1d', interval='5m')
     bar = _today_bar(intr)
     if len(completed) < 220 or bar is None:
-        raise RuntimeError('SPY benchmark data unavailable')
+        raise RuntimeError(f'{symbol} benchmark data unavailable')
     full = _append_current(completed, bar)
     close = float(full['Close'].iloc[-1])
     ema20 = _ema(full['Close'], EMA_FAST)
@@ -241,7 +257,8 @@ def _benchmark_state() -> dict[str, float | bool]:
     prior = float(completed['Close'].iloc[-RS_LOOKBACK])
     ret = close / prior - 1.0
     healthy = close > ema20 and ema20 > ema50
-    return {'close': close, 'ema20': ema20, 'ema50': ema50, 'return': ret, 'healthy': healthy}
+    return {'symbol': symbol, 'close': close, 'ema20': ema20, 'ema50': ema50,
+            'return': ret, 'healthy': healthy}
 
 
 def main() -> None:
@@ -255,10 +272,13 @@ def main() -> None:
 
     symbols = _load_symbols(market)
     print(market, 'universe', len(symbols))
-    benchmark = _benchmark_state()
-    print('SPY marketHealthy =', benchmark['healthy'])
+    benchmark = _benchmark_state(market)
+    print(benchmark['symbol'], 'marketHealthy =', benchmark['healthy'])
 
     daily = _batch_download(symbols, period='18mo', interval='1d', chunk=120 if market == 'canada' else 180)
+    if market == 'canada':
+        missing_daily = [s for s in symbols if s not in daily]
+        print('Canada daily data loaded for', len(daily), 'of', len(symbols), 'symbols; unavailable', len(missing_daily))
 
     # Pre-shortlist only by the Pine condition that cannot be rescued by today's bar:
     # a prior breakout whose age on today's bar is 1..30.
@@ -316,7 +336,7 @@ def main() -> None:
         prior_close_63 = float(d['Close'].iloc[-RS_LOOKBACK])
         stock_return = close / prior_close_63 - 1.0
         relative_strength = stock_return - float(benchmark['return'])
-        outperforming_spy = relative_strength > 0
+        outperforming_benchmark = relative_strength > 0
         market_pass = bool(benchmark['healthy'])
 
         lowest_allowed = level * (1.0 - MAX_UNDERCUT_PCT / 100.0)
@@ -329,7 +349,7 @@ def main() -> None:
 
         entry_candidate = bool(
             strong_uptrend and not_overextended and liquid_stock and near_year_high and
-            outperforming_spy and market_pass and reclaim_trigger
+            outperforming_benchmark and market_pass and reclaim_trigger
         )
         if not entry_candidate:
             continue
@@ -360,13 +380,17 @@ def main() -> None:
             'avg_volume_20': round(avg_volume, 0),
             'avg_dollar_volume_20': round(avg_dollar_vol, 0),
             'pct_below_52w_high': round(pct_below_high, 3),
+            'benchmark_symbol': benchmark['symbol'],
+            'rs_vs_benchmark_pct': round(relative_strength * 100.0, 3),
+            # Compatibility columns retained for downstream readers; values are benchmark-dependent.
             'rs_vs_spy_pct': round(relative_strength * 100.0, 3),
             'market_pass': market_pass,
             'strong_uptrend': strong_uptrend,
             'not_overextended': not_overextended,
             'liquid_stock': liquid_stock,
             'near_year_high': near_year_high,
-            'outperforming_spy': outperforming_spy,
+            'outperforming_benchmark': outperforming_benchmark,
+            'outperforming_spy': outperforming_benchmark,
             'slight_undercut': slight_undercut,
             'reclaimed_level': reclaimed_level,
             'bullish_reclaim_candle': bullish_reclaim_candle,
