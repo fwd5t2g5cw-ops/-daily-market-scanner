@@ -28,8 +28,8 @@ jobs:
           from zoneinfo import ZoneInfo
           hk = datetime.now(ZoneInfo('Asia/Hong_Kong'))
           tor = datetime.now(ZoneInfo('America/Toronto'))
-          hk_preclose = hk.weekday() < 5 and hk.hour == 15 and hk.minute <= 10
-          tor_evening = tor.weekday() < 5 and tor.hour == 18 and tor.minute <= 10
+          hk_preclose = hk.weekday() < 5 and hk.hour == 15 and hk.minute <= 45
+          tor_evening = tor.weekday() < 5 and tor.hour == 18 and tor.minute <= 45
           if not (hk_preclose or tor_evening):
               raise SystemExit('Outside HK 3PM / Toronto 6PM scan window; skip duplicate DST cron')
           PY
