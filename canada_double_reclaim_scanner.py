@@ -88,18 +88,25 @@ def _batch_daily(symbols: list[str], chunk: int = 100) -> dict[str, pd.DataFrame
     for i in range(0, len(symbols), chunk):
         group = symbols[i:i+chunk]
         print(f'Daily batch {i+1}-{min(i+chunk,len(symbols))}/{len(symbols)}')
+        pending = list(group)
         for attempt in range(1, 3):
+            if not pending:
+                break
             try:
-                raw = yf.download(group, period='18mo', interval='1d', auto_adjust=True,
+                raw = yf.download(pending, period='18mo', interval='1d', auto_adjust=True,
                                   progress=False, threads=True, group_by='ticker')
-                got = _split_download(raw, group)
+                got = _split_download(raw, pending)
                 out.update(got)
-                if got:
-                    break
+                pending = [s for s in pending if s not in got]
+                if pending:
+                    print('Daily retry pending', len(pending), 'symbol(s) in this batch')
             except Exception as exc:
                 print(f'daily batch attempt {attempt} failed', exc)
-            if attempt == 1:
+            if attempt == 1 and pending:
                 time.sleep(3)
+        if pending:
+            print('Daily unavailable after retry:', len(pending), 'symbol(s):',
+                  ', '.join(pending[:20]), '...' if len(pending) > 20 else '')
         # Gentle pacing materially reduces Yahoo 429/rate-limit failures.
         time.sleep(1.2)
     return out
@@ -110,12 +117,25 @@ def _batch_intraday(symbols: list[str], chunk: int = 60) -> dict[str, pd.DataFra
     for i in range(0, len(symbols), chunk):
         group = symbols[i:i+chunk]
         print(f'5m batch {i+1}-{min(i+chunk,len(symbols))}/{len(symbols)}')
-        try:
-            raw = yf.download(group, period='1d', interval='5m', auto_adjust=True,
-                              prepost=False, progress=False, threads=True, group_by='ticker')
-            out.update(_split_download(raw, group))
-        except Exception as exc:
-            print('5m batch failed', exc)
+        pending = list(group)
+        for attempt in range(1, 3):
+            if not pending:
+                break
+            try:
+                raw = yf.download(pending, period='1d', interval='5m', auto_adjust=True,
+                                  prepost=False, progress=False, threads=True, group_by='ticker')
+                got = _split_download(raw, pending)
+                out.update(got)
+                pending = [s for s in pending if s not in got]
+                if pending:
+                    print('5m retry pending', len(pending), 'symbol(s) in this batch')
+            except Exception as exc:
+                print(f'5m batch attempt {attempt} failed', exc)
+            if attempt == 1 and pending:
+                time.sleep(2)
+        if pending:
+            print('5m unavailable after retry:', len(pending), 'symbol(s):',
+                  ', '.join(pending[:20]), '...' if len(pending) > 20 else '')
         time.sleep(1.0)
     return out
 
@@ -218,7 +238,9 @@ def main():
     bench_ret=float(bench['Close'].iloc[-1]/bench['Close'].iloc[-1-RS_LOOKBACK]-1)
 
     daily=_batch_daily(symbols)
-    print('Daily data successfully loaded for',len(daily),'of',len(symbols),'symbols')
+    missing_daily=[s for s in symbols if s not in daily]
+    print('Daily data successfully loaded for',len(daily),'of',len(symbols),'symbols',
+          '| unavailable after retry',len(missing_daily))
 
     prelim=[]
     for sym in symbols:
