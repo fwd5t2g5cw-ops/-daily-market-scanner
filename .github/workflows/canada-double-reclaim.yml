@@ -28,7 +28,7 @@ jobs:
           from datetime import datetime
           from zoneinfo import ZoneInfo
           now = datetime.now(ZoneInfo('America/Toronto'))
-          if not (now.weekday() < 5 and now.hour in (15, 18) and now.minute <= 10):
+          if not (now.weekday() < 5 and now.hour in (15, 18) and now.minute <= 45):
               raise SystemExit('Outside 3PM/6PM Toronto scan window; skip duplicate DST cron')
           PY
 
