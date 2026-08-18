@@ -89,6 +89,17 @@ def truthy(s: pd.Series) -> pd.Series:
     return s.astype(str).str.lower().isin(['true','1','yes'])
 
 
+def read_csv_safe(path: Path) -> pd.DataFrame:
+    """Treat missing, blank, whitespace-only, or headerless CSV output as no signals."""
+    if not path.exists() or path.stat().st_size == 0:
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(path)
+    except (pd.errors.EmptyDataError, pd.errors.ParserError) as exc:
+        print(f'Ignoring unreadable/empty CSV {path}: {exc}')
+        return pd.DataFrame()
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument('--market', choices=['us','hk','canada'], required=True)
@@ -98,14 +109,17 @@ def main() -> None:
     base_path = outdir / f'{market}_double_reclaim_all.csv'
     entry_path = outdir / f'{market}_pine_entry_today.csv'
 
-    if not base_path.exists() or base_path.stat().st_size == 0:
-        print('No double reclaim base file; nothing to merge')
-        return
+    base = read_csv_safe(base_path)
+    entry = read_csv_safe(entry_path)
 
-    base = pd.read_csv(base_path)
-    entry = pd.read_csv(entry_path) if entry_path.exists() and entry_path.stat().st_size else pd.DataFrame()
     if base.empty:
+        print('No double reclaim base rows; writing empty unified output and exiting cleanly')
+        outdir.mkdir(parents=True, exist_ok=True)
         base.to_csv(outdir / f'{market}_signals_with_candles.csv', index=False)
+        base.to_csv(outdir / f'{market}_entry_marker_today.csv', index=False)
+        base.to_csv(outdir / f'{market}_double_reclaim_today.csv', index=False)
+        base.to_csv(outdir / f'{market}_reclaim_breakout_today.csv', index=False)
+        base.to_csv(outdir / f'{market}_reclaim_breakout_only_today.csv', index=False)
         return
 
     entry_syms = set(entry['symbol'].astype(str)) if not entry.empty and 'symbol' in entry.columns else set()
