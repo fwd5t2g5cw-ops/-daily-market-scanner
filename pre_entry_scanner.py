@@ -1,23 +1,29 @@
 from __future__ import annotations
 
 import argparse
+import time
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
 import yfinance as yf
+from yfinance import EquityQuery
+
+from build_universes import build_tsx
 
 EMA20=20; EMA50=50; SMA200=200; LOOKBACK=50; RS_LOOKBACK=63
 MAX_TO_BREAKOUT=5.0; MAX_BELOW_HIGH=15.0; MIN_RS=5.0
 # 0316-style PRE-ENTRY: stay close to EMA20 instead of accepting already-extended names.
 MAX_ABOVE_EMA20=8.0
 A_GRADE_MAX_ABOVE_EMA20=6.0
+MIN_JAPAN_MARKET_CAP_USD=1_000_000_000
 
 MARKETS={
  'us': {'tz':'America/New_York','universe':Path('data/us_1b_universe.txt'),'out':Path('double_reclaim_results/us'),'benchmark':'SPY'},
  'hk': {'tz':'Asia/Hong_Kong','universe':Path('data/hk_5b_universe.txt'),'out':Path('double_reclaim_results/hk'),'benchmark':'SPY'},
- 'canada': {'tz':'America/Toronto','universe':Path('data/tsx_universe.txt'),'out':Path('double_reclaim_results/canada'),'benchmark':'XIU.TO'},
+ 'canada': {'tz':'America/Toronto','universe':None,'out':Path('double_reclaim_results/canada'),'benchmark':'XIU.TO'},
+ 'japan': {'tz':'Asia/Tokyo','universe':None,'out':Path('double_reclaim_results/japan'),'benchmark':'1306.T'},
 }
 
 def split(raw, syms):
@@ -45,6 +51,7 @@ def batch(syms):
             r=yf.download(g,period='18mo',interval='1d',auto_adjust=True,progress=False,threads=True,group_by='ticker')
             out.update(split(r,g))
         except Exception as e: print('batch failed',e)
+        time.sleep(.25)
     return out
 
 def completed(df,tz):
@@ -52,11 +59,54 @@ def completed(df,tz):
     if len(x) and pd.DatetimeIndex(x.index).date[-1]==datetime.now(ZoneInfo(tz)).date(): x=x.iloc[:-1]
     return x
 
+def _load_japan_usd1b():
+    fxraw=yf.download('JPY=X',period='5d',interval='1d',auto_adjust=True,progress=False,threads=False)
+    if fxraw is None or fxraw.empty: raise RuntimeError('USD/JPY unavailable for Japan PRE-ENTRY')
+    close=fxraw['Close']
+    if isinstance(close,pd.DataFrame): close=close.iloc[:,0]
+    fx=float(pd.to_numeric(close,errors='coerce').dropna().iloc[-1])
+    floor=MIN_JAPAN_MARKET_CAP_USD*fx
+    print(f'Japan PRE-ENTRY USDJPY={fx:.4f}; JPY floor={floor:,.0f}')
+    q=EquityQuery('and',[EquityQuery('eq',['region','jp']),EquityQuery('gte',['intradaymarketcap',floor])])
+    syms=[]; offset=0; size=250
+    while True:
+        resp=None; last=None
+        for attempt in range(4):
+            try:
+                resp=yf.screen(q,offset=offset,size=size,sortField='ticker',sortAsc=True); break
+            except Exception as exc:
+                last=exc; time.sleep(3*(2**attempt))
+        if resp is None: raise RuntimeError(f'Japan PRE-ENTRY universe failed: {last}')
+        quotes=resp.get('quotes') or []
+        if not quotes: break
+        for row in quotes:
+            s=str(row.get('symbol') or '').strip().upper()
+            cap=row.get('marketCap',row.get('intradaymarketcap'))
+            try: cap=float(cap)
+            except Exception: continue
+            if s.endswith('.T') and cap>=floor: syms.append(s)
+        offset+=len(quotes)
+        if len(quotes)<size: break
+        time.sleep(.5)
+    syms=list(dict.fromkeys(syms))
+    if not syms: raise RuntimeError('No Japan USD 1B+ symbols for PRE-ENTRY')
+    print('Japan PRE-ENTRY universe',len(syms))
+    return syms
+
+def _load_symbols(m):
+    if m=='canada':
+        syms=[s for s in build_tsx() if '-PR-' not in s.upper() and '-PF-' not in s.upper()]
+        return list(dict.fromkeys(syms))
+    if m=='japan': return _load_japan_usd1b()
+    p=MARKETS[m]['universe']
+    if p is None or not p.exists(): raise RuntimeError(f'{p} missing')
+    return list(dict.fromkeys(x.strip().upper() for x in p.read_text().splitlines() if x.strip()))
+
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--market',choices=sorted(MARKETS),required=True); a=ap.parse_args()
-    m=a.market; c=MARKETS[m]; p=c['universe']
-    if not p.exists(): raise RuntimeError(f'{p} missing')
-    syms=list(dict.fromkeys(x.strip().upper() for x in p.read_text().splitlines() if x.strip()))
+    m=a.market; c=MARKETS[m]
+    syms=_load_symbols(m)
+    print(m,'PRE-ENTRY universe',len(syms))
     bench=yf.download(c['benchmark'],period='18mo',interval='1d',auto_adjust=True,progress=False)
     if isinstance(bench.columns,pd.MultiIndex): bench.columns=bench.columns.get_level_values(0)
     bench=completed(bench,c['tz'])
@@ -83,7 +133,6 @@ def main():
         r10=(float(high.tail(10).max())/float(low.tail(10).min())-1)*100
         range_contract=bool(r20>0 and r10<=r20*.75)
         above20=(px/e20-1)*100
-        # Hard filter: if price is already >8% above EMA20, it is too extended for PRE-ENTRY.
         if above20>MAX_ABOVE_EMA20: continue
         score=0
         score += 3 if dist<=1 else (2 if dist<=2.5 else 1)
@@ -91,14 +140,10 @@ def main():
         score += 2 if below<=5 else (1 if below<=10 else 0)
         score += 1 if volume_contract else 0
         score += 1 if range_contract else 0
-        # Proximity bonus now rewards the 0316-style structure more strongly.
         score += 2 if above20<=4 else (1 if above20<=6 else 0)
-        if score>=8 and above20<=A_GRADE_MAX_ABOVE_EMA20:
-            grade='A'
-        elif score>=6:
-            grade='B'
-        else:
-            grade='C'
+        if score>=8 and above20<=A_GRADE_MAX_ABOVE_EMA20: grade='A'
+        elif score>=6: grade='B'
+        else: grade='C'
         rows.append({'symbol':s,'setup':'PRE_ENTRY','grade':grade,'score':score,'current_price':round(px,3),'breakout_level':round(resistance,3),'distance_to_breakout_pct':round(dist,2),'ema20':round(e20,3),'ema50':round(e50,3),'sma200':round(s200,3),'pct_above_ema20':round(above20,2),'rs_pct':round(rs,2),'pct_below_52w_high':round(below,2),'volume_contracting':volume_contract,'range_contracting':range_contract})
     out=pd.DataFrame(rows)
     c['out'].mkdir(parents=True,exist_ok=True)
