@@ -14,7 +14,6 @@ from build_universes import build_tsx
 
 EMA20=20; EMA50=50; SMA200=200; LOOKBACK=50; RS_LOOKBACK=63
 MAX_TO_BREAKOUT=5.0; MAX_BELOW_HIGH=15.0; MIN_RS=5.0
-# 0316-style PRE-ENTRY: stay close to EMA20 instead of accepting already-extended names.
 MAX_ABOVE_EMA20=8.0
 A_GRADE_MAX_ABOVE_EMA20=6.0
 MIN_JAPAN_MARKET_CAP_USD=1_000_000_000
@@ -47,20 +46,60 @@ def batch(syms):
     for i in range(0,len(syms),180):
         g=syms[i:i+180]
         print('daily',i+1,'-',min(i+180,len(syms)),'/',len(syms))
-        try:
-            r=yf.download(g,period='18mo',interval='1d',auto_adjust=True,progress=False,threads=True,group_by='ticker')
-            out.update(split(r,g))
-        except Exception as e: print('batch failed',e)
-        time.sleep(.25)
+        pending=list(g)
+        for attempt in range(1,3):
+            if not pending: break
+            try:
+                r=yf.download(pending,period='18mo',interval='1d',auto_adjust=True,progress=False,threads=True,group_by='ticker')
+                got=split(r,pending)
+                out.update(got)
+                pending=[s for s in pending if s not in got]
+            except Exception as e:
+                print('batch failed',e)
+            if pending and attempt==1:
+                time.sleep(2)
+        if pending:
+            print('daily unavailable after retry',len(pending),pending[:15])
+        time.sleep(.4)
     return out
 
 def completed(df,tz):
+    if df is None or df.empty or 'Close' not in df.columns:
+        return pd.DataFrame()
     x=df.copy().dropna(subset=['Close'])
     if len(x) and pd.DatetimeIndex(x.index).date[-1]==datetime.now(ZoneInfo(tz)).date(): x=x.iloc[:-1]
     return x
 
+def _download_daily_retry(symbol, *, period='18mo', attempts=5):
+    for attempt in range(1, attempts+1):
+        try:
+            raw=yf.download(symbol,period=period,interval='1d',auto_adjust=True,progress=False,threads=False)
+            if raw is not None and not raw.empty:
+                if isinstance(raw.columns,pd.MultiIndex): raw.columns=raw.columns.get_level_values(0)
+                if 'Close' in raw.columns and raw['Close'].notna().sum()>0:
+                    return raw
+        except Exception as exc:
+            print(f'{symbol} benchmark attempt {attempt}/{attempts} failed:',exc)
+        if attempt<attempts:
+            delay=min(4*(2**(attempt-1)),30)
+            print(f'{symbol} benchmark unavailable; retry in {delay}s')
+            time.sleep(delay)
+    return pd.DataFrame()
+
+def _load_benchmark(symbol,tz):
+    raw=_download_daily_retry(symbol)
+    bench=completed(raw,tz)
+    if len(bench) < RS_LOOKBACK+2:
+        raise RuntimeError(f'{symbol} benchmark unavailable after retries (need at least {RS_LOOKBACK+2} completed bars, got {len(bench)})')
+    close=pd.to_numeric(bench['Close'],errors='coerce').dropna()
+    if len(close) < RS_LOOKBACK+2:
+        raise RuntimeError(f'{symbol} benchmark close history insufficient after cleaning')
+    ret=float(close.iloc[-1]/close.iloc[-1-RS_LOOKBACK]-1)
+    print(f'{symbol} benchmark loaded: {len(close)} bars; {RS_LOOKBACK}d return={ret*100:.2f}%')
+    return ret
+
 def _load_japan_usd1b():
-    fxraw=yf.download('JPY=X',period='5d',interval='1d',auto_adjust=True,progress=False,threads=False)
+    fxraw=_download_daily_retry('JPY=X',period='5d')
     if fxraw is None or fxraw.empty: raise RuntimeError('USD/JPY unavailable for Japan PRE-ENTRY')
     close=fxraw['Close']
     if isinstance(close,pd.DataFrame): close=close.iloc[:,0]
@@ -107,10 +146,7 @@ def main():
     m=a.market; c=MARKETS[m]
     syms=_load_symbols(m)
     print(m,'PRE-ENTRY universe',len(syms))
-    bench=yf.download(c['benchmark'],period='18mo',interval='1d',auto_adjust=True,progress=False)
-    if isinstance(bench.columns,pd.MultiIndex): bench.columns=bench.columns.get_level_values(0)
-    bench=completed(bench,c['tz'])
-    br=float(bench['Close'].iloc[-1]/bench['Close'].iloc[-1-RS_LOOKBACK]-1)
+    br=_load_benchmark(c['benchmark'],c['tz'])
     data=batch(syms)
     rows=[]
     for s,d0 in data.items():
