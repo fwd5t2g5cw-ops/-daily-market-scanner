@@ -48,6 +48,9 @@ jobs:
       - name: Run exact TradingView Pine ENTRY scanner
         run: python pine_entry_scanner.py --market hk
 
+      - name: Run PRE-ENTRY setup watch
+        run: python pre_entry_scanner.py --market hk
+
       - name: Merge ENTRY, Double Reclaim, Reclaim Breakout and candle patterns
         run: python merge_signal_candles.py --market hk
 
