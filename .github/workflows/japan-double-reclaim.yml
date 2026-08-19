@@ -1,0 +1,41 @@
+name: 🇯🇵 Japan Double Reclaim Scanner
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/japan-double-reclaim.yml'
+      - 'japan_double_reclaim_scanner.py'
+  schedule:
+    # 2:00 PM Tokyo, one hour before TSE close
+    - cron: '0 5 * * 1-5'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt openpyxl
+
+      - name: Run Japan USD 1B Double Reclaim scanner
+        run: python japan_double_reclaim_scanner.py
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: japan-double-reclaim-${{ github.run_number }}
+          path: double_reclaim_results/japan/
+          retention-days: 30
