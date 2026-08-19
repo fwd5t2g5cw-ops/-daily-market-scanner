@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/japan-double-reclaim.yml'
       - 'japan_double_reclaim_scanner.py'
+      - 'pre_entry_scanner.py'
   schedule:
     # 2:00 PM Tokyo, one hour before TSE close
     - cron: '0 5 * * 1-5'
@@ -31,6 +32,9 @@ jobs:
 
       - name: Run Japan USD 1B Double Reclaim scanner
         run: python japan_double_reclaim_scanner.py
+
+      - name: Run PRE-ENTRY setup watch
+        run: python pre_entry_scanner.py --market japan
 
       - name: Upload results
         uses: actions/upload-artifact@v4
