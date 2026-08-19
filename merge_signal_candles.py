@@ -63,7 +63,6 @@ def classify_candle(df: pd.DataFrame) -> str:
     upper = h - max(o,c)
     lower = min(o,c) - l
     body_ratio = body / r
-
     if len(x) >= 2:
         prev = x.iloc[-2]
         po, pc = float(prev['Open']), float(prev['Close'])
@@ -71,7 +70,6 @@ def classify_candle(df: pd.DataFrame) -> str:
             return 'BULLISH_ENGULFING'
         if c < o and pc > po and o >= pc and c <= po:
             return 'BEARISH_ENGULFING'
-
     if body_ratio <= 0.10:
         return 'DOJI'
     if lower >= max(body * 2.0, r * 0.45) and upper <= max(body, r * 0.20):
@@ -90,7 +88,6 @@ def truthy(s: pd.Series) -> pd.Series:
 
 
 def read_csv_safe(path: Path) -> pd.DataFrame:
-    """Treat missing, blank, whitespace-only, or headerless CSV output as no signals."""
     if not path.exists() or path.stat().st_size == 0:
         return pd.DataFrame()
     try:
@@ -98,6 +95,13 @@ def read_csv_safe(path: Path) -> pd.DataFrame:
     except (pd.errors.EmptyDataError, pd.errors.ParserError) as exc:
         print(f'Ignoring unreadable/empty CSV {path}: {exc}')
         return pd.DataFrame()
+
+
+def numeric_first(df: pd.DataFrame, names: list[str]) -> pd.Series:
+    for name in names:
+        if name in df.columns:
+            return pd.to_numeric(df[name], errors='coerce')
+    return pd.Series(np.nan, index=df.index, dtype=float)
 
 
 def main() -> None:
@@ -111,15 +115,17 @@ def main() -> None:
 
     base = read_csv_safe(base_path)
     entry = read_csv_safe(entry_path)
+    outdir.mkdir(parents=True, exist_ok=True)
+    high_path = outdir / f'{market}_high_conviction_entry_today.csv'
 
     if base.empty:
         print('No double reclaim base rows; writing empty unified output and exiting cleanly')
-        outdir.mkdir(parents=True, exist_ok=True)
         base.to_csv(outdir / f'{market}_signals_with_candles.csv', index=False)
         base.to_csv(outdir / f'{market}_entry_marker_today.csv', index=False)
         base.to_csv(outdir / f'{market}_double_reclaim_today.csv', index=False)
         base.to_csv(outdir / f'{market}_reclaim_breakout_today.csv', index=False)
         base.to_csv(outdir / f'{market}_reclaim_breakout_only_today.csv', index=False)
+        base.to_csv(high_path, index=False)
         return
 
     entry_syms = set(entry['symbol'].astype(str)) if not entry.empty and 'symbol' in entry.columns else set()
@@ -142,18 +148,62 @@ def main() -> None:
     base['candle_side'] = np.where(base['candle_pattern'].str.contains('BULL|HAMMER', regex=True), 'BULL',
                            np.where(base['candle_pattern'].str.contains('BEAR|SHOOTING', regex=True), 'BEAR', 'NEUTRAL'))
 
+    # HIGH CONVICTION ENTRY = formal ENTRY plus confirming structure/strength.
+    rs = numeric_first(base, ['rs_vs_benchmark_pct','rs_vs_spy_pct','rs_vs_xiu_pct','rs_pct'])
+    below_high = numeric_first(base, ['pct_below_52w_high'])
+    above_ema20 = numeric_first(base, ['distance_above_ema20_pct','pct_above_ema20'])
+    quality = numeric_first(base, ['quality_score','score'])
+    grade = base['grade'].astype(str).str.upper() if 'grade' in base.columns else pd.Series('', index=base.index)
+
+    hc_score = pd.Series(0, index=base.index, dtype=int)
+    hc_score += np.where(base['double_reclaim'], 3, 0)
+    hc_score += np.where(base['reclaim_breakout'], 2, 0)
+    hc_score += np.where(rs >= 20, 2, np.where(rs >= 10, 1, 0))
+    hc_score += np.where(grade.isin(['A+','A']), 2, np.where(grade.eq('B'), 1, 0))
+    hc_score += np.where(quality >= 8, 1, 0)
+    hc_score += np.where(below_high <= 5, 1, 0)
+    hc_score += np.where(base['candle_side'].eq('BULL'), 1, 0)
+    hc_score += np.where(above_ema20 <= 8, 1, 0)
+    base['high_conviction_score'] = hc_score
+
+    confirm_overlap = base['double_reclaim'] | base['reclaim_breakout']
+    rs_ok = rs >= 10
+    high_ok = below_high.isna() | (below_high <= 10)
+    extension_ok = above_ema20.isna() | (above_ema20 <= 12)
+    base['high_conviction_entry'] = base['entry_marker'] & confirm_overlap & rs_ok & high_ok & extension_ok & (base['high_conviction_score'] >= 6)
+
+    reasons = []
+    for idx, row in base.iterrows():
+        r = []
+        if bool(row['double_reclaim']): r.append('DOUBLE_RECLAIM')
+        if bool(row['reclaim_breakout']): r.append('RECLAIM_BREAKOUT')
+        rv = rs.loc[idx]
+        if pd.notna(rv) and rv >= 20: r.append('RS20+')
+        elif pd.notna(rv) and rv >= 10: r.append('RS10+')
+        gv = grade.loc[idx]
+        if gv in ('A+','A','B'): r.append(f'GRADE_{gv}')
+        if row['candle_side'] == 'BULL': r.append('BULL_CANDLE')
+        reasons.append('|'.join(r))
+    base['high_conviction_reasons'] = reasons
+
     unified = outdir / f'{market}_signals_with_candles.csv'
     base.to_csv(unified, index=False)
     base[base['entry_marker']].to_csv(outdir / f'{market}_entry_marker_today.csv', index=False)
     base[base['double_reclaim']].to_csv(outdir / f'{market}_double_reclaim_today.csv', index=False)
     base[base['reclaim_breakout']].to_csv(outdir / f'{market}_reclaim_breakout_today.csv', index=False)
     base[base['reclaim_breakout_only']].to_csv(outdir / f'{market}_reclaim_breakout_only_today.csv', index=False)
+    high = base[base['high_conviction_entry']].copy()
+    if not high.empty:
+        high = high.sort_values(['high_conviction_score'], ascending=False)
+    high.to_csv(high_path, index=False)
 
     print('Unified signals:', len(base))
     print('ENTRY:', int(base['entry_marker'].sum()),
           'Double Reclaim:', int(base['double_reclaim'].sum()),
-          'Reclaim Breakout:', int(base['reclaim_breakout'].sum()))
+          'Reclaim Breakout:', int(base['reclaim_breakout'].sum()),
+          'HIGH CONVICTION ENTRY:', int(base['high_conviction_entry'].sum()))
     print('Wrote', unified)
+    print('Wrote', high_path)
 
 
 if __name__ == '__main__':
