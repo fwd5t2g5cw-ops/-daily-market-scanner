@@ -10,6 +10,9 @@ import yfinance as yf
 
 EMA20=20; EMA50=50; SMA200=200; LOOKBACK=50; RS_LOOKBACK=63
 MAX_TO_BREAKOUT=5.0; MAX_BELOW_HIGH=15.0; MIN_RS=5.0
+# 0316-style PRE-ENTRY: stay close to EMA20 instead of accepting already-extended names.
+MAX_ABOVE_EMA20=8.0
+A_GRADE_MAX_ABOVE_EMA20=6.0
 
 MARKETS={
  'us': {'tz':'America/New_York','universe':Path('data/us_1b_universe.txt'),'out':Path('double_reclaim_results/us'),'benchmark':'SPY'},
@@ -80,14 +83,22 @@ def main():
         r10=(float(high.tail(10).max())/float(low.tail(10).min())-1)*100
         range_contract=bool(r20>0 and r10<=r20*.75)
         above20=(px/e20-1)*100
+        # Hard filter: if price is already >8% above EMA20, it is too extended for PRE-ENTRY.
+        if above20>MAX_ABOVE_EMA20: continue
         score=0
         score += 3 if dist<=1 else (2 if dist<=2.5 else 1)
         score += 2 if rs>=15 else (1 if rs>=10 else 0)
         score += 2 if below<=5 else (1 if below<=10 else 0)
         score += 1 if volume_contract else 0
         score += 1 if range_contract else 0
-        score += 1 if above20<=10 else 0
-        grade='A' if score>=8 else ('B' if score>=6 else 'C')
+        # Proximity bonus now rewards the 0316-style structure more strongly.
+        score += 2 if above20<=4 else (1 if above20<=6 else 0)
+        if score>=8 and above20<=A_GRADE_MAX_ABOVE_EMA20:
+            grade='A'
+        elif score>=6:
+            grade='B'
+        else:
+            grade='C'
         rows.append({'symbol':s,'setup':'PRE_ENTRY','grade':grade,'score':score,'current_price':round(px,3),'breakout_level':round(resistance,3),'distance_to_breakout_pct':round(dist,2),'ema20':round(e20,3),'ema50':round(e50,3),'sma200':round(s200,3),'pct_above_ema20':round(above20,2),'rs_pct':round(rs,2),'pct_below_52w_high':round(below,2),'volume_contracting':volume_contract,'range_contracting':range_contract})
     out=pd.DataFrame(rows)
     c['out'].mkdir(parents=True,exist_ok=True)
