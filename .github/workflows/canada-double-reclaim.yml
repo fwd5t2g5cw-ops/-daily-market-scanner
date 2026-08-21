@@ -67,7 +67,11 @@ jobs:
             echo 'Latest Canada results unchanged; nothing to commit.'
           else
             git commit -m "Update latest Canada scanner results [skip ci]"
-            git push
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              sleep $((attempt * 3))
+            done
           fi
 
       - name: Upload results
