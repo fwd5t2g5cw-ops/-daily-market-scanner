@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import time
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, time as dt_time
 from zoneinfo import ZoneInfo
 import numpy as np
 import pandas as pd
@@ -17,12 +17,15 @@ MAX_TO_BREAKOUT=5.0; MAX_BELOW_HIGH=15.0; MIN_RS=5.0
 MAX_ABOVE_EMA20=8.0
 A_GRADE_MAX_ABOVE_EMA20=6.0
 MIN_JAPAN_MARKET_CAP_USD=1_000_000_000
+COMPRESSION_MAX_TO_BREAKOUT=2.0
+COMPRESSION_MAX_BELOW_HIGH=10.0
+COMPRESSION_MIN_SCORE=7
 
 MARKETS={
- 'us': {'tz':'America/New_York','universe':Path('data/us_1b_universe.txt'),'out':Path('double_reclaim_results/us'),'benchmark':'SPY'},
- 'hk': {'tz':'Asia/Hong_Kong','universe':Path('data/hk_5b_universe.txt'),'out':Path('double_reclaim_results/hk'),'benchmark':'SPY'},
- 'canada': {'tz':'America/Toronto','universe':None,'out':Path('double_reclaim_results/canada'),'benchmark':'XIU.TO'},
- 'japan': {'tz':'Asia/Tokyo','universe':None,'out':Path('double_reclaim_results/japan'),'benchmark':'1306.T'},
+ 'us': {'tz':'America/New_York','close':dt_time(16,0),'universe':Path('data/us_1b_universe.txt'),'out':Path('double_reclaim_results/us'),'benchmark':'SPY'},
+ 'hk': {'tz':'Asia/Hong_Kong','close':dt_time(16,0),'universe':Path('data/hk_5b_universe.txt'),'out':Path('double_reclaim_results/hk'),'benchmark':'SPY'},
+ 'canada': {'tz':'America/Toronto','close':dt_time(16,0),'universe':None,'out':Path('double_reclaim_results/canada'),'benchmark':'XIU.TO'},
+ 'japan': {'tz':'Asia/Tokyo','close':dt_time(15,30),'universe':None,'out':Path('double_reclaim_results/japan'),'benchmark':'1306.T'},
 }
 
 def split(raw, syms):
@@ -63,11 +66,23 @@ def batch(syms):
         time.sleep(.4)
     return out
 
-def completed(df,tz):
+def completed(df,tz,market_close):
+    """Keep today's daily bar after the local cash market has closed.
+
+    Before the close (for example the 3PM US run), Yahoo's current daily bar is
+    still in progress, so it is removed. After the close (for example the 6PM
+    run), the completed current-session bar is retained. The old behaviour
+    always removed today's bar and caused post-close PRE-ENTRY scans to lag by
+    one trading day.
+    """
     if df is None or df.empty or 'Close' not in df.columns:
         return pd.DataFrame()
     x=df.copy().dropna(subset=['Close'])
-    if len(x) and pd.DatetimeIndex(x.index).date[-1]==datetime.now(ZoneInfo(tz)).date(): x=x.iloc[:-1]
+    if not len(x): return x
+    now=datetime.now(ZoneInfo(tz))
+    last_date=pd.DatetimeIndex(x.index).date[-1]
+    if last_date==now.date() and now.time()<market_close:
+        x=x.iloc[:-1]
     return x
 
 def _download_daily_retry(symbol, *, period='18mo', attempts=5):
@@ -86,9 +101,9 @@ def _download_daily_retry(symbol, *, period='18mo', attempts=5):
             time.sleep(delay)
     return pd.DataFrame()
 
-def _load_benchmark(symbol,tz):
+def _load_benchmark(symbol,tz,market_close):
     raw=_download_daily_retry(symbol)
-    bench=completed(raw,tz)
+    bench=completed(raw,tz,market_close)
     if len(bench) < RS_LOOKBACK+2:
         raise RuntimeError(f'{symbol} benchmark unavailable after retries (need at least {RS_LOOKBACK+2} completed bars, got {len(bench)})')
     close=pd.to_numeric(bench['Close'],errors='coerce').dropna()
@@ -97,6 +112,23 @@ def _load_benchmark(symbol,tz):
     ret=float(close.iloc[-1]/close.iloc[-1-RS_LOOKBACK]-1)
     print(f'{symbol} benchmark loaded: {len(close)} bars; {RS_LOOKBACK}d return={ret*100:.2f}%')
     return ret
+
+def _compression_score(dist, below, above20, rs, volume_contract, range_contract):
+    """Score CSX-style pre-breakout compression independently of reclaim score."""
+    score=0
+    score += 3 if dist<=1 else (2 if dist<=2 else (1 if dist<=3 else 0))
+    score += 2 if below<=5 else (1 if below<=10 else 0)
+    score += 2 if above20<=2 else (1 if above20<=4 else 0)
+    score += 1 if rs>=5 else 0
+    score += 1 if rs>=10 else 0
+    score += 1 if volume_contract else 0
+    score += 1 if range_contract else 0
+    return score
+
+def _compression_grade(score):
+    if score>=8: return 'A'
+    if score>=6: return 'B'
+    return 'C'
 
 def _load_japan_usd1b():
     fxraw=_download_daily_retry('JPY=X',period='5d')
@@ -146,11 +178,11 @@ def main():
     m=a.market; c=MARKETS[m]
     syms=_load_symbols(m)
     print(m,'PRE-ENTRY universe',len(syms))
-    br=_load_benchmark(c['benchmark'],c['tz'])
+    br=_load_benchmark(c['benchmark'],c['tz'],c['close'])
     data=batch(syms)
     rows=[]
     for s,d0 in data.items():
-        d=completed(d0,c['tz'])
+        d=completed(d0,c['tz'],c['close'])
         if len(d)<260: continue
         close=pd.to_numeric(d['Close'],errors='coerce'); high=pd.to_numeric(d['High'],errors='coerce'); low=pd.to_numeric(d['Low'],errors='coerce'); vol=pd.to_numeric(d['Volume'],errors='coerce')
         px=float(close.iloc[-1]); e20=float(close.ewm(span=20,adjust=False).mean().iloc[-1]); e50s=close.ewm(span=50,adjust=False).mean(); e50=float(e50s.iloc[-1]); s200s=close.rolling(200).mean(); s200=float(s200s.iloc[-1])
@@ -180,11 +212,41 @@ def main():
         if score>=8 and above20<=A_GRADE_MAX_ABOVE_EMA20: grade='A'
         elif score>=6: grade='B'
         else: grade='C'
-        rows.append({'symbol':s,'setup':'PRE_ENTRY','grade':grade,'score':score,'current_price':round(px,3),'breakout_level':round(resistance,3),'distance_to_breakout_pct':round(dist,2),'ema20':round(e20,3),'ema50':round(e50,3),'sma200':round(s200,3),'pct_above_ema20':round(above20,2),'rs_pct':round(rs,2),'pct_below_52w_high':round(below,2),'volume_contracting':volume_contract,'range_contracting':range_contract})
+
+        compression_score=_compression_score(dist,below,above20,rs,volume_contract,range_contract)
+        compression_grade=_compression_grade(compression_score)
+        compression_setup=bool(
+            dist<=COMPRESSION_MAX_TO_BREAKOUT and
+            below<=COMPRESSION_MAX_BELOW_HIGH and
+            above20>=0 and above20<=4 and
+            rs>=MIN_RS and
+            compression_score>=COMPRESSION_MIN_SCORE
+        )
+
+        rows.append({
+            'symbol':s,'setup':'PRE_ENTRY','grade':grade,'score':score,
+            'compression_setup':compression_setup,'compression_grade':compression_grade,'compression_score':compression_score,
+            'current_price':round(px,3),'breakout_level':round(resistance,3),'distance_to_breakout_pct':round(dist,2),
+            'ema20':round(e20,3),'ema50':round(e50,3),'sma200':round(s200,3),'pct_above_ema20':round(above20,2),
+            'rs_pct':round(rs,2),'pct_below_52w_high':round(below,2),
+            'volume_contracting':volume_contract,'range_contracting':range_contract
+        })
     out=pd.DataFrame(rows)
     c['out'].mkdir(parents=True,exist_ok=True)
     fn=c['out']/f'{m}_pre_entry_watch_today.csv'
-    if not out.empty: out=out.sort_values(['grade','score','distance_to_breakout_pct','rs_pct'],ascending=[True,False,True,False])
+    comp_fn=c['out']/f'{m}_pre_breakout_compression_today.csv'
+    if not out.empty:
+        out=out.sort_values(['grade','score','distance_to_breakout_pct','rs_pct'],ascending=[True,False,True,False])
     out.to_csv(fn,index=False)
+
+    if not out.empty and 'compression_setup' in out.columns:
+        comp=out[out['compression_setup']].copy()
+        if not comp.empty:
+            comp=comp.sort_values(['compression_grade','compression_score','distance_to_breakout_pct','rs_pct'],ascending=[True,False,True,False])
+    else:
+        comp=pd.DataFrame(columns=out.columns)
+    comp.to_csv(comp_fn,index=False)
+
     print('\nPRE_ENTRY',len(out)); print(out.head(30).to_string(index=False) if not out.empty else 'No candidates')
+    print('\nPRE_BREAKOUT_COMPRESSION',len(comp)); print(comp.head(30).to_string(index=False) if not comp.empty else 'No candidates')
 if __name__=='__main__': main()
