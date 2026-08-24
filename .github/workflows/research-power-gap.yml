@@ -1,0 +1,37 @@
+name: Power Gap Research
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research_power_gap.py'
+      - 'research/pre_gap/events.csv'
+      - '.github/workflows/research-power-gap.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install pandas numpy
+      - name: Run Power Gap bucket research
+        run: python research_power_gap.py
+      - name: Commit research results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/power_gap
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Update Power Gap research results [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
