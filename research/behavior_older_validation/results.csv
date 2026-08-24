@@ -1,0 +1,8 @@
+rule,days,hits,hit_rate,base_rate,lift
+effort_low + undercut_low + volcluster_high + hvclose_low,303,1,0.0033003300330033004,0.003923378721440111,0.8411958842943118
+effort_low + undercut_low + hvclose_low,1080,1,0.000925925925925926,0.003923378721440111,0.23600217864923748
+effort_low + downreject_low + undercut_low,3743,1,0.0002671653753673524,0.003923378721440111,0.06809573949804341
+effort_low + undercut_low,4123,1,0.00024254183846713557,0.003923378721440111,0.06181963447518226
+absorb_high + effort_low + undercut_low,840,0,0.0,0.003923378721440111,0.0
+absorb_high + effort_low + downreject_low + undercut_low,763,0,0.0,0.003923378721440111,0.0
+effort_low + undercut_low + hvclose_low + ret20_high,355,0,0.0,0.003923378721440111,0.0
