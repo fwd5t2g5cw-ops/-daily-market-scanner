@@ -1,0 +1,69 @@
+name: Run All Double Reclaim Now
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/run-all-double-reclaim-now.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  scan:
+    strategy:
+      fail-fast: false
+      matrix:
+        market: [us, hk, canada]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt openpyxl
+      - name: Run Double Reclaim scanner
+        run: |
+          case '${{ matrix.market }}' in
+            us) python us_double_reclaim_scanner.py ;;
+            hk) python hk_double_reclaim_scanner.py ;;
+            canada) python canada_double_reclaim_scanner.py ;;
+          esac
+      - name: Run Pine ENTRY scanner
+        run: python pine_entry_scanner.py --market '${{ matrix.market }}'
+      - name: Run PRE-ENTRY scanner
+        run: python pre_entry_scanner.py --market '${{ matrix.market }}'
+      - name: Merge signals
+        run: python merge_signal_candles.py --market '${{ matrix.market }}'
+      - name: Publish latest results
+        run: |
+          MARKET='${{ matrix.market }}'
+          rm -rf "latest/$MARKET"
+          mkdir -p "latest/$MARKET"
+          cp -a "double_reclaim_results/$MARKET/." "latest/$MARKET/"
+          printf 'run_id=%s\nrun_number=%s\ncommit=%s\nupdated_utc=%s\n' \
+            '${{ github.run_id }}' '${{ github.run_number }}' '${{ github.sha }}' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > "latest/$MARKET/LATEST_RUN.txt"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A "latest/$MARKET"
+          if git diff --cached --quiet; then
+            echo "Latest $MARKET results unchanged; nothing to commit."
+          else
+            git commit -m "Update latest $MARKET scanner results [skip ci]"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              sleep $((attempt * 3))
+            done
+          fi
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: double-reclaim-${{ matrix.market }}-${{ github.run_number }}
+          path: double_reclaim_results/${{ matrix.market }}/
+          retention-days: 30
