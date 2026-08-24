@@ -1,0 +1,59 @@
+name: Single-Day Reversal Scanner
+
+on:
+  workflow_dispatch:
+    inputs:
+      market:
+        description: Market to scan
+        required: true
+        default: all
+        type: choice
+        options: [all, us, hk, canada]
+  schedule:
+    - cron: '30 21 * * 1-5'
+  push:
+    paths:
+      - 'single_day_reversal_scanner.py'
+      - '.github/workflows/single-day-reversal-scanner.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Run scanner
+        run: |
+          MARKET="${{ github.event.inputs.market }}"
+          if [ -z "$MARKET" ]; then MARKET="all"; fi
+          python single_day_reversal_scanner.py --market "$MARKET"
+      - name: Publish latest results
+        run: |
+          mkdir -p latest/single_day_reversal
+          rm -rf latest/single_day_reversal/*
+          cp -a single_day_reversal_results/. latest/single_day_reversal/
+          printf 'run_id=%s\nrun_number=%s\ncommit=%s\nupdated_utc=%s\n' \
+            '${{ github.run_id }}' '${{ github.run_number }}' '${{ github.sha }}' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            > latest/single_day_reversal/LATEST_RUN.txt
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add latest/single_day_reversal
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Update latest single-day reversal results [skip ci]'
+          for n in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep $((n*3))
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: single-day-reversal-results
+          path: single_day_reversal_results/
