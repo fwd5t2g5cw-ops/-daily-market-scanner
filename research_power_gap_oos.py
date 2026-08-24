@@ -5,6 +5,7 @@ SRC=Path('research/pre_gap_oos/events.csv')
 OUT=Path('research/power_gap_oos')
 OUT.mkdir(parents=True,exist_ok=True)
 
+# Older unseen-date validation focused only on >=15% Power Gaps.
 def summarize(df,name):
     g=df[(df.group=='GAP') & (df.gap_pct>=15)].copy()
     c=df[df.group=='CONTROL'].copy()
