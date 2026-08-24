@@ -1,0 +1,40 @@
+name: Pre-Gap Lead-Time Research
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research_pre_gap_leadtime.py'
+      - '.github/workflows/research-pre-gap-leadtime.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run 10-day lead-time test
+        run: python research_pre_gap_leadtime.py
+      - name: Commit results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/pre_gap_leadtime
+          if git diff --cached --quiet; then
+            echo 'No changes'
+          else
+            git commit -m 'Update pre-gap lead-time research [skip ci]'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
