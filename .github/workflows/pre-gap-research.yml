@@ -1,0 +1,55 @@
+name: 🔬 Pre-Gap Pattern Research
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'research_pre_gap.py'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance scipy
+
+      - name: Run pre-gap pattern research
+        run: python research_pre_gap.py
+
+      - name: Publish research results
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/pre_gap/
+          if git diff --cached --quiet; then
+            echo 'No research changes.'
+          else
+            git commit -m "Update pre-gap research [skip ci]"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              sleep $((attempt * 3))
+            done
+          fi
+
+      - name: Upload research artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pre-gap-research-${{ github.run_number }}
+          path: research/pre_gap/
+          retention-days: 30
