@@ -1,0 +1,396 @@
+rule,n,hits,hit_rate,base_rate,lift
+effort_low + undercut_low + hvclose_low + ret20_high,189,5,0.026455026455026454,0.0037542139135764633,7.046755210020516
+absorb_high + effort_low + downreject_low + undercut_low,611,16,0.02618657937806874,0.0037542139135764633,6.975249674337821
+effort_low + undercut_low + volcluster_high + hvclose_low,202,5,0.024752475247524754,0.0037542139135764633,6.593251161850879
+effort_low + downreject_low + undercut_low + hvclose_low,567,13,0.02292768959435626,0.0037542139135764633,6.107187848684447
+absorb_high + effort_low + undercut_low,703,16,0.02275960170697013,0.0037542139135764633,6.0624147240688595
+downreject_low + undercut_low + hvclose_low + ret20_high,223,5,0.02242152466367713,0.0037542139135764633,5.972362038985998
+effort_low + undercut_low + hvclose_low,620,13,0.020967741935483872,0.0037542139135764633,5.585121790651745
+absorb_high + effort_low + undercut_low + volcluster_high,394,8,0.02030456852791878,0.0037542139135764633,5.408474049518284
+undercut_low + hvclose_low + ret20_high,257,5,0.019455252918287938,0.0037542139135764633,5.182244103867228
+effort_low + downreject_low + undercut_low + volcluster_high,689,13,0.018867924528301886,0.0037542139135764633,5.025798998844821
+downreject_low + undercut_low + volcluster_high + hvclose_low,268,5,0.018656716417910446,0.0037542139135764633,4.969540054827901
+effort_low + downreject_low + undercut_low,2210,39,0.01764705882352941,0.0037542139135764633,4.700600240096039
+downreject_low + undercut_low + hvclose_low,745,13,0.0174496644295302,0.0037542139135764633,4.648020819065881
+effort_low + downreject_low + undercut_low + ret20_high,987,16,0.016210739614994935,0.0037542139135764633,4.318011703161508
+undercut_low + volcluster_high + hvclose_low,317,5,0.015772870662460567,0.0037542139135764633,4.2013777119680675
+effort_low + undercut_low,2508,39,0.01555023923444976,0.0037542139135764633,4.142075969143638
+effort_low + undercut_low + volcluster_high,836,13,0.01555023923444976,0.0037542139135764633,4.142075969143638
+effort_low + downreject_low + hvclose_low + ret20_high,325,5,0.015384615384615385,0.0037542139135764633,4.09795918367347
+undercut_low + hvclose_low,849,13,0.015312131919905771,0.0037542139135764633,4.078651955481839
+absorb_high + effort_low + undercut_low + ret20_high,473,7,0.014799154334038054,0.0037542139135764633,3.9420114768951975
+effort_low + undercut_low + ret20_high,1115,16,0.014349775784753363,0.0037542139135764633,3.822311704951039
+effort_low + hvclose_low + ret20_high,350,5,0.014285714285714285,0.0037542139135764633,3.8052478134110785
+absorb_high + downreject_low + undercut_low,1283,16,0.012470771628994544,0.0037542139135764633,3.3218063530946282
+effort_low + undercut_low + ret20_high + vol_expand,326,4,0.012269938650306749,0.0037542139135764633,3.2683110053837487
+downreject_low + hvclose_low + ret20_high,411,5,0.012165450121654502,0.0037542139135764633,3.2404786732211135
+downreject_low + undercut_low,3283,39,0.01187937861711849,0.0037542139135764633,3.164278565523072
+undercut_low + hvclose_low + vol_expand,172,2,0.011627906976744186,0.0037542139135764633,3.097294731846227
+downreject_low + undercut_low + ret20_high,1451,16,0.011026878015161957,0.0037542139135764633,2.9372002419162015
+downreject_low + undercut_low + volcluster_high,1180,13,0.011016949152542373,0.0037542139135764633,2.934555517122103
+absorb_high + downreject_low + undercut_low + volcluster_high,731,8,0.01094391244870041,0.0037542139135764633,2.9151009240905665
+hvclose_low + ret20_high,471,5,0.010615711252653927,0.0037542139135764633,2.827678842237532
+absorb_high + effort_low + downreject_low,1535,16,0.010423452768729642,0.0037542139135764633,2.7764674599481487
+undercut_low,3962,39,0.009843513377082282,0.0037542139135764633,2.621990542809754
+absorb_high + undercut_low,1672,16,0.009569377990430622,0.0037542139135764633,2.548969827165316
+absorb_high + effort_low + downreject_low + volcluster_high,841,8,0.009512485136741973,0.0037542139135764633,2.5338154286684946
+absorb_high + effort_low,1705,16,0.0093841642228739,0.0037542139135764633,2.499634927284697
+effort_low + downreject_low + ret20_high,1732,16,0.009237875288683603,0.0037542139135764633,2.460668331997926
+absorb_high + effort_low + downreject_low + ret20_high,770,7,0.00909090909090909,0.0037542139135764633,2.42152133580705
+undercut_low + ret20_high,1763,16,0.009075439591605219,0.0037542139135764633,2.4174007663190067
+effort_low + downreject_low + undercut_low + vol_expand,448,4,0.008928571428571428,0.0037542139135764633,2.378279883381924
+absorb_high + downreject_low + undercut_low + ret20_high,789,7,0.008871989860583017,0.0037542139135764633,2.363208401231215
+effort_low + downreject_low + ret20_high + vol_expand,453,4,0.008830022075055188,0.0037542139135764633,2.3520295535432716
+downreject_low + undercut_low + ret20_high + vol_expand,462,4,0.008658008658008658,0.0037542139135764633,2.3062107960067144
+absorb_high + effort_low + volcluster_high,941,8,0.008501594048884165,0.0037542139135764633,2.264547051551758
+undercut_low + volcluster_high,1564,13,0.008312020460358057,0.0037542139135764633,2.214050837726395
+effort_low + ret20_high,1930,16,0.008290155440414507,0.0037542139135764633,2.2082267103732685
+absorb_high + effort_low + ret20_high,856,7,0.008177570093457943,0.0037542139135764633,2.1782376502002667
+absorb_high + undercut_low + volcluster_high,993,8,0.008056394763343404,0.0037542139135764633,2.145960499003227
+effort_low + ret20_high + vol_expand,514,4,0.007782101167315175,0.0037542139135764633,2.0728976415468914
+effort_low + downreject_low + volcluster_high + hvclose_low,669,5,0.007473841554559043,0.0037542139135764633,1.9907873463286658
+effort_low + undercut_low + volcluster_high + ret20_high,408,3,0.007352941176470588,0.0037542139135764633,1.9585834333733494
+effort_low + undercut_low + vol_expand,556,4,0.007194244604316547,0.0037542139135764633,1.9163118484803994
+absorb_high + undercut_low + ret20_high,1011,7,0.006923837784371909,0.0037542139135764633,1.8442843012575951
+downreject_low + ret20_high,2645,18,0.006805293005671078,0.0037542139135764633,1.8127078430616104
+undercut_low + ret20_high + vol_expand,589,4,0.006791171477079796,0.0037542139135764633,1.8089463289560306
+effort_low + volcluster_high + hvclose_low,743,5,0.006729475100942127,0.0037542139135764633,1.7925124289285028
+effort_low + downreject_low + volcluster_high,1981,13,0.006562342251388188,0.0037542139135764633,1.7479936952065025
+volcluster_high + hvclose_low + ret20_high,153,1,0.006535947712418301,0.0037542139135764633,1.7409630518874217
+effort_low + downreject_low + hvclose_low,2016,13,0.006448412698412698,0.0037542139135764633,1.7176465824425007
+absorb_high + effort_low + undercut_low + vol_expand,319,2,0.006269592476489028,0.0037542139135764633,1.6700147143496897
+effort_low + undercut_low + ret20_high + dist_high_near,647,4,0.0061823802163833074,0.0037542139135764633,1.6467842160047945
+absorb_high + downreject_low + hvclose_low + ret20_high,162,1,0.006172839506172839,0.0037542139135764633,1.6442428823381203
+effort_low + hvclose_low,2157,13,0.00602688919796013,0.0037542139135764633,1.6053664859546044
+absorb_high + downreject_low,3836,23,0.005995828988529718,0.0037542139135764633,1.597093060373263
+absorb_high + downreject_low + ret20_high,1513,9,0.005948446794448116,0.0037542139135764633,1.5844719910436085
+effort_low + downreject_low,6567,39,0.005938784833257195,0.0037542139135764633,1.5818983600749572
+downreject_low + ret20_high + vol_expand,846,5,0.00591016548463357,0.0037542139135764633,1.5742751001109663
+absorb_high + downreject_low + volcluster_high,2247,13,0.005785491766800178,0.0037542139135764633,1.5410660926586923
+absorb_high + downreject_low + undercut_low + hvclose_low,176,1,0.005681818181818182,0.0037542139135764633,1.5134508348794065
+ret20_high,3194,18,0.005635566687539136,0.0037542139135764633,1.5011309470563428
+effort_low + volcluster_high,2312,13,0.005622837370242215,0.0037542139135764633,1.4977402725796203
+effort_low,7338,39,0.005314799672935405,0.0037542139135764633,1.4156890883908755
+absorb_high + effort_low + ret20_high + vol_expand,379,2,0.005277044854881266,0.0037542139135764633,1.4056324376716385
+effort_low + downreject_low + hvclose_low + vol_expand,386,2,0.0051813471502590676,0.0037542139135764633,1.380141693983293
+downreject_low + undercut_low + vol_expand,781,4,0.005121638924455826,0.0037542139135764633,1.364237372285662
+effort_low + downreject_low + undercut_low + dist_high_near,986,5,0.005070993914807302,0.0037542139135764633,1.3507471954298962
+downreject_low + undercut_low + volcluster_high + ret20_high,603,3,0.004975124378109453,0.0037542139135764633,1.3252106812874402
+downreject_low + volcluster_high,3942,19,0.004819888381532217,0.0037542139135764633,1.2838608807297651
+effort_low + downreject_low + volcluster_high + ret20_high,627,3,0.004784688995215311,0.0037542139135764633,1.274484913582658
+effort_low + hvclose_low + vol_expand,420,2,0.004761904761904762,0.0037542139135764633,1.268415937803693
+absorb_high + hvclose_low + ret20_high,210,1,0.004761904761904762,0.0037542139135764633,1.268415937803693
+absorb_high + ret20_high,1901,9,0.004734350341925302,0.0037542139135764633,1.2610763400573275
+ret20_high + vol_expand,1059,5,0.004721435316336166,0.0037542139135764633,1.257636198955503
+downreject_low,10547,49,0.004645870863752726,0.0037542139135764633,1.237508296197971
+effort_low + undercut_low + dist_high_near,1084,5,0.004612546125461255,0.0037542139135764633,1.2286316740718428
+downreject_low + hvclose_low,2884,13,0.004507628294036061,0.0037542139135764633,1.200684989668544
+absorb_high,5223,23,0.0044035994639096306,0.0037542139135764633,1.1729751061826224
+effort_low + downreject_low + ret20_high + dist_high_near,915,4,0.004371584699453552,0.0037542139135764633,1.164447418311587
+absorb_high + undercut_low + hvclose_low,229,1,0.004366812227074236,0.0037542139135764633,1.16317618750557
+downreject_low + undercut_low + ret20_high + dist_high_near,925,4,0.004324324324324324,0.0037542139135764633,1.1518587975730834
+downreject_low + volcluster_high + ret20_high,1162,5,0.004302925989672977,0.0037542139135764633,1.146158979943096
+effort_low + volcluster_high + ret20_high,701,3,0.0042796005706134095,0.0037542139135764633,1.1399458499519637
+downreject_low + volcluster_high + hvclose_low,1172,5,0.004266211604095563,0.0037542139135764633,1.136379466462353
+absorb_high + downreject_low + volcluster_high + ret20_high,947,4,0.004223864836325237,0.0037542139135764633,1.1250996702799387
+absorb_high + downreject_low + ret20_high + vol_expand,718,3,0.004178272980501393,0.0037542139135764633,1.1129554886021262
+absorb_high + effort_low + volcluster_high + ret20_high,480,2,0.004166666666666667,0.0037542139135764633,1.1098639455782313
+absorb_high + volcluster_high,3135,13,0.004146730462519936,0.0037542139135764633,1.104553591771637
+absorb_high + undercut_low + ret20_high + vol_expand,486,2,0.00411522633744856,0.0037542139135764633,1.096161921558747
+undercut_low + volcluster_high + ret20_high,764,3,0.003926701570680628,0.0037542139135764633,1.0459450796025216
+hvclose_low,3314,13,0.003922751961375981,0.0037542139135764633,1.044893032650598
+effort_low + ret20_high + dist_high_near,1026,4,0.003898635477582846,0.0037542139135764633,1.0384691888451287
+downreject_low + ret20_high + dist_high_near,1554,6,0.003861003861003861,0.0037542139135764633,1.0284453549759673
+undercut_low + vol_expand,1054,4,0.003795066413662239,0.0037542139135764633,1.0108817720636643
+absorb_high + downreject_low + undercut_low + vol_expand,547,2,0.003656307129798903,0.0037542139135764633,0.973920829757863
+volcluster_high,5267,19,0.003607366622365673,0.0037542139135764633,0.9608846766350361
+absorb_high + effort_low + downreject_low + hvclose_low,279,1,0.0035842293906810036,0.0037542139135764633,0.9547216736156828
+volcluster_high + hvclose_low,1401,5,0.0035688793718772305,0.0037542139135764633,0.9506329298314615
+undercut_low + ret20_high + dist_high_near,1139,4,0.003511852502194908,0.0037542139135764633,0.9354428338499579
+volcluster_high + ret20_high,1439,5,0.0034746351633078527,0.0037542139135764633,0.9255293500304917
+absorb_high + volcluster_high + ret20_high,1183,4,0.0033812341504649195,0.0037542139135764633,0.9006503700381251
+absorb_high + ret20_high + vol_expand,900,3,0.0033333333333333335,0.0037542139135764633,0.8878911564625851
+effort_low + downreject_low + vol_expand,1208,4,0.0033112582781456954,0.0037542139135764633,0.8820110825787268
+absorb_high + effort_low + downreject_low + vol_expand,608,2,0.003289473684210526,0.0037542139135764633,0.8762083780880773
+absorb_high + undercut_low + volcluster_high + ret20_high,610,2,0.003278688524590164,0.0037542139135764633,0.8733355637336903
+absorb_high + effort_low + hvclose_low,313,1,0.003194888178913738,0.0037542139135764633,0.8510138879833083
+ret20_high + dist_high_near,1921,6,0.0031233732431025507,0.0037542139135764633,0.8319646442647856
+downreject_low + undercut_low + dist_high_near,1608,5,0.003109452736318408,0.0037542139135764633,0.8282566758046502
+downreject_low + volcluster_high + ret20_high + dist_high_near,660,2,0.0030303030303030303,0.0037542139135764633,0.8071737786023501
+absorb_high + effort_low + vol_expand,680,2,0.0029411764705882353,0.0037542139135764633,0.7834333733493397
+effort_low + vol_expand,1399,4,0.0028591851322373124,0.0037542139135764633,0.761593558080845
+absorb_high + volcluster_high + ret20_high + dist_high_near,705,2,0.0028368794326241137,0.0037542139135764633,0.7556520480532639
+downreject_low + hvclose_low + vol_expand,722,2,0.002770083102493075,0.0037542139135764633,0.7378596868110125
+absorb_high + undercut_low + vol_expand,739,2,0.0027063599458728013,0.0037542139135764633,0.7208859186435062
+undercut_low + dist_high_near,1913,5,0.0026136957658128594,0.0037542139135764633,0.6962032068446825
+downreject_low + volcluster_high + ret20_high + vol_expand,773,2,0.00258732212160414,0.0037542139135764633,0.6891781292076987
+absorb_high + downreject_low + volcluster_high + dist_high_near,816,2,0.0024509803921568627,0.0037542139135764633,0.6528611444577831
+effort_low + downreject_low + dist_high_near,2075,5,0.0024096385542168677,0.0037542139135764633,0.6418490287681338
+volcluster_high + ret20_high + dist_high_near,839,2,0.0023837902264600714,0.0037542139135764633,0.6349638782807521
+absorb_high + volcluster_high + ret20_high + vol_expand,845,2,0.002366863905325444,0.0037542139135764633,0.6304552590266876
+hvclose_low + vol_expand,866,2,0.0023094688221709007,0.0037542139135764633,0.6151670829994815
+absorb_high + downreject_low + ret20_high + dist_high_near,885,2,0.0022598870056497176,0.0037542139135764633,0.6019601060763289
+effort_low + dist_high_near,2250,5,0.0022222222222222222,0.0037542139135764633,0.5919274376417234
+effort_low + volcluster_high + ret20_high + vol_expand,462,1,0.0021645021645021645,0.0037542139135764633,0.5765526990016786
+volcluster_high + ret20_high + vol_expand,971,2,0.0020597322348094747,0.0037542139135764633,0.5486454107904748
+downreject_low + ret20_high + dist_high_near + vol_expand,486,1,0.00205761316872428,0.0037542139135764633,0.5480809607793735
+effort_low + undercut_low + volcluster_high + vol_expand,501,1,0.001996007984031936,0.0037542139135764633,0.5316713511752006
+downreject_low + dist_high_near,3543,7,0.0019757267852102737,0.0037542139135764633,0.5262691020523366
+downreject_low + vol_expand,2555,5,0.0019569471624266144,0.0037542139135764633,0.5212668237549423
+undercut_low + volcluster_high + ret20_high + vol_expand,527,1,0.0018975332068311196,0.0037542139135764633,0.5054408860318321
+absorb_high + ret20_high + dist_high_near + vol_expand,539,1,0.0018552875695732839,0.0037542139135764633,0.4941880277157245
+absorb_high + downreject_low + vol_expand,1636,3,0.0018337408312958435,0.0037542139135764633,0.4884486802055786
+volcluster_high + ret20_high + dist_high_near + vol_expand,558,1,0.0017921146953405018,0.0037542139135764633,0.4773608368078414
+absorb_high + volcluster_high + dist_high_near,1119,2,0.0017873100983020554,0.0037542139135764633,0.47608104904160053
+absorb_high + downreject_low + dist_high_near + vol_expand,571,1,0.0017513134851138354,0.0037542139135764633,0.46649272668787306
+absorb_high + ret20_high + dist_high_near,1154,2,0.0017331022530329288,0.0037542139135764633,0.46164184911399564
+dist_high_near,4233,7,0.001653673517599811,0.0037542139135764633,0.4404846275859741
+downreject_low + volcluster_high + dist_high_near,1214,2,0.0016474464579901153,0.0037542139135764633,0.4388259422385099
+ret20_high + dist_high_near + vol_expand,625,1,0.0016,0.0037542139135764633,0.4261877551020408
+absorb_high + effort_low + volcluster_high + vol_expand,634,1,0.0015772870662460567,0.0037542139135764633,0.4201377711968068
+downreject_low + volcluster_high + dist_high_near + vol_expand,670,1,0.0014925373134328358,0.0037542139135764633,0.3975632043862321
+absorb_high + downreject_low + hvclose_low,674,1,0.001483679525222552,0.0037542139135764633,0.39520377884091323
+absorb_high + undercut_low + volcluster_high + vol_expand,684,1,0.0014619883040935672,0.0037542139135764633,0.38942594581692325
+downreject_low + undercut_low + volcluster_high + vol_expand,694,1,0.001440922190201729,0.0037542139135764633,0.38381462094924423
+vol_expand,3524,5,0.0014188422247446084,0.0037542139135764633,0.3779332391299312
+absorb_high + downreject_low + dist_high_near,1419,2,0.0014094432699083862,0.0037542139135764633,0.37542966446620935
+absorb_high + volcluster_high + dist_high_near + vol_expand,738,1,0.0013550135501355014,0.0037542139135764633,0.36093136441568496
+absorb_high + downreject_low + volcluster_high + vol_expand,1505,2,0.00132890365448505,0.0037542139135764633,0.35397654078242596
+volcluster_high + dist_high_near,1555,2,0.0012861736334405145,0.0037542139135764633,0.34259465844215503
+absorb_high + vol_expand,2344,3,0.001279863481228669,0.0037542139135764633,0.34091383993870583
+downreject_low + dist_high_near + vol_expand,786,1,0.001272264631043257,0.0037542139135764633,0.3388897543750325
+absorb_high + dist_high_near + vol_expand,806,1,0.0012406947890818859,0.0037542139135764633,0.3304805793285056
+absorb_high + hvclose_low,887,1,0.0011273957158962795,0.0037542139135764633,0.3003014057934335
+volcluster_high + dist_high_near + vol_expand,904,1,0.0011061946902654867,0.0037542139135764633,0.2946541448437782
+undercut_low + volcluster_high + vol_expand,951,1,0.0010515247108307045,0.0037542139135764633,0.28009184746453786
+absorb_high + dist_high_near,1912,2,0.0010460251046025104,0.0037542139135764633,0.2786269319443258
+effort_low + downreject_low + volcluster_high + vol_expand,1042,1,0.0009596928982725527,0.0037542139135764633,0.25563085118884404
+dist_high_near + vol_expand,1053,1,0.000949667616334283,0.0037542139135764633,0.25296044343663393
+absorb_high + volcluster_high + vol_expand,2140,2,0.0009345794392523365,0.0037542139135764633,0.2489414457371734
+downreject_low + volcluster_high + vol_expand,2274,2,0.0008795074758135445,0.0037542139135764633,0.2342720729452731
+effort_low + volcluster_high + vol_expand,1226,1,0.0008156606851549756,0.0037542139135764633,0.21726537270699472
+volcluster_high + vol_expand,3130,2,0.0006389776357827476,0.0037542139135764633,0.17020277759666166
+downreject_low + ret20_low,1765,1,0.0005665722379603399,0.0037542139135764633,0.15091634387466032
+ret20_low,2386,1,0.00041911148365465214,0.0037542139135764633,0.11163761397266367
+range_expand,3542,0,0.0,0.0037542139135764633,0.0
+downreject_low + range_expand,2681,0,0.0,0.0037542139135764633,0.0
+volcluster_high + range_expand,2588,0,0.0,0.0037542139135764633,0.0
+range_expand + vol_expand,2076,0,0.0,0.0037542139135764633,0.0
+volcluster_high + range_expand + vol_expand,1957,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + range_expand,1875,0,0.0,0.0037542139135764633,0.0
+absorb_high + range_expand,1820,0,0.0,0.0037542139135764633,0.0
+effort_low + range_expand,1801,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + range_expand,1599,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + range_expand,1557,0,0.0,0.0037542139135764633,0.0
+downreject_low + range_expand + vol_expand,1480,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + range_expand + vol_expand,1394,0,0.0,0.0037542139135764633,0.0
+absorb_high + range_expand + vol_expand,1375,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + range_expand + vol_expand,1320,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_low,1296,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_low,1295,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + range_expand,1289,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + range_expand,1181,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + volcluster_high + range_expand,1124,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + ret20_low,1073,0,0.0,0.0037542139135764633,0.0
+undercut_low + range_expand,1024,0,0.0,0.0037542139135764633,0.0
+dist_high_near + range_expand,1002,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + volcluster_high + range_expand,993,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + range_expand + vol_expand,949,0,0.0,0.0037542139135764633,0.0
+hvclose_low + range_expand,943,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + ret20_low,925,0,0.0,0.0037542139135764633,0.0
+effort_low + range_expand + vol_expand,889,0,0.0,0.0037542139135764633,0.0
+ret20_low + range_expand,881,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + dist_high_near,878,0,0.0,0.0037542139135764633,0.0
+ret20_low + vol_expand,872,0,0.0,0.0037542139135764633,0.0
+hvclose_low + ret20_low,851,0,0.0,0.0037542139135764633,0.0
+ret20_high + range_expand,836,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_low,834,0,0.0,0.0037542139135764633,0.0
+downreject_low + dist_high_near + range_expand,831,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + range_expand + vol_expand,826,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_low + vol_expand,795,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + range_expand,791,0,0.0,0.0037542139135764633,0.0
+hvclose_low + dist_high_near,783,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + range_expand + vol_expand,760,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + range_expand,759,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_low + range_expand,749,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + range_expand,748,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + vol_expand,736,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + ret20_low,709,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + dist_high_near,699,0,0.0,0.0037542139135764633,0.0
+downreject_low + ret20_high + range_expand,696,0,0.0,0.0037542139135764633,0.0
+volcluster_high + dist_high_near + range_expand,690,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + dist_high_near,672,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + range_expand,671,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + undercut_low + dist_high_near,670,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_high + range_expand,656,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + range_expand,654,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + ret20_high + dist_high_near,648,0,0.0,0.0037542139135764633,0.0
+downreject_low + ret20_low + range_expand,625,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + dist_high_near,620,0,0.0,0.0037542139135764633,0.0
+undercut_low + range_expand + vol_expand,616,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + hvclose_low + vol_expand,616,0,0.0,0.0037542139135764633,0.0
+downreject_low + ret20_low + vol_expand,614,0,0.0,0.0037542139135764633,0.0
+ret20_low + range_expand + vol_expand,605,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + range_expand,604,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_high + range_expand,602,0,0.0,0.0037542139135764633,0.0
+ret20_high + range_expand + vol_expand,599,0,0.0,0.0037542139135764633,0.0
+absorb_high + dist_high_near + range_expand,598,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + ret20_low,594,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + range_expand + vol_expand,586,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_low + range_expand + vol_expand,581,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + ret20_low,578,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + dist_high_near,573,0,0.0,0.0037542139135764633,0.0
+dist_high_near + range_expand + vol_expand,570,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_high + range_expand + vol_expand,570,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + volcluster_high + dist_high_near,567,0,0.0,0.0037542139135764633,0.0
+effort_low + hvclose_low + range_expand,564,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + volcluster_high + range_expand,558,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + ret20_low + vol_expand,557,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + ret20_low,549,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + ret20_high + range_expand,548,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + dist_high_near + range_expand,543,0,0.0,0.0037542139135764633,0.0
+effort_low + hvclose_low + dist_high_near,539,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + ret20_high + range_expand,534,0,0.0,0.0037542139135764633,0.0
+effort_low + hvclose_low + ret20_low,528,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + undercut_low + range_expand,528,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + downreject_low + range_expand,526,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + volcluster_high + range_expand,526,0,0.0,0.0037542139135764633,0.0
+volcluster_high + dist_high_near + range_expand + vol_expand,525,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + hvclose_low + range_expand,524,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + volcluster_high + dist_high_near,521,0,0.0,0.0037542139135764633,0.0
+ret20_high + dist_high_near + range_expand,519,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + ret20_low + range_expand,518,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + range_expand,516,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + dist_high_near + range_expand,516,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + downreject_low + dist_high_near,513,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + ret20_low,508,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + hvclose_low + dist_high_near,508,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_high + range_expand + vol_expand,505,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + hvclose_low + range_expand,503,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + hvclose_low,501,0,0.0,0.0037542139135764633,0.0
+effort_low + dist_high_near + range_expand,499,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + volcluster_high + dist_high_near,499,0,0.0,0.0037542139135764633,0.0
+hvclose_low + range_expand + vol_expand,496,0,0.0,0.0037542139135764633,0.0
+downreject_low + ret20_high + range_expand + vol_expand,488,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + ret20_high + range_expand,486,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + volcluster_high + ret20_low,477,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + hvclose_low + ret20_low,475,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_high + range_expand,469,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + dist_high_near + range_expand,462,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + ret20_high + dist_high_near,462,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + range_expand + vol_expand,460,0,0.0,0.0037542139135764633,0.0
+undercut_low + dist_high_near + vol_expand,457,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + dist_high_near + range_expand,456,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + range_expand + vol_expand,456,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + volcluster_high + range_expand,449,0,0.0,0.0037542139135764633,0.0
+absorb_high + dist_high_near + range_expand + vol_expand,448,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + volcluster_high + range_expand,444,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_low + vol_expand,441,0,0.0,0.0037542139135764633,0.0
+downreject_low + dist_high_near + range_expand + vol_expand,439,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + range_expand + vol_expand,433,0,0.0,0.0037542139135764633,0.0
+downreject_low + ret20_high + dist_high_near + range_expand,431,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_low + range_expand,420,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + ret20_high + range_expand,417,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + ret20_high + dist_high_near,412,0,0.0,0.0037542139135764633,0.0
+undercut_low + ret20_high + range_expand,411,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + hvclose_low + ret20_low,411,0,0.0,0.0037542139135764633,0.0
+downreject_low + ret20_low + range_expand + vol_expand,409,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + range_expand + vol_expand,404,0,0.0,0.0037542139135764633,0.0
+volcluster_high + ret20_high + dist_high_near + range_expand,404,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + ret20_low + vol_expand,402,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_low + range_expand,401,0,0.0,0.0037542139135764633,0.0
+undercut_low + dist_high_near + range_expand,396,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + range_expand + vol_expand,392,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + dist_high_near + vol_expand,391,0,0.0,0.0037542139135764633,0.0
+absorb_high + hvclose_low + vol_expand,387,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + undercut_low + range_expand,380,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + volcluster_high + hvclose_low,376,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_high + dist_high_near + range_expand,376,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + volcluster_high + ret20_low,374,0,0.0,0.0037542139135764633,0.0
+effort_low + dist_high_near + vol_expand,372,0,0.0,0.0037542139135764633,0.0
+ret20_high + dist_high_near + range_expand + vol_expand,371,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + hvclose_low + range_expand,370,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + ret20_low + range_expand,363,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + dist_high_near + vol_expand,362,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + range_expand + vol_expand,362,0,0.0,0.0037542139135764633,0.0
+undercut_low + ret20_high + dist_high_near + vol_expand,350,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_low + vol_expand,348,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + ret20_low + range_expand,345,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + hvclose_low + vol_expand,344,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + dist_high_near + vol_expand,339,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + ret20_high + dist_high_near,339,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + ret20_high + range_expand,339,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + ret20_low + range_expand,336,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + dist_high_near + vol_expand,333,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + ret20_high + range_expand,331,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + ret20_high + range_expand,329,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + hvclose_low + vol_expand,328,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + dist_high_near + range_expand,328,0,0.0,0.0037542139135764633,0.0
+hvclose_low + ret20_low + vol_expand,317,0,0.0,0.0037542139135764633,0.0
+absorb_high + ret20_low + range_expand + vol_expand,317,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + ret20_low + vol_expand,314,0,0.0,0.0037542139135764633,0.0
+undercut_low + hvclose_low + dist_high_near,311,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + volcluster_high + dist_high_near,308,0,0.0,0.0037542139135764633,0.0
+undercut_low + ret20_high + range_expand + vol_expand,308,0,0.0,0.0037542139135764633,0.0
+hvclose_low + ret20_low + range_expand,306,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + dist_high_near + vol_expand,305,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + volcluster_high + dist_high_near,301,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_high + range_expand + vol_expand,301,0,0.0,0.0037542139135764633,0.0
+absorb_high + hvclose_low + range_expand,299,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + hvclose_low + vol_expand,291,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + ret20_low + vol_expand,291,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + ret20_low + vol_expand,291,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + ret20_high + range_expand,286,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + undercut_low + dist_high_near,285,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + dist_high_near + range_expand,285,0,0.0,0.0037542139135764633,0.0
+effort_low + downreject_low + ret20_low + vol_expand,284,0,0.0,0.0037542139135764633,0.0
+undercut_low + ret20_low,282,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + hvclose_low + dist_high_near,279,0,0.0,0.0037542139135764633,0.0
+effort_low + volcluster_high + hvclose_low + ret20_low,276,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + ret20_high + range_expand,269,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + dist_high_near + range_expand,267,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + ret20_low + range_expand,265,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + ret20_high + range_expand,261,0,0.0,0.0037542139135764633,0.0
+absorb_high + volcluster_high + hvclose_low + range_expand,260,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_low + range_expand + vol_expand,259,0,0.0,0.0037542139135764633,0.0
+hvclose_low + ret20_high + dist_high_near,258,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + ret20_low + range_expand,257,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + ret20_low + vol_expand,256,0,0.0,0.0037542139135764633,0.0
+undercut_low + ret20_high + dist_high_near + range_expand,256,0,0.0,0.0037542139135764633,0.0
+effort_low + hvclose_low + range_expand + vol_expand,255,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_high + dist_high_near + range_expand,249,0,0.0,0.0037542139135764633,0.0
+effort_low + ret20_high + dist_high_near + vol_expand,246,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + undercut_low + range_expand,244,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + ret20_low + range_expand,244,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + hvclose_low + dist_high_near,241,0,0.0,0.0037542139135764633,0.0
+undercut_low + hvclose_low + range_expand,230,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + dist_high_near + range_expand,229,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + ret20_low,225,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + ret20_high + dist_high_near,225,0,0.0,0.0037542139135764633,0.0
+undercut_low + dist_high_near + range_expand + vol_expand,225,0,0.0,0.0037542139135764633,0.0
+absorb_high + undercut_low + dist_high_near + range_expand,222,0,0.0,0.0037542139135764633,0.0
+absorb_high + hvclose_low + range_expand + vol_expand,221,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + ret20_low,212,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + ret20_low,210,0,0.0,0.0037542139135764633,0.0
+volcluster_high + hvclose_low + dist_high_near,209,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + hvclose_low + range_expand,208,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + dist_high_near + vol_expand,206,0,0.0,0.0037542139135764633,0.0
+effort_low + dist_high_near + range_expand + vol_expand,206,0,0.0,0.0037542139135764633,0.0
+hvclose_low + ret20_low + range_expand + vol_expand,206,0,0.0,0.0037542139135764633,0.0
+absorb_high + hvclose_low + ret20_low,204,0,0.0,0.0037542139135764633,0.0
+downreject_low + volcluster_high + hvclose_low + dist_high_near,196,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + downreject_low + ret20_low,193,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + dist_high_near + vol_expand,193,0,0.0,0.0037542139135764633,0.0
+absorb_high + hvclose_low + dist_high_near,192,0,0.0,0.0037542139135764633,0.0
+effort_low + hvclose_low + ret20_high + dist_high_near,191,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + dist_high_near + range_expand,180,0,0.0,0.0037542139135764633,0.0
+downreject_low + undercut_low + hvclose_low + range_expand,180,0,0.0,0.0037542139135764633,0.0
+effort_low + hvclose_low + ret20_low + range_expand,176,0,0.0,0.0037542139135764633,0.0
+hvclose_low + dist_high_near + range_expand,165,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + ret20_low,164,0,0.0,0.0037542139135764633,0.0
+effort_low + undercut_low + hvclose_low + range_expand,163,0,0.0,0.0037542139135764633,0.0
+absorb_high + downreject_low + hvclose_low + ret20_low,160,0,0.0,0.0037542139135764633,0.0
+undercut_low + volcluster_high + hvclose_low + range_expand,155,0,0.0,0.0037542139135764633,0.0
+absorb_high + effort_low + volcluster_high + hvclose_low,154,0,0.0,0.0037542139135764633,0.0
+undercut_low + hvclose_low + ret20_high + dist_high_near,154,0,0.0,0.0037542139135764633,0.0
+downreject_low + hvclose_low + dist_high_near + range_expand,150,0,0.0,0.0037542139135764633,0.0
