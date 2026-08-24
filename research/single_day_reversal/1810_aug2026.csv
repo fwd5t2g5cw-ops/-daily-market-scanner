@@ -1,0 +1,2 @@
+setup,score,clv,body_frac,vol_ratio20,ema20_reclaim,prev_high_reclaim,ret5_before,ret10_before,close,ret_fwd_1d,maxup_fwd_1d,maxdd_fwd_1d,ret_fwd_3d,maxup_fwd_3d,maxdd_fwd_3d,ret_fwd_5d,maxup_fwd_5d,maxdd_fwd_5d,ret_fwd_10d,maxup_fwd_10d,maxdd_fwd_10d,symbol,date,grade_score
+True,5,0.727272595912788,0.5151511210716975,0.949840288504813,False,False,-0.018004484057899228,-0.06366233324683412,26.18000030517578,0.04812835042758712,0.0725744689221659,0.007639375601965925,0.10847976010246363,0.11153552491428598,0.007639375601965925,,,,,,,1810.HK,2026-08-18,5
