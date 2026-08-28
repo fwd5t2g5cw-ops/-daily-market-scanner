@@ -1,6 +1,1 @@
-symbol,marker,blue_marker,candle,current_price,day_open,day_high,day_low,day_volume,breakout_level,breakout_age_days,ema20_live,ema50_live,sma200_live,distance_above_ema20_pct,avg_volume_20,avg_dollar_volume_20,pct_below_52w_high,benchmark_symbol,rs_vs_benchmark_pct,rs_vs_spy_pct,market_pass,strong_uptrend,not_overextended,liquid_stock,near_year_high,outperforming_benchmark,outperforming_spy,slight_undercut,reclaimed_level,bullish_reclaim_candle,market_cap_cad
-CS.TO,ENTRY,True,BULL,16.54,16.28,16.565,16.2,1209273.0,16.23,4,15.4729,14.5313,13.3202,6.896,3181259.0,49418459.0,8.315,XIU.TO,2.809,2.809,True,True,True,True,True,True,True,True,True,True,12620443430.0
-IMG.TO,ENTRY,True,BULL,29.83,29.58,30.205,29.03,1372297.0,29.39,4,26.8456,24.7668,24.4907,11.117,2075660.0,55191988.0,12.496,XIU.TO,12.223,12.223,True,True,True,True,True,True,True,True,True,True,17044350218.0
-IMO.TO,ENTRY,True,BULL,183.17,182.0,183.56,179.83,495650.0,182.73,11,182.965,178.16,159.5576,0.112,822688.0,150600818.0,4.21,XIU.TO,5.156,5.156,True,True,True,True,True,True,True,True,True,True,88608691103.0
-PXT.TO,ENTRY,True,BULL,27.94,27.18,27.97,26.85,429850.0,27.39,8,26.5398,25.347,22.7432,5.276,874018.0,22911747.0,6.115,XIU.TO,10.509,10.509,True,True,True,True,True,True,True,True,True,True,2687276348.0
-WCP.TO,ENTRY,True,BULL,18.04,17.84,18.13,17.725,3493468.0,17.99,6,17.3252,16.5793,14.0969,4.126,5098928.0,87510461.0,1.367,XIU.TO,7.394,7.394,True,True,True,True,True,True,True,True,True,True,21922677835.0
+
