@@ -1,0 +1,81 @@
+name: 🚀 Breakout Buildup US Scanner
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - breakout-buildup-playbook-v1
+    paths:
+      - breakout_buildup_scanner.py
+      - .github/workflows/breakout-buildup-us.yml
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build fresh US universe
+        run: python build_universes.py --markets us
+
+      - name: Run Breakout Buildup Playbook scanner
+        run: |
+          mkdir -p breakout_buildup_results/us
+          python breakout_buildup_scanner.py \
+            --symbols data/us_universe.txt \
+            --output breakout_buildup_results/us/all_results.csv
+
+      - name: Create actionable shortlist
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+
+          src = Path('breakout_buildup_results/us/all_results.csv')
+          outdir = src.parent
+          if not src.exists() or src.stat().st_size == 0:
+              pd.DataFrame().to_csv(outdir / 'actionable.csv', index=False)
+              print('No scanner output found.')
+              raise SystemExit(0)
+
+          df = pd.read_csv(src)
+          if 'status' not in df.columns:
+              pd.DataFrame().to_csv(outdir / 'actionable.csv', index=False)
+              print('No status column found.')
+              raise SystemExit(0)
+
+          actionable = df[df['status'].isin(['BREAKOUT', 'WATCH'])].copy()
+          actionable.to_csv(outdir / 'actionable.csv', index=False)
+          actionable.head(30).to_csv(outdir / 'top30.csv', index=False)
+
+          print('\n=== ACTIONABLE BREAKOUT / WATCH ===')
+          if actionable.empty:
+              print('(none)')
+          else:
+              cols = [c for c in [
+                  'symbol','status','score','close','pct_below_hist_high',
+                  'buildup_top','buildup_bottom','fib_0236','resistance_touches',
+                  'volume_contracting','range_contracting','candles_shrinking_bonus',
+                  'entry','stop','target1','target2','rr_target1','rr_target2'
+              ] if c in actionable.columns]
+              print(actionable[cols].head(30).to_string(index=False))
+          print(f'\nActionable count: {len(actionable)}')
+          PY
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: breakout-buildup-us-${{ github.run_number }}
+          path: breakout_buildup_results/us/
+          retention-days: 30
