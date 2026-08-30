@@ -7,6 +7,7 @@ on:
       - breakout-buildup-playbook-v1
     paths:
       - breakout_buildup_scanner.py
+      - build_us_1b_universe.py
       - .github/workflows/breakout-buildup-us.yml
 
 jobs:
@@ -24,14 +25,14 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build fresh US universe
-        run: python build_universes.py --markets us
+      - name: Build fresh US stock-only universe
+        run: python build_us_1b_universe.py --min-market-cap 1000000000
 
-      - name: Run Breakout Buildup Playbook scanner
+      - name: Run Breakout Buildup Playbook scanner v2
         run: |
           mkdir -p breakout_buildup_results/us
           python breakout_buildup_scanner.py \
-            --symbols data/us_universe.txt \
+            --symbols data/us_1b_universe.txt \
             --output breakout_buildup_results/us/all_results.csv
 
       - name: Create actionable shortlist
@@ -58,13 +59,14 @@ jobs:
           actionable.to_csv(outdir / 'actionable.csv', index=False)
           actionable.head(30).to_csv(outdir / 'top30.csv', index=False)
 
-          print('\n=== ACTIONABLE BREAKOUT / WATCH ===')
+          print('\n=== ACTIONABLE BREAKOUT / WATCH V2 ===')
           if actionable.empty:
               print('(none)')
           else:
               cols = [c for c in [
                   'symbol','status','score','close','pct_below_hist_high',
-                  'buildup_top','buildup_bottom','fib_0236','resistance_touches',
+                  'buildup_top','buildup_bottom','buildup_height_pct','fib_0236',
+                  'resistance_touches','impulse_low','impulse_high','impulse_reaches_buildup',
                   'volume_contracting','range_contracting','candles_shrinking_bonus',
                   'entry','stop','target1','target2','rr_target1','rr_target2'
               ] if c in actionable.columns]
@@ -76,6 +78,6 @@ jobs:
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: breakout-buildup-us-${{ github.run_number }}
+          name: breakout-buildup-us-v2-${{ github.run_number }}
           path: breakout_buildup_results/us/
           retention-days: 30
