@@ -1,0 +1,77 @@
+name: Breakout Buildup Canada HK Scan
+
+on:
+  push:
+    branches: [breakout-buildup-playbook-v1]
+    paths:
+      - '.github/workflows/breakout-buildup-ca-hk-scan.yml'
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy yfinance requests openpyxl
+
+      - name: Build TSX and HK universes
+        run: |
+          python build_universes.py --markets tsx,hk
+          echo "TSX symbols: $(wc -l < data/tsx_universe.txt)"
+          echo "HK symbols: $(wc -l < data/hk_universe.txt)"
+
+      - name: Scan Canada TSX
+        run: |
+          python breakout_buildup_scanner.py \
+            --symbols data/tsx_universe.txt \
+            --output breakout_buildup_ca.csv \
+            --period 2y
+
+      - name: Scan Hong Kong
+        run: |
+          python breakout_buildup_scanner.py \
+            --symbols data/hk_universe.txt \
+            --output breakout_buildup_hk.csv \
+            --period 2y
+
+      - name: Show actionable Canada
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p='breakout_buildup_ca.csv'
+          df=pd.read_csv(p)
+          x=df[df['status'].isin(['BREAKOUT','WATCH'])] if len(df) else df
+          print('CANADA ACTIONABLE:', len(x))
+          cols=['symbol','status','score','close','buildup_top','buildup_bottom','resistance_touches','fib_0236','entry','stop','target1','target2','rr_target2']
+          print(x[cols].head(50).to_string(index=False) if len(x) else '(none)')
+          PY
+
+      - name: Show actionable Hong Kong
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p='breakout_buildup_hk.csv'
+          df=pd.read_csv(p)
+          x=df[df['status'].isin(['BREAKOUT','WATCH'])] if len(df) else df
+          print('HONG KONG ACTIONABLE:', len(x))
+          cols=['symbol','status','score','close','buildup_top','buildup_bottom','resistance_touches','fib_0236','entry','stop','target1','target2','rr_target2']
+          print(x[cols].head(50).to_string(index=False) if len(x) else '(none)')
+          PY
+
+      - name: Upload scan results
+        uses: actions/upload-artifact@v4
+        with:
+          name: breakout-buildup-ca-hk-${{ github.run_number }}
+          path: |
+            breakout_buildup_ca.csv
+            breakout_buildup_hk.csv
+            data/tsx_universe.txt
+            data/hk_universe.txt
