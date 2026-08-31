@@ -1,0 +1,38 @@
+name: EMA20 Fib Exit Matrix Study
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - breakout-buildup-playbook-v1
+    paths:
+      - 'ema20_fib0236_exit_study.py'
+      - '.github/workflows/ema20-fib-exit-study.yml'
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy yfinance
+      - name: Run 5-year exit matrix study
+        run: |
+          python ema20_fib0236_exit_study.py \
+            --symbols data/us_1b_universe.txt \
+            --period 5y \
+            --output-dir ema20_fib_exit_output
+      - name: Show top results
+        run: |
+          cat ema20_fib_exit_output/top_results.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ema20-fib-exit-${{ github.run_number }}
+          path: ema20_fib_exit_output/

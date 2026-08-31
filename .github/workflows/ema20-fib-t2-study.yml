@@ -1,0 +1,40 @@
+name: EMA20 Fib T2 Optimization Study
+
+on:
+  push:
+    branches:
+      - breakout-buildup-playbook-v1
+    paths:
+      - 'ema20_fib0236_t2_study.py'
+      - '.github/workflows/ema20-fib-t2-study.yml'
+      - 'ema20_fib0236_exit_study.py'
+      - 'ema20_fib0236_v2_study.py'
+      - 'data/us_1b_universe.txt'
+  workflow_dispatch:
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy yfinance
+      - name: Run 5-year T2 optimization
+        run: |
+          python ema20_fib0236_t2_study.py \
+            --symbols data/us_1b_universe.txt \
+            --period 5y \
+            --output-dir ema20_fib_t2_output
+      - name: Show results
+        run: cat ema20_fib_t2_output/top_results.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ema20-fib-t2-${{ github.run_number }}
+          path: ema20_fib_t2_output/
