@@ -1,0 +1,31 @@
+name: EMA20 Fib 0.236 Live 3 Markets
+on:
+  workflow_dispatch:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt openpyxl
+      - name: Build universes
+        run: |
+          python build_us_1b_universe.py --min-market-cap 1000000000
+          python build_universes.py --markets tsx,hk
+      - name: Scan US
+        run: python ema20_fib0236_live_scanner.py --symbols data/us_1b_universe.txt --output ema20_fib_live_results/us/results.csv
+      - name: Scan Canada TSX
+        run: python ema20_fib0236_live_scanner.py --symbols data/tsx_universe.txt --output ema20_fib_live_results/canada/results.csv
+      - name: Scan Hong Kong
+        run: python ema20_fib0236_live_scanner.py --symbols data/hk_universe.txt --output ema20_fib_live_results/hk/results.csv
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ema20-fib-live-3markets-${{ github.run_number }}
+          path: ema20_fib_live_results/
+          retention-days: 30
