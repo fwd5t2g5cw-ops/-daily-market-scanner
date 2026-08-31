@@ -1,0 +1,50 @@
+name: Gap + EMA20 Fib Study
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - breakout-buildup-playbook-v1
+    paths:
+      - 'gap_and_ema20_study.py'
+      - '.github/workflows/gap-ema20-study.yml'
+
+jobs:
+  study:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy yfinance
+
+      - name: Run 5-year US study
+        run: |
+          python gap_and_ema20_study.py \
+            --symbols data/us_1b_universe.txt \
+            --period 5y \
+            --output-dir gap_ema20_output \
+            --ema-fib-max-distance-pct 1.0 \
+            --apply-gap-filter
+
+      - name: Show summaries
+        run: |
+          echo '--- Breakout gap comparison ---'
+          cat gap_ema20_output/breakout_gap_comparison.json
+          echo '--- EMA20 + Fib 0.236 ---'
+          cat gap_ema20_output/ema20_fib0236_summary.json
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: gap-ema20-study-${{ github.run_number }}
+          path: gap_ema20_output/
