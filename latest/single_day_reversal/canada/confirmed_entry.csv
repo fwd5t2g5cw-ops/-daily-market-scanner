@@ -1,1 +1,2 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
+RUS.TO,CANADA,CONFIRMED_ENTRY,3,73.7699966430664,70.85473304275928,0.03951828294655523,False,2026-08-26,72.53465270996094,73.190711120569,70.85473304275928,78.08136596788356,0.7191504420181866,0.570214824410184,0.9089182058047494,False,False,False,5,76.68526024337353,79.60052384368066,False
