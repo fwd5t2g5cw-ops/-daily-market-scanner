@@ -67,3 +67,5 @@ jobs:
           name: double-reclaim-${{ matrix.market }}-${{ github.run_number }}
           path: double_reclaim_results/${{ matrix.market }}/
           retention-days: 30
+
+# Manual trigger: 2026-08-31 all three markets
