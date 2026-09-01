@@ -1,3 +1,4 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-3968.HK,PRE_ENTRY,B,7,True,B,7,50.95,51.45,0.97,49.07,48.242,47.756,3.83,8.94,0.97,False,False
-1398.HK,PRE_ENTRY,B,7,True,B,7,7.57,7.66,1.17,7.364,7.177,6.58,2.8,12.45,1.17,False,False
+0019.HK,PRE_ENTRY,A,10,True,A,9,105.7,106.5,0.75,102.639,96.755,80.89,2.98,25.43,0.75,False,True
+2388.HK,PRE_ENTRY,A,8,True,A,8,52.25,52.7,0.85,50.576,49.036,42.771,3.31,11.39,0.85,False,False
+0300.HK,PRE_ENTRY,A,8,True,B,7,100.4,101.7,1.28,97.744,94.286,85.81,2.72,17.15,1.28,False,False
