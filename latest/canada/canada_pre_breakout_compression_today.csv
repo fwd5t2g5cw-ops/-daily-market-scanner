@@ -2,5 +2,5 @@ symbol,setup,grade,score,compression_setup,compression_grade,compression_score,c
 JWEL.TO,PRE_ENTRY,A,11,True,A,11,45.49,45.88,0.85,44.847,42.58,36.535,1.43,25.69,0.85,True,True
 PLZ-UN.TO,PRE_ENTRY,A,10,True,A,10,5.28,5.346,1.24,5.243,5.083,4.421,0.7,15.23,1.24,True,True
 CXI.TO,PRE_ENTRY,A,9,True,A,9,30.0,30.5,1.64,29.714,29.065,25.951,0.96,19.16,1.64,True,False
-GVC.TO,PRE_ENTRY,B,7,True,A,8,0.375,0.38,1.32,0.371,0.36,0.313,1.09,5.49,1.32,False,True
+GVC.TO,PRE_ENTRY,A,8,True,A,8,0.38,0.38,0.0,0.371,0.36,0.313,2.3,6.96,0.0,False,True
 IMO.TO,PRE_ENTRY,B,7,True,B,7,187.68,191.22,1.85,183.325,178.495,159.824,2.38,8.03,1.85,False,True
