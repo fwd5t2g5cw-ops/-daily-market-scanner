@@ -1,1 +1,2 @@
-
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
+FFH.TO,CANADA,CONFIRMED_ENTRY,3,2311.81005859375,2220.18994140625,0.039631334264213544,False,2026-08-27,2280.800048828125,2285.14990234375,2220.18994140625,2305.590087890625,0.9330379290127633,0.5911356153880846,1.1693659072193248,True,False,False,6,2403.43017578125,2495.05029296875,True
