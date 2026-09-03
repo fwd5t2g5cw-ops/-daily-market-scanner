@@ -1,5 +1,5 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-1398.HK,PRE_ENTRY,A,9,True,A,9,7.69,7.69,0.0,7.423,7.216,6.597,3.6,12.73,0.58,False,True
-0019.HK,PRE_ENTRY,A,10,True,A,9,105.7,106.5,0.75,102.93,97.106,81.095,2.69,22.64,0.75,False,True
-2388.HK,PRE_ENTRY,A,8,True,A,8,52.65,52.7,0.09,50.774,49.177,42.849,3.7,11.65,0.19,False,False
-0300.HK,PRE_ENTRY,B,7,True,B,7,99.95,101.7,1.72,97.954,94.508,85.9,2.04,13.78,1.72,False,False
+3328.HK,PRE_ENTRY,A,8,True,A,8,7.86,7.93,0.88,7.568,7.361,6.885,3.85,7.43,2.72,False,True
+0939.HK,PRE_ENTRY,A,8,True,A,8,9.565,9.7,1.39,9.197,8.889,8.138,4.0,12.83,2.55,False,True
+0300.HK,PRE_ENTRY,A,8,True,B,7,100.5,101.7,1.18,98.197,94.743,85.987,2.35,16.62,1.18,False,False
+2388.HK,PRE_ENTRY,B,7,True,B,7,52.1,52.75,1.23,50.9,49.292,42.922,2.36,10.69,1.7,False,False
