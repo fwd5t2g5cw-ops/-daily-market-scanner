@@ -1,1 +1,3 @@
-
+symbol,marker,blue_marker,candle,current_price,day_open,day_high,day_low,day_volume,breakout_level,breakout_age_days,ema20_live,ema50_live,sma200_live,distance_above_ema20_pct,avg_volume_20,avg_dollar_volume_20,pct_below_52w_high,benchmark_symbol,rs_vs_benchmark_pct,rs_vs_spy_pct,market_pass,strong_uptrend,not_overextended,liquid_stock,near_year_high,outperforming_benchmark,outperforming_spy,slight_undercut,reclaimed_level,bullish_reclaim_candle,market_cap_cad
+ARIS.TO,ENTRY,True,BULL,28.37,28.29,28.75,27.81,551418.0,27.89,9,26.4682,24.6221,24.1177,7.185,780176.0,20684777.0,9.851,XIU.TO,13.957,13.957,True,True,True,True,True,True,True,True,True,True,5854374579.0
+POW.TO,ENTRY,True,BULL,94.1,91.62,94.14,91.62,1791214.0,93.92,23,92.3956,90.6976,76.7853,1.845,1467681.0,136621456.0,3.645,XIU.TO,7.668,7.668,True,True,True,True,True,True,True,True,True,True,59018949759.0
