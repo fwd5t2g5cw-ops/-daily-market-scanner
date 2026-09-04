@@ -1,1 +1,2 @@
-
+symbol,marker,blue_marker,candle,current_price,day_open,day_high,day_low,day_volume,breakout_level,breakout_age_days,ema20_live,ema50_live,sma200_live,distance_above_ema20_pct,avg_volume_20,avg_dollar_volume_20,pct_below_52w_high,benchmark_symbol,rs_vs_benchmark_pct,rs_vs_spy_pct,market_pass,strong_uptrend,not_overextended,liquid_stock,near_year_high,outperforming_benchmark,outperforming_spy,slight_undercut,reclaimed_level,bullish_reclaim_candle,market_cap_cad
+DSV.TO,ENTRY,True,BULL,13.09,12.93,13.145,12.86,1766654.0,13.07,1,11.9193,10.666,9.2805,9.822,2460088.0,29579869.0,2.532,XIU.TO,65.949,65.949,True,True,True,True,True,True,True,True,True,True,10681216180.0
