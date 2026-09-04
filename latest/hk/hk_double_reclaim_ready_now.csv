@@ -1,3 +1,1 @@
 symbol,status,grade,quality_score,market_cap_hkd,market_cap_hkd_bn,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_2800_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-1093.HK,READY_NOW,B,6,108693946368.0,108.69,9.61,9.19,9.22,9.169,0.549,36.02,14.22,10,-0.33,2,0,0,NONE,True,True,True
-6690.HK,READY_NOW,D,2,193788772352.0,193.79,21.18,20.7,21.116,21.168,0.242,6.06,21.32,26,-1.97,0,0,2,BOTH,True,True,True
