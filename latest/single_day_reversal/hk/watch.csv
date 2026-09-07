@@ -1,2 +1,3 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,target_1R,target_2R,both_highs,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
-2670.HK,HK,WATCH,0,,103.5999984741211,,,,,False,2026-09-04,111.19999694824219,114.0999984741211,103.5999984741211,130.3000030517578,0.7238093784877232,0.6857139950706845,1.428108536248755,True,False,False,6
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
+9961.HK,HK,WATCH,0,,322.0,,False,2026-09-07,326.6000061035156,327.0,322.0,359.6000061035156,0.920001220703125,0.920001220703125,1.4781543575521867,True,False,False,6,,,
+9626.HK,HK,WATCH,0,,116.4000015258789,,False,2026-09-07,123.80000305175781,125.69999694824219,116.4000015258789,131.1999969482422,0.7956994804625876,0.6129040197084585,7.106119264378088,True,False,False,6,,,
