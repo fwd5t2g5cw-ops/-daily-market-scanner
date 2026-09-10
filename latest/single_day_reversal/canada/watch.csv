@@ -1,2 +1,1 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
-ATD.TO,CANADA,WATCH,0,,79.12999725341797,,False,2026-09-09,79.88999938964844,80.0999984741211,79.12999725341797,84.95999908447266,0.7835063709296838,0.3505112474437628,1.2175014852176584,True,False,False,6
+
