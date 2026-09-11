@@ -1,1 +1,3 @@
-
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
+KEL.TO,CANADA,WATCH,0,,10.170000076293945,,False,2026-09-11,10.699999809265137,10.710000038146973,10.170000076293945,10.75,0.9814810563180045,0.8333330389893877,1.4947233472533537,True,True,False,7
+HR-UN.TO,CANADA,WATCH,0,,9.430000305175781,,False,2026-09-11,9.6899995803833,9.699999809265137,9.430000305175781,9.90999984741211,0.9629620472246261,0.7407413948395528,0.7321268936743808,False,False,False,5
