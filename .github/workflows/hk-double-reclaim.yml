@@ -22,16 +22,30 @@ jobs:
 
       - name: Gate scheduled runs to HK 3PM or Toronto 6PM
         if: github.event_name == 'schedule'
+        env:
+          TRIGGER_CRON: ${{ github.event.schedule }}
         run: |
           python - <<'PY'
+          import os
           from datetime import datetime
           from zoneinfo import ZoneInfo
-          hk = datetime.now(ZoneInfo('Asia/Hong_Kong'))
+
+          trigger = os.environ.get('TRIGGER_CRON', '').strip()
+
+          # HK has no DST. If the fixed 07:00 UTC cron fired, allow the run
+          # even when GitHub starts it late (for example at 15:54 HK).
+          if trigger == '0 7 * * 1-5':
+              raise SystemExit(0)
+
+          # Toronto uses a DST-safe pair (22:00 / 23:00 UTC). Only allow
+          # whichever cron corresponds to 18:00 local Toronto time.
           tor = datetime.now(ZoneInfo('America/Toronto'))
-          hk_preclose = hk.weekday() < 5 and hk.hour == 15 and hk.minute <= 45
-          tor_evening = tor.weekday() < 5 and tor.hour == 18 and tor.minute <= 45
-          if not (hk_preclose or tor_evening):
-              raise SystemExit('Outside HK 3PM / Toronto 6PM scan window; skip duplicate DST cron')
+          if trigger in {'0 22 * * 1-5', '0 23 * * 1-5'} and tor.weekday() < 5 and tor.hour == 18:
+              raise SystemExit(0)
+
+          raise SystemExit(
+              f'Outside intended HK/Toronto scan window: trigger={trigger!r}, Toronto={tor.isoformat()}'
+          )
           PY
 
       - uses: actions/setup-python@v5
