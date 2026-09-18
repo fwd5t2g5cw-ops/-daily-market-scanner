@@ -1,7 +1,5 @@
 symbol,status,grade,quality_score,market_cap_hkd,market_cap_hkd_bn,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_2800_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-0144.HK,READY_NOW,A+,14,69644967936.0,69.64,16.68,16.2,16.2,16.214,0.084,25.17,3.52,11,0.0,2,1,3,BOTH,True,True,True
-0939.HK,READY_NOW,B,9,2550603710464.0,2550.6,9.675,9.495,9.5,9.505,0.048,13.82,2.27,11,-0.05,2,1,2,BOTH,True,True,True
-2359.HK,READY_NOW,B,8,571386167296.0,571.39,198.0,192.0,192.441,193.534,0.568,52.52,6.95,27,-0.23,2,1,1,FORMING_NOW,True,True,True
-2343.HK,READY_NOW,B,7,22004627456.0,22.0,4.205,4.005,4.095,4.132,0.904,51.02,5.51,18,-2.2,0,1,2,BOTH,True,True,True
-0517.HK,READY_NOW,C,3,9184311296.0,9.18,6.37,6.2,6.289,6.187,1.626,16.97,11.09,11,-1.41,0,0,1,FORMING_NOW,True,True,True
-2602.HK,READY_NOW,D,4,21989011456.0,21.99,18.98,18.8,18.848,18.817,0.165,7.84,22.83,9,-0.26,2,0,2,BOTH,True,True,True
+2602.HK,READY_NOW,B,7,21989011456.0,21.99,18.87,18.33,18.848,18.822,0.139,11.81,23.28,10,-2.75,0,0,3,BOTH,True,True,True
+1038.HK,READY_NOW,B,7,167050215424.0,167.05,65.4,64.15,64.755,64.682,0.111,11.09,1.58,19,-0.93,1,0,2,BOTH,True,True,True
+2245.HK,READY_NOW,B,6,25968496640.0,25.97,17.43,16.82,17.02,17.151,0.772,22.81,39.87,19,-1.18,0,0,2,BOTH,True,True,True
+8279.HK,READY_NOW,B,5,15656340480.0,15.66,1.415,1.335,1.35,1.337,0.975,88.54,15.77,23,-1.11,0,0,1,FORMING_NOW,True,True,True
