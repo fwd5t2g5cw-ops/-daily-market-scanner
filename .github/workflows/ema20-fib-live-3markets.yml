@@ -1,12 +1,32 @@
 name: EMA20 Fib 0.236 Live 3 Markets
 on:
   workflow_dispatch:
+  schedule:
+    # GitHub cron uses UTC. Run at both possible 7 PM Toronto UTC times,
+    # then gate the job so DST/EST changes still produce one run at 7 PM.
+    - cron: '0 23 * * 1-5'
+    - cron: '0 0 * * 2-6'
 
 jobs:
   scan:
+    # Manual dispatch always runs. Scheduled runs proceed only when
+    # Toronto local time is 19:00 on a weekday.
+    if: ${{ github.event_name == 'workflow_dispatch' || (github.event_name == 'schedule' && format('{0:HH}', fromJSON(steps.toronto-time.outputs.result)) == '19') }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
+      - name: Check Toronto local time
+        id: toronto-time
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            return new Intl.DateTimeFormat('en-CA', {
+              timeZone: 'America/Toronto',
+              hour: '2-digit',
+              hour12: false
+            }).format(new Date());
+
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
