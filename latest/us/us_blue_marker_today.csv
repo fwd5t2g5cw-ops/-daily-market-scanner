@@ -1,1 +1,7 @@
-
+symbol,marker,blue_marker,candle,current_price,day_open,day_high,day_low,day_volume,breakout_level,breakout_age_days,ema20_live,ema50_live,sma200_live,distance_above_ema20_pct,avg_volume_20,avg_dollar_volume_20,pct_below_52w_high,benchmark_symbol,rs_vs_benchmark_pct,rs_vs_spy_pct,market_pass,strong_uptrend,not_overextended,liquid_stock,near_year_high,outperforming_benchmark,outperforming_spy,slight_undercut,reclaimed_level,bullish_reclaim_candle,market_cap_usd
+IQV,ENTRY,True,BULL,269.87,266.76,270.86,265.25,1615036.0,266.08,11,261.4471,243.9722,203.8494,3.222,1588937.0,420268074.0,1.464,SPY,56.647,56.647,True,True,True,True,True,True,True,True,True,True,
+ESTC,ENTRY,True,BULL,89.7,87.51,90.12,86.96,1052264.0,88.21,15,86.2195,79.2426,64.4009,4.037,3006203.0,270999872.0,16.944,SPY,48.562,48.562,True,True,True,True,True,True,True,True,True,True,
+S,ENTRY,True,BULL,23.8,22.59,23.805,22.36,7000967.0,22.62,26,21.6477,20.4932,16.3073,9.943,9573668.0,206537720.0,1.876,SPY,57.294,57.294,True,True,True,True,True,True,True,True,True,True,
+RNG,ENTRY,True,BULL,77.3175,72.67,77.7099,72.67,1167248.0,72.85,11,70.5546,62.8866,41.9384,9.585,1448827.0,103091589.0,0.811,SPY,118.202,118.202,True,True,True,True,True,True,True,True,True,True,
+IMAX,ENTRY,True,BULL,54.055,53.02,54.89,52.565,988918.0,52.62,26,52.065,49.3877,40.5608,3.822,929011.0,48748616.0,2.726,SPY,18.681,18.681,True,True,True,True,True,True,True,True,True,True,
+HRMY,ENTRY,True,BULL,42.08,41.87,42.5199,41.2,538732.0,41.49,12,41.1399,39.0916,34.5841,2.285,1035362.0,43021449.0,3.242,SPY,21.704,21.704,True,True,True,True,True,True,True,True,True,True,
