@@ -20,56 +20,56 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Gate scheduled runs to HK 3PM or Toronto 6PM
-        if: github.event_name == 'schedule'
+      - name: Gate scheduled runs without failing delayed cron jobs
+        id: gate
+        shell: bash
         env:
           TRIGGER_CRON: ${{ github.event.schedule }}
         run: |
-          python - <<'PY'
-          import os
-          from datetime import datetime
-          from zoneinfo import ZoneInfo
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run_scan=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
 
-          trigger = os.environ.get('TRIGGER_CRON', '').strip()
-
-          # HK has no DST. If the fixed 07:00 UTC cron fired, allow the run
-          # even when GitHub starts it late (for example at 15:54 HK).
-          if trigger == '0 7 * * 1-5':
-              raise SystemExit(0)
-
-          # Toronto uses a DST-safe pair (22:00 / 23:00 UTC). Only allow
-          # whichever cron corresponds to 18:00 local Toronto time.
-          tor = datetime.now(ZoneInfo('America/Toronto'))
-          if trigger in {'0 22 * * 1-5', '0 23 * * 1-5'} and tor.weekday() < 5 and tor.hour == 18:
-              raise SystemExit(0)
-
-          raise SystemExit(
-              f'Outside intended HK/Toronto scan window: trigger={trigger!r}, Toronto={tor.isoformat()}'
-          )
-          PY
+          OFFSET=$(TZ=America/Toronto date +%z)
+          case "$TRIGGER_CRON:$OFFSET" in
+            "0 7 * * 1-5:-0400"|"0 7 * * 1-5:-0500"|"0 22 * * 1-5:-0400"|"0 23 * * 1-5:-0500")
+              echo "run_scan=true" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "run_scan=false" >> "$GITHUB_OUTPUT"
+              echo "Skipping duplicate DST cron: trigger=$TRIGGER_CRON Toronto_offset=$OFFSET"
+              ;;
+          esac
 
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run_scan == 'true'
         with:
           python-version: '3.12'
           cache: pip
 
       - name: Install dependencies
+        if: steps.gate.outputs.run_scan == 'true'
         run: pip install -r requirements.txt openpyxl
 
       - name: Run fast HK Double Reclaim scanner
+        if: steps.gate.outputs.run_scan == 'true'
         run: python hk_double_reclaim_scanner.py
 
       - name: Run exact TradingView Pine ENTRY scanner
+        if: steps.gate.outputs.run_scan == 'true'
         run: python pine_entry_scanner.py --market hk
 
       - name: Run PRE-ENTRY setup watch
+        if: steps.gate.outputs.run_scan == 'true'
         run: python pre_entry_scanner.py --market hk
 
       - name: Merge ENTRY, Double Reclaim, Reclaim Breakout and candle patterns
+        if: steps.gate.outputs.run_scan == 'true'
         run: python merge_signal_candles.py --market hk
 
       - name: Publish latest HK results
-        if: success()
+        if: steps.gate.outputs.run_scan == 'true' && success()
         run: |
           rm -rf latest/hk
           mkdir -p latest/hk
@@ -92,7 +92,7 @@ jobs:
 
       - name: Upload results
         uses: actions/upload-artifact@v4
-        if: always()
+        if: steps.gate.outputs.run_scan == 'true' && always()
         with:
           name: hk-double-reclaim-${{ github.run_number }}
           path: double_reclaim_results/hk/
