@@ -1,4 +1,2 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
-WCN.TO,CANADA,WATCH,0,,215.3699951171875,,False,2026-09-21,218.3699951171875,218.38999938964844,215.3699951171875,226.7100067138672,0.993376078092553,0.3807921422400073,1.4153726037423187,True,False,False,6
-SRU-UN.TO,CANADA,WATCH,0,,26.43000030517578,,False,2026-09-21,26.739999771118164,26.760000228881836,26.43000030517578,26.979999542236328,0.9393925382192295,0.7272722018322111,0.6591755746796676,False,False,False,5
-TRI.TO,CANADA,WATCH,0,,131.14999389648438,,False,2026-09-21,134.00999450683594,134.77000427246094,131.14999389648438,147.49000549316406,0.7900531527012616,0.4640850443220185,0.702074433307141,False,False,False,5
+symbol,market,status,delay,entry_price,stop,risk_pct,target_1R,target_2R,both_highs,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
+TPZ.TO,CANADA,WATCH,0,,28.84000015258789,,,,,False,2026-09-22,30.1200008392334,30.3700008392334,28.84000015258789,31.6299991607666,0.836601380520868,0.7058819862845489,1.42082644962905,True,False,False,6
