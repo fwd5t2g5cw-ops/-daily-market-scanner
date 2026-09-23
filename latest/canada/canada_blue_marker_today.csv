@@ -1,2 +1,1 @@
-symbol,marker,blue_marker,candle,current_price,day_open,day_high,day_low,day_volume,breakout_level,breakout_age_days,ema20_live,ema50_live,sma200_live,distance_above_ema20_pct,avg_volume_20,avg_dollar_volume_20,pct_below_52w_high,benchmark_symbol,rs_vs_benchmark_pct,rs_vs_spy_pct,market_pass,strong_uptrend,not_overextended,liquid_stock,near_year_high,outperforming_benchmark,outperforming_spy,slight_undercut,reclaimed_level,bullish_reclaim_candle,market_cap_cad
-FM.TO,ENTRY,True,BULL,46.46,45.65,47.11,45.3,997854.0,46.36,21,44.3863,43.2231,38.6769,4.672,2127463.0,95717272.0,5.703,XIU.TO,6.49,6.49,True,True,True,True,True,True,True,True,True,True,38823954333.0
+
