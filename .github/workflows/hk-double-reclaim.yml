@@ -13,6 +13,10 @@ permissions:
   contents: write
   actions: read
 
+concurrency:
+  group: hk-double-reclaim-latest-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   scan:
     runs-on: ubuntu-latest
@@ -68,14 +72,26 @@ jobs:
         if: steps.gate.outputs.run_scan == 'true'
         run: python merge_signal_candles.py --market hk
 
+      - name: Validate complete HK result set
+        if: steps.gate.outputs.run_scan == 'true'
+        run: python validate_scanner_outputs.py --market hk
+
       - name: Publish latest HK results
         if: steps.gate.outputs.run_scan == 'true' && success()
         run: |
+          git fetch origin main
+          published_run=$(git show origin/main:latest/hk/LATEST_RUN.txt 2>/dev/null | sed -n 's/^run_number=//p' | head -n 1)
+          if [[ "$published_run" =~ ^[0-9]+$ ]] && (( published_run > ${{ github.run_number }} )); then
+            echo "Refusing to overwrite HK run $published_run with stale run ${{ github.run_number }}."
+            exit 0
+          fi
           rm -rf latest/hk
           mkdir -p latest/hk
           cp -a double_reclaim_results/hk/. latest/hk/
-          printf 'run_id=%s\nrun_number=%s\ncommit=%s\nupdated_utc=%s\n' \
-            '${{ github.run_id }}' '${{ github.run_number }}' '${{ github.sha }}' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > latest/hk/LATEST_RUN.txt
+          printf 'market=%s\nworkflow=%s\nrun_id=%s\nrun_number=%s\nsource_commit=%s\nupdated_utc=%s\n' \
+            'hk' '.github/workflows/hk-double-reclaim.yml' '${{ github.run_id }}' \
+            '${{ github.run_number }}' '${{ github.sha }}' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            > latest/hk/LATEST_RUN.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A latest/hk

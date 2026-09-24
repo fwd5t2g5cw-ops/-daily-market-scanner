@@ -59,6 +59,45 @@ MARKETS = {
     },
 }
 
+ENTRY_COLUMNS = [
+    'symbol',
+    'marker',
+    'blue_marker',
+    'candle',
+    'current_price',
+    'day_open',
+    'day_high',
+    'day_low',
+    'day_volume',
+    'breakout_level',
+    'breakout_age_days',
+    'ema20_live',
+    'ema50_live',
+    'sma200_live',
+    'distance_above_ema20_pct',
+    'avg_volume_20',
+    'avg_dollar_volume_20',
+    'pct_below_52w_high',
+    'benchmark_symbol',
+    'rs_vs_benchmark_pct',
+    'rs_vs_spy_pct',
+    'market_pass',
+    'strong_uptrend',
+    'not_overextended',
+    'liquid_stock',
+    'near_year_high',
+    'outperforming_benchmark',
+    'outperforming_spy',
+    'slight_undercut',
+    'reclaimed_level',
+    'bullish_reclaim_candle',
+]
+
+
+def _entry_output_frame(rows: list[dict], cap_label: str) -> pd.DataFrame:
+    """Return a stable CSV schema even when the scan has zero candidates."""
+    return pd.DataFrame(rows, columns=[*ENTRY_COLUMNS, cap_label])
+
 
 def _is_common_tsx_symbol(symbol: str) -> bool:
     s = symbol.upper()
@@ -397,7 +436,7 @@ def main() -> None:
             cfg['cap_label']: round(float(cap), 0) if pd.notna(cap) else np.nan,
         })
 
-    out = pd.DataFrame(rows)
+    out = _entry_output_frame(rows, str(cfg['cap_label']))
     pine_path = outdir / f'{market}_pine_entry_today.csv'
     blue_path = outdir / f'{market}_blue_marker_today.csv'
     out.to_csv(pine_path, index=False)

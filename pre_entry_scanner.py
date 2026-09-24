@@ -28,6 +28,19 @@ MARKETS={
  'japan': {'tz':'Asia/Tokyo','close':dt_time(15,30),'universe':None,'out':Path('double_reclaim_results/japan'),'benchmark':'1306.T'},
 }
 
+PRE_ENTRY_COLUMNS = [
+    'symbol', 'setup', 'grade', 'score', 'compression_setup',
+    'compression_grade', 'compression_score', 'current_price',
+    'breakout_level', 'distance_to_breakout_pct', 'ema20', 'ema50',
+    'sma200', 'pct_above_ema20', 'rs_pct', 'pct_below_52w_high',
+    'volume_contracting', 'range_contracting',
+]
+
+
+def _pre_entry_output_frame(rows):
+    """Return a stable CSV schema even when the scan has zero candidates."""
+    return pd.DataFrame(rows, columns=PRE_ENTRY_COLUMNS)
+
 def split(raw, syms):
     out={}
     if raw is None or raw.empty: return out
@@ -231,7 +244,7 @@ def main():
             'rs_pct':round(rs,2),'pct_below_52w_high':round(below,2),
             'volume_contracting':volume_contract,'range_contracting':range_contract
         })
-    out=pd.DataFrame(rows)
+    out=_pre_entry_output_frame(rows)
     c['out'].mkdir(parents=True,exist_ok=True)
     fn=c['out']/f'{m}_pre_entry_watch_today.csv'
     comp_fn=c['out']/f'{m}_pre_breakout_compression_today.csv'
