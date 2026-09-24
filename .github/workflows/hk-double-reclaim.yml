@@ -2,6 +2,16 @@ name: 🇭🇰 HK Double Reclaim Scanner
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/hk-double-reclaim.yml'
+      - 'hk_double_reclaim_scanner.py'
+      - 'pine_entry_scanner.py'
+      - 'pre_entry_scanner.py'
+      - 'merge_signal_candles.py'
+      - 'validate_scanner_outputs.py'
   schedule:
     # 3:00 PM Hong Kong (one hour before HKEX close)
     - cron: '0 7 * * 1-5'
@@ -30,7 +40,7 @@ jobs:
         env:
           TRIGGER_CRON: ${{ github.event.schedule }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "${{ github.event_name }}" = "push" ]; then
             echo "run_scan=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
