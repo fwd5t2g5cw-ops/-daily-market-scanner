@@ -21,6 +21,21 @@ MAX_UNDERCUT_PCT = 3.0
 RS_LOOKBACK = 63
 MIN_MARKET_CAP = 5_000_000_000  # HKD 5B
 
+HK_OUTPUT_COLUMNS = [
+    'symbol', 'status', 'grade', 'quality_score', 'market_cap_hkd',
+    'market_cap_hkd_bn', 'current_price', 'day_low', 'breakout_level',
+    'ema20_live', 'ema20_breakout_distance_pct', 'rs_vs_2800_pct',
+    'pct_below_52w_high', 'breakout_age_days',
+    'undercut_vs_breakout_pct', 'shallow_bonus', 'headroom_bonus',
+    'congestion_score', 'congestion_status', 'touched_breakout_today',
+    'touched_ema20_today', 'above_both_now',
+]
+
+
+def _result_frame(rows: list[dict]) -> pd.DataFrame:
+    """Return a stable CSV schema even when the scan has zero candidates."""
+    return pd.DataFrame(rows, columns=HK_OUTPUT_COLUMNS)
+
 
 def _load_universe() -> tuple[list[str], dict[str, float]]:
     if not UNIVERSE_TXT.exists():
@@ -231,18 +246,17 @@ def main():
             'congestion_status':x['congestion_status'],'touched_breakout_today':touched_bo,'touched_ema20_today':touched_ema,
             'above_both_now':above})
 
-    out=pd.DataFrame(rows)
-    if out.empty:
-        out.to_csv(OUTDIR/'hk_double_reclaim_all.csv',index=False)
-        out.to_csv(OUTDIR/'hk_double_reclaim_top30.csv',index=False)
-        print('No candidates'); return
+    out=_result_frame(rows)
     status_order={'READY_NOW':0,'RECLAIM_PENDING':1,'WATCH_CLUSTER':2}
     grade_order={'A+':0,'A':1,'B':2,'C':3,'D':4}
-    out['_s']=out['status'].map(status_order).fillna(9); out['_g']=out['grade'].map(grade_order).fillna(9)
-    out=out.sort_values(['_s','_g','quality_score','rs_vs_2800_pct'],ascending=[True,True,False,False]).drop(columns=['_s','_g'])
+    if not out.empty:
+        out['_s']=out['status'].map(status_order).fillna(9); out['_g']=out['grade'].map(grade_order).fillna(9)
+        out=out.sort_values(['_s','_g','quality_score','rs_vs_2800_pct'],ascending=[True,True,False,False]).drop(columns=['_s','_g'])
     out.to_csv(OUTDIR/'hk_double_reclaim_all.csv',index=False)
     out.head(30).to_csv(OUTDIR/'hk_double_reclaim_top30.csv',index=False)
     ready=out[out['status']=='READY_NOW']; ready.to_csv(OUTDIR/'hk_double_reclaim_ready_now.csv',index=False)
+    if out.empty:
+        print('No candidates'); return
     print('\n=== TOP 30 (HKD 5B+ PRE-FILTERED) ===')
     cols=['symbol','status','grade','quality_score','market_cap_hkd_bn','current_price','breakout_level','ema20_live','ema20_breakout_distance_pct','rs_vs_2800_pct','pct_below_52w_high','congestion_score']
     print(out[cols].head(30).to_string(index=False))

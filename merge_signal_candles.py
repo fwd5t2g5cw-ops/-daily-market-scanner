@@ -7,6 +7,28 @@ import pandas as pd
 import yfinance as yf
 
 
+DERIVED_SIGNAL_COLUMNS = {
+    'entry_marker': bool,
+    'double_reclaim': bool,
+    'reclaim_breakout': bool,
+    'reclaim_breakout_only': bool,
+    'candle_pattern': str,
+    'candle_side': str,
+    'high_conviction_score': int,
+    'high_conviction_entry': bool,
+    'high_conviction_reasons': str,
+}
+
+
+def prepare_empty_signal_output(base: pd.DataFrame) -> pd.DataFrame:
+    """Add the derived signal schema to an empty base result."""
+    out = base.copy()
+    for name, dtype in DERIVED_SIGNAL_COLUMNS.items():
+        if name not in out.columns:
+            out[name] = pd.Series(dtype=dtype)
+    return out
+
+
 def split_download(raw: pd.DataFrame, symbols: list[str]) -> dict[str, pd.DataFrame]:
     out: dict[str, pd.DataFrame] = {}
     if raw is None or raw.empty:
@@ -120,6 +142,7 @@ def main() -> None:
 
     if base.empty:
         print('No double reclaim base rows; writing empty unified output and exiting cleanly')
+        base = prepare_empty_signal_output(base)
         base.to_csv(outdir / f'{market}_signals_with_candles.csv', index=False)
         base.to_csv(outdir / f'{market}_entry_marker_today.csv', index=False)
         base.to_csv(outdir / f'{market}_double_reclaim_today.csv', index=False)
