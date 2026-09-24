@@ -1,4 +1,6 @@
-run_id=35999557548
-run_number=101
-commit=fa336452773210228ac6ce13d9d1fd90e07c3a27
-updated_utc=2026-09-24T12:32:45Z
+market=hk
+workflow=.github/workflows/hk-double-reclaim.yml
+run_id=36021355592
+run_number=102
+source_commit=071a1e419ca72ad5857e0ff71cc5b374837f7546
+updated_utc=2026-09-24T15:38:09Z
