@@ -1,6 +1,3 @@
 symbol,status,grade,quality_score,market_cap_cad,market_cap_cad_bn,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_xiu_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-MX.TO,READY_NOW,B,5,6534959390.0,6.53,84.51,82.08,84.297,83.609,0.816,13.74,8.54,9,-2.63,0,0,1,PRE_BREAKOUT,True,True,True
-FNV.TO,READY_NOW,C,5,70812692093.0,70.81,367.2,360.86,366.872,362.815,1.106,18.42,4.9,20,-1.64,0,1,2,BOTH,True,True,True
-CG.TO,READY_NOW,C,4,6300518717.0,6.3,32.21,31.2,31.93,31.351,1.814,38.8,5.1,22,-2.29,0,1,1,PRE_BREAKOUT,True,True,True
-RIO.TO,READY_NOW,C,3,1965332452.0,1.97,3.6,3.49,3.55,3.513,1.035,37.95,11.98,19,-1.69,0,0,1,PRE_BREAKOUT,True,True,True
-AC.TO,READY_NOW,D,4,8113664937.0,8.11,28.94,27.36,27.3,27.999,2.562,16.91,7.98,28,0.22,2,1,1,PRE_BREAKOUT,True,True,True
+EDV.TO,READY_NOW,B,5,20451032144.0,20.45,84.9,83.37,84.253,84.871,0.734,21.19,11.44,23,-1.05,0,0,1,PRE_BREAKOUT,True,True,True
+ALS.TO,READY_NOW,D,3,3923206060.0,3.92,66.77,65.31,65.942,66.161,0.332,9.0,4.0,21,-0.96,1,1,1,PRE_BREAKOUT,True,True,True

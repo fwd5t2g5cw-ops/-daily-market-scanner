@@ -1,7 +1,8 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-CYB.TO,PRE_ENTRY,A,9,True,A,10,97.1,97.98,0.9,95.978,93.805,91.295,1.17,6.7,1.87,True,True
-JWEL.TO,PRE_ENTRY,A,10,True,A,10,45.43,45.88,0.98,45.278,43.817,37.284,0.33,23.36,0.98,False,True
-SEC.TO,PRE_ENTRY,A,8,True,A,9,440.0,440.0,0.0,437.776,426.618,383.825,0.51,7.96,0.0,False,True
-JFS-UN.TO,PRE_ENTRY,A,8,True,A,9,28.84,29.0,0.55,28.443,28.198,27.481,1.39,5.7,0.55,True,False
-LAS-A.TO,PRE_ENTRY,A,9,True,A,9,245.99,249.9,1.56,238.931,232.849,223.362,2.95,14.07,2.04,True,True
-X.TO,PRE_ENTRY,A,8,True,A,9,54.49,55.41,1.66,53.56,52.611,50.414,1.74,11.43,3.97,True,False
+JWEL.TO,PRE_ENTRY,A,9,True,A,10,45.44,45.88,0.96,45.305,43.941,37.404,0.3,10.92,0.96,False,True
+NWC.TO,PRE_ENTRY,A,9,True,A,9,53.68,53.77,0.17,51.734,50.859,50.805,3.76,5.29,3.92,True,True
+GUD.TO,PRE_ENTRY,A,9,True,A,9,10.29,10.37,0.77,10.008,9.757,7.927,2.82,7.03,0.77,True,True
+CYB.TO,PRE_ENTRY,A,8,True,A,9,96.98,98.0,1.04,96.179,94.058,91.403,0.83,6.05,1.99,True,True
+MFC.TO,PRE_ENTRY,B,7,True,A,8,62.1,63.054,1.51,61.116,60.061,53.328,1.61,6.99,1.51,False,True
+BNS.TO,PRE_ENTRY,B,7,True,A,8,132.34,134.5,1.61,129.785,126.367,109.688,1.97,6.19,1.61,False,True
+MKZ-UN.TO,PRE_ENTRY,B,7,True,B,7,0.54,0.55,1.82,0.522,0.515,0.499,3.47,8.55,6.9,True,True
