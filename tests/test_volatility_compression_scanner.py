@@ -16,6 +16,10 @@ from volatility_compression_scanner import (
     result_frame,
     write_outputs,
 )
+from backtest_volatility_compression import (
+    _collect_events,
+    compression_series,
+)
 
 
 def make_ohlcv(kind: str, periods: int = 420) -> pd.DataFrame:
@@ -53,6 +57,24 @@ class CompressionModelTests(unittest.TestCase):
         self.assertIsNotNone(loose)
         self.assertGreater(coil["score"], loose["score"])
         self.assertIn(coil["state"], {"COILED", "COMPRESSED"})
+
+    def test_backtest_last_state_matches_live_scanner(self) -> None:
+        frame = make_ohlcv("coil")
+        live = analyze_symbol("COIL", frame)
+        history = compression_series(frame)
+        self.assertEqual(history.iloc[-1]["state"], live["state"])
+        self.assertAlmostEqual(float(history.iloc[-1]["score"]), live["score"], places=2)
+
+    def test_backtest_collects_compression_and_matched_control_outcomes(self) -> None:
+        frame = make_ohlcv("coil", periods=620)
+        features = compression_series(frame)
+        rows = _collect_events("COIL", frame, features, np.random.default_rng(4))
+        compression = [row for row in rows if row["cohort"] == "COMPRESSION"]
+        controls = [row for row in rows if row["cohort"] == "MATCHED_CONTROL"]
+        self.assertTrue(compression)
+        self.assertTrue(controls)
+        self.assertEqual({row["horizon_sessions"] for row in compression}, {5, 10, 20})
+        self.assertTrue(all("up_close_break_prior10" in row for row in rows))
 
     def test_upside_expansion_requires_range_exit_and_true_range(self) -> None:
         frame = make_ohlcv("coil")
