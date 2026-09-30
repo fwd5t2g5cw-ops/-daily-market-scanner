@@ -46,3 +46,12 @@ python volatility_compression_scanner.py \
   --symbols data/us_1b_universe.txt \
   --provider auto
 ```
+
+
+## Compression expansion backtest
+
+Run the historical event study from GitHub Actions using **US Volatility Compression Backtest** (or locally with `python backtest_volatility_compression.py`). By default it uses the full current US universe and about three years of daily bars. The workflow saves `events.csv`, `summary.csv`, and `metadata.json` as an artifact.
+
+The test records the first COILED/COMPRESSED day in each episode, with a 20-session cooldown. For 5, 10, and 20-session horizons it measures forward realized volatility versus the signal-date HV20, average true range versus the prior 20-session average, upside/downside closes beyond the prior 10-session range, and price excursions. It compares each signal to one randomly selected non-compressed day for the same symbol and calendar year when available.
+
+This tests whether compression is followed by volatility expansion; it does not assume the expansion is upward or create trade entries. Results are descriptive: windows can overlap, matched controls are observational, and a current-stock universe introduces survivorship bias into historical results.
