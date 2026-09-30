@@ -46,13 +46,19 @@ OUTPUT_COLUMNS = [
     "prior_10d_high",
     "prior_10d_low",
     "latest_tr_vs_prev5_median",
+    "atr14_current_pct",
+    "range_20d_pct",
     "return_20d_pct",
+    "return_60d_pct",
     "sma50_distance_pct",
     "max_abs_gap_20d_pct",
+    "max_abs_gap_60d_pct",
     "days_since_10pct_gap",
     "avg_dollar_volume_20d",
     "prebreakout_pivot",
     "distance_to_pivot_pct",
+    "prior_structure_high",
+    "distance_above_prior_structure_pct",
     "rs_63d_vs_spy_pct",
     "rs_percentile",
     "prebreakout_eligible",
@@ -66,6 +72,16 @@ class ScannerConfig:
     percentile_window: int = 252
     min_bars: int = 160
     expansion_tr_multiple: float = 1.2
+
+
+# A takeover/event gap followed by a near-motionless shelf looks statistically
+# compressed, but it is not the pre-breakout supply/demand contraction sought by
+# this scanner. These absolute guards sit outside the percentile-based score.
+EVENT_GAP_COOLDOWN_DAYS = 60
+MAX_RETURN_60D_PCT = 30.0
+MAX_PRIOR_STRUCTURE_DISTANCE_PCT = 12.0
+MIN_LIVE_ATR14_PCT = 0.65
+MIN_LIVE_RANGE20_PCT = 2.0
 
 
 def _percentile_of_latest(series: pd.Series, window: int = 252) -> float:
@@ -222,9 +238,17 @@ def analyze_symbol(
     # same setup as a mature base tightening immediately below an unbroken pivot.
     sma50 = close.rolling(50).mean()
     sma50_distance = float((latest_close / sma50.iloc[-1] - 1) * 100)
+    atr14_current = float(atr14_pct.iloc[-1])
+    range_20d = float(
+        (data["high"].iloc[-20:].max() - data["low"].iloc[-20:].min())
+        / latest_close
+        * 100
+    )
     return_20d = float((latest_close / close.iloc[-21] - 1) * 100)
+    return_60d = float((latest_close / close.iloc[-61] - 1) * 100)
     gap_pct = (open_ / close.shift(1) - 1) * 100
     max_abs_gap_20d = float(gap_pct.iloc[-20:].abs().max())
+    max_abs_gap_60d = float(gap_pct.iloc[-60:].abs().max())
     shock_positions = np.flatnonzero((gap_pct.abs() >= 10).fillna(False).to_numpy())
     days_since_gap = (
         int(len(data) - 1 - shock_positions[-1]) if len(shock_positions) else 999
@@ -232,6 +256,10 @@ def analyze_symbol(
     avg_dollar_volume = float((close * data["volume"]).rolling(20).mean().iloc[-1])
     prebreakout_pivot = float(data["high"].iloc[-21:-1].max())
     distance_to_pivot = float((latest_close / prebreakout_pivot - 1) * 100)
+    prior_structure_high = float(data["high"].iloc[-126:-21].max())
+    distance_above_prior_structure = float(
+        (latest_close / prior_structure_high - 1) * 100
+    )
 
     rs_63d_vs_spy = math.nan
     if len(close) >= 64 and benchmark is not None:
@@ -289,13 +317,21 @@ def analyze_symbol(
         "prior_10d_high": round(prior_high, 4),
         "prior_10d_low": round(prior_low, 4),
         "latest_tr_vs_prev5_median": round(tr_multiple, 3),
+        "atr14_current_pct": round(atr14_current, 2),
+        "range_20d_pct": round(range_20d, 2),
         "return_20d_pct": round(return_20d, 2),
+        "return_60d_pct": round(return_60d, 2),
         "sma50_distance_pct": round(sma50_distance, 2),
         "max_abs_gap_20d_pct": round(max_abs_gap_20d, 2),
+        "max_abs_gap_60d_pct": round(max_abs_gap_60d, 2),
         "days_since_10pct_gap": days_since_gap,
         "avg_dollar_volume_20d": round(avg_dollar_volume, 2),
         "prebreakout_pivot": round(prebreakout_pivot, 4),
         "distance_to_pivot_pct": round(distance_to_pivot, 2),
+        "prior_structure_high": round(prior_structure_high, 4),
+        "distance_above_prior_structure_pct": round(
+            distance_above_prior_structure, 2
+        ),
         "rs_63d_vs_spy_pct": round(rs_63d_vs_spy, 2),
         "bars": len(data),
     }
@@ -432,16 +468,31 @@ def result_frame(rows: list[dict[str, object]]) -> pd.DataFrame:
             reasons.append("NOT_COMPRESSED")
         if row["expansion_signal"] != "NONE":
             reasons.append("ALREADY_EXPANDING")
-        if row["max_abs_gap_20d_pct"] >= 10 or row["days_since_10pct_gap"] < 20:
+        if (
+            row["max_abs_gap_60d_pct"] >= 10
+            or row["days_since_10pct_gap"] < EVENT_GAP_COOLDOWN_DAYS
+        ):
             reasons.append("POST_GAP_COIL")
         if row["return_20d_pct"] > 15:
             reasons.append("RECENT_SURGE")
+        if row["return_60d_pct"] > MAX_RETURN_60D_PCT:
+            reasons.append("EXTENDED_60D_RUN")
         if row["sma50_distance_pct"] > 12:
             reasons.append("EXTENDED_FROM_SMA50")
         elif row["sma50_distance_pct"] < -3:
             reasons.append("BELOW_SMA50")
         if not -5 <= row["distance_to_pivot_pct"] <= 1:
             reasons.append("NOT_NEAR_UNBROKEN_PIVOT")
+        if (
+            row["distance_above_prior_structure_pct"]
+            > MAX_PRIOR_STRUCTURE_DISTANCE_PCT
+        ):
+            reasons.append("DETACHED_FROM_PRIOR_STRUCTURE")
+        if (
+            row["atr14_current_pct"] < MIN_LIVE_ATR14_PCT
+            and row["range_20d_pct"] < MIN_LIVE_RANGE20_PCT
+        ):
+            reasons.append("EVENT_PRICE_PEG")
         if (
             row["close"] < 5
             or pd.isna(row["avg_dollar_volume_20d"])
