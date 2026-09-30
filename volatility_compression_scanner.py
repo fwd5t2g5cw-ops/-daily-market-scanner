@@ -46,6 +46,17 @@ OUTPUT_COLUMNS = [
     "prior_10d_high",
     "prior_10d_low",
     "latest_tr_vs_prev5_median",
+    "return_20d_pct",
+    "sma50_distance_pct",
+    "max_abs_gap_20d_pct",
+    "days_since_10pct_gap",
+    "avg_dollar_volume_20d",
+    "prebreakout_pivot",
+    "distance_to_pivot_pct",
+    "rs_63d_vs_spy_pct",
+    "rs_percentile",
+    "prebreakout_eligible",
+    "rejection_reasons",
     "bars",
 ]
 
@@ -113,7 +124,10 @@ def _safe_score(percentile: float) -> float:
 
 
 def analyze_symbol(
-    symbol: str, frame: pd.DataFrame, config: ScannerConfig | None = None
+    symbol: str,
+    frame: pd.DataFrame,
+    config: ScannerConfig | None = None,
+    benchmark: pd.DataFrame | None = None,
 ) -> dict[str, object] | None:
     """Return a direction-neutral compression assessment for one symbol."""
     cfg = config or ScannerConfig()
@@ -122,6 +136,7 @@ def analyze_symbol(
         return None
 
     close = data["close"]
+    open_ = data["open"]
     log_return = np.log(close / close.shift(1))
     hv20 = log_return.rolling(20).std(ddof=1) * np.sqrt(252) * 100
     tr = _true_range(data)
@@ -202,6 +217,33 @@ def analyze_symbol(
         else math.nan
     )
     latest_close = float(close.iloc[-1])
+
+    # Location and event-risk context. Compression after a large gap is not the
+    # same setup as a mature base tightening immediately below an unbroken pivot.
+    sma50 = close.rolling(50).mean()
+    sma50_distance = float((latest_close / sma50.iloc[-1] - 1) * 100)
+    return_20d = float((latest_close / close.iloc[-21] - 1) * 100)
+    gap_pct = (open_ / close.shift(1) - 1) * 100
+    max_abs_gap_20d = float(gap_pct.iloc[-20:].abs().max())
+    shock_positions = np.flatnonzero((gap_pct.abs() >= 10).fillna(False).to_numpy())
+    days_since_gap = (
+        int(len(data) - 1 - shock_positions[-1]) if len(shock_positions) else 999
+    )
+    avg_dollar_volume = float((close * data["volume"]).rolling(20).mean().iloc[-1])
+    prebreakout_pivot = float(data["high"].iloc[-21:-1].max())
+    distance_to_pivot = float((latest_close / prebreakout_pivot - 1) * 100)
+
+    rs_63d_vs_spy = math.nan
+    if len(close) >= 64 and benchmark is not None:
+        benchmark_data = _prepare_frame(benchmark)
+        benchmark_close = benchmark_data["close"]
+        if len(benchmark_close) >= 64:
+            stock_return = latest_close / float(close.iloc[-64]) - 1
+            spy_return = (
+                float(benchmark_close.iloc[-1]) / float(benchmark_close.iloc[-64]) - 1
+            )
+            rs_63d_vs_spy = float((stock_return - spy_return) * 100)
+
     expansion_signal = "NONE"
     if np.isfinite(tr_multiple) and tr_multiple >= cfg.expansion_tr_multiple:
         if latest_close > prior_high:
@@ -247,6 +289,14 @@ def analyze_symbol(
         "prior_10d_high": round(prior_high, 4),
         "prior_10d_low": round(prior_low, 4),
         "latest_tr_vs_prev5_median": round(tr_multiple, 3),
+        "return_20d_pct": round(return_20d, 2),
+        "sma50_distance_pct": round(sma50_distance, 2),
+        "max_abs_gap_20d_pct": round(max_abs_gap_20d, 2),
+        "days_since_10pct_gap": days_since_gap,
+        "avg_dollar_volume_20d": round(avg_dollar_volume, 2),
+        "prebreakout_pivot": round(prebreakout_pivot, 4),
+        "distance_to_pivot_pct": round(distance_to_pivot, 2),
+        "rs_63d_vs_spy_pct": round(rs_63d_vs_spy, 2),
         "bars": len(data),
     }
 
@@ -371,8 +421,45 @@ def load_symbols(path: Path, limit: int | None = None) -> list[str]:
 def result_frame(rows: list[dict[str, object]]) -> pd.DataFrame:
     if not rows:
         return pd.DataFrame(columns=OUTPUT_COLUMNS)
-    return pd.DataFrame(rows, columns=OUTPUT_COLUMNS).sort_values(
-        ["score", "symbol"], ascending=[False, True]
+    results = pd.DataFrame(rows)
+    results["rs_percentile"] = (
+        results["rs_63d_vs_spy_pct"].rank(pct=True, method="average") * 100
+    ).round(0)
+
+    def rejection_reasons(row: pd.Series) -> str:
+        reasons: list[str] = []
+        if row["state"] not in {"COILED", "COMPRESSED"}:
+            reasons.append("NOT_COMPRESSED")
+        if row["expansion_signal"] != "NONE":
+            reasons.append("ALREADY_EXPANDING")
+        if row["max_abs_gap_20d_pct"] >= 10 or row["days_since_10pct_gap"] < 20:
+            reasons.append("POST_GAP_COIL")
+        if row["return_20d_pct"] > 15:
+            reasons.append("RECENT_SURGE")
+        if row["sma50_distance_pct"] > 12:
+            reasons.append("EXTENDED_FROM_SMA50")
+        elif row["sma50_distance_pct"] < -3:
+            reasons.append("BELOW_SMA50")
+        if not -5 <= row["distance_to_pivot_pct"] <= 1:
+            reasons.append("NOT_NEAR_UNBROKEN_PIVOT")
+        if (
+            row["close"] < 5
+            or pd.isna(row["avg_dollar_volume_20d"])
+            or row["avg_dollar_volume_20d"] < 5_000_000
+        ):
+            reasons.append("LOW_LIQUIDITY")
+        if pd.isna(row["rs_percentile"]):
+            reasons.append("MISSING_RS")
+        elif row["rs_percentile"] < 70:
+            reasons.append("WEAK_RS")
+        return "|".join(reasons)
+
+    results["rejection_reasons"] = results.apply(rejection_reasons, axis=1)
+    results["prebreakout_eligible"] = results["rejection_reasons"].eq("")
+    results = results.reindex(columns=OUTPUT_COLUMNS)
+    return results.sort_values(
+        ["prebreakout_eligible", "score", "rs_percentile", "symbol"],
+        ascending=[False, False, False, True],
     )
 
 
@@ -384,12 +471,21 @@ def write_outputs(
     outdir: Path,
 ) -> None:
     outdir.mkdir(parents=True, exist_ok=True)
-    watch = results[results["state"].isin(["COILED", "COMPRESSED"])]
-    top50 = results.head(50)
+    compression_watch = results[results["state"].isin(["COILED", "COMPRESSED"])]
+    eligible_mask = results["prebreakout_eligible"].fillna(False).astype(bool)
+    watch = results[eligible_mask]
+    compression_eligible = (
+        compression_watch["prebreakout_eligible"].fillna(False).astype(bool)
+    )
+    rejected = compression_watch[~compression_eligible]
+    top50 = watch.head(50)
     missing = sorted(set(symbols).difference(found))
 
     results.to_csv(outdir / "all.csv", index=False)
     watch.to_csv(outdir / "watch.csv", index=False)
+    watch.to_csv(outdir / "prebreakout_watch.csv", index=False)
+    compression_watch.to_csv(outdir / "compression_watch.csv", index=False)
+    rejected.to_csv(outdir / "rejected_compression.csv", index=False)
     top50.to_csv(outdir / "top50.csv", index=False)
     (outdir / "tradingview.txt").write_text(
         ",".join(watch["symbol"].tolist()),
@@ -403,7 +499,9 @@ def write_outputs(
         "symbols_with_data": len(found),
         "coverage": round(len(found) / len(symbols), 4) if symbols else 0,
         "ranked": len(results),
-        "watch": len(watch),
+        "compression_watch": len(compression_watch),
+        "actionable_prebreakout_watch": len(watch),
+        "rejected_compression": len(rejected),
         "coiled": int((results["state"] == "COILED").sum()) if len(results) else 0,
         "confirmed_expansions": int((results["expansion_signal"] != "NONE").sum())
         if len(results)
@@ -440,16 +538,18 @@ def main() -> int:
     provider = args.provider
     if provider == "auto":
         provider = "alpaca" if key and secret else "yahoo"
+    request_symbols = list(dict.fromkeys([*symbols, "SPY"]))
     if provider == "alpaca":
         if not key or not secret:
             raise SystemExit(
                 "Alpaca requires ALPACA_API_KEY_ID and ALPACA_API_SECRET_KEY"
             )
-        frames = fetch_alpaca(symbols, key, secret, args.feed)
+        frames = fetch_alpaca(request_symbols, key, secret, args.feed)
     else:
-        frames = fetch_yahoo(symbols)
+        frames = fetch_yahoo(request_symbols)
 
-    coverage = len(frames) / len(symbols)
+    found_symbols = set(symbols).intersection(frames)
+    coverage = len(found_symbols) / len(symbols)
     if coverage < args.min_coverage:
         raise SystemExit(
             f"coverage {coverage:.1%} is below required {args.min_coverage:.1%}; "
@@ -457,18 +557,20 @@ def main() -> int:
         )
 
     rows = []
+    benchmark = frames.get("SPY")
     for symbol in symbols:
         frame = frames.get(symbol)
         if frame is None or frame.empty:
             continue
-        assessment = analyze_symbol(symbol, frame)
+        assessment = analyze_symbol(symbol, frame, benchmark=benchmark)
         if assessment:
             rows.append(assessment)
     results = result_frame(rows)
-    write_outputs(results, symbols, set(frames), provider, args.outdir)
+    write_outputs(results, symbols, found_symbols, provider, args.outdir)
+    actionable = int(results["prebreakout_eligible"].sum()) if len(results) else 0
     print(
-        f"Scanned {len(frames)}/{len(symbols)} symbols via {provider}; "
-        f"ranked {len(results)}, watch {int(results['state'].isin(['COILED', 'COMPRESSED']).sum()) if len(results) else 0}."
+        f"Scanned {len(found_symbols)}/{len(symbols)} symbols via {provider}; "
+        f"ranked {len(results)}, actionable pre-breakout watch {actionable}."
     )
     return 0
 
