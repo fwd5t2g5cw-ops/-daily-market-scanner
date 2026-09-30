@@ -27,9 +27,14 @@ The actionable `watch.csv`, `prebreakout_watch.csv`, `top50.csv` and
 `tradingview.txt` apply a second-stage pre-breakout quality gate. Candidates
 must be liquid, have RS percentile of at least 70, sit within 5% below to 1%
 above an unbroken 20-session pivot, remain close to the 50-day average, and
-avoid recent event gaps or already-extended 20-session runs. Raw compression
+avoid recent event gaps or already-extended runs. Event-gap shelves are
+quarantined for 60 sessions. The gate also rejects unusually motionless price
+pegs and new plateaus more than 12% above the preceding 21-to-125-session price
+structure; these patterns commonly occur around cash takeovers and other
+one-off events rather than before an organic breakout. Raw compression
 matches remain available in `compression_watch.csv`; excluded names and exact
-reasons such as `POST_GAP_COIL` are written to `rejected_compression.csv`.
+reasons such as `POST_GAP_COIL`, `EVENT_PRICE_PEG`, and
+`DETACHED_FROM_PRIOR_STRUCTURE` are written to `rejected_compression.csv`.
 
 For reliable daily automation, add repository secrets `ALPACA_API_KEY_ID` and
 `ALPACA_API_SECRET_KEY`. The optional repository variable `ALPACA_FEED` may be
