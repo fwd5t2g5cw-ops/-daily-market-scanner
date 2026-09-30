@@ -1,0 +1,75 @@
+name: US Volatility Compression Backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: Historical data provider
+        required: false
+        default: auto
+        type: choice
+        options: [auto, alpaca, yahoo]
+      limit:
+        description: Optional symbol limit (0 means the full current US list)
+        required: false
+        default: 0
+        type: number
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/volatility-compression-backtest.yml'
+      - 'backtest_volatility_compression.py'
+      - 'tests/test_volatility_compression_scanner.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: volatility-compression-backtest
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scanner and backtest tests
+        run: python -m unittest tests.test_volatility_compression_scanner -v
+
+      - name: Run historical event study
+        env:
+          ALPACA_API_KEY_ID: ${{ secrets.ALPACA_API_KEY_ID }}
+          ALPACA_API_SECRET_KEY: ${{ secrets.ALPACA_API_SECRET_KEY }}
+          ALPACA_FEED: ${{ vars.ALPACA_FEED || 'sip' }}
+          PROVIDER: ${{ inputs.provider || 'auto' }}
+          SYMBOL_LIMIT: ${{ inputs.limit || 0 }}
+        run: |
+          args=()
+          if [ "$SYMBOL_LIMIT" -gt 0 ]; then
+            args+=(--limit "$SYMBOL_LIMIT")
+          fi
+          python backtest_volatility_compression.py \
+            --symbols data/us_1b_universe.txt \
+            --provider "$PROVIDER" \
+            --feed "$ALPACA_FEED" \
+            --outdir volatility_compression_backtest \
+            "${args[@]}"
+
+      - name: Upload backtest results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: volatility-compression-backtest-${{ github.run_number }}
+          path: volatility_compression_backtest/
+          if-no-files-found: warn
+          retention-days: 30
