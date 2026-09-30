@@ -86,6 +86,35 @@ class CompressionModelTests(unittest.TestCase):
     def test_empty_output_has_stable_schema(self) -> None:
         self.assertEqual(list(result_frame([]).columns), OUTPUT_COLUMNS)
 
+    def test_post_gap_coil_is_not_actionable(self) -> None:
+        frame = make_ohlcv("coil")
+        # Simulate the HZO pattern: a large event gap followed by a tight shelf.
+        frame.iloc[-10:, :4] *= 1.5
+        row = analyze_symbol("GAP", frame, benchmark=make_ohlcv("loose"))
+        ranked = result_frame([row])
+        self.assertFalse(bool(ranked.iloc[0]["prebreakout_eligible"]))
+        self.assertIn("POST_GAP_COIL", ranked.iloc[0]["rejection_reasons"])
+
+    def test_mature_strong_coil_can_be_actionable(self) -> None:
+        row = analyze_symbol("READY", make_ohlcv("coil"), benchmark=make_ohlcv("loose"))
+        row.update(
+            {
+                "state": "COILED",
+                "expansion_signal": "NONE",
+                "max_abs_gap_20d_pct": 1.0,
+                "days_since_10pct_gap": 999,
+                "return_20d_pct": 2.0,
+                "sma50_distance_pct": 4.0,
+                "distance_to_pivot_pct": -1.0,
+                "close": 50.0,
+                "avg_dollar_volume_20d": 20_000_000,
+                "rs_63d_vs_spy_pct": 8.0,
+            }
+        )
+        ranked = result_frame([row])
+        self.assertTrue(bool(ranked.iloc[0]["prebreakout_eligible"]))
+        self.assertEqual(ranked.iloc[0]["rejection_reasons"], "")
+
     def test_output_files_exist_even_when_empty(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             outdir = Path(directory)
@@ -95,6 +124,8 @@ class CompressionModelTests(unittest.TestCase):
             )
             self.assertTrue((outdir / "summary.json").exists())
             self.assertEqual((outdir / "missing_symbols.txt").read_text(), "A\nB")
+            self.assertTrue((outdir / "prebreakout_watch.csv").exists())
+            self.assertTrue((outdir / "rejected_compression.csv").exists())
 
 
 class AlpacaTests(unittest.TestCase):
