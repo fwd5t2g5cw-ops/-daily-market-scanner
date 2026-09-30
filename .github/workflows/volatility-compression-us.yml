@@ -1,0 +1,79 @@
+name: US Volatility Compression Scanner
+
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: Market-data provider
+        required: false
+        default: auto
+        type: choice
+        options: [auto, alpaca, yahoo]
+  schedule:
+    - cron: '37 18 * * 1-5'
+      timezone: America/Toronto
+
+permissions:
+  contents: write
+
+concurrency:
+  group: volatility-compression-us
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run model tests
+        run: python -m unittest tests.test_volatility_compression_scanner -v
+
+      - name: Scan current US universe
+        env:
+          ALPACA_API_KEY_ID: ${{ secrets.ALPACA_API_KEY_ID }}
+          ALPACA_API_SECRET_KEY: ${{ secrets.ALPACA_API_SECRET_KEY }}
+          ALPACA_FEED: ${{ vars.ALPACA_FEED || 'sip' }}
+          PROVIDER: ${{ inputs.provider || 'auto' }}
+        run: >-
+          python volatility_compression_scanner.py
+          --symbols data/us_1b_universe.txt
+          --provider "$PROVIDER"
+          --outdir volatility_compression_results/us
+          --min-coverage 0.85
+
+      - name: Publish latest results
+        run: |
+          rm -rf latest/volatility_compression_us
+          mkdir -p latest/volatility_compression_us
+          cp -a volatility_compression_results/us/. latest/volatility_compression_us/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A latest/volatility_compression_us
+          if git diff --cached --quiet; then
+            echo 'Results unchanged; nothing to commit.'
+          else
+            git commit -m 'Update US volatility compression results [skip ci]'
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              sleep $((attempt * 3))
+            done
+          fi
+
+      - name: Upload scan artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: volatility-compression-us-${{ github.run_number }}
+          path: volatility_compression_results/us/
+          retention-days: 30
