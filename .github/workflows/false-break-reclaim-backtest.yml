@@ -1,0 +1,67 @@
+name: 🧪 False Break Reclaim Backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      markets:
+        description: Markets to test (us,tsx,hk)
+        required: false
+        default: us,tsx,hk
+      start:
+        description: Start date YYYY-MM-DD (blank = 2 years)
+        required: false
+        default: ''
+      end:
+        description: End date YYYY-MM-DD (blank = latest)
+        required: false
+        default: ''
+      max_symbols:
+        description: 0 = full universe
+        required: false
+        default: '0'
+  push:
+    branches: [main]
+    paths:
+      - false_break_reclaim_scanner.py
+
+permissions:
+  contents: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance requests openpyxl
+
+      - name: Build TSX universe
+        run: python build_universes.py --markets tsx
+
+      - name: Run false-break reclaim scanner and backtest
+        shell: bash
+        run: |
+          MARKETS="${{ github.event.inputs.markets || 'us,tsx,hk' }}"
+          MAX_SYMBOLS="${{ github.event.inputs.max_symbols || '0' }}"
+          ARGS=(--markets "$MARKETS" --mode both --max-symbols "$MAX_SYMBOLS")
+          if [ -n "${{ github.event.inputs.start }}" ]; then
+            ARGS+=(--start "${{ github.event.inputs.start }}")
+          fi
+          if [ -n "${{ github.event.inputs.end }}" ]; then
+            ARGS+=(--end "${{ github.event.inputs.end }}")
+          fi
+          python false_break_reclaim_scanner.py "${ARGS[@]}"
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: false-break-reclaim-backtest-${{ github.run_number }}
+          path: false_break_reclaim_results/
+          retention-days: 90
