@@ -1,2 +1,1 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-UNI.TO,PRE_ENTRY,A,10,True,A,9,2.68,2.69,0.37,2.611,2.545,2.143,2.64,15.97,1.11,True,False
