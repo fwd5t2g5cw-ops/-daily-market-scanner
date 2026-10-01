@@ -1,1 +1,2 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
+symbol,market,status,delay,entry_price,stop,risk_pct,target_1R,target_2R,both_highs,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
+CSH-UN.TO,CANADA,CONFIRMED_ENTRY,3,20.459999084472656,19.749578293441143,0.03472242535781247,21.17041987550417,21.880840666535683,False,False,2026-09-25,20.25827980041504,20.25827980041504,19.749578293441143,20.537567301594613,1.0,0.9607834337495887,0.8008141203279084,False,False,False,5
