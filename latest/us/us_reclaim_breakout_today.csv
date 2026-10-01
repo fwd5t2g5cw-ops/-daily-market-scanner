@@ -1,7 +1,7 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
-XOM,READY_NOW,A+,13,162.87,161.8,162.51,161.879,0.388,17.7,6.45,29,-0.44,2,1,2,BOTH,True,True,True,False,True,True,False,SHOOTING_STAR_BULL_BODY,BULL,10,False,DOUBLE_RECLAIM|RECLAIM_BREAKOUT|RS10+|GRADE_A+|BULL_CANDLE
+XOM,READY_NOW,A+,13,162.87,161.8,162.51,161.879,0.388,17.7,6.45,29,-0.44,2,1,2,BOTH,True,True,True,False,True,True,False,BULL_CANDLE,BULL,10,False,DOUBLE_RECLAIM|RECLAIM_BREAKOUT|RS10+|GRADE_A+|BULL_CANDLE
 GTLB,READY_NOW,C,6,47.27,46.48,46.65,47.171,1.116,47.33,14.91,18,-0.36,2,0,2,BOTH,True,True,True,False,True,True,False,BULL_CANDLE,BULL,8,False,DOUBLE_RECLAIM|RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
-SCCO,WATCH_CLUSTER,A,9,202.55,201.69,201.2,200.268,0.464,19.52,8.26,26,0.24,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,SHOOTING_STAR,BEAR,6,False,RECLAIM_BREAKOUT|RS10+|GRADE_A
-QRVO,WATCH_CLUSTER,C,4,114.45,113.475,114.28,112.411,1.635,23.35,5.48,12,-0.7,1,1,0,NONE,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
-WT,WATCH_CLUSTER,D,4,24.28,24.272,24.22,23.687,2.2,35.48,6.29,23,0.22,2,1,1,PRE_BREAKOUT,True,False,True,False,False,True,True,STRONG_BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
+SCCO,WATCH_CLUSTER,A,9,202.55,201.69,201.2,200.268,0.464,19.52,8.26,26,0.24,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,6,False,RECLAIM_BREAKOUT|RS10+|GRADE_A
+QRVO,WATCH_CLUSTER,C,4,114.45,113.475,114.28,112.411,1.635,23.35,5.48,12,-0.7,1,1,0,NONE,True,False,True,False,False,True,True,DOJI,NEUTRAL,4,False,RECLAIM_BREAKOUT|RS20+
+WT,WATCH_CLUSTER,D,4,24.28,24.272,24.22,23.687,2.2,35.48,6.29,23,0.22,2,1,1,PRE_BREAKOUT,True,False,True,False,False,True,True,HAMMER_BEAR_BODY,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
 FFIV,WATCH_CLUSTER,D,4,445.27,440.0,439.83,429.095,2.441,2.38,3.62,6,0.04,2,1,1,FORMING_NOW,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
