@@ -13,6 +13,7 @@ import math
 import os
 import time
 from collections.abc import Iterable
+from urllib.parse import quote
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -82,6 +83,16 @@ MAX_RETURN_60D_PCT = 30.0
 MAX_PRIOR_STRUCTURE_DISTANCE_PCT = 12.0
 MIN_LIVE_ATR14_PCT = 0.65
 MIN_LIVE_RANGE20_PCT = 2.0
+
+# Yahoo Finance exchange codes used in data/us_1b_universe.csv mapped to
+# TradingView's exchange-qualified symbol format.
+TRADINGVIEW_EXCHANGE_CODES = {
+    "NMS": "NASDAQ",
+    "NCM": "NASDAQ",
+    "NGM": "NASDAQ",
+    "NYQ": "NYSE",
+    "ASE": "AMEX",
+}
 
 
 def _percentile_of_latest(series: pd.Series, window: int = 252) -> float:
@@ -454,6 +465,34 @@ def load_symbols(path: Path, limit: int | None = None) -> list[str]:
     return symbols[:limit] if limit else symbols
 
 
+def load_tradingview_exchanges(path: Path) -> dict[str, str]:
+    """Load SYMBOL -> TradingView exchange from the universe CSV."""
+    if not path.exists():
+        return {}
+    try:
+        universe = pd.read_csv(path, usecols=["symbol", "exchange"])
+    except (OSError, ValueError):
+        return {}
+    exchanges: dict[str, str] = {}
+    for row in universe.itertuples(index=False):
+        symbol = str(row.symbol).strip().upper()
+        code = str(row.exchange).strip().upper()
+        exchange = TRADINGVIEW_EXCHANGE_CODES.get(code, code)
+        if symbol and exchange:
+            exchanges[symbol] = exchange
+    return exchanges
+
+
+def _tradingview_symbol(symbol: str, exchange_map: dict[str, str]) -> str:
+    ticker = symbol.replace("-", ".")
+    exchange = exchange_map.get(symbol, "")
+    return f"{exchange}:{ticker}" if exchange else ticker
+
+
+def _tradingview_url(symbol: str) -> str:
+    return f"https://www.tradingview.com/chart/?symbol={quote(symbol, safe='')}"
+
+
 def result_frame(rows: list[dict[str, object]]) -> pd.DataFrame:
     if not rows:
         return pd.DataFrame(columns=OUTPUT_COLUMNS)
@@ -520,8 +559,15 @@ def write_outputs(
     found: set[str],
     provider: str,
     outdir: Path,
+    exchange_map: dict[str, str] | None = None,
 ) -> None:
     outdir.mkdir(parents=True, exist_ok=True)
+    exchange_map = exchange_map or {}
+    results = results.copy()
+    results["tradingview_symbol"] = results["symbol"].map(
+        lambda symbol: _tradingview_symbol(str(symbol), exchange_map)
+    )
+    results["tradingview_url"] = results["tradingview_symbol"].map(_tradingview_url)
     compression_watch = results[results["state"].isin(["COILED", "COMPRESSED"])]
     eligible_mask = results["prebreakout_eligible"].fillna(False).astype(bool)
     watch = results[eligible_mask]
@@ -538,9 +584,29 @@ def write_outputs(
     compression_watch.to_csv(outdir / "compression_watch.csv", index=False)
     rejected.to_csv(outdir / "rejected_compression.csv", index=False)
     top50.to_csv(outdir / "top50.csv", index=False)
-    (outdir / "tradingview.txt").write_text(
-        ",".join(watch["symbol"].tolist()),
-        encoding="utf-8",
+    tradingview_symbols = [
+        str(symbol)
+        for symbol in watch["tradingview_symbol"].tolist()
+        if ":" in str(symbol)
+    ]
+    tradingview_watchlist = ",".join(tradingview_symbols)
+    for filename in ("tradingview.txt", "tradingview_watchlist.txt"):
+        (outdir / filename).write_text(tradingview_watchlist, encoding="utf-8")
+
+    link_lines = [
+        "# US Volatility Compression — TradingView Links",
+        "",
+        f"{len(watch)} actionable pre-breakout candidates.",
+        "",
+        "| Symbol | TradingView chart |",
+        "|---|---|",
+    ]
+    link_lines.extend(
+        f"| {row.symbol} | [Open chart]({row.tradingview_url}) |"
+        for row in watch[["symbol", "tradingview_url"]].itertuples(index=False)
+    )
+    (outdir / "tradingview_links.md").write_text(
+        "\n".join(link_lines) + "\n", encoding="utf-8"
     )
     (outdir / "missing_symbols.txt").write_text("\n".join(missing), encoding="utf-8")
     summary = {
@@ -557,6 +623,10 @@ def write_outputs(
         "confirmed_expansions": int((results["expansion_signal"] != "NONE").sum())
         if len(results)
         else 0,
+        "tradingview_watchlist_symbols": len(tradingview_symbols),
+        "tradingview_exchange_missing": int(
+            (~watch["tradingview_symbol"].astype(str).str.contains(":")).sum()
+        ),
     }
     (outdir / "summary.json").write_text(
         json.dumps(summary, indent=2) + "\n", encoding="utf-8"
@@ -617,7 +687,15 @@ def main() -> int:
         if assessment:
             rows.append(assessment)
     results = result_frame(rows)
-    write_outputs(results, symbols, found_symbols, provider, args.outdir)
+    exchange_map = load_tradingview_exchanges(args.symbols.with_suffix(".csv"))
+    write_outputs(
+        results,
+        symbols,
+        found_symbols,
+        provider,
+        args.outdir,
+        exchange_map=exchange_map,
+    )
     actionable = int(results["prebreakout_eligible"].sum()) if len(results) else 0
     print(
         f"Scanned {len(found_symbols)}/{len(symbols)} symbols via {provider}; "
