@@ -11,8 +11,11 @@ import pandas as pd
 from volatility_compression_scanner import (
     OUTPUT_COLUMNS,
     _alpaca_symbol,
+    _tradingview_symbol,
+    _tradingview_url,
     analyze_symbol,
     fetch_alpaca,
+    load_tradingview_exchanges,
     result_frame,
     write_outputs,
 )
@@ -203,6 +206,27 @@ class CompressionModelTests(unittest.TestCase):
             self.assertEqual((outdir / "missing_symbols.txt").read_text(), "A\nB")
             self.assertTrue((outdir / "prebreakout_watch.csv").exists())
             self.assertTrue((outdir / "rejected_compression.csv").exists())
+            self.assertTrue((outdir / "tradingview_watchlist.txt").exists())
+            self.assertTrue((outdir / "tradingview_links.md").exists())
+
+    def test_tradingview_exchange_mapping_and_url(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "universe.csv"
+            path.write_text(
+                "symbol,name,exchange,market_cap,price\n"
+                "AAPL,Apple Inc.,NMS,1,1\n"
+                "BRK-B,Berkshire Hathaway Inc.,NYQ,1,1\n",
+                encoding="utf-8",
+            )
+            exchanges = load_tradingview_exchanges(path)
+        self.assertEqual(exchanges["AAPL"], "NASDAQ")
+        self.assertEqual(exchanges["BRK-B"], "NYSE")
+        tv_symbol = _tradingview_symbol("BRK-B", exchanges)
+        self.assertEqual(tv_symbol, "NYSE:BRK.B")
+        self.assertEqual(
+            _tradingview_url(tv_symbol),
+            "https://www.tradingview.com/chart/?symbol=NYSE%3ABRK.B",
+        )
 
 
 class AlpacaTests(unittest.TestCase):
