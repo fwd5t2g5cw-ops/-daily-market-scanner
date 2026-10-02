@@ -200,7 +200,8 @@ class CompressionModelTests(unittest.TestCase):
             outdir = Path(directory)
             write_outputs(result_frame([]), ["A", "B"], set(), "test", outdir)
             self.assertEqual(
-                list(pd.read_csv(outdir / "all.csv").columns), OUTPUT_COLUMNS
+                list(pd.read_csv(outdir / "all.csv").columns),
+                [*OUTPUT_COLUMNS, "tradingview_symbol", "tradingview_url"],
             )
             self.assertTrue((outdir / "summary.json").exists())
             self.assertEqual((outdir / "missing_symbols.txt").read_text(), "A\nB")
