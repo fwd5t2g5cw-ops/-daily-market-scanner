@@ -1,13 +1,13 @@
 {
-  "generated_utc": "2026-10-01T01:33:20.320505+00:00",
+  "generated_utc": "2026-10-02T01:52:10.719528+00:00",
   "provider": "yahoo",
   "requested_symbols": 2791,
   "symbols_with_data": 2791,
   "coverage": 1.0,
-  "ranked": 2714,
-  "compression_watch": 1135,
-  "actionable_prebreakout_watch": 94,
-  "rejected_compression": 1041,
-  "coiled": 458,
-  "confirmed_expansions": 234
+  "ranked": 2716,
+  "compression_watch": 1101,
+  "actionable_prebreakout_watch": 92,
+  "rejected_compression": 1009,
+  "coiled": 441,
+  "confirmed_expansions": 331
 }
