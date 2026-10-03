@@ -42,6 +42,7 @@
 | PM | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APM) |
 | CTBI | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACTBI) |
 | TSLX | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ATSLX) |
+| FMBH | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AFMBH) |
 | CHEF | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACHEF) |
 | AMTB | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AAMTB) |
 | GSL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AGSL) |
@@ -67,16 +68,15 @@
 | HMC | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AHMC) |
 | STNG | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASTNG) |
 | TSM | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ATSM) |
+| ADX | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AADX) |
 | BIIB | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABIIB) |
 | FRHC | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AFRHC) |
 | PARR | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APARR) |
 | PFE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APFE) |
-| ADX | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AADX) |
 | MET | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AMET) |
 | SU | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASU) |
 | SHEL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASHEL) |
 | RAL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ARAL) |
-| USA | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AUSA) |
 | LTC | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ALTC) |
 | SN | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASN) |
 | XOM | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AXOM) |
