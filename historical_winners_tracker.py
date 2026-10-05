@@ -307,12 +307,20 @@ def build_rows(observations):
                     continue
                 sb = d.get("signal_breakout")
                 ema = d.get("ema20")
-                if reclaim is None and sb is not None and ema is not None and p > sb and p > ema:
+                if sb is not None and ema is not None and p > sb and p > ema:
                     reclaim = d
-                if second_break is None and p > initial_level:
-                    second_break = d
-                if reclaim is not None and second_break is not None:
                     break
+
+            # A valid "second breakout" must happen on or after the reclaim.
+            # This prevents ordinary bounces above the old high from being counted
+            # before the reclaim confirmation itself.
+            if reclaim is not None:
+                reclaim_i = days.index(reclaim)
+                for d in days[reclaim_i:]:
+                    p = d.get("price")
+                    if p is not None and p > initial_level:
+                        second_break = d
+                        break
 
         gain = (max_day["price"] / initial_level - 1.0) * 100.0 if max_day else 0.0
         if gain >= 10:
