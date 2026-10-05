@@ -48,6 +48,27 @@ US_EXCHANGE_OVERRIDES = {
 }
 
 
+def load_us_exchange_map():
+    p = Path("data/us_1b_universe.csv")
+    if not p.exists():
+        return {}
+    mapping = {}
+    try:
+        with p.open(newline="") as f:
+            for row in csv.DictReader(f):
+                symbol = (row.get("symbol") or "").strip().upper()
+                exchange = (row.get("exchange") or "").strip().upper()
+                tv = {"NMS": "NASDAQ", "NCM": "NASDAQ", "NGM": "NASDAQ", "NYQ": "NYSE", "ASE": "AMEX"}.get(exchange)
+                if symbol and tv:
+                    mapping[symbol] = tv
+    except Exception:
+        return {}
+    return mapping
+
+
+US_EXCHANGE_MAP = load_us_exchange_map()
+
+
 def run_git(*args: str) -> str:
     return subprocess.check_output(["git", *args], text=True, stderr=subprocess.DEVNULL)
 
@@ -107,8 +128,8 @@ def tv_symbol(market: str, symbol: str) -> str:
     if market == "hk":
         base = symbol.split(".")[0].lstrip("0") or "0"
         return f"HKEX:{base.zfill(4)}"
-    exchange = US_EXCHANGE_OVERRIDES.get(symbol, "NASDAQ")
-    return f"{exchange}:{symbol}"
+    exchange = US_EXCHANGE_OVERRIDES.get(symbol) or US_EXCHANGE_MAP.get(symbol)
+    return f"{exchange}:{symbol}" if exchange else symbol
 
 
 def tv_url(market: str, symbol: str) -> str:
