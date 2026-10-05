@@ -1,0 +1,76 @@
+name: 🏆 Historical Winners Tracker
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'historical_winners_tracker.py'
+      - '.github/workflows/historical-winners-tracker.yml'
+  workflow_run:
+    workflows:
+      - '🇺🇸 US Double Reclaim Scanner'
+      - '🇨🇦 Canada Double Reclaim Scanner'
+      - '🇭🇰 HK Double Reclaim Scanner'
+    types: [completed]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: historical-winners-tracker-main
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Rebuild historical winners from scanner snapshots
+        run: python historical_winners_tracker.py --outdir latest
+
+      - name: Publish historical winners
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add latest/historical_winners.csv \
+                  latest/historical_breakout_history.csv \
+                  latest/historical_winners_summary.md
+
+          if git diff --cached --quiet; then
+            echo 'Historical winners unchanged; nothing to commit.'
+            exit 0
+          fi
+
+          git commit -m "Update historical winners tracker [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep $((attempt * 3))
+          done
+
+      - name: Upload tracker outputs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: historical-winners-${{ github.run_number }}
+          path: |
+            latest/historical_winners.csv
+            latest/historical_breakout_history.csv
+            latest/historical_winners_summary.md
+          retention-days: 90
