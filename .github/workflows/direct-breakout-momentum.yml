@@ -1,0 +1,138 @@
+name: 🚀 Direct Breakout Momentum
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: backtest, live, or both
+        required: false
+        default: backtest
+      markets:
+        description: Markets (us,tsx,hk)
+        required: false
+        default: us,tsx,hk
+      max_symbols:
+        description: 0 = full universe
+        required: false
+        default: '0'
+  push:
+    branches: [main]
+    paths:
+      - 'direct_breakout_momentum.py'
+      - '.github/workflows/direct-breakout-momentum.yml'
+  schedule:
+    # About 6:20 PM Toronto, DST-safe pair.
+    - cron: '20 22 * * 1-5'
+    - cron: '20 23 * * 1-5'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: direct-breakout-momentum-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decide mode
+        id: cfg
+        shell: bash
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT_MODE: ${{ github.event.inputs.mode }}
+          INPUT_MARKETS: ${{ github.event.inputs.markets }}
+          INPUT_MAX: ${{ github.event.inputs.max_symbols }}
+          TRIGGER_CRON: ${{ github.event.schedule }}
+        run: |
+          if [ "$EVENT" = "schedule" ]; then
+            OFFSET=$(TZ=America/Toronto date +%z)
+            case "$TRIGGER_CRON:$OFFSET" in
+              "20 22 * * 1-5:-0400"|"20 23 * * 1-5:-0500")
+                echo "run_scan=true" >> "$GITHUB_OUTPUT"
+                ;;
+              *)
+                echo "run_scan=false" >> "$GITHUB_OUTPUT"
+                echo "Skipping duplicate DST cron: $TRIGGER_CRON offset=$OFFSET"
+                exit 0
+                ;;
+            esac
+            echo "mode=live" >> "$GITHUB_OUTPUT"
+            echo "markets=us,tsx,hk" >> "$GITHUB_OUTPUT"
+            echo "max_symbols=0" >> "$GITHUB_OUTPUT"
+          else
+            echo "run_scan=true" >> "$GITHUB_OUTPUT"
+            echo "mode=${INPUT_MODE:-backtest}" >> "$GITHUB_OUTPUT"
+            echo "markets=${INPUT_MARKETS:-us,tsx,hk}" >> "$GITHUB_OUTPUT"
+            echo "max_symbols=${INPUT_MAX:-0}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.cfg.outputs.run_scan == 'true'
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        if: steps.cfg.outputs.run_scan == 'true'
+        run: pip install pandas numpy yfinance requests openpyxl
+
+      - name: Build TSX universe
+        if: steps.cfg.outputs.run_scan == 'true'
+        run: python build_universes.py --markets tsx
+
+      - name: Run Direct Breakout Momentum
+        if: steps.cfg.outputs.run_scan == 'true'
+        shell: bash
+        run: |
+          python direct_breakout_momentum.py \
+            --markets "${{ steps.cfg.outputs.markets }}" \
+            --mode "${{ steps.cfg.outputs.mode }}" \
+            --max-symbols "${{ steps.cfg.outputs.max_symbols }}"
+
+      - name: Publish compact latest results
+        if: steps.cfg.outputs.run_scan == 'true' && success()
+        shell: bash
+        run: |
+          mkdir -p latest/direct_breakout_momentum
+          MODE="${{ steps.cfg.outputs.mode }}"
+
+          if [ "$MODE" = "backtest" ] || [ "$MODE" = "both" ]; then
+            cp direct_breakout_momentum_results/variant_summary.csv latest/direct_breakout_momentum/
+            cp direct_breakout_momentum_results/top_direct_breakouts.csv latest/direct_breakout_momentum/
+          fi
+          if [ "$MODE" = "live" ] || [ "$MODE" = "both" ]; then
+            cp direct_breakout_momentum_results/all_markets_live.csv latest/direct_breakout_momentum/
+          fi
+
+          printf 'run_id=%s\nrun_number=%s\nmode=%s\ncommit=%s\nupdated_utc=%s\n' \
+            '${{ github.run_id }}' '${{ github.run_number }}' "$MODE" '${{ github.sha }}' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            > latest/direct_breakout_momentum/LATEST_RUN.txt
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add latest/direct_breakout_momentum
+          if git diff --cached --quiet; then
+            echo 'Direct breakout latest results unchanged.'
+          else
+            git commit -m "Update direct breakout momentum results [skip ci]"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              if [ "$attempt" -eq 3 ]; then exit 1; fi
+              sleep $((attempt * 3))
+            done
+          fi
+
+      - name: Upload full results
+        if: steps.cfg.outputs.run_scan == 'true' && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: direct-breakout-momentum-${{ github.run_number }}
+          path: direct_breakout_momentum_results/
+          retention-days: 90
