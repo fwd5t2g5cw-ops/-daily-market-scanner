@@ -491,6 +491,39 @@ def variant_summary(df: pd.DataFrame, name: str, mask: pd.Series):
     }
 
 
+def composite_trigger_summary(df: pd.DataFrame, name: str, pre_mask: pd.Series, trigger_mask: pd.Series | None = None):
+    """
+    Two-stage summary:
+      1) pre-entry filter is evaluated on ALL candidate setups;
+      2) breakout-day filters (volume/gap) are evaluated only AFTER a 3-day breakout exists.
+
+    This avoids the misleading 100% breakout-rate artifact that occurs if
+    post-breakout information is used to define the setup universe.
+    """
+    base = df[pre_mask].copy()
+    breakout = base[base.breakout_within_3d == True].copy()
+    if trigger_mask is None:
+        triggered = breakout
+    else:
+        triggered = breakout[trigger_mask.reindex(breakout.index).fillna(False)].copy()
+
+    return {
+        "composite": name,
+        "pre_entry_setups": int(len(base)),
+        "breakouts_within_3d": int(len(breakout)),
+        "pre_entry_breakout_rate_pct": round(100.0 * len(breakout) / len(base), 2) if len(base) else np.nan,
+        "triggered_breakouts": int(len(triggered)),
+        "trigger_share_of_breakouts_pct": round(100.0 * len(triggered) / len(breakout), 2) if len(breakout) else np.nan,
+        "hit_10pct_pct": round(100.0 * pd.to_numeric(triggered.get("hit_10pct"), errors="coerce").mean(), 2) if len(triggered) else np.nan,
+        "hit_2_5r_before_stop_pct": round(100.0 * pd.to_numeric(triggered.get("hit_2_5r_before_stop"), errors="coerce").mean(), 2) if len(triggered) else np.nan,
+        "median_mfe_20d_pct": round(pd.to_numeric(triggered.get("mfe_20d_pct"), errors="coerce").median(), 2) if len(triggered) else np.nan,
+        "median_mae_20d_pct": round(pd.to_numeric(triggered.get("mae_20d_pct"), errors="coerce").median(), 2) if len(triggered) else np.nan,
+        "avg_close_return_20d_pct": round(pd.to_numeric(triggered.get("close_return_20d_pct"), errors="coerce").mean(), 2) if len(triggered) else np.nan,
+        "median_gap_vs_breakout_pct": round(pd.to_numeric(triggered.get("gap_vs_breakout_pct"), errors="coerce").median(), 2) if len(triggered) else np.nan,
+        "median_breakout_volume_ratio": round(pd.to_numeric(triggered.get("breakout_volume_ratio"), errors="coerce").median(), 2) if len(triggered) else np.nan,
+    }
+
+
 def run_market(key: str, start: str, end: str, analysis_start: pd.Timestamp, outdir: Path, p: Params, mode: str, max_symbols: int):
     cfg = MARKETS[key]
     syms = load_symbols(cfg["universe"])
@@ -649,6 +682,67 @@ def main():
     summary = pd.DataFrame(summary_rows)
     summary.to_csv(outdir / "variant_summary.csv", index=False)
 
+    composite_rows = []
+    if not combined.empty:
+        pre = (
+            (combined.grade == "A")
+            & (combined.compression_setup == True)
+            & (combined.rs_pct >= 15)
+        )
+        clean = (
+            (combined.suspicious_single_day_move == False)
+            & (combined.extreme_mfe_over_150pct == False)
+        )
+        composite_rows = [
+            composite_trigger_summary(combined, "A_COMP_RS15_BASE", pre),
+            composite_trigger_summary(
+                combined,
+                "A_COMP_RS15_VOL1_2X",
+                pre,
+                combined.breakout_volume_expansion_1_2x == True,
+            ),
+            composite_trigger_summary(
+                combined,
+                "A_COMP_RS15_VOL1_5X",
+                pre,
+                combined.breakout_volume_expansion_1_5x == True,
+            ),
+            composite_trigger_summary(
+                combined,
+                "A_COMP_RS15_VOL1_2X_GAP2",
+                pre,
+                (combined.breakout_volume_expansion_1_2x == True)
+                & (combined.gap_under_2pct == True),
+            ),
+            composite_trigger_summary(
+                combined,
+                "CLEAN_A_COMP_RS15_VOL1_2X_GAP2",
+                pre,
+                (combined.breakout_volume_expansion_1_2x == True)
+                & (combined.gap_under_2pct == True)
+                & clean,
+            ),
+        ]
+        for market, g in combined.groupby("market"):
+            gp = (
+                (g.grade == "A")
+                & (g.compression_setup == True)
+                & (g.rs_pct >= 15)
+            )
+            composite_rows.append(
+                composite_trigger_summary(
+                    g,
+                    f"{market}_A_COMP_RS15_VOL1_2X_GAP2",
+                    gp,
+                    (g.breakout_volume_expansion_1_2x == True)
+                    & (g.gap_under_2pct == True)
+                    & (g.suspicious_single_day_move == False)
+                    & (g.extreme_mfe_over_150pct == False),
+                )
+            )
+    composite = pd.DataFrame(composite_rows)
+    composite.to_csv(outdir / "composite_summary.csv", index=False)
+
     trades = combined[combined.breakout_within_3d == True].copy() if not combined.empty else pd.DataFrame()
     if not trades.empty:
         trades = trades.sort_values(["mfe_20d_pct", "score", "rs_pct"], ascending=[False, False, False])
@@ -668,6 +762,8 @@ def main():
 
     print("\n=== DIRECT BREAKOUT MOMENTUM SUMMARY ===")
     print(summary.to_string(index=False) if not summary.empty else "(no setups)")
+    print("\n=== TWO-STAGE COMPOSITE SUMMARY ===")
+    print(composite.to_string(index=False) if not composite.empty else "(no composite setups)")
     if not trades.empty:
         cols = [
             "market", "symbol", "setup_date", "breakout_date", "bars_to_breakout",
