@@ -1,10 +1,6 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-VOD,READY_NOW,A+,13,16.83,16.68,16.68,16.64,0.237,25.84,4.97,18,0.0,2,1,2,BOTH,True,True,True
-NVGS,READY_NOW,B,8,23.84,23.3,23.49,23.313,0.752,17.6,6.44,12,-0.81,1,1,2,PRE_BREAKOUT,True,True,True
-UGP,READY_NOW,B,6,7.45,7.145,7.36,7.291,0.939,38.96,4.24,17,-2.92,0,1,1,PRE_BREAKOUT,True,True,True
-BP,READY_NOW,B,6,44.79,44.01,44.671,44.32,0.786,18.43,4.99,29,-1.48,0,1,1,PRE_BREAKOUT,True,True,True
-HTFL,READY_NOW,C,4,49.319,47.354,47.95,48.484,1.114,79.09,5.56,28,-1.24,0,1,1,PRE_BREAKOUT,True,True,True
-NRP,READY_NOW,D,4,109.613,107.39,107.49,108.989,1.394,9.98,13.13,26,-0.09,2,0,2,BOTH,True,True,True
-FLNG,READY_NOW,D,4,31.25,30.9,30.942,31.233,0.941,4.17,5.23,30,-0.14,2,1,1,PRE_BREAKOUT,True,True,True
-DE,READY_NOW,D,1,687.26,668.61,676.276,677.121,0.125,5.61,4.48,20,-1.13,0,1,0,NONE,True,True,True
-BML-PL,READY_NOW,D,1,20.05,19.709,19.97,19.67,1.5,2.76,1.47,1,-1.31,0,0,1,PRE_BREAKOUT,True,True,True
+GSL,READY_NOW,A,8,45.87,44.5,44.8,44.892,0.206,16.76,1.5,27,-0.67,1,0,1,FORMING_NOW,True,True,True
+CAI,READY_NOW,A,6,30.38,28.346,29.085,29.024,0.208,71.2,9.73,11,-2.54,0,0,0,NONE,True,True,True
+NVGS,READY_NOW,B,7,23.74,23.21,23.49,23.354,0.579,15.86,6.83,13,-1.19,0,1,2,PRE_BREAKOUT,True,True,True
+DE,READY_NOW,B,7,682.43,676.31,676.276,677.604,0.196,10.63,5.15,21,0.0,2,1,0,NONE,True,True,True
+DDS,READY_NOW,D,2,679.09,652.4,665.745,652.36,2.011,27.59,4.35,4,-2.0,0,1,1,PRE_BREAKOUT,True,True,True
