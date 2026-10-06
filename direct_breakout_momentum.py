@@ -154,6 +154,7 @@ def add_indicators(df: pd.DataFrame):
     out["HIGH52"] = h.rolling(252, min_periods=150).max()
     out["AVG_VOL20"] = v.rolling(20).mean()
     out["AVG_VOL10"] = v.rolling(10).mean()
+    out["VOL20_PRIOR"] = v.shift(1).rolling(20).mean()
     out["RANGE20"] = h.rolling(20).max() / l.rolling(20).min() - 1.0
     out["RANGE10"] = h.rolling(10).max() / l.rolling(10).min() - 1.0
     return out
@@ -276,6 +277,24 @@ def breakout_index(x: pd.DataFrame, setup_i: int, level: float, max_days: int):
     return None
 
 
+def breakout_trigger_metrics(x: pd.DataFrame, breakout_i: int):
+    bar = x.iloc[breakout_i]
+    prior_vol = float(x["VOL20_PRIOR"].iloc[breakout_i]) if "VOL20_PRIOR" in x.columns else np.nan
+    vol = float(bar.Volume)
+    ratio = vol / prior_vol if np.isfinite(prior_vol) and prior_vol > 0 else np.nan
+    rng = float(bar.High) - float(bar.Low)
+    close_pos = (float(bar.Close) - float(bar.Low)) / rng if rng > 0 else np.nan
+    body = abs(float(bar.Close) - float(bar.Open)) / rng if rng > 0 else np.nan
+    return {
+        "breakout_volume_ratio": ratio,
+        "breakout_volume_expansion_1_2x": bool(np.isfinite(ratio) and ratio >= 1.20),
+        "breakout_volume_expansion_1_5x": bool(np.isfinite(ratio) and ratio >= 1.50),
+        "breakout_close_position": close_pos,
+        "breakout_body_fraction": body,
+        "breakout_bullish_bar": bool(float(bar.Close) > float(bar.Open)),
+    }
+
+
 def outcome_metrics(x: pd.DataFrame, breakout_i: int, level: float, p: Params):
     entry_i = breakout_i + 1
     if entry_i >= len(x):
@@ -323,12 +342,17 @@ def outcome_metrics(x: pd.DataFrame, breakout_i: int, level: float, p: Params):
             return np.nan
         return (float(closes.iloc[n - 1]) / entry - 1.0) * 100.0
 
+    one_day = s(x.Close.iloc[max(0, breakout_i - 5):end]).pct_change().abs()
+    suspicious_single_day_move = bool((one_day > 0.75).any()) if len(one_day) else False
+
     return {
+        **breakout_trigger_metrics(x, breakout_i),
         "entry_date": str(x.index[entry_i].date()),
         "entry": entry,
         "stop": stop,
         "risk_pct": (risk / entry) * 100.0,
         "gap_vs_breakout_pct": (entry / level - 1.0) * 100.0,
+        "gap_under_2pct": bool((entry / level - 1.0) * 100.0 <= 2.0),
         "stopped_within_20d": stopped,
         "stop_day": stop_day if stop_day is not None else np.nan,
         "hit_1r_before_stop": isinstance(first_hit.get("1R"), int),
@@ -343,6 +367,8 @@ def outcome_metrics(x: pd.DataFrame, breakout_i: int, level: float, p: Params):
         "close_return_5d_pct": close_ret(5),
         "close_return_10d_pct": close_ret(10),
         "close_return_20d_pct": close_ret(20),
+        "suspicious_single_day_move": suspicious_single_day_move,
+        "extreme_mfe_over_150pct": bool(mfe_pct > 150.0),
     }
 
 
@@ -425,6 +451,7 @@ def live_signal(symbol: str, df: pd.DataFrame, bench_ret: pd.Series, cfg: dict, 
                 "bars_to_breakout": i - j,
                 **m,
                 "breakout_close": float(c.iloc[i]),
+                **breakout_trigger_metrics(x, i),
             }
     return None
 
@@ -443,6 +470,8 @@ def variant_summary(df: pd.DataFrame, name: str, mask: pd.Series):
         "median_mae_20d_pct": round(pd.to_numeric(trades.get("mae_20d_pct"), errors="coerce").median(), 2) if len(trades) else np.nan,
         "avg_close_return_20d_pct": round(pd.to_numeric(trades.get("close_return_20d_pct"), errors="coerce").mean(), 2) if len(trades) else np.nan,
         "median_bars_to_breakout": round(pd.to_numeric(trades.get("bars_to_breakout"), errors="coerce").median(), 2) if len(trades) else np.nan,
+        "vol_1_2x_pct": round(100.0 * pd.to_numeric(trades.get("breakout_volume_expansion_1_2x"), errors="coerce").mean(), 2) if len(trades) else np.nan,
+        "vol_1_5x_pct": round(100.0 * pd.to_numeric(trades.get("breakout_volume_expansion_1_5x"), errors="coerce").mean(), 2) if len(trades) else np.nan,
     }
 
 
@@ -547,6 +576,52 @@ def main():
                 "A_PLUS_COMPRESSION",
                 (combined.grade == "A") & (combined.compression_setup == True),
             ),
+            (
+                "BREAKOUT_VOL_1_2X",
+                combined.breakout_volume_expansion_1_2x == True,
+            ),
+            (
+                "BREAKOUT_VOL_1_5X",
+                combined.breakout_volume_expansion_1_5x == True,
+            ),
+            (
+                "A_COMP_RS15",
+                (combined.grade == "A")
+                & (combined.compression_setup == True)
+                & (combined.rs_pct >= 15),
+            ),
+            (
+                "A_COMP_RS15_VOL1_2X",
+                (combined.grade == "A")
+                & (combined.compression_setup == True)
+                & (combined.rs_pct >= 15)
+                & (combined.breakout_volume_expansion_1_2x == True),
+            ),
+            (
+                "A_COMP_RS15_VOL1_5X",
+                (combined.grade == "A")
+                & (combined.compression_setup == True)
+                & (combined.rs_pct >= 15)
+                & (combined.breakout_volume_expansion_1_5x == True),
+            ),
+            (
+                "A_COMP_RS15_VOL1_2X_GAP2",
+                (combined.grade == "A")
+                & (combined.compression_setup == True)
+                & (combined.rs_pct >= 15)
+                & (combined.breakout_volume_expansion_1_2x == True)
+                & (combined.gap_under_2pct == True),
+            ),
+            (
+                "CLEAN_A_COMP_RS15_VOL1_2X_GAP2",
+                (combined.grade == "A")
+                & (combined.compression_setup == True)
+                & (combined.rs_pct >= 15)
+                & (combined.breakout_volume_expansion_1_2x == True)
+                & (combined.gap_under_2pct == True)
+                & (combined.suspicious_single_day_move == False)
+                & (combined.extreme_mfe_over_150pct == False),
+            ),
         ]
         for name, mask in variants:
             summary_rows.append(variant_summary(combined, name, mask))
@@ -563,6 +638,18 @@ def main():
         trades = trades.sort_values(["mfe_20d_pct", "score", "rs_pct"], ascending=[False, False, False])
     trades.head(300).to_csv(outdir / "top_direct_breakouts.csv", index=False)
 
+    clean_trades = trades.copy()
+    if not clean_trades.empty:
+        clean_trades = clean_trades[
+            (clean_trades.suspicious_single_day_move == False)
+            & (clean_trades.extreme_mfe_over_150pct == False)
+            & (pd.to_numeric(clean_trades.risk_pct, errors="coerce") <= 20)
+        ].copy()
+        clean_trades = clean_trades.sort_values(
+            ["mfe_20d_pct", "score", "rs_pct"], ascending=[False, False, False]
+        )
+    clean_trades.head(300).to_csv(outdir / "clean_top_direct_breakouts.csv", index=False)
+
     print("\n=== DIRECT BREAKOUT MOMENTUM SUMMARY ===")
     print(summary.to_string(index=False) if not summary.empty else "(no setups)")
     if not trades.empty:
@@ -570,7 +657,8 @@ def main():
             "market", "symbol", "setup_date", "breakout_date", "bars_to_breakout",
             "grade", "score", "compression_setup", "fast_quality",
             "distance_to_breakout_pct", "rs_pct", "pct_below_52w_high",
-            "mfe_20d_pct", "mae_20d_pct", "hit_2_5r_before_stop",
+            "breakout_volume_ratio", "breakout_volume_expansion_1_2x",
+            "gap_vs_breakout_pct", "mfe_20d_pct", "mae_20d_pct", "hit_2_5r_before_stop",
             "close_return_20d_pct",
         ]
         print("\n=== TOP DIRECT BREAKOUTS ===")
