@@ -74,6 +74,22 @@ def normalize_frame(d):
     return d if len(d) >= 220 else None
 
 
+def load_live_exclusions(path: str = "data/direct_breakout_live_exclusions.txt"):
+    p = Path(path)
+    if not p.exists():
+        return set()
+    out = set()
+    for line in p.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        out.add(line.upper())
+    return out
+
+
+LIVE_EXCLUSIONS = load_live_exclusions()
+
+
 def load_symbols(path: str):
     p = Path(path)
     if not p.exists():
@@ -504,7 +520,7 @@ def run_market(key: str, start: str, end: str, analysis_start: pd.Timestamp, out
             try:
                 if mode in ("backtest", "both"):
                     rows.extend(find_episodes(sym, d, br, cfg, p, analysis_start))
-                if mode in ("live", "both"):
+                if mode in ("live", "both") and sym.upper() not in LIVE_EXCLUSIONS:
                     z = live_signal(sym, d, br, cfg, p)
                     if z:
                         live.append(z)
