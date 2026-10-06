@@ -1,0 +1,10 @@
+# Live-trading exclusions only. Do NOT apply this list retroactively to historical backtests.
+# Reason: announced cash M&A / special situations can pin price near a deal value and
+# create artificial compression / near-breakout signals that are not momentum setups.
+ATKR
+DSGR
+HZO
+ITGR
+ARX
+WBD
+CBZ
