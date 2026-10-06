@@ -106,6 +106,7 @@ jobs:
           if [ "$MODE" = "backtest" ] || [ "$MODE" = "both" ]; then
             cp direct_breakout_momentum_results/variant_summary.csv latest/direct_breakout_momentum/
             cp direct_breakout_momentum_results/top_direct_breakouts.csv latest/direct_breakout_momentum/
+            cp direct_breakout_momentum_results/clean_top_direct_breakouts.csv latest/direct_breakout_momentum/
           fi
           if [ "$MODE" = "live" ] || [ "$MODE" = "both" ]; then
             cp direct_breakout_momentum_results/all_markets_live.csv latest/direct_breakout_momentum/
