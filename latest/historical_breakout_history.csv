@@ -16,6 +16,7 @@ HK,2556.HK,2026-08-28,49.0,2026-08-28,2026-08-28,53.45,2026-09-01,60.8,24.08,HKE
 HK,1952.HK,2026-08-27,30.84,2026-08-27,2026-08-27,37.9,2026-08-27,37.9,22.89,HKEX:1952,https://www.tradingview.com/chart/?symbol=HKEX%3A1952
 HK,6693.HK,2026-08-21,35.92,2026-08-21,2026-08-21,44.14,2026-08-21,44.14,22.88,HKEX:6693,https://www.tradingview.com/chart/?symbol=HKEX%3A6693
 US,ESTC,2026-08-23,77.39,2026-08-23,2026-08-23,85.89,2026-10-05,94.91,22.64,NYSE:ESTC,https://www.tradingview.com/chart/?symbol=NYSE%3AESTC
+HK,6821.HK,2026-09-04,139.7,2026-09-04,2026-10-07,170.7,2026-10-07,170.7,22.19,HKEX:6821,https://www.tradingview.com/chart/?symbol=HKEX%3A6821
 US,HAFN,2026-08-28,8.295,2026-08-28,2026-08-31,8.44,2026-10-06,10.13,22.12,NYSE:HAFN,https://www.tradingview.com/chart/?symbol=NYSE%3AHAFN
 US,ASST,2026-09-18,24.68,2026-09-18,2026-09-18,30.11,2026-09-18,30.11,22.0,NASDAQ:ASST,https://www.tradingview.com/chart/?symbol=NASDAQ%3AASST
 Canada,MSA.TO,2026-08-20,8.5,2026-08-26,2026-09-09,8.82,2026-10-06,10.37,22.0,TSX:MSA,https://www.tradingview.com/chart/?symbol=TSX%3AMSA
@@ -1303,7 +1304,6 @@ US,BGC,2026-09-04,12.757,2026-09-04,,,2026-09-10,12.22,-4.21,NASDAQ:BGC,https://
 US,ETN,2026-08-20,437.683,2026-08-20,,,2026-08-23,419.24,-4.21,NYSE:ETN,https://www.tradingview.com/chart/?symbol=NYSE%3AETN
 US,NSP,2026-08-20,55.9,2026-08-28,,,2026-08-28,53.54,-4.22,NYSE:NSP,https://www.tradingview.com/chart/?symbol=NYSE%3ANSP
 US,HOMB,2026-09-04,31.54,2026-09-04,,,2026-09-15,30.21,-4.22,NYSE:HOMB,https://www.tradingview.com/chart/?symbol=NYSE%3AHOMB
-HK,6821.HK,2026-09-04,139.7,2026-09-04,,,2026-09-04,133.8,-4.22,HKEX:6821,https://www.tradingview.com/chart/?symbol=HKEX%3A6821
 US,SRCE,2026-08-20,91.24,2026-09-04,,,2026-09-14,87.37,-4.24,NASDAQ:SRCE,https://www.tradingview.com/chart/?symbol=NASDAQ%3ASRCE
 US,QLYS,2026-08-20,201.54,2026-10-02,,,2026-10-02,193.0,-4.24,NASDAQ:QLYS,https://www.tradingview.com/chart/?symbol=NASDAQ%3AQLYS
 Canada,MTL.TO,2026-09-29,28.628,2026-09-29,,,2026-10-02,27.41,-4.25,TSX:MTL,https://www.tradingview.com/chart/?symbol=TSX%3AMTL
