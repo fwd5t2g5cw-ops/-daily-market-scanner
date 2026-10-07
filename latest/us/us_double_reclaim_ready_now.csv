@@ -1,6 +1,5 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-SCCO,READY_NOW,A+,11,204.33,199.22,201.2,201.43,0.114,20.47,7.45,30,-0.98,1,1,1,PRE_BREAKOUT,True,True,True
-GSL,READY_NOW,B,8,45.48,44.89,44.8,44.947,0.329,11.94,2.34,28,0.2,2,1,1,FORMING_NOW,True,True,True
-NVGS,READY_NOW,B,7,23.61,22.87,23.49,23.377,0.482,10.11,7.34,14,-2.64,0,1,2,PRE_BREAKOUT,True,True,True
-QQQX,READY_NOW,D,3,30.92,30.41,30.589,30.369,0.719,1.78,0.77,10,-0.58,1,0,2,BOTH,True,True,True
-PEGA,READY_NOW,D,2,34.6,34.155,34.529,34.581,0.151,6.16,48.9,26,-1.08,0,0,2,BOTH,True,True,True
+NVGS,READY_NOW,B,8,23.57,23.3,23.49,23.395,0.404,12.69,7.5,15,-0.81,1,1,2,PRE_BREAKOUT,True,True,True
+GO,READY_NOW,C,3,11.94,11.36,11.65,11.436,1.84,12.28,29.72,30,-2.49,0,0,1,PRE_BREAKOUT,True,True,True
+RUSHB,READY_NOW,D,4,55.205,54.521,54.85,54.475,0.683,5.28,3.79,13,-0.6,1,1,2,FORMING_NOW,True,True,True
+NTRA,READY_NOW,D,0,395.38,383.45,394.86,386.719,2.062,35.5,9.61,8,-2.89,0,0,0,NONE,True,True,True

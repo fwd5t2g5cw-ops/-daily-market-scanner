@@ -1,7 +1,6 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
-ELF,WATCH_CLUSTER,C,5,102.83,102.4,102.22,101.026,1.169,34.79,30.4,29,0.18,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,BEARISH_ENGULFING,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
-BWLP,WATCH_CLUSTER,C,4,25.59,25.1,25.37,24.886,1.908,28.16,3.32,14,-1.06,0,1,1,FORMING_NOW,True,False,True,False,False,True,True,DOJI,NEUTRAL,5,False,RECLAIM_BREAKOUT|RS20+
-NTRA,WATCH_CLUSTER,D,4,400.745,394.77,394.86,385.816,2.29,42.17,6.25,7,-0.02,2,1,1,FORMING_NOW,True,False,True,False,False,True,True,STRONG_BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
-WAT,WATCH_CLUSTER,D,3,436.46,431.615,436.34,426.94,2.154,14.68,2.62,5,-1.08,0,1,2,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS10+
-WOR,WATCH_CLUSTER,D,3,61.62,61.09,61.128,59.631,2.449,13.29,8.77,20,-0.06,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,DOJI,NEUTRAL,3,False,RECLAIM_BREAKOUT|RS10+
-FRHC,WATCH_CLUSTER,D,2,175.03,171.59,172.235,170.078,1.252,6.33,1.67,25,-0.37,2,0,0,NONE,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,3,False,RECLAIM_BREAKOUT
+VOD,WATCH_CLUSTER,A+,13,16.795,16.715,16.68,16.657,0.14,23.62,5.17,21,0.21,2,1,2,BOTH,True,False,True,False,False,True,True,SHOOTING_STAR_BULL_BODY,BULL,8,False,RECLAIM_BREAKOUT|RS20+|GRADE_A+|BULL_CANDLE
+QQQX,WATCH_CLUSTER,D,4,30.94,30.61,30.589,30.427,0.53,-0.13,0.71,11,0.07,2,0,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
+CNXN,WATCH_CLUSTER,D,3,92.145,90.82,90.67,88.8,2.063,16.17,1.86,3,0.17,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,DOJI,NEUTRAL,4,False,RECLAIM_BREAKOUT|RS10+
+A,WATCH_CLUSTER,D,2,169.04,166.52,168.689,164.477,2.496,21.95,4.38,8,-1.29,0,1,1,FORMING_NOW,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,5,False,RECLAIM_BREAKOUT|RS20+
+FRHC,WATCH_CLUSTER,D,2,174.91,172.3,172.235,170.437,1.044,4.14,1.74,26,0.04,2,0,0,NONE,True,False,True,False,False,True,True,BULLISH_ENGULFING,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
