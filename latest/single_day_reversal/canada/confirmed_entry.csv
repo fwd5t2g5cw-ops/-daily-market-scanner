@@ -1,1 +1,2 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
+MRU.TO,CANADA,CONFIRMED_ENTRY,3,90.72000122070312,88.6500015258789,0.022817456646504388,False,2026-10-05,89.6500015258789,89.8499984741211,88.6500015258789,91.5,0.8333354526149817,0.7083338631537454,0.42293151533932444,False,False,False,5,92.79000091552734,94.86000061035156,False
