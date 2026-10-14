@@ -73,6 +73,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **QMCO** | 2026-10-06 | 2026-10-06 | 29.15 | 33.47 (2026-10-06) | **14.82%** | 2026-10-08 (EMA20) | 2026-10-09 | 2026-10-09 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AQMCO) |
 | HK | **2276.HK** | 2026-09-03 | 2026-09-03 | 41.74 | 47.9 (2026-09-22) | **14.76%** | 2026-09-16 (BREAKOUT+EMA20) | 2026-09-21 | 2026-09-21 | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2276) |
 | HK | **1735.HK** | 2026-09-24 | 2026-09-24 | 8.7 | 9.98 (2026-09-24) | **14.71%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1735) |
+| Canada | **VLE.TO** | 2026-09-03 | 2026-09-11 | 14.52 | 16.65 (2026-10-14) | **14.67%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) |
 | US | **ATRC** | 2026-08-28 | 2026-09-11 | 49.88 | 57.17 (2026-09-16) | **14.62%** | 2026-09-30 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AATRC) |
 | US | **CLMT** | 2026-08-23 | 2026-09-18 | 51.5 | 59.01 (2026-09-18) | **14.58%** | 2026-09-23 (BREAKOUT) | 2026-10-02 | 2026-10-02 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACLMT) |
 | US | **ZS** | 2026-09-17 | 2026-09-17 | 180.8 | 207.15 (2026-09-21) | **14.57%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AZS) |
@@ -132,7 +133,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | HK | **1828.HK** | 2026-09-16 | 2026-09-16 | 32.64 | 36.0 (2026-09-21) | **10.29%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1828) |
 | US | **HPQ** | 2026-09-01 | 2026-09-07 | 32.19 | 35.475 (2026-09-11) | **10.21%** | 2026-09-23 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AHPQ) |
 | US | **DE** | 2026-08-20 | 2026-08-24 | 643.99 | 709.68 (2026-09-23) | **10.2%** | 2026-09-16 (BREAKOUT) | 2026-09-17 | 2026-09-17 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ADE) |
-| Canada | **VLE.TO** | 2026-09-03 | 2026-09-11 | 14.52 | 16.0 (2026-10-07) | **10.19%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) |
 | US | **FDS** | 2026-08-20 | 2026-08-20 | 272.4 | 300.13 (2026-08-20) | **10.18%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AFDS) |
 | US | **HPE** | 2026-09-22 | 2026-09-30 | 63.86 | 70.33 (2026-10-12) | **10.13%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AHPE) |
 | US | **BWLP** | 2026-08-20 | 2026-08-28 | 23.89 | 26.31 (2026-10-08) | **10.13%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABWLP) |
@@ -162,6 +162,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **ZLAB** | 2026-08-23 | 2026-08-23 | 24.065 | 26.19 (2026-08-25) | **8.83%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AZLAB) |
 | US | **TEVA** | 2026-08-23 | 2026-08-26 | 37.83 | 41.17 (2026-10-12) | **8.83%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATEVA) |
 | US | **ASIC** | 2026-08-20 | 2026-08-24 | 26.0 | 28.29 (2026-09-16) | **8.81%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AASIC) |
+| Canada | **SGY.TO** | 2026-08-23 | 2026-09-08 | 11.31 | 12.3 (2026-10-14) | **8.75%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ASGY) |
 | US | **TOST** | 2026-08-20 | 2026-08-20 | 33.99 | 36.96 (2026-08-26) | **8.74%** | 2026-08-31 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATOST) |
 | US | **ACN** | 2026-10-12 | 2026-10-12 | 197.63 | 214.86 (2026-10-12) | **8.72%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AACN) |
 | US | **ARHS** | 2026-08-20 | 2026-08-20 | 8.895 | 9.665 (2026-08-20) | **8.66%** | 2026-08-25 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AARHS) |
@@ -195,7 +196,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | HK | **1199.HK** | 2026-08-26 | 2026-09-25 | 6.0 | 6.475 (2026-10-14) | **7.92%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1199) |
 | US | **TRUP** | 2026-08-23 | 2026-08-23 | 29.54 | 31.87 (2026-08-25) | **7.89%** | 2026-08-31 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ATRUP) |
 | US | **SNOW** | 2026-08-23 | 2026-09-03 | 341.95 | 368.92 (2026-10-09) | **7.89%** | 2026-10-01 (BREAKOUT) | 2026-10-08 | 2026-10-08 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASNOW) |
-| Canada | **SGY.TO** | 2026-08-23 | 2026-09-08 | 11.31 | 12.2 (2026-10-13) | **7.87%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ASGY) |
 | US | **NET** | 2026-09-16 | 2026-09-28 | 334.6 | 360.93 (2026-10-09) | **7.87%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ANET) |
 | HK | **2315.HK** | 2026-08-24 | 2026-08-24 | 62.2 | 67.0 (2026-09-22) | **7.72%** | 2026-08-25 (BREAKOUT+EMA20) | 2026-09-03 | 2026-09-03 | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2315) |
 | US | **PCOR** | 2026-08-25 | 2026-08-25 | 59.255 | 63.775 (2026-08-28) | **7.63%** | 2026-09-04 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APCOR) |
@@ -244,7 +244,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **SU** | 2026-09-01 | 2026-09-17 | 69.14 | 73.52 (2026-10-12) | **6.33%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASU) |
 | US | **SE** | 2026-08-20 | 2026-08-20 | 115.9 | 123.23 (2026-08-25) | **6.32%** | 2026-08-24 (BREAKOUT) | 2026-08-25 | 2026-08-25 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASE) |
 | US | **FCX** | 2026-08-20 | 2026-08-28 | 72.105 | 76.62 (2026-09-08) | **6.26%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AFCX) |
-| Canada | **ATH.TO** | 2026-10-12 | 2026-10-12 | 11.51 | 12.23 (2026-10-13) | **6.26%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AATH) |
 | Canada | **ARG.TO** | 2026-08-23 | 2026-09-09 | 8.48 | 9.01 (2026-09-22) | **6.25%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AARG) |
 | US | **ROP** | 2026-08-20 | 2026-08-20 | 401.24 | 426.22 (2026-08-28) | **6.23%** | 2026-09-04 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AROP) |
 | Canada | **AC.TO** | 2026-08-20 | 2026-08-20 | 27.3 | 29.0 (2026-08-24) | **6.23%** | 2026-08-26 (EMA20) | 2026-09-01 | 2026-09-01 | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AAC) |
@@ -266,6 +265,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **AMRX** | 2026-09-18 | 2026-09-29 | 19.26 | 20.37 (2026-10-05) | **5.76%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AAMRX) |
 | US | **MTCH** | 2026-08-20 | 2026-08-26 | 41.4 | 43.77 (2026-09-17) | **5.72%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AMTCH) |
 | Canada | **RIO.TO** | 2026-09-03 | 2026-09-22 | 3.7 | 3.91 (2026-09-22) | **5.68%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ARIO) |
+| Canada | **CJ.TO** | 2026-09-16 | 2026-10-08 | 12.69 | 13.41 (2026-10-14) | **5.67%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACJ) |
 | US | **GEN** | 2026-08-20 | 2026-08-31 | 29.739 | 31.415 (2026-09-14) | **5.64%** | 2026-09-17 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AGEN) |
 | US | **NU** | 2026-08-28 | 2026-09-02 | 14.845 | 15.68 (2026-09-03) | **5.62%** | 2026-09-11 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ANU) |
 | US | **KB** | 2026-08-20 | 2026-09-02 | 125.66 | 132.71 (2026-09-14) | **5.61%** | 2026-09-10 (BREAKOUT) | 2026-09-11 | 2026-09-11 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AKB) |
@@ -278,6 +278,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **ROG** | 2026-10-07 | 2026-10-07 | 145.99 | 153.99 (2026-10-07) | **5.48%** | 2026-10-12 (BREAKOUT) | 2026-10-13 | 2026-10-13 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AROG) |
 | US | **WAT** | 2026-08-20 | 2026-09-17 | 420.26 | 443.26 (2026-09-29) | **5.47%** | 2026-10-01 (BREAKOUT) | 2026-10-05 | 2026-10-05 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AWAT) |
 | US | **LNG** | 2026-08-20 | 2026-08-24 | 280.6 | 295.81 (2026-09-02) | **5.42%** | 2026-09-08 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ALNG) |
+| Canada | **ELF.TO** | 2026-09-11 | 2026-09-22 | 18.099 | 19.08 (2026-10-14) | **5.42%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AELF) |
 | US | **BL** | 2026-08-25 | 2026-08-25 | 31.54 | 33.24 (2026-08-31) | **5.39%** | 2026-08-26 (BREAKOUT) | 2026-08-28 | 2026-08-28 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABL) |
 | US | **GSL** | 2026-08-23 | 2026-08-24 | 44.046 | 46.41 (2026-09-04) | **5.37%** | 2026-09-08 (BREAKOUT) | 2026-09-09 | 2026-09-09 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AGSL) |
 | US | **LYFT** | 2026-08-20 | 2026-08-20 | 16.8 | 17.7 (2026-08-28) | **5.36%** | 2026-08-31 (EMA20) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ALYFT) |
@@ -367,6 +368,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **NVDA** | 2026-09-04 | 2026-10-02 | 230.47 | 239.24 (2026-10-06) | **3.81%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ANVDA) |
 | US | **IMAX** | 2026-08-20 | 2026-09-24 | 54.28 | 56.33 (2026-09-30) | **3.78%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AIMAX) |
 | US | **IOSP** | 2026-08-20 | 2026-08-28 | 95.01 | 98.55 (2026-10-06) | **3.73%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AIOSP) |
+| Canada | **ACX.TO** | 2026-09-04 | 2026-10-14 | 8.07 | 8.37 (2026-10-14) | **3.72%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AACX) |
 | US | **PPC** | 2026-08-28 | 2026-08-28 | 30.58 | 31.7 (2026-08-28) | **3.66%** | 2026-09-03 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3APPC) |
 | US | **MUFG** | 2026-08-20 | 2026-09-04 | 23.25 | 24.1 (2026-09-07) | **3.66%** | 2026-09-09 (BREAKOUT) | 2026-09-11 | 2026-09-11 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMUFG) |
 | US | **GIB** | 2026-08-20 | 2026-08-20 | 72.671 | 75.33 (2026-08-31) | **3.66%** | 2026-09-02 (EMA20) | 2026-09-03 | 2026-09-03 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AGIB) |
@@ -380,7 +382,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **ING** | 2026-08-23 | 2026-09-07 | 35.98 | 37.25 (2026-09-11) | **3.53%** | 2026-09-16 (BREAKOUT) | 2026-09-17 | 2026-09-17 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AING) |
 | HK | **1929.HK** | 2026-08-28 | 2026-08-28 | 13.14 | 13.6 (2026-08-29) | **3.5%** | 2026-08-31 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1929) |
 | US | **MFG** | 2026-08-28 | 2026-09-03 | 11.06 | 11.445 (2026-09-11) | **3.48%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMFG) |
-| Canada | **CJ.TO** | 2026-09-16 | 2026-10-08 | 12.69 | 13.13 (2026-10-09) | **3.47%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACJ) |
 | US | **WIX** | 2026-09-03 | 2026-09-03 | 80.66 | 83.45 (2026-09-21) | **3.46%** | 2026-09-04 (BREAKOUT+EMA20) | 2026-09-21 | 2026-09-21 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AWIX) |
 | US | **VET** | 2026-08-28 | 2026-09-01 | 13.01 | 13.46 (2026-09-15) | **3.46%** | 2026-09-24 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AVET) |
 | US | **MRP** | 2026-08-28 | 2026-09-07 | 30.96 | 32.03 (2026-09-07) | **3.46%** | 2026-09-08 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMRP) |
@@ -394,6 +395,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **SIG** | 2026-09-28 | 2026-10-08 | 104.75 | 108.23 (2026-10-13) | **3.32%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASIG) |
 | US | **SEIC** | 2026-08-20 | 2026-08-25 | 108.04 | 111.63 (2026-08-28) | **3.32%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ASEIC) |
 | US | **TDW** | 2026-08-24 | 2026-09-02 | 97.5 | 100.72 (2026-09-02) | **3.3%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATDW) |
+| Canada | **RCH.TO** | 2026-10-12 | 2026-10-12 | 37.02 | 38.24 (2026-10-14) | **3.3%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ARCH) |
 | US | **UL** | 2026-08-20 | 2026-08-20 | 63.238 | 65.305 (2026-08-24) | **3.27%** | 2026-09-08 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AUL) |
 | US | **BIIB** | 2026-08-20 | 2026-09-02 | 222.15 | 229.41 (2026-10-12) | **3.27%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABIIB) |
 | US | **PJT** | 2026-08-26 | 2026-08-31 | 179.99 | 185.865 (2026-09-03) | **3.26%** | 2026-09-09 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APJT) |
@@ -402,6 +404,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | Canada | **PRM.TO** | 2026-08-20 | 2026-08-25 | 15.48 | 15.98 (2026-08-26) | **3.23%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3APRM) |
 | US | **KT** | 2026-08-28 | 2026-08-28 | 19.37 | 19.995 (2026-09-14) | **3.23%** | 2026-09-16 (EMA20) | 2026-09-22 | 2026-09-22 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AKT) |
 | US | **PGY** | 2026-08-20 | 2026-08-20 | 19.6 | 20.23 (2026-08-20) | **3.21%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3APGY) |
+| Canada | **NWC.TO** | 2026-09-21 | 2026-09-28 | 53.77 | 55.49 (2026-10-14) | **3.2%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ANWC) |
 | Canada | **CXI.TO** | 2026-08-20 | 2026-09-11 | 30.5 | 31.47 (2026-09-18) | **3.18%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACXI) |
 | US | **ICFI** | 2026-08-20 | 2026-08-20 | 87.43 | 90.19 (2026-08-28) | **3.16%** | 2026-09-04 (EMA20) | 2026-09-07 | 2026-09-07 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AICFI) |
 | US | **ECO** | 2026-08-20 | 2026-09-08 | 67.81 | 69.95 (2026-09-08) | **3.16%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AECO) |
@@ -415,13 +418,11 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **TWLO** | 2026-09-17 | 2026-09-21 | 258.353 | 266.03 (2026-09-21) | **2.97%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATWLO) |
 | US | **TAK** | 2026-08-20 | 2026-09-03 | 18.5 | 19.045 (2026-09-17) | **2.95%** | 2026-09-07 (BREAKOUT) | 2026-09-14 | 2026-09-14 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATAK) |
 | US | **BLFS** | 2026-08-25 | 2026-09-24 | 38.1 | 39.22 (2026-09-29) | **2.94%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABLFS) |
-| Canada | **ELF.TO** | 2026-09-11 | 2026-09-22 | 18.099 | 18.63 (2026-10-13) | **2.93%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AELF) |
 | Canada | **WPK.TO** | 2026-08-20 | 2026-08-20 | 43.39 | 44.65 (2026-08-20) | **2.9%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AWPK) |
 | US | **VLTO** | 2026-08-20 | 2026-08-20 | 96.67 | 99.46 (2026-08-20) | **2.89%** | 2026-09-01 (EMA20) | 2026-09-03 | 2026-09-03 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AVLTO) |
 | US | **OLLI** | 2026-10-12 | 2026-10-12 | 85.85 | 88.305 (2026-10-13) | **2.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AOLLI) |
 | US | **PH** | 2026-08-20 | 2026-08-24 | 1009.86 | 1038.65 (2026-08-26) | **2.85%** | 2026-08-25 (EMA20) | 2026-08-26 | 2026-08-26 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APH) |
 | US | **V** | 2026-08-20 | 2026-08-26 | 373.277 | 383.81 (2026-08-26) | **2.82%** | 2026-09-01 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AV) |
-| Canada | **NWC.TO** | 2026-09-21 | 2026-09-28 | 53.77 | 55.28 (2026-10-08) | **2.81%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ANWC) |
 | Canada | **CVE.TO** | 2026-08-24 | 2026-09-09 | 45.94 | 47.22 (2026-09-15) | **2.79%** | 2026-09-21 (BREAKOUT+EMA20) | 2026-10-01 | 2026-10-02 | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACVE) |
 | US | **BVS** | 2026-08-23 | 2026-08-23 | 14.0 | 14.39 (2026-08-23) | **2.79%** | 2026-08-26 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABVS) |
 | US | **MA** | 2026-08-20 | 2026-08-24 | 583.71 | 599.83 (2026-08-24) | **2.76%** | 2026-09-01 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMA) |
@@ -454,10 +455,9 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **AAMI** | 2026-08-20 | 2026-08-26 | 93.82 | 96.16 (2026-10-05) | **2.49%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAAMI) |
 | HK | **6690.HK** | 2026-08-21 | 2026-08-21 | 21.116 | 21.64 (2026-09-04) | **2.48%** | 2026-09-02 (BREAKOUT+EMA20) | 2026-09-04 | 2026-09-04 | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A6690) |
 | US | **PYPL** | 2026-08-25 | 2026-08-25 | 60.76 | 62.26 (2026-08-25) | **2.47%** | 2026-08-28 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3APYPL) |
-| Canada | **KEL.TO** | 2026-08-28 | 2026-09-16 | 10.94 | 11.21 (2026-10-13) | **2.47%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AKEL) |
+| Canada | **KEL.TO** | 2026-08-28 | 2026-09-16 | 10.94 | 11.21 (2026-10-13) | **2.47%** | 2026-10-14 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AKEL) |
 | US | **CQP** | 2026-08-24 | 2026-09-01 | 69.5 | 71.22 (2026-09-02) | **2.47%** | 2026-09-03 (BREAKOUT+EMA20) | 2026-09-09 | 2026-09-09 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACQP) |
 | US | **SPOT** | 2026-09-04 | 2026-09-14 | 544.89 | 558.28 (2026-09-15) | **2.46%** | 2026-09-17 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASPOT) |
-| Canada | **RCH.TO** | 2026-10-12 | 2026-10-12 | 37.02 | 37.93 (2026-10-13) | **2.46%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ARCH) |
 | US | **CET** | 2026-08-23 | 2026-08-24 | 54.65 | 55.99 (2026-09-11) | **2.45%** | 2026-08-31 (BREAKOUT+EMA20) | 2026-09-04 | 2026-09-04 | [Open](https://www.tradingview.com/chart/?symbol=AMEX%3ACET) |
 | US | **BTU** | 2026-09-10 | 2026-09-10 | 28.345 | 29.04 (2026-09-10) | **2.45%** | 2026-09-11 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABTU) |
 | US | **TGT** | 2026-08-20 | 2026-08-25 | 161.98 | 165.93 (2026-08-31) | **2.44%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATGT) |
@@ -474,6 +474,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **TWFG** | 2026-08-20 | 2026-08-24 | 29.59 | 30.275 (2026-08-24) | **2.31%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ATWFG) |
 | US | **MATX** | 2026-08-20 | 2026-09-16 | 230.313 | 235.62 (2026-09-16) | **2.3%** | 2026-09-22 (BREAKOUT+EMA20) | 2026-10-13 | 2026-10-13 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMATX) |
 | US | **DOO** | 2026-08-23 | 2026-08-23 | 66.64 | 68.155 (2026-08-23) | **2.27%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ADOO) |
+| Canada | **BTE.TO** | 2026-09-11 | 2026-09-15 | 7.07 | 7.23 (2026-10-14) | **2.26%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ABTE) |
 | Canada | **CEU.TO** | 2026-09-01 | 2026-09-11 | 19.64 | 20.08 (2026-09-11) | **2.24%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACEU) |
 | Canada | **HWX.TO** | 2026-08-24 | 2026-08-31 | 14.35 | 14.67 (2026-09-15) | **2.23%** | 2026-09-03 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AHWX) |
 | US | **AVAH** | 2026-09-03 | 2026-09-09 | 14.0 | 14.31 (2026-09-15) | **2.21%** | 2026-09-29 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AAVAH) |
@@ -508,7 +509,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **RAPP** | 2026-08-20 | 2026-08-28 | 49.9 | 50.83 (2026-08-28) | **1.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ARAPP) |
 | US | **MOS** | 2026-09-11 | 2026-09-11 | 24.998 | 25.46 (2026-09-15) | **1.85%** | 2026-09-16 (BREAKOUT) | 2026-09-17 | 2026-09-17 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMOS) |
 | US | **ZD** | 2026-08-20 | 2026-09-16 | 58.06 | 59.13 (2026-09-17) | **1.84%** | 2026-09-18 (BREAKOUT) | 2026-09-22 | 2026-09-22 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AZD) |
-| Canada | **BTE.TO** | 2026-09-11 | 2026-09-15 | 7.07 | 7.2 (2026-09-15) | **1.84%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ABTE) |
 | US | **ABM** | 2026-08-20 | 2026-09-15 | 49.8 | 50.715 (2026-10-13) | **1.84%** | 2026-09-17 (BREAKOUT) | 2026-09-22 | 2026-09-22 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AABM) |
 | US | **TRIN** | 2026-08-20 | 2026-08-24 | 18.394 | 18.73 (2026-08-26) | **1.83%** | 2026-09-04 (EMA20) | 2026-09-17 | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATRIN) |
 | US | **ATHM** | 2026-08-20 | 2026-08-28 | 22.39 | 22.8 (2026-08-28) | **1.83%** | 2026-08-31 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AATHM) |
@@ -612,6 +612,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **WFC** | 2026-08-28 | 2026-09-04 | 89.655 | 90.29 (2026-09-11) | **0.71%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AWFC) |
 | US | **PARR** | 2026-09-09 | 2026-10-05 | 87.03 | 87.65 (2026-10-08) | **0.71%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APARR) |
 | US | **JNJ** | 2026-08-20 | 2026-09-03 | 276.47 | 278.43 (2026-09-03) | **0.71%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AJNJ) |
+| Canada | **MX.TO** | 2026-09-14 | 2026-10-13 | 89.75 | 90.37 (2026-10-14) | **0.69%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AMX) |
 | Canada | **MARI.TO** | 2026-09-22 | 2026-09-22 | 8.87 | 8.93 (2026-09-22) | **0.68%** | 2026-09-23 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AMARI) |
 | US | **HTGC** | 2026-08-20 | 2026-08-26 | 17.64 | 17.76 (2026-09-17) | **0.68%** | 2026-09-18 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AHTGC) |
 | Canada | **CS.TO** | 2026-08-20 | 2026-09-08 | 16.09 | 16.2 (2026-09-08) | **0.68%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACS) |
@@ -671,7 +672,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **NWSA** | 2026-08-20 | 2026-08-25 | 30.88 | 30.96 (2026-08-28) | **0.26%** | 2026-09-09 (EMA20) | 2026-09-14 | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ANWSA) |
 | US | **VRSN** | 2026-09-15 | 2026-09-18 | 302.98 | 303.74 (2026-10-09) | **0.25%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AVRSN) |
 | US | **DNOW** | 2026-09-02 | 2026-09-08 | 16.11 | 16.15 (2026-09-08) | **0.25%** | 2026-09-10 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ADNOW) |
-| Canada | **CVG.TO** | 2026-08-20 | 2026-08-26 | 81.5 | 81.7 (2026-08-26) | **0.25%** | 2026-08-31 (BREAKOUT+EMA20) | 2026-09-09 | 2026-09-09 | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACVG) |
 | HK | **0737.HK** | 2026-09-01 | 2026-09-18 | 2.005 | 2.01 (2026-09-18) | **0.25%** | 2026-09-28 (EMA20) | 2026-09-29 | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0737) |
 | US | **MESO** | 2026-08-26 | 2026-08-26 | 16.79 | 16.83 (2026-08-26) | **0.24%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AMESO) |
 | US | **VOYA** | 2026-08-20 | 2026-09-04 | 103.85 | 104.09 (2026-09-04) | **0.23%** | 2026-09-08 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AVOYA) |
@@ -692,7 +692,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **LILA** | 2026-08-23 | 2026-10-07 | 8.9 | 8.91 (2026-10-07) | **0.11%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ALILA) |
 | US | **WBD** | 2026-08-23 | 2026-09-30 | 30.92 | 30.95 (2026-10-05) | **0.1%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AWBD) |
 | HK | **0386.HK** | 2026-08-26 | 2026-09-04 | 4.791 | 4.795 (2026-09-04) | **0.08%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0386) |
-| Canada | **MX.TO** | 2026-09-14 | 2026-10-13 | 89.75 | 89.81 (2026-10-13) | **0.07%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AMX) |
 | US | **RRC** | 2026-09-01 | 2026-09-02 | 42.46 | 42.48 (2026-09-02) | **0.05%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ARRC) |
 | US | **TTC** | 2026-08-20 | 2026-08-26 | 100.31 | 100.35 (2026-08-26) | **0.04%** | 2026-08-31 (BREAKOUT+EMA20) | 2026-09-02 | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATTC) |
 | US | **XMTR** | 2026-09-28 | 2026-10-12 | 107.93 | 107.96 (2026-10-12) | **0.03%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AXMTR) |
@@ -890,5 +889,4 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **CNQ** | 2026-09-04 (BREAKOUT) | 2026-09-08 | 2026-09-15 | **0.64%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACNQ) |
 | US | **XOM** | 2026-09-21 (BREAKOUT+EMA20) | 2026-09-28 | 2026-10-09 | **0.39%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AXOM) |
 | US | **KKR** | 2026-09-01 (BREAKOUT+EMA20) | 2026-09-03 | 2026-09-03 | **0.33%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AKKR) |
-| Canada | **CVG.TO** | 2026-08-31 (BREAKOUT+EMA20) | 2026-09-09 | 2026-09-09 | **0.25%** | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACVG) |
 | US | **LILAK** | 2026-09-17 (EMA20) | 2026-09-21 | 2026-10-07 | **0.12%** | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ALILAK) |
