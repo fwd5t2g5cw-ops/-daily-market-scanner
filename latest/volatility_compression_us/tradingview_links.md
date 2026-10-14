@@ -102,7 +102,6 @@
 | BIIB | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABIIB) |
 | COKE | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACOKE) |
 | TEL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ATEL) |
-| AUPH | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AAUPH) |
 | VAL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AVAL) |
 | WMG | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AWMG) |
 | VTRS | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AVTRS) |
@@ -145,6 +144,7 @@
 | TRMB | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ATRMB) |
 | BVS | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABVS) |
 | WSM | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AWSM) |
+| SCL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASCL) |
 | IOSP | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AIOSP) |
 | GIB | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AGIB) |
 | ECPG | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AECPG) |
