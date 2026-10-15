@@ -113,6 +113,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | Canada | **KEI.TO** | 2026-08-31 | 2026-09-08 | 8.56 | 9.54 (2026-09-18) | **11.45%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AKEI) |
 | HK | **2005.HK** | 2026-08-21 | 2026-08-24 | 2.46 | 2.74 (2026-09-01) | **11.38%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2005) |
 | US | **WDAY** | 2026-08-25 | 2026-08-25 | 185.82 | 206.91 (2026-09-03) | **11.35%** | 2026-09-09 (EMA20) | 2026-09-14 | 2026-09-14 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AWDAY) |
+| HK | **2285.HK** | 2026-10-15 | 2026-10-15 | 28.92 | 32.2 (2026-10-15) | **11.34%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2285) |
 | Canada | **ORE.TO** | 2026-08-28 | 2026-09-18 | 3.0 | 3.34 (2026-10-06) | **11.33%** | 2026-10-13 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AORE) |
 | US | **EXK** | 2026-08-28 | 2026-08-28 | 10.3 | 11.465 (2026-09-03) | **11.31%** | 2026-09-01 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AEXK) |
 | HK | **9688.HK** | 2026-08-26 | 2026-08-26 | 18.98 | 21.12 (2026-08-28) | **11.28%** | 2026-09-16 (EMA20) | 2026-09-17 | 2026-09-17 | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A9688) |
@@ -392,6 +393,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **JBS** | 2026-08-20 | 2026-08-23 | 13.61 | 14.07 (2026-08-25) | **3.38%** | 2026-08-28 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AJBS) |
 | HK | **0027.HK** | 2026-08-21 | 2026-08-21 | 34.54 | 35.7 (2026-08-21) | **3.36%** | 2026-08-28 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0027) |
 | US | **MA** | 2026-08-20 | 2026-08-24 | 583.71 | 603.24 (2026-10-14) | **3.35%** | 2026-09-01 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMA) |
+| HK | **2386.HK** | 2026-10-15 | 2026-10-15 | 5.515 | 5.7 (2026-10-15) | **3.35%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2386) |
 | US | **SCCO** | 2026-08-20 | 2026-08-28 | 203.0 | 209.79 (2026-08-28) | **3.34%** | 2026-09-01 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASCCO) |
 | US | **MSFT** | 2026-08-20 | 2026-10-06 | 517.78 | 535.07 (2026-10-09) | **3.34%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AMSFT) |
 | US | **CRGY** | 2026-08-28 | 2026-09-08 | 14.12 | 14.59 (2026-09-14) | **3.33%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACRGY) |
@@ -494,6 +496,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **BLCO** | 2026-08-24 | 2026-09-03 | 17.77 | 18.14 (2026-09-03) | **2.08%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABLCO) |
 | US | **JCAP** | 2026-08-20 | 2026-08-20 | 21.865 | 22.31 (2026-08-20) | **2.04%** | 2026-08-26 (BREAKOUT+EMA20) | 2026-09-08 | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AJCAP) |
 | US | **AGM-A** | 2026-08-28 | 2026-09-03 | 154.28 | 157.4 (2026-09-03) | **2.02%** | 2026-09-04 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAGM-A) |
+| HK | **0934.HK** | 2026-10-15 | 2026-10-15 | 3.882 | 3.96 (2026-10-15) | **2.01%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0934) |
 | US | **HTHT** | 2026-08-28 | 2026-08-28 | 46.87 | 47.805 (2026-08-28) | **1.99%** | 2026-09-02 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AHTHT) |
 | US | **NMM** | 2026-08-28 | 2026-09-04 | 91.96 | 93.78 (2026-09-17) | **1.98%** | 2026-09-22 (EMA20) | 2026-09-24 | 2026-10-05 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ANMM) |
 | US | **AVPT** | 2026-09-28 | 2026-10-05 | 14.385 | 14.67 (2026-10-05) | **1.98%** | 2026-10-14 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AAVPT) |
