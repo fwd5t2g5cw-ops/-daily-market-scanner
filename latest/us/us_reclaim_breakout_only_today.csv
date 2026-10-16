@@ -1,5 +1,5 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
 TMO,WATCH_CLUSTER,C,5,696.51,671.47,671.47,661.16,1.535,28.14,-0.31,14,0.0,2,0,1,FORMING_NOW,True,False,True,False,False,True,True,BULL_CANDLE,BULL,6,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
-CIG,WATCH_CLUSTER,D,4,2.29,2.27,2.27,2.25,0.869,4.24,13.44,7,0.0,2,0,2,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,2,False,RECLAIM_BREAKOUT
+CIG,WATCH_CLUSTER,D,4,2.29,2.27,2.27,2.25,0.869,4.24,13.44,7,0.0,2,0,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,3,False,RECLAIM_BREAKOUT|BULL_CANDLE
 BBY,WATCH_CLUSTER,D,3,94.17,90.64,90.421,88.751,1.847,8.64,2.44,22,0.24,2,1,0,NONE,True,False,True,False,False,True,True,STRONG_BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
-MATX,WATCH_CLUSTER,D,3,237.0,230.23,232.42,228.882,1.522,4.1,1.61,22,-0.94,1,0,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
+MATX,WATCH_CLUSTER,D,3,237.0,230.23,232.42,228.882,1.522,4.1,1.61,22,-0.94,1,0,2,BOTH,True,False,True,False,False,True,True,HAMMER,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
