@@ -1,0 +1,74 @@
+name: 📊 Six-Signal 10% Research
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'historical_six_signal_10pct.py'
+      - '.github/workflows/historical-six-signal-10pct.yml'
+  workflow_run:
+    workflows:
+      - '🇺🇸 US Double Reclaim Scanner'
+      - '🇨🇦 Canada Double Reclaim Scanner'
+      - '🇭🇰 HK Double Reclaim Scanner'
+    types: [completed]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: six-signal-10pct-main
+  cancel-in-progress: false
+
+jobs:
+  research:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pandas yfinance
+
+      - name: Build six-signal ±10% history
+        run: python historical_six_signal_10pct.py --outdir latest/six_signal_10pct
+
+      - name: Publish research outputs
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add latest/six_signal_10pct
+
+          if git diff --cached --quiet; then
+            echo 'Six-signal research unchanged; nothing to commit.'
+            exit 0
+          fi
+
+          git commit -m "Update six-signal 10pct research [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep $((attempt * 3))
+          done
+
+      - name: Upload research outputs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: six-signal-10pct-${{ github.run_number }}
+          path: latest/six_signal_10pct
+          retention-days: 90
