@@ -1,0 +1,67 @@
+name: 📊 Six Filter ±10% Research
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'research_six_filter_10pct.py'
+      - '.github/workflows/six-filter-10pct-research.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: six-filter-10pct-research-main
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pandas numpy yfinance
+
+      - name: Run six-filter ±10% research
+        run: python research_six_filter_10pct.py --outdir research/six_filter_10pct
+
+      - name: Publish research outputs
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add research/six_filter_10pct
+
+          if git diff --cached --quiet; then
+            echo 'Research outputs unchanged; nothing to commit.'
+            exit 0
+          fi
+
+          git commit -m "Update six-filter 10pct research [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && break
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+            sleep $((attempt * 3))
+          done
+
+      - name: Upload research outputs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: six-filter-10pct-${{ github.run_number }}
+          path: research/six_filter_10pct
+          retention-days: 90
