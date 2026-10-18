@@ -118,7 +118,7 @@ def collect_first_signals():
                     if price is None or price <= 0:
                         continue
                     seen.add(symbol)
-                    first[(market, category_key, symbol)] = {
+                    record = {
                         "market": market,
                         "market_label": cfg["label"],
                         "category": category_key,
@@ -129,6 +129,10 @@ def collect_first_signals():
                         "tradingview_symbol": tv_symbol(market, symbol),
                         "tradingview_url": tv_url(market, symbol),
                     }
+                    for k, v in row.items():
+                        if k != "symbol":
+                            record[f"signal_{k}"] = v
+                    first[(market, category_key, symbol)] = record
     return list(first.values())
 
 
@@ -395,10 +399,106 @@ def write_csv(path: Path, rows: list[dict]):
     if not rows:
         path.write_text("")
         return
+    fields = []
+    seen = set()
+    for row in rows:
+        for k in row.keys():
+            if k not in seen:
+                fields.append(k)
+                seen.add(k)
     with path.open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
         w.writeheader()
         w.writerows(rows)
+
+
+def outcome_group(row):
+    order = row.get("order")
+    if order in {"UP_ONLY", "UP_FIRST"}:
+        return "UP10_BEFORE_DOWN10"
+    if order in {"DOWN_ONLY", "DOWN_FIRST"}:
+        return "DOWN10_BEFORE_UP10"
+    if order == "BOTH_SAME_DAY":
+        return "BOTH_SAME_DAY"
+    if order == "NONE":
+        return "NONE"
+    return order or "UNKNOWN"
+
+
+def numeric_value(row, *names):
+    for name in names:
+        value = as_float(row.get(name))
+        if value is not None:
+            return value
+    return None
+
+
+def pattern_metric_rows(rows: list[dict]):
+    metric_defs = [
+        ("quality_score", ("signal_quality_score", "signal_score")),
+        ("high_conviction_score", ("signal_high_conviction_score",)),
+        ("compression_score", ("signal_compression_score",)),
+        ("rs_pct", ("signal_rs_vs_spy_pct", "signal_rs_pct")),
+        ("pct_below_52w_high", ("signal_pct_below_52w_high",)),
+        ("ema20_distance_pct", ("signal_ema20_breakout_distance_pct", "signal_pct_above_ema20")),
+        ("distance_to_breakout_pct", ("signal_distance_to_breakout_pct",)),
+        ("breakout_age_days", ("signal_breakout_age_days",)),
+        ("undercut_vs_breakout_pct", ("signal_undercut_vs_breakout_pct",)),
+        ("congestion_score", ("signal_congestion_score",)),
+    ]
+    out = []
+    for category_key, category_label, _ in CATEGORIES:
+        gcat = [r for r in rows if r["category"] == category_key and r.get("sessions_observed", 0) > 0]
+        for group in ["UP10_BEFORE_DOWN10", "DOWN10_BEFORE_UP10", "NONE", "BOTH_SAME_DAY"]:
+            g = [r for r in gcat if outcome_group(r) == group]
+            for metric, names in metric_defs:
+                vals = [numeric_value(r, *names) for r in g]
+                vals = [v for v in vals if v is not None]
+                if not vals:
+                    continue
+                s = pd.Series(vals, dtype=float)
+                out.append({
+                    "category": category_key,
+                    "category_label": category_label,
+                    "outcome_group": group,
+                    "metric": metric,
+                    "n": len(vals),
+                    "mean": round(float(s.mean()), 3),
+                    "median": round(float(s.median()), 3),
+                    "p25": round(float(s.quantile(0.25)), 3),
+                    "p75": round(float(s.quantile(0.75)), 3),
+                })
+    return out
+
+
+def pattern_categorical_rows(rows: list[dict]):
+    fields = ["signal_grade", "signal_compression_grade", "signal_candle_pattern", "signal_candle_side",
+              "signal_volume_contracting", "signal_range_contracting", "signal_congestion_status"]
+    out = []
+    for category_key, category_label, _ in CATEGORIES:
+        gcat = [r for r in rows if r["category"] == category_key and r.get("sessions_observed", 0) > 0]
+        for group in ["UP10_BEFORE_DOWN10", "DOWN10_BEFORE_UP10", "NONE", "BOTH_SAME_DAY"]:
+            g = [r for r in gcat if outcome_group(r) == group]
+            for field in fields:
+                counts = defaultdict(int)
+                total = 0
+                for r in g:
+                    v = str(r.get(field, "")).strip()
+                    if not v:
+                        continue
+                    counts[v] += 1
+                    total += 1
+                for value, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])):
+                    out.append({
+                        "category": category_key,
+                        "category_label": category_label,
+                        "outcome_group": group,
+                        "field": field.replace("signal_", ""),
+                        "value": value,
+                        "count": n,
+                        "share_pct": round(100 * n / total, 2) if total else "",
+                    })
+    return out
 
 
 def fmt_symbol(r):
@@ -485,6 +585,8 @@ def main():
     summary = summary_rows(rows)
     write_csv(outdir / "category_summary.csv", summary)
     write_csv(outdir / "category_market_summary.csv", market_summary_rows(rows))
+    write_csv(outdir / "pattern_metric_summary.csv", pattern_metric_rows(rows))
+    write_csv(outdir / "pattern_categorical_summary.csv", pattern_categorical_rows(rows))
     write_csv(outdir / "price_download_failures.csv", failures)
     write_report(outdir / "report.md", rows, summary, end_date, failures)
 
