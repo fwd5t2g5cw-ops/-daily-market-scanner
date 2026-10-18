@@ -1,0 +1,60 @@
+category,category_label,feature,type,up_only_n,up_only_value,down_only_n,down_only_value
+entry_marker,Entry Marker,quality_score,numeric_median,17,6.0,42,5.0
+entry_marker,Entry Marker,high_conviction_score,numeric_median,17,8.0,42,6.5
+entry_marker,Entry Marker,congestion_score,numeric_median,17,1.0,42,2.0
+entry_marker,Entry Marker,rs_metric,numeric_median,17,28.33,42,18.995
+entry_marker,Entry Marker,pct_below_52w_high,numeric_median,17,6.99,42,4.565
+entry_marker,Entry Marker,breakout_age_days,numeric_median,17,10.0,42,14.0
+entry_marker,Entry Marker,ema20_breakout_distance_pct,numeric_median,17,1.043,42,1.12
+entry_marker,Entry Marker,undercut_vs_breakout_pct,numeric_median,17,-1.48,42,-0.79
+entry_marker,Entry Marker,touched_breakout_today,true_rate_pct,17,100.0,42,100.0
+entry_marker,Entry Marker,touched_ema20_today,true_rate_pct,17,76.47,42,50.0
+entry_marker,Entry Marker,above_both_now,true_rate_pct,17,100.0,42,100.0
+high_conviction,High Conviction Entry,quality_score,numeric_median,12,6.5,21,7.0
+high_conviction,High Conviction Entry,high_conviction_score,numeric_median,12,9.0,21,8.0
+high_conviction,High Conviction Entry,congestion_score,numeric_median,12,1.0,21,2.0
+high_conviction,High Conviction Entry,rs_metric,numeric_median,12,27.7,21,27.27
+high_conviction,High Conviction Entry,pct_below_52w_high,numeric_median,12,6.315,21,4.1
+high_conviction,High Conviction Entry,breakout_age_days,numeric_median,12,11.0,21,14.0
+high_conviction,High Conviction Entry,ema20_breakout_distance_pct,numeric_median,12,0.914,21,0.9
+high_conviction,High Conviction Entry,undercut_vs_breakout_pct,numeric_median,12,-1.46,21,-0.8
+high_conviction,High Conviction Entry,touched_breakout_today,true_rate_pct,12,100.0,21,100.0
+high_conviction,High Conviction Entry,touched_ema20_today,true_rate_pct,12,91.67,21,66.67
+high_conviction,High Conviction Entry,above_both_now,true_rate_pct,12,100.0,21,100.0
+ready_now,Double Reclaim READY NOW,quality_score,numeric_median,38,6.0,121,4.0
+ready_now,Double Reclaim READY NOW,congestion_score,numeric_median,38,1.0,121,1.0
+ready_now,Double Reclaim READY NOW,rs_metric,numeric_median,38,24.22,121,21.19
+ready_now,Double Reclaim READY NOW,pct_below_52w_high,numeric_median,38,8.095,121,8.46
+ready_now,Double Reclaim READY NOW,breakout_age_days,numeric_median,38,16.0,121,16.0
+ready_now,Double Reclaim READY NOW,ema20_breakout_distance_pct,numeric_median,38,0.91,121,0.88
+ready_now,Double Reclaim READY NOW,undercut_vs_breakout_pct,numeric_median,38,-1.595,121,-1.2
+ready_now,Double Reclaim READY NOW,touched_breakout_today,true_rate_pct,38,100.0,121,100.0
+ready_now,Double Reclaim READY NOW,touched_ema20_today,true_rate_pct,38,100.0,121,100.0
+ready_now,Double Reclaim READY NOW,above_both_now,true_rate_pct,38,100.0,121,100.0
+reclaim_breakout,Reclaim Breakout,quality_score,numeric_median,73,4.0,231,4.0
+reclaim_breakout,Reclaim Breakout,high_conviction_score,numeric_median,73,5.0,231,5.0
+reclaim_breakout,Reclaim Breakout,congestion_score,numeric_median,73,1.0,231,1.0
+reclaim_breakout,Reclaim Breakout,rs_metric,numeric_median,73,21.94,231,17.63
+reclaim_breakout,Reclaim Breakout,pct_below_52w_high,numeric_median,73,7.15,231,8.22
+reclaim_breakout,Reclaim Breakout,breakout_age_days,numeric_median,73,14.0,231,13.0
+reclaim_breakout,Reclaim Breakout,ema20_breakout_distance_pct,numeric_median,73,1.84,231,1.77
+reclaim_breakout,Reclaim Breakout,undercut_vs_breakout_pct,numeric_median,73,-0.75,231,-0.61
+reclaim_breakout,Reclaim Breakout,touched_breakout_today,true_rate_pct,73,100.0,231,100.0
+reclaim_breakout,Reclaim Breakout,touched_ema20_today,true_rate_pct,73,43.84,231,40.26
+reclaim_breakout,Reclaim Breakout,above_both_now,true_rate_pct,73,84.93,231,88.31
+pre_entry,Pre-Entry Watch,score,numeric_median,163,6.0,428,7.0
+pre_entry,Pre-Entry Watch,compression_score,numeric_median,163,5.0,428,6.0
+pre_entry,Pre-Entry Watch,rs_metric,numeric_median,163,17.54,428,16.04
+pre_entry,Pre-Entry Watch,pct_below_52w_high,numeric_median,163,4.19,428,4.19
+pre_entry,Pre-Entry Watch,distance_to_breakout_pct,numeric_median,163,3.38,428,3.445
+pre_entry,Pre-Entry Watch,pct_above_ema20,numeric_median,163,5.34,428,4.405
+pre_entry,Pre-Entry Watch,volume_contracting,true_rate_pct,163,39.88,428,42.29
+pre_entry,Pre-Entry Watch,range_contracting,true_rate_pct,163,63.19,428,72.2
+compression,Pre-Breakout Compression,score,numeric_median,33,8.0,115,8.0
+compression,Pre-Breakout Compression,compression_score,numeric_median,33,8.0,115,8.0
+compression,Pre-Breakout Compression,rs_metric,numeric_median,33,19.23,115,12.98
+compression,Pre-Breakout Compression,pct_below_52w_high,numeric_median,33,1.7,115,1.84
+compression,Pre-Breakout Compression,distance_to_breakout_pct,numeric_median,33,1.47,115,1.62
+compression,Pre-Breakout Compression,pct_above_ema20,numeric_median,33,3.64,115,3.18
+compression,Pre-Breakout Compression,volume_contracting,true_rate_pct,33,45.45,115,41.74
+compression,Pre-Breakout Compression,range_contracting,true_rate_pct,33,63.64,115,72.17

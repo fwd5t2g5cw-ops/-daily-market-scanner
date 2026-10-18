@@ -1,0 +1,25 @@
+market,category,category_label,signals,with_followup,up10,down10,both,up10_only,down10_only,neither,up10_rate_pct,down10_rate_pct,up_first,down_first,same_day_unknown,median_days_to_up10,median_days_to_down10,eligible_10d,up10_within10,down10_within10,up10_within10_rate_pct,down10_within10_rate_pct
+ALL,entry_marker,Entry Marker,113,113,20,45,3,17,42,51,17.7,39.82,1,2,0,14.0,13.0,99,9,13,9.09,13.13
+US,entry_marker,Entry Marker,101,101,17,42,1,16,41,43,16.83,41.58,0,1,0,13.0,13.5,89,8,11,8.99,12.36
+Canada,entry_marker,Entry Marker,3,3,0,1,0,0,1,2,0.0,33.33,0,0,0,,3.0,2,0,1,0.0,50.0
+HK,entry_marker,Entry Marker,9,9,3,2,2,1,0,6,33.33,22.22,1,1,0,16.0,16.5,8,1,1,12.5,12.5
+ALL,high_conviction,High Conviction Entry,54,54,13,22,1,12,21,20,24.07,40.74,0,1,0,9.0,14.0,48,8,5,16.67,10.42
+US,high_conviction,High Conviction Entry,54,54,13,22,1,12,21,20,24.07,40.74,0,1,0,9.0,14.0,48,8,5,16.67,10.42
+Canada,high_conviction,High Conviction Entry,0,0,0,0,0,0,0,0,,,0,0,0,,,0,0,0,,
+HK,high_conviction,High Conviction Entry,0,0,0,0,0,0,0,0,,,0,0,0,,,0,0,0,,
+ALL,ready_now,Double Reclaim READY NOW,326,326,49,132,11,38,121,156,15.03,40.49,8,3,0,8.0,11.0,285,27,54,9.47,18.95
+US,ready_now,Double Reclaim READY NOW,253,253,38,105,7,31,98,117,15.02,41.5,5,2,0,8.0,12.0,227,21,37,9.25,16.3
+Canada,ready_now,Double Reclaim READY NOW,34,34,2,13,0,2,13,19,5.88,38.24,0,0,0,8.5,8.0,25,1,9,4.0,36.0
+HK,ready_now,Double Reclaim READY NOW,39,39,9,14,4,5,10,20,23.08,35.9,3,1,0,7.0,8.5,33,5,8,15.15,24.24
+ALL,reclaim_breakout,Reclaim Breakout,569,567,91,249,18,73,231,245,16.05,43.92,12,6,0,11.0,12.0,514,39,86,7.59,16.73
+US,reclaim_breakout,Reclaim Breakout,439,438,72,197,12,60,185,181,16.44,44.98,7,5,0,12.0,13.0,404,32,61,7.92,15.1
+Canada,reclaim_breakout,Reclaim Breakout,57,56,3,27,0,3,27,26,5.36,48.21,0,0,0,9.0,11.0,44,1,12,2.27,27.27
+HK,reclaim_breakout,Reclaim Breakout,73,73,16,25,6,10,19,38,21.92,34.25,5,1,0,12.0,9.0,66,6,13,9.09,19.7
+ALL,pre_entry,Pre-Entry Watch,1059,1050,203,468,40,163,428,419,19.33,44.57,23,17,0,11.0,15.5,973,89,124,9.15,12.74
+US,pre_entry,Pre-Entry Watch,783,778,143,355,27,116,328,307,18.38,45.63,15,12,0,12.0,16.0,725,59,71,8.14,9.79
+Canada,pre_entry,Pre-Entry Watch,182,178,40,77,8,32,69,69,22.47,43.26,5,3,0,11.0,11.0,162,18,35,11.11,21.6
+HK,pre_entry,Pre-Entry Watch,94,94,20,36,5,15,31,43,21.28,38.3,3,2,0,7.5,11.0,86,12,18,13.95,20.93
+ALL,compression,Pre-Breakout Compression,365,362,35,117,2,33,115,212,9.67,32.32,2,0,0,20.0,17.0,329,8,34,2.43,10.33
+US,compression,Pre-Breakout Compression,281,278,21,104,1,20,103,154,7.55,37.41,1,0,0,21.0,18.0,259,3,28,1.16,10.81
+Canada,compression,Pre-Breakout Compression,49,49,9,11,1,8,10,30,18.37,22.45,1,0,0,7.0,9.0,40,3,5,7.5,12.5
+HK,compression,Pre-Breakout Compression,35,35,5,2,0,5,2,28,14.29,5.71,0,0,0,15.0,14.5,30,2,1,6.67,3.33
