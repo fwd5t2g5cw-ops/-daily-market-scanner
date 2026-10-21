@@ -328,6 +328,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **GILD** | 2026-08-20 | 2026-09-01 | 148.97 | 156.54 (2026-10-20) | **5.08%** | 2026-09-10 (EMA20) | 2026-09-14 | 2026-09-17 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AGILD) |
 | US | **DRTS** | 2026-08-20 | 2026-08-26 | 14.75 | 15.5 (2026-09-21) | **5.08%** | 2026-09-14 (BREAKOUT) | 2026-09-15 | 2026-09-15 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ADRTS) |
 | US | **IQV** | 2026-08-25 | 2026-09-02 | 261.88 | 275.17 (2026-09-24) | **5.07%** | 2026-10-01 (BREAKOUT+EMA20) | 2026-10-15 | 2026-10-15 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AIQV) |
+| Canada | **VET.TO** | 2026-08-28 | 2026-09-01 | 17.93 | 18.83 (2026-10-20) | **5.02%** | 2026-09-16 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AVET) |
 | US | **SENEB** | 2026-08-20 | 2026-09-02 | 196.63 | 206.48 (2026-09-02) | **5.01%** | 2026-09-08 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ASENEB) |
 | US | **PANW** | 2026-08-28 | 2026-10-05 | 398.88 | 418.78 (2026-10-09) | **4.99%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3APANW) |
 | US | **CRL** | 2026-08-25 | 2026-10-06 | 300.59 | 315.48 (2026-10-20) | **4.95%** | 2026-10-16 (BREAKOUT) | 2026-10-20 | 2026-10-20 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACRL) |
@@ -363,7 +364,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | HK | **0991.HK** | 2026-09-18 | 2026-09-30 | 2.651 | 2.77 (2026-10-14) | **4.49%** | 2026-10-20 (EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0991) |
 | HK | **0836.HK** | 2026-09-24 | 2026-09-29 | 19.37 | 20.24 (2026-10-14) | **4.49%** | 2026-10-20 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0836) |
 | US | **CRCT** | 2026-09-25 | 2026-10-05 | 6.27 | 6.55 (2026-10-14) | **4.47%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACRCT) |
-| Canada | **VET.TO** | 2026-08-28 | 2026-09-01 | 17.93 | 18.73 (2026-09-15) | **4.46%** | 2026-09-16 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AVET) |
 | US | **LDOS** | 2026-08-20 | 2026-08-20 | 135.5 | 141.5 (2026-08-23) | **4.43%** | 2026-08-25 (BREAKOUT) | 2026-08-26 | 2026-08-26 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ALDOS) |
 | US | **EXPD** | 2026-08-20 | 2026-08-26 | 189.99 | 198.41 (2026-10-20) | **4.43%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AEXPD) |
 | HK | **1070.HK** | 2026-08-21 | 2026-09-03 | 16.95 | 17.7 (2026-10-06) | **4.42%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1070) |
