@@ -1,7 +1,7 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
-CLMT,RECLAIM_PENDING,D,2,56.07,54.33,54.7,56.088,2.538,24.34,6.35,28,-0.68,1,1,0,NONE,True,True,False,False,False,True,True,DOJI,NEUTRAL,4,False,RECLAIM_BREAKOUT|RS20+
-CRL,WATCH_CLUSTER,C,7,315.48,304.0,303.31,298.416,1.614,41.57,5.35,10,0.23,2,1,2,PRE_BREAKOUT,True,False,True,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
-DDS,WATCH_CLUSTER,C,7,677.5,663.87,665.745,658.13,1.144,19.22,4.57,13,-0.28,2,1,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
-DMLP,WATCH_CLUSTER,C,7,30.26,29.8,29.89,29.578,1.044,13.64,0.92,24,-0.3,2,0,3,BOTH,True,False,True,False,False,True,True,BULLISH_ENGULFING,BULL,5,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
-GILD,WATCH_CLUSTER,D,4,156.54,154.02,154.2,150.894,2.144,18.09,2.47,2,-0.12,2,1,1,PRE_BREAKOUT,True,False,True,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
-MATX,WATCH_CLUSTER,D,3,237.34,231.78,232.42,230.403,0.868,7.45,1.47,25,-0.28,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
+CLMT,RECLAIM_PENDING,D,2,56.07,54.33,54.7,56.088,2.538,24.34,6.35,28,-0.68,1,1,0,NONE,True,True,False,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
+CRL,WATCH_CLUSTER,C,7,315.48,304.0,303.31,298.416,1.614,41.57,5.35,10,0.23,2,1,2,PRE_BREAKOUT,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
+DDS,WATCH_CLUSTER,C,7,677.5,663.87,665.745,658.13,1.144,19.22,4.57,13,-0.28,2,1,2,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS10+
+DMLP,WATCH_CLUSTER,C,7,30.26,29.8,29.89,29.578,1.044,13.64,0.92,24,-0.3,2,0,3,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS10+
+GILD,WATCH_CLUSTER,D,4,156.54,154.02,154.2,150.894,2.144,18.09,2.47,2,-0.12,2,1,1,PRE_BREAKOUT,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS10+
+MATX,WATCH_CLUSTER,D,3,237.34,231.78,232.42,230.403,0.868,7.45,1.47,25,-0.28,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,3,False,RECLAIM_BREAKOUT
