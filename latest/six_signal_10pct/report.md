@@ -878,10 +878,10 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [AMRX](https://www.tradingview.com/chart/?symbol=AMRX) — US — signal 2026-09-18 @ 18.7100; max **+13.17%**; first +10% 2026-09-21; max adverse 0.13%; order UP_ONLY; sessions 23
 - [VEEV](https://www.tradingview.com/chart/?symbol=VEEV) — US — signal 2026-10-01 @ 285.4500; max **+13.15%**; first +10% 2026-10-15; max adverse -4.42%; order UP_ONLY; sessions 14
 - [PANW](https://www.tradingview.com/chart/?symbol=PANW) — US — signal 2026-08-31 @ 382.1300; max **+13.14%**; first +10% 2026-10-06; max adverse -15.90%; order DOWN_FIRST; sessions 36
-- [GCT](https://www.tradingview.com/chart/?symbol=GCT) — US — signal 2026-09-25 @ 53.9100; max **+13.08%**; first +10% 2026-10-15; max adverse -8.31%; order UP_ONLY; sessions 18
 - [ARG.TO](https://www.tradingview.com/chart/?symbol=TSX%3AARG) — Canada — signal 2026-08-23 @ 8.0600; max **+13.03%**; first +10% 2026-09-21; max adverse -5.83%; order UP_ONLY; sessions 41
 - [SFL](https://www.tradingview.com/chart/?symbol=SFL) — US — signal 2026-08-28 @ 12.3700; max **+13.02%**; first +10% 2026-09-16; max adverse -5.50%; order UP_ONLY; sessions 37
 - [TGB](https://www.tradingview.com/chart/?symbol=TGB) — US — signal 2026-08-20 @ 8.6900; max **+13.00%**; first +10% 2026-08-25; max adverse -13.12%; order UP_FIRST; sessions 43
+- [GCT](https://www.tradingview.com/chart/?symbol=GCT) — US — signal 2026-09-25 @ 53.9100; max **+12.97%**; first +10% 2026-10-15; max adverse -8.31%; order UP_ONLY; sessions 18
 - [MUR](https://www.tradingview.com/chart/?symbol=MUR) — US — signal 2026-10-09 @ 38.6800; max **+12.80%**; first +10% 2026-10-19; max adverse -1.60%; order UP_ONLY; sessions 8
 - [1258](https://www.tradingview.com/chart/?symbol=HKEX%3A1258) — HK — signal 2026-08-25 @ 15.8100; max **+12.78%**; first +10% 2026-08-26; max adverse -16.51%; order UP_FIRST; sessions 39
 - [1308](https://www.tradingview.com/chart/?symbol=HKEX%3A1308) — HK — signal 2026-09-01 @ 46.2400; max **+12.78%**; first +10% 2026-10-12; max adverse -6.79%; order UP_ONLY; sessions 34
