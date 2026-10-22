@@ -14,7 +14,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 | High Conviction Entry | 54 | 13 | 24.07% | 23 | 42.59% | 1 | 50 | 26.0% | 44.0% |
 | Double Reclaim READY NOW | 329 | 57 | 17.33% | 138 | 41.95% | 13 | 293 | 18.77% | 45.73% |
 | Reclaim Breakout | 571 | 100 | 17.51% | 257 | 45.01% | 21 | 528 | 18.37% | 47.54% |
-| Pre-Entry Watch | 1064 | 222 | 20.86% | 474 | 44.55% | 48 | 1001 | 21.78% | 46.85% |
+| Pre-Entry Watch | 1063 | 222 | 20.88% | 474 | 44.59% | 48 | 1001 | 21.78% | 46.85% |
 | Pre-Breakout Compression | 367 | 41 | 11.17% | 121 | 32.97% | 3 | 336 | 11.61% | 36.01% |
 
 ## Entry Marker
@@ -1093,7 +1093,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [HQY](https://www.tradingview.com/chart/?symbol=HQY) — US — signal 2026-08-20 @ 104.2700; max **-17.51%**; first -10% 2026-08-27; max favorable +1.88%; order DOWN_ONLY; sessions 42
 - [CNR](https://www.tradingview.com/chart/?symbol=CNR) — US — signal 2026-08-28 @ 100.9600; max **-17.46%**; first -10% 2026-09-18; max favorable +3.87%; order DOWN_ONLY; sessions 36
 - [GGD.TO](https://www.tradingview.com/chart/?symbol=TSX%3AGGD) — Canada — signal 2026-09-04 @ 4.3700; max **-17.39%**; first -10% 2026-10-06; max favorable +5.72%; order DOWN_ONLY; sessions 31
-- [MMI](https://www.tradingview.com/chart/?symbol=MMI) — US — signal 2026-08-20 @ 32.7000; max **-17.31%**; first -10% 2026-09-28; max favorable +1.77%; order DOWN_ONLY; sessions 43
+- [MMI](https://www.tradingview.com/chart/?symbol=MMI) — US — signal 2026-08-20 @ 32.7000; max **-17.31%**; first -10% 2026-09-28; max favorable +1.77%; order DOWN_ONLY; sessions 42
 - [FNV](https://www.tradingview.com/chart/?symbol=FNV) — US — signal 2026-08-28 @ 266.1600; max **-17.28%**; first -10% 2026-09-30; max favorable +1.93%; order DOWN_ONLY; sessions 36
 - [SCR.TO](https://www.tradingview.com/chart/?symbol=TSX%3ASCR) — Canada — signal 2026-09-15 @ 45.9300; max **-17.27%**; first -10% 2026-09-21; max favorable +-0.28%; order DOWN_ONLY; sessions 25
 - [OPY](https://www.tradingview.com/chart/?symbol=OPY) — US — signal 2026-08-28 @ 119.0100; max **-17.23%**; first -10% 2026-10-13; max favorable +5.77%; order DOWN_ONLY; sessions 36
