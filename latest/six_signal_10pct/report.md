@@ -1017,8 +1017,8 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [RAPP](https://www.tradingview.com/chart/?symbol=RAPP) — US — signal 2026-08-20 @ 47.8500; max **-48.40%**; first -10% 2026-09-10; max favorable +10.62%; order UP_FIRST; sessions 44
 - [NESR](https://www.tradingview.com/chart/?symbol=NESR) — US — signal 2026-08-31 @ 35.1100; max **-47.45%**; first -10% 2026-09-16; max favorable +0.97%; order DOWN_ONLY; sessions 37
 - [DYN](https://www.tradingview.com/chart/?symbol=DYN) — US — signal 2026-08-20 @ 25.9800; max **-45.61%**; first -10% 2026-09-08; max favorable +3.43%; order DOWN_ONLY; sessions 44
-- [HMMC.TO](https://www.tradingview.com/chart/?symbol=TSX%3AHMMC) — Canada — signal 2026-09-10 @ 8.1500; max **-42.94%**; first -10% 2026-09-15; max favorable +3.93%; order DOWN_ONLY; sessions 29
 - [IMNM](https://www.tradingview.com/chart/?symbol=IMNM) — US — signal 2026-08-26 @ 28.7500; max **-42.92%**; first -10% 2026-09-10; max favorable +1.25%; order DOWN_ONLY; sessions 40
+- [HMMC.TO](https://www.tradingview.com/chart/?symbol=TSX%3AHMMC) — Canada — signal 2026-09-10 @ 8.1500; max **-42.82%**; first -10% 2026-09-15; max favorable +3.93%; order DOWN_ONLY; sessions 29
 - [RCUS](https://www.tradingview.com/chart/?symbol=RCUS) — US — signal 2026-08-23 @ 30.3400; max **-42.55%**; first -10% 2026-09-10; max favorable +4.09%; order DOWN_ONLY; sessions 43
 - [CGEM](https://www.tradingview.com/chart/?symbol=CGEM) — US — signal 2026-08-31 @ 22.0700; max **-42.14%**; first -10% 2026-09-14; max favorable +3.26%; order DOWN_ONLY; sessions 37
 - [ANRO](https://www.tradingview.com/chart/?symbol=ANRO) — US — signal 2026-09-03 @ 36.4000; max **-41.43%**; first -10% 2026-09-10; max favorable +1.59%; order DOWN_ONLY; sessions 34
@@ -1043,7 +1043,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [FRNM](https://www.tradingview.com/chart/?symbol=FRNM) — US — signal 2026-10-05 @ 16.8300; max **-30.90%**; first -10% 2026-10-12; max favorable +2.79%; order DOWN_ONLY; sessions 13
 - [CGG.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACGG) — Canada — signal 2026-09-10 @ 47.0500; max **-30.90%**; first -10% 2026-09-22; max favorable +4.12%; order DOWN_ONLY; sessions 29
 - [NGEX.TO](https://www.tradingview.com/chart/?symbol=TSX%3ANGEX) — Canada — signal 2026-08-23 @ 29.0700; max **-30.89%**; first -10% 2026-09-01; max favorable +4.64%; order DOWN_ONLY; sessions 42
-- [CS.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACS) — Canada — signal 2026-08-20 @ 15.4000; max **-30.23%**; first -10% 2026-09-14; max favorable +8.57%; order DOWN_ONLY; sessions 43
+- [CS.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACS) — Canada — signal 2026-08-20 @ 15.4000; max **-30.26%**; first -10% 2026-09-14; max favorable +8.57%; order DOWN_ONLY; sessions 43
 - [3928](https://www.tradingview.com/chart/?symbol=HKEX%3A3928) — HK — signal 2026-08-31 @ 28.3000; max **-29.75%**; first -10% 2026-09-01; max favorable +2.33%; order DOWN_ONLY; sessions 36
 - [GEN](https://www.tradingview.com/chart/?symbol=GEN) — US — signal 2026-08-23 @ 28.9300; max **-29.69%**; first -10% 2026-09-24; max favorable +9.40%; order DOWN_ONLY; sessions 43
 - [CMPS](https://www.tradingview.com/chart/?symbol=CMPS) — US — signal 2026-09-18 @ 15.1900; max **-29.43%**; first -10% 2026-09-24; max favorable +2.37%; order DOWN_ONLY; sessions 24
