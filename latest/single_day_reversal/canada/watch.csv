@@ -1,5 +1,1 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
-BB.TO,CANADA,WATCH,0,,11.25,,False,2026-10-20,12.449999809265137,12.470000267028809,11.25,12.40999984741211,0.9836061857491384,0.8606557056680292,0.886440768910195,False,True,True,7,,,
-XNDU.TO,CANADA,WATCH,0,,3.7200000286102295,,False,2026-10-20,4.0,4.059999942779541,3.7200000286102295,5.170000076293945,0.8235295355114045,0.4411768624527808,1.1579993741924635,True,False,False,6,,,
-ALS.TO,CANADA,WATCH,0,,53.720001220703125,,False,2026-10-20,55.81999969482422,56.68000030517578,53.720001220703125,65.5,0.709459163395391,0.3547295816976955,1.049073999716365,False,False,False,5,,,
-LNR.TO,CANADA,WATCH,0,,89.3499984741211,,False,2026-10-20,91.5999984741211,92.05000305175781,89.3499984741211,94.33000183105469,0.8333319204848896,0.6111106401616299,0.7811274930299384,False,False,False,5,,,
+symbol,market,status,delay,entry_price,stop,risk_pct,target_1R,target_2R,both_highs,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
