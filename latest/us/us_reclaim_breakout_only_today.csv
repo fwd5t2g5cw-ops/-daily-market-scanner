@@ -1,4 +1,4 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
-TK,RECLAIM_PENDING,C,3,14.19,13.91,14.12,14.356,1.675,23.77,10.75,27,-1.49,0,0,1,PRE_BREAKOUT,True,True,False,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
-DMLP,WATCH_CLUSTER,B,9,30.0,29.895,29.89,29.61,0.938,11.46,1.77,25,0.02,2,0,3,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,6,False,RECLAIM_BREAKOUT|RS10+|GRADE_B
-ATRC,WATCH_CLUSTER,C,7,57.66,57.131,57.25,56.154,1.915,71.58,6.55,23,-0.21,2,1,2,BOTH,True,False,True,False,False,True,True,DOJI,NEUTRAL,4,False,RECLAIM_BREAKOUT|RS20+
+TK,RECLAIM_PENDING,C,3,14.19,13.91,14.12,14.356,1.675,23.77,10.75,27,-1.49,0,0,1,PRE_BREAKOUT,True,True,False,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
+DMLP,WATCH_CLUSTER,B,9,30.0,29.895,29.89,29.61,0.938,11.46,1.77,25,0.02,2,0,3,BOTH,True,False,True,False,False,True,True,BULLISH_ENGULFING,BULL,7,False,RECLAIM_BREAKOUT|RS10+|GRADE_B|BULL_CANDLE
+ATRC,WATCH_CLUSTER,C,7,57.66,57.131,57.25,56.154,1.915,71.58,6.55,23,-0.21,2,1,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
