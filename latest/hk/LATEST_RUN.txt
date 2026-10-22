@@ -1,6 +1,6 @@
 market=hk
 workflow=.github/workflows/hk-double-reclaim.yml
-run_id=39699597773
-run_number=160
-source_commit=0a2acacef4e2f1ae1dd034a2a0da7bfbc1510af5
-updated_utc=2026-10-22T00:27:53Z
+run_id=39780937160
+run_number=162
+source_commit=efb63ea07e060e54cc250f214d3cc729139deff4
+updated_utc=2026-10-22T12:47:27Z
