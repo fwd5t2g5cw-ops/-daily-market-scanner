@@ -122,9 +122,9 @@ compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,rs_pct,123,16.541,13.28,
 compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,pct_below_52w_high,123,2.59,1.84,1.455,2.315
 compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,ema20_distance_pct,123,2.989,3.18,2.5,3.62
 compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,distance_to_breakout_pct,123,1.429,1.62,1.15,1.83
-compression,Pre-Breakout Compression,NONE,quality_score,202,8.248,8.0,7.0,9.0
-compression,Pre-Breakout Compression,NONE,compression_score,202,8.025,8.0,7.0,9.0
-compression,Pre-Breakout Compression,NONE,rs_pct,202,17.359,12.735,8.268,20.105
-compression,Pre-Breakout Compression,NONE,pct_below_52w_high,202,2.104,1.645,1.113,2.053
-compression,Pre-Breakout Compression,NONE,ema20_distance_pct,202,2.874,3.105,2.393,3.655
-compression,Pre-Breakout Compression,NONE,distance_to_breakout_pct,202,1.261,1.445,0.925,1.718
+compression,Pre-Breakout Compression,NONE,quality_score,201,8.254,8.0,7.0,9.0
+compression,Pre-Breakout Compression,NONE,compression_score,201,8.03,8.0,7.0,9.0
+compression,Pre-Breakout Compression,NONE,rs_pct,201,17.4,12.9,8.23,20.29
+compression,Pre-Breakout Compression,NONE,pct_below_52w_high,201,2.107,1.65,1.09,2.06
+compression,Pre-Breakout Compression,NONE,ema20_distance_pct,201,2.873,3.11,2.39,3.66
+compression,Pre-Breakout Compression,NONE,distance_to_breakout_pct,201,1.26,1.44,0.92,1.72
