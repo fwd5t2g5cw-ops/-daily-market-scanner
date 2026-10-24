@@ -1068,8 +1068,8 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [APAM](https://www.tradingview.com/chart/?symbol=APAM) — US — signal 2026-08-20 @ 42.0500; max **-26.61%**; first -10% 2026-09-11; max favorable +5.28%; order DOWN_ONLY; sessions 44
 - [HESM](https://www.tradingview.com/chart/?symbol=HESM) — US — signal 2026-08-31 @ 40.2100; max **-26.59%**; first -10% 2026-10-07; max favorable +2.76%; order DOWN_ONLY; sessions 37
 - [BKNG](https://www.tradingview.com/chart/?symbol=BKNG) — US — signal 2026-08-23 @ 209.6200; max **-26.51%**; first -10% 2026-09-08; max favorable +3.42%; order DOWN_ONLY; sessions 43
+- [FVI.TO](https://www.tradingview.com/chart/?symbol=TSX%3AFVI) — Canada — signal 2026-09-04 @ 17.0500; max **-26.48%**; first -10% 2026-10-07; max favorable +1.64%; order DOWN_ONLY; sessions 33
 - [RHI](https://www.tradingview.com/chart/?symbol=RHI) — US — signal 2026-08-20 @ 43.8800; max **-26.46%**; first -10% 2026-09-08; max favorable +5.03%; order DOWN_ONLY; sessions 44
-- [FVI.TO](https://www.tradingview.com/chart/?symbol=TSX%3AFVI) — Canada — signal 2026-09-04 @ 17.0500; max **-26.45%**; first -10% 2026-10-07; max favorable +1.64%; order DOWN_ONLY; sessions 33
 - [CMG](https://www.tradingview.com/chart/?symbol=CMG) — US — signal 2026-09-03 @ 37.5700; max **-25.95%**; first -10% 2026-09-16; max favorable +-0.40%; order DOWN_ONLY; sessions 34
 - [CBRL](https://www.tradingview.com/chart/?symbol=CBRL) — US — signal 2026-08-23 @ 57.6500; max **-25.91%**; first -10% 2026-09-09; max favorable +21.91%; order DOWN_FIRST; sessions 43
 - [ARIS.TO](https://www.tradingview.com/chart/?symbol=TSX%3AARIS) — Canada — signal 2026-09-03 @ 28.3600; max **-25.74%**; first -10% 2026-09-14; max favorable +1.02%; order DOWN_ONLY; sessions 34
@@ -1205,7 +1205,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [CNR](https://www.tradingview.com/chart/?symbol=CNR) — US — signal 2026-08-28 @ 100.9600; max **-17.46%**; first -10% 2026-09-18; max favorable +3.87%; order DOWN_ONLY; sessions 38
 - [FTI](https://www.tradingview.com/chart/?symbol=FTI) — US — signal 2026-08-23 @ 77.4500; max **-17.43%**; first -10% 2026-09-29; max favorable +4.20%; order DOWN_ONLY; sessions 43
 - [KN](https://www.tradingview.com/chart/?symbol=KN) — US — signal 2026-10-05 @ 39.4000; max **-17.36%**; first -10% 2026-10-13; max favorable +1.47%; order DOWN_ONLY; sessions 13
-- [MMI](https://www.tradingview.com/chart/?symbol=MMI) — US — signal 2026-08-20 @ 32.7000; max **-17.31%**; first -10% 2026-09-28; max favorable +1.77%; order DOWN_ONLY; sessions 44
+- [MMI](https://www.tradingview.com/chart/?symbol=MMI) — US — signal 2026-08-20 @ 32.7000; max **-17.31%**; first -10% 2026-09-28; max favorable +1.77%; order DOWN_ONLY; sessions 45
 - [BHP](https://www.tradingview.com/chart/?symbol=BHP) — US — signal 2026-08-20 @ 93.6300; max **-17.31%**; first -10% 2026-09-14; max favorable +3.17%; order DOWN_ONLY; sessions 44
 - [ANET](https://www.tradingview.com/chart/?symbol=ANET) — US — signal 2026-09-21 @ 205.4200; max **-17.31%**; first -10% 2026-10-15; max favorable +5.84%; order DOWN_ONLY; sessions 23
 - [FNV](https://www.tradingview.com/chart/?symbol=FNV) — US — signal 2026-08-28 @ 266.1600; max **-17.28%**; first -10% 2026-09-30; max favorable +1.93%; order DOWN_ONLY; sessions 38
