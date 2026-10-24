@@ -1,7 +1,7 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
 HCM,WATCH_CLUSTER,C,5,14.415,14.26,14.325,14.087,1.663,25.99,11.73,23,-0.45,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,DOJI,NEUTRAL,4,False,RECLAIM_BREAKOUT|RS20+
-DHR,WATCH_CLUSTER,C,5,230.45,225.6,227.976,223.775,1.843,13.84,4.52,5,-1.04,0,1,2,BOTH,True,False,True,False,False,True,True,HAMMER,BULL,5,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
-NICE,WATCH_CLUSTER,C,4,121.13,115.67,116.03,114.31,1.482,23.85,12.59,22,-0.31,2,0,0,NONE,True,False,True,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
+DHR,WATCH_CLUSTER,C,5,230.45,225.6,227.976,223.775,1.843,13.84,4.52,5,-1.04,0,1,2,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS10+
+NICE,WATCH_CLUSTER,C,4,121.13,115.67,116.03,114.31,1.482,23.85,12.59,22,-0.31,2,0,0,NONE,True,False,True,False,False,True,True,SHOOTING_STAR_BULL_BODY,BULL,5,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
 HCA,WATCH_CLUSTER,D,4,469.18,461.77,462.44,452.0,2.258,17.0,15.24,6,-0.14,2,0,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
-URBN,WATCH_CLUSTER,D,4,86.55,85.54,85.66,83.575,2.434,15.55,4.46,5,-0.14,2,1,1,FORMING_NOW,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS10+
-HUM,WATCH_CLUSTER,D,3,422.42,417.0,419.97,412.666,1.739,7.18,7.47,9,-0.71,1,1,1,FORMING_NOW,True,False,True,False,False,True,True,BULL_CANDLE,BULL,3,False,RECLAIM_BREAKOUT|BULL_CANDLE
+URBN,WATCH_CLUSTER,D,4,86.55,85.54,85.66,83.575,2.434,15.55,4.46,5,-0.14,2,1,1,FORMING_NOW,True,False,True,False,False,True,True,BULLISH_ENGULFING,BULL,5,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
+HUM,WATCH_CLUSTER,D,3,422.42,417.0,419.97,412.666,1.739,7.18,7.47,9,-0.71,1,1,1,FORMING_NOW,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,2,False,RECLAIM_BREAKOUT
