@@ -744,6 +744,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **EHC** | 2026-08-20 | 2026-10-16 | 127.5 | 127.87 (2026-10-16) | **0.29%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AEHC) |
 | US | **SXT** | 2026-08-20 | 2026-08-25 | 136.58 | 136.96 (2026-08-26) | **0.28%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASXT) |
 | US | **NTNX** | 2026-08-25 | 2026-10-09 | 74.42 | 74.62 (2026-10-09) | **0.27%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ANTNX) |
+| HK | **1368.HK** | 2026-10-24 | 2026-10-24 | 3.66 | 3.67 (2026-10-24) | **0.27%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1368) |
 | US | **NWSA** | 2026-08-20 | 2026-08-25 | 30.88 | 30.96 (2026-08-28) | **0.26%** | 2026-09-09 (EMA20) | 2026-09-14 | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ANWSA) |
 | US | **HZO** | 2026-08-28 | 2026-10-07 | 52.46 | 52.59 (2026-10-23) | **0.25%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AHZO) |
 | HK | **0737.HK** | 2026-09-01 | 2026-09-18 | 2.005 | 2.01 (2026-09-18) | **0.25%** | 2026-09-28 (EMA20) | 2026-09-29 | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0737) |
