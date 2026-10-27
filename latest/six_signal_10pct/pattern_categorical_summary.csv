@@ -114,15 +114,15 @@ ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,BOTH,53,
 ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,FORMING_NOW,34,23.45
 ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,PRE_BREAKOUT,31,21.38
 ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,NONE,27,18.62
-ready_now,Double Reclaim READY NOW,NONE,grade,D,71,55.91
-ready_now,Double Reclaim READY NOW,NONE,grade,B,25,19.69
-ready_now,Double Reclaim READY NOW,NONE,grade,C,20,15.75
-ready_now,Double Reclaim READY NOW,NONE,grade,A,6,4.72
-ready_now,Double Reclaim READY NOW,NONE,grade,A+,5,3.94
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,BOTH,78,61.42
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,PRE_BREAKOUT,23,18.11
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,FORMING_NOW,16,12.6
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,NONE,10,7.87
+ready_now,Double Reclaim READY NOW,NONE,grade,D,71,55.47
+ready_now,Double Reclaim READY NOW,NONE,grade,B,25,19.53
+ready_now,Double Reclaim READY NOW,NONE,grade,C,20,15.62
+ready_now,Double Reclaim READY NOW,NONE,grade,A,6,4.69
+ready_now,Double Reclaim READY NOW,NONE,grade,A+,6,4.69
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,BOTH,79,61.72
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,PRE_BREAKOUT,23,17.97
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,FORMING_NOW,16,12.5
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,NONE,10,7.81
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,D,60,50.85
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,C,40,33.9
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,B,9,7.63
