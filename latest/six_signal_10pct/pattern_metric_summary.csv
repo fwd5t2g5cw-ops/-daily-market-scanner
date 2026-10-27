@@ -61,13 +61,13 @@ ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,ema20_distance_pct,142,1.0
 ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,breakout_age_days,142,16.937,16.5,11.25,22.0
 ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,undercut_vs_breakout_pct,142,-1.283,-1.2,-2.06,-0.607
 ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_score,142,1.359,1.0,1.0,2.0
-ready_now,Double Reclaim READY NOW,NONE,quality_score,128,5.219,5.0,3.75,7.0
+ready_now,Double Reclaim READY NOW,NONE,quality_score,129,5.287,5.0,4.0,7.0
 ready_now,Double Reclaim READY NOW,NONE,rs_pct,96,15.791,10.16,6.545,19.402
-ready_now,Double Reclaim READY NOW,NONE,pct_below_52w_high,128,6.283,4.365,2.667,6.41
-ready_now,Double Reclaim READY NOW,NONE,ema20_distance_pct,128,0.913,0.784,0.295,1.398
-ready_now,Double Reclaim READY NOW,NONE,breakout_age_days,128,17.953,18.0,12.0,25.0
-ready_now,Double Reclaim READY NOW,NONE,undercut_vs_breakout_pct,128,-1.026,-0.92,-1.633,-0.3
-ready_now,Double Reclaim READY NOW,NONE,congestion_score,128,1.922,2.0,1.0,3.0
+ready_now,Double Reclaim READY NOW,NONE,pct_below_52w_high,129,6.252,4.35,2.6,6.37
+ready_now,Double Reclaim READY NOW,NONE,ema20_distance_pct,129,0.909,0.78,0.298,1.394
+ready_now,Double Reclaim READY NOW,NONE,breakout_age_days,129,17.876,18.0,12.0,25.0
+ready_now,Double Reclaim READY NOW,NONE,undercut_vs_breakout_pct,129,-1.021,-0.92,-1.62,-0.31
+ready_now,Double Reclaim READY NOW,NONE,congestion_score,129,1.93,2.0,1.0,3.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,quality_score,114,4.316,4.0,3.0,6.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,high_conviction_score,114,5.096,5.0,4.0,6.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,rs_pct,92,25.857,20.065,12.207,34.795
