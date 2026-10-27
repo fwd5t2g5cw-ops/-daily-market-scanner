@@ -1,1 +1,12 @@
 symbol,marker,blue_marker,candle,current_price,day_open,day_high,day_low,day_volume,breakout_level,breakout_age_days,ema20_live,ema50_live,sma200_live,distance_above_ema20_pct,avg_volume_20,avg_dollar_volume_20,pct_below_52w_high,benchmark_symbol,rs_vs_benchmark_pct,rs_vs_spy_pct,market_pass,strong_uptrend,not_overextended,liquid_stock,near_year_high,outperforming_benchmark,outperforming_spy,slight_undercut,reclaimed_level,bullish_reclaim_candle,market_cap_usd
+PG,ENTRY,True,BULL,159.21,158.71,159.531,158.42,6642154.0,158.9279,3,154.697,150.2212,146.5658,2.917,10036723.0,1548144981.0,3.947,SPY,3.914,3.914,True,True,True,True,True,True,True,True,True,True,
+IFF,ENTRY,True,BULL,93.22,92.75,93.745,91.81,6823469.0,92.02,3,89.481,86.3261,77.5858,4.179,2143998.0,190072937.0,1.511,SPY,11.839,11.839,True,True,True,True,True,True,True,True,True,True,
+VTRS,ENTRY,True,BULL,18.725,18.19,18.83,18.17,4613414.0,18.43,7,18.0035,17.4761,15.6481,4.008,8639201.0,154856691.0,0.558,SPY,0.085,0.085,True,True,True,True,True,True,True,True,True,True,
+BBY,ENTRY,True,BULL,98.51,98.0,98.73,96.48,2887274.0,96.53,3,93.0683,89.461,73.4437,5.847,2873224.0,261815444.0,2.058,SPY,4.614,4.614,True,True,True,True,True,True,True,True,True,True,
+LOGI,ENTRY,True,BULL,111.72,109.71,112.54,108.92,1336641.0,110.42,3,106.0294,103.2596,98.3512,5.367,972682.0,103586079.0,12.405,SPY,4.498,4.498,True,True,True,True,True,True,True,True,True,True,
+HALO,ENTRY,True,BULL,128.52,127.21,128.94,126.13,1160631.0,126.23,1,119.267,110.9413,82.4956,7.758,2256707.0,262943254.0,0.326,SPY,48.542,48.542,True,True,True,True,True,True,True,True,True,True,
+ELF,ENTRY,True,BULL,113.12,112.95,114.29,109.68,2135357.0,110.21,8,109.9755,103.1066,80.9037,2.859,1270788.0,139537759.0,14.539,SPY,34.046,34.046,True,True,True,True,True,True,True,True,True,True,
+PK,ENTRY,True,BULL,16.78,16.6,16.785,16.405,5886069.0,16.63,4,15.9647,15.4108,12.7807,5.107,4231043.0,67206946.0,2.1,SPY,5.536,5.536,True,True,True,True,True,True,True,True,True,True,
+HOG,ENTRY,True,BULL,29.44,28.96,29.63,28.53,2073238.0,28.6633,3,27.5049,26.8501,23.5909,7.035,2029282.0,55005098.0,0.641,SPY,13.599,13.599,True,True,True,True,True,True,True,True,True,True,
+FTRE,ENTRY,True,BULL,24.43,23.914,24.51,23.5,1702478.0,23.55,4,22.1813,20.5196,15.6071,10.138,1832334.0,40062342.0,1.631,SPY,13.974,13.974,True,True,True,True,True,True,True,True,True,True,
+AMPL,ENTRY,True,BULL,17.255,16.96,17.44,16.88,835287.0,17.105,2,15.7094,14.1596,9.5051,9.839,1813734.0,28002123.0,2.624,SPY,88.313,88.313,True,True,True,True,True,True,True,True,True,True,
