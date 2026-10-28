@@ -596,7 +596,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **VRSN** | 2026-09-15 | 2026-09-18 | 302.98 | 308.72 (2026-10-27) | **1.89%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AVRSN) |
 | US | **PARR** | 2026-09-09 | 2026-10-05 | 87.03 | 88.67 (2026-10-14) | **1.88%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APARR) |
 | US | **KFRC** | 2026-08-20 | 2026-08-20 | 57.3 | 58.38 (2026-08-23) | **1.88%** | 2026-08-24 (EMA20) | 2026-08-28 | 2026-08-28 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AKFRC) |
-| HK | **0995.HK** | 2026-10-14 | 2026-10-15 | 16.56 | 16.87 (2026-10-27) | **1.87%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0995) |
+| HK | **0995.HK** | 2026-10-14 | 2026-10-15 | 16.56 | 16.87 (2026-10-27) | **1.87%** | 2026-10-28 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0995) |
 | US | **RAPP** | 2026-08-20 | 2026-08-28 | 49.9 | 50.83 (2026-08-28) | **1.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ARAPP) |
 | US | **MOS** | 2026-09-11 | 2026-09-11 | 24.998 | 25.46 (2026-09-15) | **1.85%** | 2026-09-16 (BREAKOUT) | 2026-09-17 | 2026-09-17 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMOS) |
 | HK | **2232.HK** | 2026-08-26 | 2026-10-26 | 7.57 | 7.71 (2026-10-26) | **1.85%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2232) |
@@ -695,6 +695,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | Canada | **GGD.TO** | 2026-09-04 | 2026-09-22 | 4.55 | 4.59 (2026-09-22) | **0.88%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AGGD) |
 | US | **MGNI** | 2026-09-02 | 2026-09-17 | 25.45 | 25.67 (2026-09-29) | **0.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AMGNI) |
 | US | **ANET** | 2026-08-20 | 2026-10-07 | 214.89 | 216.74 (2026-10-09) | **0.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AANET) |
+| HK | **0934.HK** | 2026-10-15 | 2026-10-27 | 3.882 | 3.915 (2026-10-28) | **0.85%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0934) |
 | US | **ELE** | 2026-09-14 | 2026-09-21 | 21.55 | 21.73 (2026-09-21) | **0.84%** | 2026-09-22 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AELE) |
 | US | **EPR** | 2026-08-20 | 2026-08-20 | 60.724 | 61.23 (2026-08-20) | **0.83%** | 2026-08-23 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AEPR) |
 | US | **BRK-B** | 2026-10-16 | 2026-10-23 | 537.74 | 542.19 (2026-10-23) | **0.83%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABRK-B) |
@@ -761,7 +762,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | HK | **2877.HK** | 2026-09-18 | 2026-09-28 | 8.45 | 8.48 (2026-09-28) | **0.36%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2877) |
 | US | **ARLP** | 2026-08-23 | 2026-08-31 | 26.45 | 26.54 (2026-09-02) | **0.34%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AARLP) |
 | US | **KKR** | 2026-08-23 | 2026-08-31 | 109.412 | 109.77 (2026-09-03) | **0.33%** | 2026-09-01 (BREAKOUT+EMA20) | 2026-09-03 | 2026-09-03 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AKKR) |
-| HK | **0934.HK** | 2026-10-15 | 2026-10-27 | 3.882 | 3.895 (2026-10-27) | **0.33%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0934) |
 | US | **AMGN** | 2026-08-20 | 2026-09-03 | 443.2 | 444.63 (2026-10-27) | **0.32%** | 2026-09-08 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AAMGN) |
 | US | **KFY** | 2026-08-20 | 2026-08-28 | 85.97 | 86.24 (2026-08-28) | **0.31%** | 2026-09-02 (EMA20) | 2026-09-03 | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AKFY) |
 | HK | **6655.HK** | 2026-09-16 | 2026-09-18 | 16.28 | 16.33 (2026-09-18) | **0.31%** | 2026-09-22 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A6655) |
