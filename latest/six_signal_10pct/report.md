@@ -1489,7 +1489,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [CTBI](https://www.tradingview.com/chart/?symbol=CTBI) — US — signal 2026-09-02 @ 77.0600; max **-12.92%**; first -10% 2026-10-21; max favorable +1.45%; order DOWN_ONLY; sessions 39
 - [1112](https://www.tradingview.com/chart/?symbol=HKEX%3A1112) — HK — signal 2026-08-21 @ 15.6300; max **-12.92%**; first -10% 2026-08-24; max favorable +56.24%; order DOWN_FIRST; sessions 46
 - [STRA](https://www.tradingview.com/chart/?symbol=STRA) — US — signal 2026-08-25 @ 86.0300; max **-12.90%**; first -10% 2026-09-18; max favorable +0.11%; order DOWN_ONLY; sessions 45
-- [WLYB](https://www.tradingview.com/chart/?symbol=WLYB) — US — signal 2026-08-20 @ 53.1900; max **-12.87%**; first -10% 2026-09-08; max favorable +2.39%; order DOWN_ONLY; sessions 47
+- [WLYB](https://www.tradingview.com/chart/?symbol=WLYB) — US — signal 2026-08-20 @ 53.1900; max **-12.87%**; first -10% 2026-09-08; max favorable +2.39%; order DOWN_ONLY; sessions 48
 - [APD](https://www.tradingview.com/chart/?symbol=APD) — US — signal 2026-08-26 @ 306.6600; max **-12.84%**; first -10% 2026-09-29; max favorable +1.70%; order DOWN_ONLY; sessions 44
 - [SDRL](https://www.tradingview.com/chart/?symbol=SDRL) — US — signal 2026-09-03 @ 50.0700; max **-12.84%**; first -10% 2026-09-29; max favorable +5.85%; order DOWN_ONLY; sessions 38
 - [AMH](https://www.tradingview.com/chart/?symbol=AMH) — US — signal 2026-08-20 @ 34.3700; max **-12.83%**; first -10% 2026-09-14; max favorable +0.51%; order DOWN_ONLY; sessions 48
