@@ -1,3 +1,8 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
-KMI,WATCH_CLUSTER,D,4,33.86,33.61,33.75,33.054,2.063,3.74,2.56,6,-0.41,2,1,1,FORMING_NOW,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,3,False,RECLAIM_BREAKOUT
-PGR,WATCH_CLUSTER,D,3,225.52,223.825,225.341,220.194,2.284,-1.0,5.74,2,-0.67,1,1,1,PRE_BREAKOUT,True,False,True,False,False,True,True,HAMMER,BULL,3,False,RECLAIM_BREAKOUT|BULL_CANDLE
+SU,WATCH_CLUSTER,C,6,77.55,76.73,76.73,75.211,1.979,11.19,3.36,7,0.0,2,1,1,FORMING_NOW,True,False,True,False,False,True,True,BULL_CANDLE,BULL,5,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
+CLF,WATCH_CLUSTER,C,5,13.94,13.23,13.22,13.05,1.284,14.09,9.19,6,0.08,2,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,HAMMER,BULL,4,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
+BST,WATCH_CLUSTER,D,4,49.335,48.55,48.849,48.429,0.86,9.18,5.22,26,-0.61,1,1,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,3,False,RECLAIM_BREAKOUT|BULL_CANDLE
+TRMB,WATCH_CLUSTER,D,4,64.35,62.54,62.73,61.338,2.22,7.0,23.77,3,-0.3,2,0,2,PRE_BREAKOUT,True,False,True,False,False,True,True,BULLISH_ENGULFING,BULL,3,False,RECLAIM_BREAKOUT|BULL_CANDLE
+VTRS,WATCH_CLUSTER,D,4,18.77,18.46,18.43,18.076,1.921,0.71,0.32,7,0.16,2,0,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|BULL_CANDLE
+RSG,WATCH_CLUSTER,D,3,233.42,230.88,233.2,228.398,2.059,5.04,4.03,3,-0.99,1,1,1,PRE_BREAKOUT,True,False,True,False,False,True,True,DOJI,NEUTRAL,3,False,RECLAIM_BREAKOUT
+TTC,WATCH_CLUSTER,D,1,104.76,101.53,103.71,101.158,2.461,9.07,1.97,3,-2.1,0,0,1,PRE_BREAKOUT,True,False,True,False,False,True,True,DOJI,NEUTRAL,3,False,RECLAIM_BREAKOUT
