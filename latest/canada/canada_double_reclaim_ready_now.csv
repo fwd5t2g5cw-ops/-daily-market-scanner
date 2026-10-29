@@ -1,3 +1,4 @@
 symbol,status,grade,quality_score,market_cap_cad,market_cap_cad_bn,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_xiu_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-NWC.TO,READY_NOW,D,6,2639398108.0,2.64,55.84,55.4,55.65,55.277,0.67,6.58,2.38,8,-0.45,2,1,3,BOTH,True,True,True
-RCH.TO,READY_NOW,D,4,2050689551.0,2.05,37.42,36.9,36.866,37.2,0.905,1.97,15.85,12,0.09,2,0,2,BOTH,True,True,True
+CJ.TO,READY_NOW,B,8,2326921155.0,2.33,13.24,13.11,13.14,13.104,0.274,14.75,3.29,11,-0.23,2,1,1,FORMING_NOW,True,True,True
+KXS.TO,READY_NOW,B,8,5237473957.0,5.24,192.49,187.61,188.88,189.082,0.107,10.53,4.5,9,-0.67,1,1,2,BOTH,True,True,True
+NWC.TO,READY_NOW,D,6,2649806080.0,2.65,56.0,55.42,55.65,55.342,0.554,6.45,2.1,9,-0.41,2,1,3,BOTH,True,True,True
