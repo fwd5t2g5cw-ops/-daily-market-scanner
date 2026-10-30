@@ -1,11 +1,11 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-ABBV,PRE_ENTRY,A,10,True,A,10,290.79,291.4,0.21,280.146,269.255,233.851,3.8,13.35,0.61,True,True
+ABBV,PRE_ENTRY,A,10,True,A,10,290.79,291.4,0.21,280.146,269.255,233.851,3.8,13.35,0.64,True,True
 DV,PRE_ENTRY,A,10,True,A,10,13.57,13.65,0.59,13.513,13.242,11.31,0.43,17.38,0.59,False,True
 CHT,PRE_ENTRY,A,10,True,A,10,48.55,48.99,0.9,47.365,45.973,42.775,2.5,10.7,0.9,True,True
-TTE,PRE_ENTRY,A,9,True,A,9,94.03,94.04,0.01,90.467,88.744,84.076,3.94,5.04,0.65,True,True
+TTE,PRE_ENTRY,A,9,True,A,9,94.03,94.04,0.01,90.467,88.744,84.076,3.94,5.04,0.66,True,True
 PGR,PRE_ENTRY,A,9,True,A,9,230.18,230.28,0.04,221.622,217.736,208.969,3.86,5.68,3.8,True,True
 HZO,PRE_ENTRY,A,9,True,A,9,52.59,52.65,0.11,52.36,50.591,37.234,0.44,49.32,0.11,False,False
-FAST,PRE_ENTRY,A,9,True,A,9,52.55,52.643,0.18,51.224,50.28,46.669,2.59,7.46,0.25,True,True
+FAST,PRE_ENTRY,A,9,True,A,9,52.55,52.643,0.18,51.224,50.28,46.669,2.59,7.46,0.27,True,True
 ARX,PRE_ENTRY,A,9,True,A,9,19.82,19.9,0.4,19.751,19.034,14.963,0.35,63.59,0.4,False,False
 BOW,PRE_ENTRY,A,8,True,A,9,34.13,34.38,0.73,34.041,33.537,28.485,0.26,8.33,2.68,False,True
 CRBG,PRE_ENTRY,A,8,True,A,9,35.29,35.67,1.07,34.709,33.915,29.439,1.68,10.71,1.97,False,True
