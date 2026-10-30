@@ -1,5 +1,5 @@
-run_id=40802912557
-run_number=39
+run_id=40989088384
+run_number=41
 mode=live
-commit=bea6b42dc561f7b40c073d23327f33c24fbe50e8
-updated_utc=2026-10-29T01:56:48Z
+commit=a65293bc649a91602fad2ee790889e37e4440865
+updated_utc=2026-10-30T02:05:33Z
