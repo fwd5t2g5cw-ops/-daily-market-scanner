@@ -1623,7 +1623,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [QSR.TO](https://www.tradingview.com/chart/?symbol=TSX%3AQSR) — Canada — signal 2026-09-03 @ 110.6000; max **-11.01%**; first -10% 2026-09-25; max favorable +0.85%; order DOWN_ONLY; sessions 38
 - [ATR](https://www.tradingview.com/chart/?symbol=ATR) — US — signal 2026-08-20 @ 132.9600; max **-11.00%**; first -10% 2026-10-01; max favorable +2.77%; order DOWN_ONLY; sessions 49
 - [MFG](https://www.tradingview.com/chart/?symbol=MFG) — US — signal 2026-08-28 @ 10.6400; max **-11.00%**; first -10% 2026-10-23; max favorable +7.99%; order DOWN_ONLY; sessions 43
-- [LFE.TO](https://www.tradingview.com/chart/?symbol=TSX%3ALFE) — Canada — signal 2026-09-17 @ 9.1650; max **-10.97%**; first -10% 2026-10-01; max favorable +1.47%; order DOWN_ONLY; sessions 29
+- [LFE.TO](https://www.tradingview.com/chart/?symbol=TSX%3ALFE) — Canada — signal 2026-09-17 @ 9.1650; max **-10.97%**; first -10% 2026-10-01; max favorable +1.36%; order DOWN_ONLY; sessions 29
 - [0013](https://www.tradingview.com/chart/?symbol=HKEX%3A13) — HK — signal 2026-10-20 @ 23.2000; max **-10.95%**; first -10% 2026-10-28; max favorable +3.45%; order DOWN_ONLY; sessions 8
 - [BSAC](https://www.tradingview.com/chart/?symbol=BSAC) — US — signal 2026-08-20 @ 34.5700; max **-10.93%**; first -10% 2026-10-26; max favorable +5.29%; order DOWN_ONLY; sessions 49
 - [KNTK](https://www.tradingview.com/chart/?symbol=KNTK) — US — signal 2026-08-20 @ 54.3900; max **-10.88%**; first -10% 2026-10-01; max favorable +7.78%; order DOWN_ONLY; sessions 49
