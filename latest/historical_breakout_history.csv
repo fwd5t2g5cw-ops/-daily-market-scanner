@@ -118,6 +118,7 @@ US,TBBB,2026-08-20,51.62,2026-08-26,2026-09-23,51.73,2026-10-26,58.5,13.33,NYSE:
 Canada,MATR.TO,2026-09-02,19.66,2026-09-02,2026-09-14,20.4,2026-10-13,22.28,13.33,TSX:MATR,https://www.tradingview.com/chart/?symbol=TSX%3AMATR
 US,DK,2026-08-20,72.0,2026-08-26,2026-08-31,74.31,2026-09-17,81.59,13.32,NYSE:DK,https://www.tradingview.com/chart/?symbol=NYSE%3ADK
 HK,2142.HK,2026-08-21,14.28,2026-08-21,2026-08-21,16.18,2026-08-21,16.18,13.31,HKEX:2142,https://www.tradingview.com/chart/?symbol=HKEX%3A2142
+HK,3369.HK,2026-09-03,2.38,2026-09-03,2026-09-03,2.4,2026-10-31,2.695,13.24,HKEX:3369,https://www.tradingview.com/chart/?symbol=HKEX%3A3369
 US,A,2026-08-23,160.51,2026-08-24,2026-09-21,161.98,2026-10-28,181.56,13.11,NYSE:A,https://www.tradingview.com/chart/?symbol=NYSE%3AA
 US,TAK,2026-08-20,18.5,2026-08-20,2026-09-03,18.7,2026-10-30,20.92,13.08,NYSE:TAK,https://www.tradingview.com/chart/?symbol=NYSE%3ATAK
 US,REPL,2026-08-28,14.14,2026-08-28,2026-08-28,15.5,2026-09-02,15.98,13.01,NASDAQ:REPL,https://www.tradingview.com/chart/?symbol=NASDAQ%3AREPL
@@ -207,7 +208,6 @@ HK,1686.HK,2026-09-16,5.29,2026-09-16,2026-09-16,5.435,2026-09-22,5.78,9.26,HKEX
 US,HLNE,2026-08-20,95.25,2026-08-20,2026-08-20,104.06,2026-08-20,104.06,9.25,NASDAQ:HLNE,https://www.tradingview.com/chart/?symbol=NASDAQ%3AHLNE
 Canada,TRI.TO,2026-08-20,141.069,2026-08-20,2026-08-20,146.04,2026-09-03,154.12,9.25,TSX:TRI,https://www.tradingview.com/chart/?symbol=TSX%3ATRI
 US,JKHY,2026-08-23,158.95,2026-08-23,2026-08-23,166.24,2026-08-25,173.64,9.24,NASDAQ:JKHY,https://www.tradingview.com/chart/?symbol=NASDAQ%3AJKHY
-HK,3369.HK,2026-09-03,2.38,2026-09-03,2026-09-03,2.4,2026-10-21,2.6,9.24,HKEX:3369,https://www.tradingview.com/chart/?symbol=HKEX%3A3369
 US,BP,2026-09-10,46.3,2026-09-11,2026-09-15,46.95,2026-10-26,50.53,9.14,NYSE:BP,https://www.tradingview.com/chart/?symbol=NYSE%3ABP
 US,VEEV,2026-09-02,296.24,2026-09-30,2026-10-14,297.35,2026-10-23,323.04,9.05,NYSE:VEEV,https://www.tradingview.com/chart/?symbol=NYSE%3AVEEV
 US,CNQ,2026-08-26,51.48,2026-08-26,2026-09-02,51.81,2026-10-30,56.13,9.03,NYSE:CNQ,https://www.tradingview.com/chart/?symbol=NYSE%3ACNQ
@@ -1386,6 +1386,7 @@ Canada,BBD-B.TO,2026-08-20,354.57,2026-08-20,,,2026-08-23,341.91,-3.57,TSX:BBD.B
 US,QRVO,2026-09-24,121.09,2026-09-24,,,2026-09-29,116.75,-3.58,NASDAQ:QRVO,https://www.tradingview.com/chart/?symbol=NASDAQ%3AQRVO
 US,NEM,2026-09-03,135.29,2026-09-03,,,2026-09-03,130.43,-3.59,NYSE:NEM,https://www.tradingview.com/chart/?symbol=NYSE%3ANEM
 US,FTDR,2026-08-20,87.48,2026-10-23,,,2026-10-23,84.34,-3.59,NASDAQ:FTDR,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFTDR
+HK,3928.HK,2026-08-31,29.56,2026-08-31,,,2026-10-31,28.5,-3.59,HKEX:3928,https://www.tradingview.com/chart/?symbol=HKEX%3A3928
 US,CFR,2026-09-03,169.712,2026-09-03,,,2026-09-08,163.61,-3.6,NYSE:CFR,https://www.tradingview.com/chart/?symbol=NYSE%3ACFR
 US,AYA,2026-09-04,30.24,2026-09-04,,,2026-09-08,29.15,-3.6,NASDAQ:AYA,https://www.tradingview.com/chart/?symbol=NASDAQ%3AAYA
 US,WOR,2026-10-06,67.54,2026-10-16,,,2026-10-21,65.1,-3.61,NYSE:WOR,https://www.tradingview.com/chart/?symbol=NYSE%3AWOR
@@ -1469,7 +1470,6 @@ US,HOMB,2026-09-04,31.54,2026-09-04,,,2026-09-15,30.21,-4.22,NYSE:HOMB,https://w
 US,SRCE,2026-08-20,91.24,2026-09-04,,,2026-09-14,87.37,-4.24,NASDAQ:SRCE,https://www.tradingview.com/chart/?symbol=NASDAQ%3ASRCE
 US,GM,2026-08-20,91.85,2026-08-23,,,2026-08-23,87.935,-4.26,NYSE:GM,https://www.tradingview.com/chart/?symbol=NYSE%3AGM
 US,ARIS,2026-09-03,21.465,2026-09-03,,,2026-09-03,20.55,-4.26,NYSE:ARIS,https://www.tradingview.com/chart/?symbol=NYSE%3AARIS
-HK,3928.HK,2026-08-31,29.56,2026-08-31,,,2026-08-31,28.3,-4.26,HKEX:3928,https://www.tradingview.com/chart/?symbol=HKEX%3A3928
 US,BAX,2026-09-11,24.92,2026-09-11,,,2026-09-14,23.855,-4.27,NYSE:BAX,https://www.tradingview.com/chart/?symbol=NYSE%3ABAX
 US,TGB,2026-08-20,9.08,2026-08-20,,,2026-08-20,8.69,-4.3,AMEX:TGB,https://www.tradingview.com/chart/?symbol=AMEX%3ATGB
 US,PLMR,2026-09-16,147.108,2026-09-16,,,2026-09-16,140.78,-4.3,NASDAQ:PLMR,https://www.tradingview.com/chart/?symbol=NASDAQ%3APLMR
