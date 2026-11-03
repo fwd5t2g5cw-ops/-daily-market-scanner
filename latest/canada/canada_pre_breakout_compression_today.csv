@@ -1,5 +1,7 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-CVG.TO,PRE_ENTRY,A,9,True,A,9,86.5,86.99,0.56,84.244,82.486,76.587,2.68,7.52,0.57,True,True
+SEC.TO,PRE_ENTRY,A,9,True,A,10,442.2,442.2,0.0,441.116,436.136,392.957,0.25,11.46,0.0,False,True
+CVG.TO,PRE_ENTRY,A,9,True,A,9,86.5,86.99,0.56,84.459,82.644,76.66,2.42,7.52,0.57,True,True
 JWEL.TO,PRE_ENTRY,A,8,True,A,9,45.56,45.88,0.7,45.493,44.923,38.963,0.15,7.77,0.7,False,True
 CHR.TO,PRE_ENTRY,A,10,True,A,9,30.93,31.2,0.87,30.048,29.179,25.132,2.94,23.21,1.02,False,True
 CYB.TO,PRE_ENTRY,A,8,True,A,8,100.33,100.98,0.64,98.053,96.367,92.648,2.32,8.94,0.64,False,True
+UNI.TO,PRE_ENTRY,B,6,True,B,7,2.64,2.69,1.86,2.608,2.575,2.249,1.23,6.98,2.58,False,False
