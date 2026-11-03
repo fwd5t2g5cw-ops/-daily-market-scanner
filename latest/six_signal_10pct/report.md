@@ -1323,6 +1323,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [WPM.TO](https://www.tradingview.com/chart/?symbol=TSX%3AWPM) — Canada — signal 2026-09-03 @ 216.3500; max **-26.59%**; first -10% 2026-09-28; max favorable +2.39%; order DOWN_ONLY; sessions 40
 - [RHI](https://www.tradingview.com/chart/?symbol=RHI) — US — signal 2026-08-20 @ 43.8800; max **-26.46%**; first -10% 2026-09-08; max favorable +7.43%; order DOWN_ONLY; sessions 51
 - [ERO.TO](https://www.tradingview.com/chart/?symbol=TSX%3AERO) — Canada — signal 2026-10-02 @ 54.0500; max **-26.38%**; first -10% 2026-10-14; max favorable +3.00%; order DOWN_ONLY; sessions 20
+- [6990](https://www.tradingview.com/chart/?symbol=HKEX%3A6990) — HK — signal 2026-08-21 @ 533.0000; max **-26.00%**; first -10% 2026-09-01; max favorable +1.88%; order DOWN_ONLY; sessions 50
 - [CBRL](https://www.tradingview.com/chart/?symbol=CBRL) — US — signal 2026-08-23 @ 57.6500; max **-25.91%**; first -10% 2026-09-09; max favorable +27.79%; order DOWN_FIRST; sessions 50
 - [LPLA](https://www.tradingview.com/chart/?symbol=LPLA) — US — signal 2026-08-23 @ 361.3500; max **-25.73%**; first -10% 2026-09-22; max favorable +3.20%; order DOWN_ONLY; sessions 50
 - [6821](https://www.tradingview.com/chart/?symbol=HKEX%3A6821) — HK — signal 2026-09-04 @ 133.8000; max **-25.64%**; first -10% 2026-10-22; max favorable +33.03%; order UP_FIRST; sessions 40
@@ -1332,7 +1333,6 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [SKE](https://www.tradingview.com/chart/?symbol=SKE) — US — signal 2026-08-26 @ 34.7200; max **-25.20%**; first -10% 2026-09-01; max favorable +1.96%; order DOWN_ONLY; sessions 47
 - [PRLB](https://www.tradingview.com/chart/?symbol=PRLB) — US — signal 2026-09-24 @ 89.1300; max **-25.20%**; first -10% 2026-10-29; max favorable +12.15%; order UP_FIRST; sessions 27
 - [FFIV](https://www.tradingview.com/chart/?symbol=FFIV) — US — signal 2026-09-15 @ 430.8800; max **-25.13%**; first -10% 2026-10-28; max favorable +12.17%; order UP_FIRST; sessions 34
-- [6990](https://www.tradingview.com/chart/?symbol=HKEX%3A6990) — HK — signal 2026-08-21 @ 533.0000; max **-25.10%**; first -10% 2026-09-01; max favorable +1.88%; order DOWN_ONLY; sessions 50
 - [ALK.TO](https://www.tradingview.com/chart/?symbol=TSX%3AALK) — Canada — signal 2026-09-04 @ 1.8800; max **-25.00%**; first -10% 2026-10-14; max favorable +7.98%; order DOWN_ONLY; sessions 39
 - [PJT](https://www.tradingview.com/chart/?symbol=PJT) — US — signal 2026-08-26 @ 174.7700; max **-24.83%**; first -10% 2026-09-15; max favorable +7.32%; order DOWN_ONLY; sessions 47
 - [LFUS](https://www.tradingview.com/chart/?symbol=LFUS) — US — signal 2026-10-06 @ 454.2800; max **-24.70%**; first -10% 2026-10-13; max favorable +-1.92%; order DOWN_ONLY; sessions 19
