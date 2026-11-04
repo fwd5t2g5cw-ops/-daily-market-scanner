@@ -31,8 +31,8 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **DINO** | 2026-08-20 | 2026-08-28 | 96.77 | 125.57 (2026-10-22) | **29.76%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ADINO) |
 | US | **ADT** | 2026-11-03 | 2026-11-03 | 7.6 | 9.86 (2026-11-03) | **29.74%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AADT) |
 | US | **MPC** | 2026-08-20 | 2026-08-28 | 366.237 | 475.04 (2026-10-21) | **29.71%** | 2026-09-22 (EMA20) | 2026-09-25 | 2026-09-25 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMPC) |
-| US | **TDOC** | 2026-11-03 | 2026-11-03 | 6.92 | 8.885 (2026-11-03) | **28.4%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATDOC) |
 | US | **BOX** | 2026-08-26 | 2026-08-28 | 33.855 | 43.455 (2026-10-30) | **28.36%** | 2026-09-11 (EMA20) | 2026-09-14 | 2026-09-14 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABOX) |
+| US | **TDOC** | 2026-11-03 | 2026-11-03 | 6.92 | 8.88 (2026-11-03) | **28.32%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATDOC) |
 | US | **ILMN** | 2026-08-20 | 2026-10-05 | 231.81 | 293.94 (2026-10-05) | **26.8%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AILMN) |
 | US | **VLO** | 2026-08-20 | 2026-08-28 | 351.0 | 444.71 (2026-10-19) | **26.7%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AVLO) |
 | US | **CERT** | 2026-09-24 | 2026-09-24 | 8.39 | 10.61 (2026-10-26) | **26.46%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACERT) |
@@ -803,7 +803,6 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **CACI** | 2026-10-26 | 2026-11-02 | 677.0 | 680.5 (2026-11-02) | **0.52%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACACI) |
 | Canada | **ALK.TO** | 2026-09-04 | 2026-09-22 | 1.95 | 1.96 (2026-09-22) | **0.51%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AALK) |
 | US | **ZBRA** | 2026-08-23 | 2026-10-09 | 386.23 | 388.12 (2026-10-12) | **0.49%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AZBRA) |
-| US | **SNN** | 2026-11-03 | 2026-11-03 | 30.043 | 30.19 (2026-11-03) | **0.49%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASNN) |
 | US | **RLI** | 2026-08-20 | 2026-11-02 | 66.91 | 67.24 (2026-11-02) | **0.49%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ARLI) |
 | US | **ITGR** | 2026-08-20 | 2026-09-08 | 126.14 | 126.75 (2026-10-20) | **0.48%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AITGR) |
 | US | **AJG** | 2026-08-31 | 2026-09-03 | 265.38 | 266.66 (2026-09-03) | **0.48%** | 2026-09-04 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAJG) |
@@ -817,6 +816,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | Canada | **PRU.TO** | 2026-08-25 | 2026-09-22 | 6.8 | 6.83 (2026-09-22) | **0.44%** | 2026-10-06 (EMA20) | 2026-10-09 | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3APRU) |
 | US | **AZO** | 2026-11-03 | 2026-11-03 | 3187.63 | 3201.57 (2026-11-03) | **0.44%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAZO) |
 | US | **IMCR** | 2026-08-20 | 2026-09-03 | 37.44 | 37.6 (2026-09-03) | **0.43%** | 2026-09-04 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AIMCR) |
+| US | **SNN** | 2026-11-03 | 2026-11-03 | 30.043 | 30.17 (2026-11-03) | **0.42%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASNN) |
 | US | **BNS** | 2026-08-28 | 2026-09-21 | 94.96 | 95.34 (2026-09-21) | **0.4%** | 2026-09-23 (EMA20) | 2026-09-25 | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABNS) |
 | US | **BML-PL** | 2026-10-02 | 2026-10-02 | 19.97 | 20.05 (2026-10-02) | **0.4%** | 2026-10-05 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABML-PL) |
 | US | **SHO** | 2026-10-28 | 2026-11-02 | 12.82 | 12.87 (2026-11-02) | **0.39%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASHO) |
