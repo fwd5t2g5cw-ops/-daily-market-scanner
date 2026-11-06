@@ -494,6 +494,7 @@ US,ZIM,2026-08-23,29.56,2026-08-23,2026-09-11,29.57,2026-10-12,30.9,4.53,NYSE:ZI
 HK,2196.HK,2026-09-24,17.67,2026-09-24,2026-09-29,17.87,2026-09-30,18.47,4.53,HKEX:2196,https://www.tradingview.com/chart/?symbol=HKEX%3A2196
 US,CDW,2026-09-14,158.05,2026-09-14,2026-10-26,163.23,2026-10-29,165.2,4.52,NASDAQ:CDW,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACDW
 Canada,AAV.TO,2026-08-20,10.61,2026-08-20,2026-08-20,11.09,2026-08-20,11.09,4.52,TSX:AAV,https://www.tradingview.com/chart/?symbol=TSX%3AAAV
+Canada,CCL-A.TO,2026-08-24,97.12,2026-09-03,2026-11-05,101.48,2026-11-05,101.48,4.49,TSX:CCL.A,https://www.tradingview.com/chart/?symbol=TSX%3ACCL.A
 HK,0991.HK,2026-09-18,2.651,2026-09-18,2026-09-30,2.67,2026-10-14,2.77,4.49,HKEX:0991,https://www.tradingview.com/chart/?symbol=HKEX%3A0991
 US,CRCT,2026-09-25,6.27,2026-09-25,2026-10-05,6.47,2026-10-14,6.55,4.47,NASDAQ:CRCT,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACRCT
 US,J,2026-08-20,153.3,2026-10-22,2026-11-04,160.11,2026-11-04,160.11,4.44,NYSE:J,https://www.tradingview.com/chart/?symbol=NYSE%3AJ
@@ -1153,7 +1154,6 @@ US,XPEL,2026-08-20,52.05,2026-08-20,,,2026-09-04,51.45,-1.15,NASDAQ:XPEL,https:/
 US,PEB-PE,2026-11-05,20.03,2026-11-05,,,2026-11-05,19.8,-1.15,NYSE:PEB-PE,https://www.tradingview.com/chart/?symbol=NYSE%3APEB-PE
 US,PEB-PF,2026-11-05,19.95,2026-11-05,,,2026-11-05,19.72,-1.15,NYSE:PEB-PF,https://www.tradingview.com/chart/?symbol=NYSE%3APEB-PF
 US,UNH,2026-11-04,414.12,2026-11-04,,,2026-11-04,409.37,-1.15,NYSE:UNH,https://www.tradingview.com/chart/?symbol=NYSE%3AUNH
-Canada,CCL-A.TO,2026-08-24,97.12,2026-09-03,,,2026-08-24,96.0,-1.15,TSX:CCL.A,https://www.tradingview.com/chart/?symbol=TSX%3ACCL.A
 HK,0220.HK,2026-11-03,8.16,2026-11-03,,,2026-11-03,8.065,-1.16,HKEX:0220,https://www.tradingview.com/chart/?symbol=HKEX%3A0220
 US,MAIN,2026-08-20,59.61,2026-08-20,,,2026-08-31,58.91,-1.17,NYSE:MAIN,https://www.tradingview.com/chart/?symbol=NYSE%3AMAIN
 US,NSC,2026-08-20,357.186,2026-08-20,,,2026-08-24,352.995,-1.17,NYSE:NSC,https://www.tradingview.com/chart/?symbol=NYSE%3ANSC
