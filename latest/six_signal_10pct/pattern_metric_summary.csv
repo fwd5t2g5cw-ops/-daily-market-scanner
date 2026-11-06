@@ -54,20 +54,20 @@ ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,ema20_distance_pct,89,1.01
 ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,breakout_age_days,89,16.303,17.0,11.0,21.0
 ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,undercut_vs_breakout_pct,89,-1.443,-1.48,-2.31,-0.58
 ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,congestion_score,89,1.427,1.0,1.0,2.0
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,quality_score,172,5.081,5.0,3.0,7.0
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,rs_pct,136,24.719,19.1,8.92,30.82
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,pct_below_52w_high,172,13.443,7.385,4.327,19.148
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,ema20_distance_pct,172,1.055,0.88,0.467,1.549
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,breakout_age_days,172,16.628,16.0,11.0,22.0
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,undercut_vs_breakout_pct,172,-1.262,-1.2,-2.032,-0.525
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_score,172,1.378,1.0,1.0,2.0
-ready_now,Double Reclaim READY NOW,NONE,quality_score,102,5.402,5.0,4.0,7.0
-ready_now,Double Reclaim READY NOW,NONE,rs_pct,68,15.082,9.705,5.772,17.553
-ready_now,Double Reclaim READY NOW,NONE,pct_below_52w_high,102,5.755,4.015,2.475,5.933
-ready_now,Double Reclaim READY NOW,NONE,ema20_distance_pct,102,0.843,0.728,0.281,1.198
-ready_now,Double Reclaim READY NOW,NONE,breakout_age_days,102,17.49,17.0,11.0,25.0
-ready_now,Double Reclaim READY NOW,NONE,undercut_vs_breakout_pct,102,-0.944,-0.81,-1.657,-0.25
-ready_now,Double Reclaim READY NOW,NONE,congestion_score,102,2.069,2.0,2.0,3.0
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,quality_score,174,5.092,5.0,3.0,7.0
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,rs_pct,137,24.655,19.02,9.0,30.81
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,pct_below_52w_high,174,13.346,7.27,4.355,19.07
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,ema20_distance_pct,174,1.056,0.885,0.468,1.545
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,breakout_age_days,174,16.644,16.0,11.0,22.0
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,undercut_vs_breakout_pct,174,-1.27,-1.2,-2.038,-0.532
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_score,174,1.379,1.0,1.0,2.0
+ready_now,Double Reclaim READY NOW,NONE,quality_score,101,5.386,5.0,4.0,7.0
+ready_now,Double Reclaim READY NOW,NONE,rs_pct,68,14.902,9.37,5.502,17.553
+ready_now,Double Reclaim READY NOW,NONE,pct_below_52w_high,101,5.76,3.98,2.47,5.97
+ready_now,Double Reclaim READY NOW,NONE,ema20_distance_pct,101,0.83,0.703,0.272,1.193
+ready_now,Double Reclaim READY NOW,NONE,breakout_age_days,101,17.396,17.0,10.0,25.0
+ready_now,Double Reclaim READY NOW,NONE,undercut_vs_breakout_pct,101,-0.918,-0.67,-1.62,-0.25
+ready_now,Double Reclaim READY NOW,NONE,congestion_score,101,2.079,2.0,2.0,3.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,quality_score,168,4.417,4.0,3.0,6.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,high_conviction_score,168,5.0,5.0,3.0,6.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,rs_pct,135,22.737,17.12,10.26,28.95
@@ -76,55 +76,55 @@ reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,ema20_distance_pct,168,1.67
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,breakout_age_days,168,14.595,13.5,7.0,21.0
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,undercut_vs_breakout_pct,168,-0.853,-0.605,-1.427,-0.128
 reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_score,168,1.494,1.0,1.0,2.0
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,quality_score,314,4.261,4.0,3.0,6.0
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,high_conviction_score,314,5.096,5.0,4.0,6.0
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,rs_pct,246,22.325,16.28,8.65,27.91
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,pct_below_52w_high,314,11.606,6.51,3.743,16.473
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,ema20_distance_pct,314,1.665,1.814,1.143,2.264
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,breakout_age_days,314,13.729,13.0,8.0,19.0
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,undercut_vs_breakout_pct,314,-0.772,-0.595,-1.242,-0.125
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_score,314,1.446,1.0,1.0,2.0
-reclaim_breakout,Reclaim Breakout,NONE,quality_score,161,4.658,4.0,3.0,6.0
-reclaim_breakout,Reclaim Breakout,NONE,high_conviction_score,161,4.77,4.0,3.0,6.0
-reclaim_breakout,Reclaim Breakout,NONE,rs_pct,111,13.302,9.72,5.43,16.065
-reclaim_breakout,Reclaim Breakout,NONE,pct_below_52w_high,161,5.946,3.88,2.14,6.11
-reclaim_breakout,Reclaim Breakout,NONE,ema20_distance_pct,161,1.533,1.695,0.78,2.246
-reclaim_breakout,Reclaim Breakout,NONE,breakout_age_days,161,12.82,10.0,6.0,19.0
-reclaim_breakout,Reclaim Breakout,NONE,undercut_vs_breakout_pct,161,-0.56,-0.37,-0.97,-0.01
-reclaim_breakout,Reclaim Breakout,NONE,congestion_score,161,1.826,2.0,1.0,2.0
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,quality_score,299,6.187,6.0,5.0,7.0
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_score,299,5.528,6.0,4.0,7.0
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,rs_pct,299,28.409,15.29,8.55,28.22
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,pct_below_52w_high,299,5.063,4.22,2.855,6.295
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,ema20_distance_pct,299,4.705,4.92,3.03,6.615
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,distance_to_breakout_pct,299,3.12,3.36,2.065,4.245
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,quality_score,572,6.402,6.0,5.0,7.0
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_score,572,5.727,6.0,5.0,7.0
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,rs_pct,572,21.563,15.3,8.62,27.715
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,pct_below_52w_high,572,5.097,4.19,2.98,5.863
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,ema20_distance_pct,572,4.293,4.475,2.31,6.272
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,distance_to_breakout_pct,572,3.144,3.435,2.16,4.28
-pre_entry,Pre-Entry Watch,NONE,quality_score,349,6.573,7.0,6.0,8.0
-pre_entry,Pre-Entry Watch,NONE,compression_score,349,6.312,6.0,5.0,7.0
-pre_entry,Pre-Entry Watch,NONE,rs_pct,349,14.724,9.21,6.22,15.28
-pre_entry,Pre-Entry Watch,NONE,pct_below_52w_high,349,4.147,3.73,2.07,4.93
-pre_entry,Pre-Entry Watch,NONE,ema20_distance_pct,349,3.358,3.22,1.27,4.93
-pre_entry,Pre-Entry Watch,NONE,distance_to_breakout_pct,349,2.458,2.47,1.0,3.81
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,quality_score,316,4.256,4.0,3.0,6.0
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,high_conviction_score,316,5.079,5.0,4.0,6.0
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,rs_pct,248,22.167,16.145,8.565,27.81
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,pct_below_52w_high,316,11.56,6.485,3.74,16.418
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,ema20_distance_pct,316,1.669,1.816,1.145,2.265
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,breakout_age_days,316,13.658,13.0,8.0,19.0
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,undercut_vs_breakout_pct,316,-0.77,-0.595,-1.208,-0.117
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_score,316,1.443,1.0,1.0,2.0
+reclaim_breakout,Reclaim Breakout,NONE,quality_score,164,4.622,4.0,3.0,6.0
+reclaim_breakout,Reclaim Breakout,NONE,high_conviction_score,164,4.744,4.0,3.0,6.0
+reclaim_breakout,Reclaim Breakout,NONE,rs_pct,113,13.231,9.72,5.43,16.07
+reclaim_breakout,Reclaim Breakout,NONE,pct_below_52w_high,164,6.147,3.95,2.32,6.228
+reclaim_breakout,Reclaim Breakout,NONE,ema20_distance_pct,164,1.535,1.696,0.792,2.246
+reclaim_breakout,Reclaim Breakout,NONE,breakout_age_days,164,12.799,10.0,6.75,19.0
+reclaim_breakout,Reclaim Breakout,NONE,undercut_vs_breakout_pct,164,-0.56,-0.375,-0.972,-0.018
+reclaim_breakout,Reclaim Breakout,NONE,congestion_score,164,1.811,2.0,1.0,2.0
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,quality_score,300,6.187,6.0,5.0,7.0
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_score,300,5.527,6.0,4.0,7.0
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,rs_pct,300,28.345,15.285,8.55,28.17
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,pct_below_52w_high,300,5.06,4.205,2.857,6.263
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,ema20_distance_pct,300,4.698,4.92,3.002,6.598
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,distance_to_breakout_pct,300,3.123,3.365,2.067,4.242
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,quality_score,580,6.397,6.0,5.0,7.0
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_score,580,5.728,6.0,5.0,7.0
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,rs_pct,580,21.476,15.165,8.57,27.715
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,pct_below_52w_high,580,5.099,4.19,2.988,5.838
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,ema20_distance_pct,580,4.279,4.45,2.31,6.272
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,distance_to_breakout_pct,580,3.146,3.435,2.19,4.28
+pre_entry,Pre-Entry Watch,NONE,quality_score,379,6.491,7.0,5.0,7.0
+pre_entry,Pre-Entry Watch,NONE,compression_score,379,6.251,6.0,5.0,7.0
+pre_entry,Pre-Entry Watch,NONE,rs_pct,379,14.054,8.66,6.22,14.485
+pre_entry,Pre-Entry Watch,NONE,pct_below_52w_high,379,4.169,3.77,1.95,4.965
+pre_entry,Pre-Entry Watch,NONE,ema20_distance_pct,379,3.363,3.24,1.24,4.99
+pre_entry,Pre-Entry Watch,NONE,distance_to_breakout_pct,379,2.427,2.44,1.0,3.8
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,quality_score,87,8.23,8.0,7.0,9.0
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,compression_score,87,7.839,8.0,7.0,8.0
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,rs_pct,87,15.959,13.98,8.965,20.29
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,pct_below_52w_high,87,2.759,1.89,1.575,3.565
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,ema20_distance_pct,87,3.256,3.42,2.925,3.795
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,distance_to_breakout_pct,87,1.407,1.53,1.25,1.78
-compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,quality_score,161,8.292,8.0,7.0,9.0
-compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,compression_score,161,8.0,8.0,7.0,9.0
-compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,rs_pct,161,16.642,13.31,8.88,20.93
-compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,pct_below_52w_high,161,2.447,1.8,1.44,2.09
-compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,ema20_distance_pct,161,2.994,3.18,2.55,3.64
-compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,distance_to_breakout_pct,161,1.436,1.56,1.16,1.81
-compression,Pre-Breakout Compression,NONE,quality_score,172,8.198,8.0,7.0,9.0
-compression,Pre-Breakout Compression,NONE,compression_score,172,8.047,8.0,7.0,9.0
-compression,Pre-Breakout Compression,NONE,rs_pct,172,16.388,11.435,6.585,17.872
-compression,Pre-Breakout Compression,NONE,pct_below_52w_high,172,1.974,1.565,0.992,2.03
-compression,Pre-Breakout Compression,NONE,ema20_distance_pct,172,2.857,3.16,2.3,3.64
-compression,Pre-Breakout Compression,NONE,distance_to_breakout_pct,172,1.135,1.27,0.577,1.672
+compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,quality_score,165,8.291,8.0,7.0,9.0
+compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,compression_score,165,7.988,8.0,7.0,9.0
+compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,rs_pct,165,16.625,13.35,8.88,20.93
+compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,pct_below_52w_high,165,2.418,1.79,1.43,2.06
+compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,ema20_distance_pct,165,3.0,3.19,2.56,3.64
+compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,distance_to_breakout_pct,165,1.43,1.56,1.16,1.8
+compression,Pre-Breakout Compression,NONE,quality_score,180,8.122,8.0,7.0,9.0
+compression,Pre-Breakout Compression,NONE,compression_score,180,8.039,8.0,7.0,9.0
+compression,Pre-Breakout Compression,NONE,rs_pct,180,15.861,10.58,6.497,17.165
+compression,Pre-Breakout Compression,NONE,pct_below_52w_high,180,2.024,1.565,0.992,2.072
+compression,Pre-Breakout Compression,NONE,ema20_distance_pct,180,2.721,3.1,2.055,3.62
+compression,Pre-Breakout Compression,NONE,distance_to_breakout_pct,180,1.136,1.24,0.645,1.672
