@@ -1,4 +1,4 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-VEEV,READY_NOW,B,7,310.8,302.42,309.32,306.335,0.965,44.46,4.66,13,-2.23,0,1,2,BOTH,True,True,True
-GDV-PH,READY_NOW,D,6,21.635,21.29,21.27,21.479,0.984,5.25,4.2,19,0.09,2,1,3,BOTH,True,True,True
-AFG,READY_NOW,D,3,154.8,148.88,150.31,149.534,0.516,7.97,0.92,8,-0.95,1,0,2,BOTH,True,True,True
+VEEV,READY_NOW,B,7,310.08,305.17,309.32,306.677,0.855,34.52,4.88,14,-1.34,0,1,2,BOTH,True,True,True
+COKE,READY_NOW,C,7,212.45,200.96,201.765,205.64,1.92,10.19,2.9,14,-0.4,2,1,2,BOTH,True,True,True
+PNW,READY_NOW,D,5,103.84,103.11,103.263,103.091,0.167,3.66,4.91,9,-0.15,2,1,2,BOTH,True,True,True
