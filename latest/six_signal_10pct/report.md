@@ -1486,7 +1486,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [AXGN](https://www.tradingview.com/chart/?symbol=AXGN) — US — signal 2026-08-23 @ 50.4000; max **-32.32%**; first -10% 2026-09-10; max favorable +4.98%; order DOWN_ONLY; sessions 53
 - [SSRM](https://www.tradingview.com/chart/?symbol=SSRM) — US — signal 2026-09-02 @ 37.7500; max **-32.24%**; first -10% 2026-09-28; max favorable +4.48%; order DOWN_ONLY; sessions 45
 - [NGEX.TO](https://www.tradingview.com/chart/?symbol=TSX%3ANGEX) — Canada — signal 2026-08-23 @ 29.0700; max **-31.92%**; first -10% 2026-09-01; max favorable +4.64%; order DOWN_ONLY; sessions 52
-- [CS.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACS) — Canada — signal 2026-08-20 @ 15.4000; max **-31.69%**; first -10% 2026-09-14; max favorable +8.57%; order DOWN_ONLY; sessions 53
+- [CS.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACS) — Canada — signal 2026-08-20 @ 15.4000; max **-31.66%**; first -10% 2026-09-14; max favorable +8.57%; order DOWN_ONLY; sessions 53
 - [SRRK](https://www.tradingview.com/chart/?symbol=SRRK) — US — signal 2026-08-23 @ 56.5000; max **-31.52%**; first -10% 2026-09-15; max favorable +9.31%; order DOWN_ONLY; sessions 53
 - [SSRM.TO](https://www.tradingview.com/chart/?symbol=TSX%3ASSRM) — Canada — signal 2026-09-02 @ 52.2200; max **-31.48%**; first -10% 2026-10-01; max favorable +4.27%; order DOWN_ONLY; sessions 44
 - [IAU.TO](https://www.tradingview.com/chart/?symbol=TSX%3AIAU) — Canada — signal 2026-09-22 @ 2.6200; max **-31.30%**; first -10% 2026-09-28; max favorable +-2.67%; order DOWN_ONLY; sessions 31
