@@ -1,20 +1,19 @@
 # US Volatility Compression — TradingView Links
 
-14 actionable pre-breakout candidates.
+13 actionable pre-breakout candidates.
 
 | Symbol | TradingView chart |
 |---|---|
+| CCC | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACCC) |
 | VRNS | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AVRNS) |
+| PSNL | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3APSNL) |
 | BOW | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ABOW) |
-| CHYM | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACHYM) |
 | NIQ | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ANIQ) |
-| SPNT | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASPNT) |
-| CNK | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ACNK) |
 | QGEN | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AQGEN) |
+| SPNT | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ASPNT) |
 | RGA | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ARGA) |
-| ASTH | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AASTH) |
-| ROKU | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AROKU) |
-| MTD | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AMTD) |
-| WPP | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AWPP) |
 | MQ | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AMQ) |
-| CELH | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACELH) |
+| ROKU | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AROKU) |
+| NTR | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ANTR) |
+| TEVA | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ATEVA) |
+| BEKE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ABEKE) |
