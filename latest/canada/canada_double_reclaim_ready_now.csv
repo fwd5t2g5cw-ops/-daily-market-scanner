@@ -1,4 +1,2 @@
 symbol,status,grade,quality_score,market_cap_cad,market_cap_cad_bn,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_xiu_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now
-L.TO,READY_NOW,C,5,80256503494.0,80.26,69.49,67.72,69.05,68.006,1.513,10.93,2.22,14,-1.93,0,1,2,FORMING_NOW,True,True,True
-MX.TO,READY_NOW,C,4,7254446682.0,7.25,93.75,90.885,92.84,91.018,1.962,26.88,7.02,4,-2.11,0,1,1,PRE_BREAKOUT,True,True,True
-WN.TO,READY_NOW,D,3,40892957805.0,40.89,109.28,107.3,109.19,107.207,1.816,8.48,2.82,14,-1.73,0,1,2,BOTH,True,True,True
+WTE.TO,READY_NOW,D,2,2838938389.0,2.84,46.13,43.75,44.39,44.057,0.75,9.35,-0.46,24,-1.44,0,0,2,BOTH,True,True,True
