@@ -610,7 +610,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **TDC** | 2026-11-02 | 2026-11-02 | 33.48 | 34.6 (2026-11-04) | **3.35%** | 2026-11-05 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ATDC) |
 | US | **SCCO** | 2026-08-20 | 2026-08-28 | 203.0 | 209.79 (2026-08-28) | **3.34%** | 2026-09-01 (BREAKOUT) | 2026-09-02 | 2026-09-02 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASCCO) |
 | US | **CRGY** | 2026-08-28 | 2026-09-08 | 14.12 | 14.59 (2026-09-14) | **3.33%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACRGY) |
-| US | **CCEP** | 2026-08-20 | 2026-11-02 | 113.67 | 117.45 (2026-11-09) | **3.33%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACCEP) |
+| US | **CCEP** | 2026-08-20 | 2026-11-02 | 113.67 | 117.46 (2026-11-09) | **3.33%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACCEP) |
 | US | **SEIC** | 2026-08-20 | 2026-08-25 | 108.04 | 111.63 (2026-08-28) | **3.32%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ASEIC) |
 | US | **DUK** | 2026-11-03 | 2026-11-03 | 126.07 | 130.26 (2026-11-05) | **3.32%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ADUK) |
 | US | **HLT** | 2026-10-20 | 2026-11-02 | 364.5 | 376.575 (2026-11-04) | **3.31%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AHLT) |
