@@ -1,6 +1,6 @@
 # Six-Signal ±10% Historical Research
 
-Forward window ends: **2026-11-10**.
+Forward window ends: **2026-11-11**.
 
 Method: for each market/category/symbol, use the first final daily scanner appearance and its published current_price as the reference. Forward performance starts on the **next trading session**. +10% uses subsequent daily High; -10% uses subsequent daily Low. If both thresholds are hit on the same daily bar, order is marked BOTH_SAME_DAY because intraday order is unknown.
 
