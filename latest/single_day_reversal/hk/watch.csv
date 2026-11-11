@@ -1,2 +1,1 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,target_1R,target_2R,both_highs,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
-2418.HK,HK,WATCH,0,,2.5299999713897705,,,,,False,2026-11-09,2.6050000190734863,2.6050000190734863,2.5299999713897705,2.799999952316284,1.0,1.0,0.07815552950371239,False,False,False,5
+
