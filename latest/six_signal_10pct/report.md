@@ -1678,9 +1678,9 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [EPRX.TO](https://www.tradingview.com/chart/?symbol=TSX%3AEPRX) — Canada — signal 2026-09-29 @ 11.8600; max **-25.38%**; first -10% 2026-10-02; max favorable +10.29%; order UP_FIRST; sessions 30
 - [EDV.TO](https://www.tradingview.com/chart/?symbol=TSX%3AEDV) — Canada — signal 2026-09-03 @ 89.0300; max **-25.36%**; first -10% 2026-09-29; max favorable +1.93%; order DOWN_ONLY; sessions 47
 - [TGO.TO](https://www.tradingview.com/chart/?symbol=TSX%3ATGO) — Canada — signal 2026-08-20 @ 1.5000; max **-25.33%**; first -10% 2026-09-08; max favorable +38.67%; order DOWN_FIRST; sessions 57
-- [MMI](https://www.tradingview.com/chart/?symbol=MMI) — US — signal 2026-08-20 @ 32.7000; max **-25.26%**; first -10% 2026-09-28; max favorable +1.77%; order DOWN_ONLY; sessions 58
 - [SKE](https://www.tradingview.com/chart/?symbol=SKE) — US — signal 2026-08-26 @ 34.7200; max **-25.20%**; first -10% 2026-09-01; max favorable +1.96%; order DOWN_ONLY; sessions 54
 - [ALK.TO](https://www.tradingview.com/chart/?symbol=TSX%3AALK) — Canada — signal 2026-09-04 @ 1.8800; max **-25.00%**; first -10% 2026-10-14; max favorable +7.98%; order DOWN_ONLY; sessions 46
+- [MMI](https://www.tradingview.com/chart/?symbol=MMI) — US — signal 2026-08-20 @ 32.7000; max **-24.92%**; first -10% 2026-09-28; max favorable +1.77%; order DOWN_ONLY; sessions 58
 - [PJT](https://www.tradingview.com/chart/?symbol=PJT) — US — signal 2026-08-26 @ 174.7700; max **-24.83%**; first -10% 2026-09-15; max favorable +7.32%; order DOWN_ONLY; sessions 54
 - [CAI](https://www.tradingview.com/chart/?symbol=CAI) — US — signal 2026-10-23 @ 31.7100; max **-24.76%**; first -10% 2026-11-05; max favorable +15.11%; order UP_FIRST; sessions 13
 - [LFUS](https://www.tradingview.com/chart/?symbol=LFUS) — US — signal 2026-10-06 @ 454.2800; max **-24.70%**; first -10% 2026-10-13; max favorable +-1.92%; order DOWN_ONLY; sessions 26
