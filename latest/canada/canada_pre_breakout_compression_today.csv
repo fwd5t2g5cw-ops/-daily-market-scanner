@@ -1,7 +1,7 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
-WN.TO,PRE_ENTRY,A,9,True,A,9,111.3,112.45,1.02,108.252,105.362,100.167,2.82,11.03,1.02,True,True
-UNI.TO,PRE_ENTRY,A,8,True,A,9,2.65,2.68,1.12,2.627,2.594,2.286,0.86,10.5,2.21,False,True
 MKZ-UN.TO,PRE_ENTRY,B,7,True,A,8,0.55,0.55,0.0,0.541,0.533,0.506,1.63,10.08,5.17,False,False
 CYB.TO,PRE_ENTRY,A,8,True,A,8,103.2,104.5,1.24,100.701,98.121,93.042,2.48,14.9,1.24,False,True
+PPL.TO,PRE_ENTRY,B,7,True,B,7,71.31,71.88,0.79,69.372,68.279,64.088,2.79,5.97,0.84,False,False
 APR-UN.TO,PRE_ENTRY,B,7,True,B,7,12.8,13.01,1.61,12.432,12.127,11.545,2.96,6.49,1.61,True,False
+QSP-UN.TO,PRE_ENTRY,B,6,True,B,7,107.36,109.123,1.62,105.57,104.866,100.959,1.7,6.72,1.62,False,False
 ELF.TO,PRE_ENTRY,B,7,True,B,7,20.05,20.44,1.91,19.498,18.795,17.154,2.83,13.29,1.91,False,False
