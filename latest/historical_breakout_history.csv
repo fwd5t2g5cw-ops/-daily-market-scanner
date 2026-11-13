@@ -552,6 +552,7 @@ HK,8279.HK,2026-09-16,1.35,2026-09-16,2026-09-16,1.38,2026-09-18,1.415,4.81,HKEX
 US,BRO,2026-08-20,71.205,2026-08-20,2026-08-20,72.07,2026-08-24,74.61,4.78,NYSE:BRO,https://www.tradingview.com/chart/?symbol=NYSE%3ABRO
 US,GLP,2026-08-25,51.58,2026-08-26,2026-09-01,52.0,2026-09-10,54.0,4.69,NYSE:GLP,https://www.tradingview.com/chart/?symbol=NYSE%3AGLP
 US,DRH,2026-08-20,14.05,2026-10-22,2026-10-30,14.25,2026-11-10,14.705,4.66,NASDAQ:DRH,https://www.tradingview.com/chart/?symbol=NASDAQ%3ADRH
+Canada,PRM.TO,2026-08-20,15.48,2026-08-20,2026-08-25,15.95,2026-11-12,16.2,4.65,TSX:PRM,https://www.tradingview.com/chart/?symbol=TSX%3APRM
 US,BTI,2026-11-02,59.166,2026-11-02,2026-11-02,61.91,2026-11-02,61.91,4.64,NYSE:BTI,https://www.tradingview.com/chart/?symbol=NYSE%3ABTI
 HK,0934.HK,2026-10-15,4.105,2026-11-03,2026-11-06,4.125,2026-11-11,4.295,4.63,HKEX:0934,https://www.tradingview.com/chart/?symbol=HKEX%3A0934
 US,IOT,2026-08-25,42.68,2026-08-28,2026-09-14,42.89,2026-10-26,44.65,4.62,NYSE:IOT,https://www.tradingview.com/chart/?symbol=NYSE%3AIOT
@@ -602,7 +603,6 @@ US,FSK,2026-08-20,11.94,2026-08-20,2026-08-24,12.065,2026-09-04,12.43,4.1,NYSE:F
 US,VCTR,2026-08-23,119.56,2026-08-23,2026-11-04,120.19,2026-11-12,124.44,4.08,NASDAQ:VCTR,https://www.tradingview.com/chart/?symbol=NASDAQ%3AVCTR
 US,GPK,2026-08-20,11.491,2026-08-20,2026-08-20,11.63,2026-08-23,11.96,4.08,NYSE:GPK,https://www.tradingview.com/chart/?symbol=NYSE%3AGPK
 Canada,CAS.TO,2026-09-04,17.847,2026-09-04,2026-09-29,18.57,2026-09-29,18.57,4.05,TSX:CAS,https://www.tradingview.com/chart/?symbol=TSX%3ACAS
-Canada,PRM.TO,2026-08-20,15.48,2026-08-20,2026-08-25,15.95,2026-11-10,16.1,4.01,TSX:PRM,https://www.tradingview.com/chart/?symbol=TSX%3APRM
 US,BSY,2026-08-23,36.22,2026-08-23,2026-08-23,37.08,2026-08-24,37.67,4.0,NASDAQ:BSY,https://www.tradingview.com/chart/?symbol=NASDAQ%3ABSY
 Canada,TGO.TO,2026-08-20,1.5,2026-08-20,2026-10-09,1.56,2026-10-09,1.56,4.0,TSX:TGO,https://www.tradingview.com/chart/?symbol=TSX%3ATGO
 HK,0220.HK,2026-11-03,8.16,2026-11-03,2026-11-06,8.27,2026-11-12,8.485,3.98,HKEX:0220,https://www.tradingview.com/chart/?symbol=HKEX%3A0220
@@ -762,7 +762,6 @@ US,KNTK,2026-08-20,55.34,2026-08-20,2026-10-14,55.55,2026-10-30,56.6,2.28,NYSE:K
 US,DOO,2026-08-23,66.64,2026-08-23,2026-08-23,68.155,2026-08-23,68.155,2.27,NASDAQ:DOO,https://www.tradingview.com/chart/?symbol=NASDAQ%3ADOO
 US,PGR,2026-10-26,230.28,2026-10-29,2026-10-30,231.27,2026-11-12,235.49,2.26,NYSE:PGR,https://www.tradingview.com/chart/?symbol=NYSE%3APGR
 US,BRX,2026-11-09,29.65,2026-11-09,2026-11-09,30.29,2026-11-10,30.32,2.26,NYSE:BRX,https://www.tradingview.com/chart/?symbol=NYSE%3ABRX
-Canada,PPL.TO,2026-11-02,69.8,2026-11-02,2026-11-02,70.5,2026-11-12,71.36,2.23,TSX:PPL,https://www.tradingview.com/chart/?symbol=TSX%3APPL
 US,GGB,2026-09-08,5.126,2026-09-08,2026-10-05,5.17,2026-10-20,5.24,2.22,NYSE:GGB,https://www.tradingview.com/chart/?symbol=NYSE%3AGGB
 Canada,BNS.TO,2026-08-28,131.72,2026-08-28,2026-09-25,132.3,2026-11-04,134.64,2.22,TSX:BNS,https://www.tradingview.com/chart/?symbol=TSX%3ABNS
 HK,0467.HK,2026-10-29,0.45,2026-10-29,2026-10-29,0.46,2026-10-29,0.46,2.22,HKEX:0467,https://www.tradingview.com/chart/?symbol=HKEX%3A0467
@@ -1188,6 +1187,7 @@ US,NFJ,2026-08-20,15.75,2026-08-20,,,2026-08-25,15.64,-0.7,NYSE:NFJ,https://www.
 US,ASH,2026-08-28,78.25,2026-08-28,,,2026-11-09,77.7,-0.7,NYSE:ASH,https://www.tradingview.com/chart/?symbol=NYSE%3AASH
 US,PBH,2026-09-02,53.22,2026-09-02,,,2026-09-02,52.85,-0.7,NYSE:PBH,https://www.tradingview.com/chart/?symbol=NYSE%3APBH
 US,KEY-PI,2026-11-05,25.28,2026-11-05,,,2026-11-05,25.1,-0.71,NYSE:KEY-PI,https://www.tradingview.com/chart/?symbol=NYSE%3AKEY-PI
+Canada,PPL.TO,2026-11-02,71.88,2026-11-12,,,2026-11-12,71.36,-0.72,TSX:PPL,https://www.tradingview.com/chart/?symbol=TSX%3APPL
 US,BSM,2026-08-25,15.1,2026-08-25,,,2026-09-11,14.99,-0.73,NYSE:BSM,https://www.tradingview.com/chart/?symbol=NYSE%3ABSM
 US,SWX,2026-11-02,94.42,2026-11-02,,,2026-11-02,93.73,-0.73,NYSE:SWX,https://www.tradingview.com/chart/?symbol=NYSE%3ASWX
 US,FCPT,2026-08-25,25.547,2026-08-25,,,2026-08-25,25.36,-0.73,NYSE:FCPT,https://www.tradingview.com/chart/?symbol=NYSE%3AFCPT
