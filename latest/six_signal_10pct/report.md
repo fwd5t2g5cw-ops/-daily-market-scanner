@@ -1336,12 +1336,12 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [6160](https://www.tradingview.com/chart/?symbol=HKEX%3A6160) — HK — signal 2026-08-26 @ 228.2000; max **+17.00%**; first +10% 2026-11-06; max adverse -11.66%; order DOWN_FIRST; sessions 55
 - [ORE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AORE) — Canada — signal 2026-09-16 @ 2.9100; max **+16.84%**; first +10% 2026-09-21; max adverse -15.46%; order UP_FIRST; sessions 40
 - [SHEL](https://www.tradingview.com/chart/?symbol=SHEL) — US — signal 2026-08-20 @ 93.6500; max **+16.79%**; first +10% 2026-10-13; max adverse -3.84%; order UP_ONLY; sessions 59
+- [2319](https://www.tradingview.com/chart/?symbol=HKEX%3A2319) — HK — signal 2026-08-24 @ 18.8200; max **+16.79%**; first +10% 2026-11-03; max adverse -10.47%; order DOWN_FIRST; sessions 57
 - [LGD.TO](https://www.tradingview.com/chart/?symbol=TSX%3ALGD) — Canada — signal 2026-09-08 @ 1.9700; max **+16.75%**; first +10% 2026-09-18; max adverse -11.17%; order UP_FIRST; sessions 46
 - [0939](https://www.tradingview.com/chart/?symbol=HKEX%3A939) — HK — signal 2026-08-21 @ 9.2000; max **+16.63%**; first +10% 2026-10-29; max adverse -1.74%; order UP_ONLY; sessions 58
 - [CAH](https://www.tradingview.com/chart/?symbol=CAH) — US — signal 2026-09-02 @ 245.4900; max **+16.62%**; first +10% 2026-11-05; max adverse -11.93%; order DOWN_FIRST; sessions 50
 - [ABM](https://www.tradingview.com/chart/?symbol=ABM) — US — signal 2026-08-26 @ 47.7700; max **+16.60%**; first +10% 2026-10-22; max adverse -4.76%; order UP_ONLY; sessions 55
 - [PVLA](https://www.tradingview.com/chart/?symbol=PVLA) — US — signal 2026-08-26 @ 154.3300; max **+16.60%**; first +10% 2026-11-06; max adverse -23.39%; order DOWN_FIRST; sessions 55
-- [2319](https://www.tradingview.com/chart/?symbol=HKEX%3A2319) — HK — signal 2026-08-24 @ 18.8200; max **+16.58%**; first +10% 2026-11-03; max adverse -10.47%; order DOWN_FIRST; sessions 57
 - [ELPC](https://www.tradingview.com/chart/?symbol=ELPC) — US — signal 2026-09-09 @ 12.4500; max **+16.55%**; first +10% 2026-10-05; max adverse -18.80%; order UP_FIRST; sessions 46
 - [PAYC](https://www.tradingview.com/chart/?symbol=PAYC) — US — signal 2026-09-02 @ 236.2500; max **+16.50%**; first +10% 2026-10-20; max adverse -10.10%; order DOWN_FIRST; sessions 50
 - [MUR](https://www.tradingview.com/chart/?symbol=MUR) — US — signal 2026-10-09 @ 38.6800; max **+16.42%**; first +10% 2026-10-19; max adverse -14.53%; order UP_FIRST; sessions 24
@@ -2205,7 +2205,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [LLY](https://www.tradingview.com/chart/?symbol=LLY) — US — signal 2026-08-20 @ 1244.4000; max **-10.54%**; first -10% 2026-09-08; max favorable +17.33%; order DOWN_FIRST; sessions 59
 - [HAS](https://www.tradingview.com/chart/?symbol=HAS) — US — signal 2026-08-24 @ 95.4100; max **-10.52%**; first -10% 2026-09-23; max favorable +30.62%; order DOWN_FIRST; sessions 57
 - [BNE.TO](https://www.tradingview.com/chart/?symbol=TSX%3ABNE) — Canada — signal 2026-10-20 @ 6.5700; max **-10.50%**; first -10% 2026-11-10; max favorable +7.91%; order DOWN_ONLY; sessions 17
-- [2319](https://www.tradingview.com/chart/?symbol=HKEX%3A2319) — HK — signal 2026-08-24 @ 18.8200; max **-10.47%**; first -10% 2026-10-05; max favorable +16.58%; order DOWN_FIRST; sessions 57
+- [2319](https://www.tradingview.com/chart/?symbol=HKEX%3A2319) — HK — signal 2026-08-24 @ 18.8200; max **-10.47%**; first -10% 2026-10-05; max favorable +16.79%; order DOWN_FIRST; sessions 57
 - [ROIV](https://www.tradingview.com/chart/?symbol=ROIV) — US — signal 2026-08-20 @ 36.8400; max **-10.42%**; first -10% 2026-10-14; max favorable +15.36%; order UP_FIRST; sessions 59
 - [RHP](https://www.tradingview.com/chart/?symbol=RHP) — US — signal 2026-08-24 @ 131.1300; max **-10.42%**; first -10% 2026-09-16; max favorable +6.56%; order DOWN_ONLY; sessions 57
 - [BIO](https://www.tradingview.com/chart/?symbol=BIO) — US — signal 2026-08-28 @ 387.7000; max **-10.42%**; first -10% 2026-10-21; max favorable +1.81%; order DOWN_ONLY; sessions 53
