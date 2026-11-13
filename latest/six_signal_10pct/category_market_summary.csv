@@ -2,16 +2,16 @@ category,category_label,market,signals,up10_count,down10_count,both_count
 entry_marker,Entry Marker,US,111,42,63,16
 entry_marker,Entry Marker,Canada,5,0,1,0
 entry_marker,Entry Marker,HK,9,4,6,3
-high_conviction,High Conviction Entry,US,57,23,35,10
-ready_now,Double Reclaim READY NOW,US,297,98,158,37
+high_conviction,High Conviction Entry,US,57,22,35,10
+ready_now,Double Reclaim READY NOW,US,295,96,157,36
 ready_now,Double Reclaim READY NOW,Canada,44,15,22,6
 ready_now,Double Reclaim READY NOW,HK,46,17,23,9
-reclaim_breakout,Reclaim Breakout,US,544,179,280,63
+reclaim_breakout,Reclaim Breakout,US,535,178,279,62
 reclaim_breakout,Reclaim Breakout,Canada,78,19,40,7
 reclaim_breakout,Reclaim Breakout,HK,95,30,41,16
-pre_entry,Pre-Entry Watch,US,997,299,508,122
+pre_entry,Pre-Entry Watch,US,985,295,506,120
 pre_entry,Pre-Entry Watch,Canada,213,76,113,36
 pre_entry,Pre-Entry Watch,HK,118,32,56,14
-compression,Pre-Breakout Compression,US,352,79,153,14
+compression,Pre-Breakout Compression,US,348,78,151,14
 compression,Pre-Breakout Compression,Canada,61,21,19,7
 compression,Pre-Breakout Compression,HK,48,8,8,0
