@@ -1,0 +1,40 @@
+name: Dual Fib HK Validation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/dual-fib-hk-validation.yml
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pandas numpy yfinance
+
+      - name: Run Hong Kong validation
+        run: |
+          python dual_fib_confluence_backtest.py \
+            --universe data/hk_5b_universe.txt \
+            --period 10y \
+            --max-symbols 0 \
+            --max-events 0 \
+            --output dual_fib_hk_output
+
+      - name: Upload Hong Kong results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dual-fib-hk-validation-results
+          path: dual_fib_hk_output/
+          if-no-files-found: warn
