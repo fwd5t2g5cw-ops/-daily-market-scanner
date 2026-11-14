@@ -461,6 +461,7 @@ def parser() -> argparse.ArgumentParser:
     p.add_argument("--cooldown-calendar-days", type=int, default=45)
     p.add_argument("--max-events", type=int, default=500)
     p.add_argument("--max-symbols", type=int, default=0, help="Limit downloaded/processed symbols; 0 means all")
+    p.add_argument("--skip-symbols", type=int, default=0, help="Skip this many symbols at the start of the universe")
     return p
 
 
@@ -472,9 +473,13 @@ def main(argv: Optional[list[str]] = None) -> int:
     errors: list[str] = []
     processed_symbols = 0
     successful_symbols = 0
+    selected_symbols = 0
     for symbol_number, (symbol, raw) in enumerate(source, start=1):
-        if args.max_symbols > 0 and symbol_number > args.max_symbols:
+        if symbol_number <= args.skip_symbols:
+            continue
+        if args.max_symbols > 0 and selected_symbols >= args.max_symbols:
             break
+        selected_symbols += 1
         processed_symbols += 1
         try:
             trades = backtest_symbol(symbol, raw, args)

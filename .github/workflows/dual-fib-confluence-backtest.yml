@@ -1,12 +1,6 @@
 name: Dual Fib Confluence Backtest
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - dual_fib_confluence_backtest.py
-      - .github/workflows/dual-fib-confluence-backtest.yml
   workflow_dispatch:
     inputs:
       market:

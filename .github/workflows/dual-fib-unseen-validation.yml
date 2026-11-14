@@ -1,0 +1,42 @@
+name: Dual Fib Unseen Validation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - dual_fib_confluence_backtest.py
+      - .github/workflows/dual-fib-unseen-validation.yml
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pandas numpy yfinance
+
+      - name: Run unseen-symbol validation
+        run: |
+          python dual_fib_confluence_backtest.py \
+            --universe data/us_1b_universe.txt \
+            --period 10y \
+            --skip-symbols 1000 \
+            --max-symbols 0 \
+            --max-events 0 \
+            --output dual_fib_unseen_output
+
+      - name: Upload unseen results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dual-fib-unseen-results-us
+          path: dual_fib_unseen_output/
+          if-no-files-found: warn
