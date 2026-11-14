@@ -1,6 +1,12 @@
 name: Dual Fib Confluence Backtest
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - dual_fib_confluence_backtest.py
+      - .github/workflows/dual-fib-confluence-backtest.yml
   workflow_dispatch:
     inputs:
       market:
@@ -51,7 +57,7 @@ jobs:
         id: universe
         shell: bash
         run: |
-          if [ "${{ inputs.market }}" = "hk" ]; then
+          if [ "${{ inputs.market || 'us' }}" = "hk" ]; then
             echo "path=data/hk_5b_universe.txt" >> "$GITHUB_OUTPUT"
           else
             echo "path=data/us_1b_universe.txt" >> "$GITHUB_OUTPUT"
@@ -61,16 +67,16 @@ jobs:
         run: |
           python dual_fib_confluence_backtest.py \
             --universe "${{ steps.universe.outputs.path }}" \
-            --period "${{ inputs.period }}" \
-            --max-symbols "${{ inputs.max_symbols }}" \
-            --min-rr "${{ inputs.min_rr }}" \
-            --max-events "${{ inputs.max_events }}" \
+            --period "${{ inputs.period || '10y' }}" \
+            --max-symbols "${{ inputs.max_symbols || '1000' }}" \
+            --min-rr "${{ inputs.min_rr || '0' }}" \
+            --max-events "${{ inputs.max_events || '500' }}" \
             --output dual_fib_output
 
       - name: Upload results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: dual-fib-backtest-results-${{ inputs.market }}
+          name: dual-fib-backtest-results-${{ inputs.market || 'us' }}
           path: dual_fib_output/
           if-no-files-found: warn
