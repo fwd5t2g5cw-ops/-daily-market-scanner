@@ -107,126 +107,126 @@ ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,congestion_status,BOTH,39,
 ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,congestion_status,PRE_BREAKOUT,28,27.72
 ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,congestion_status,FORMING_NOW,18,17.82
 ready_now,Double Reclaim READY NOW,UP10_BEFORE_DOWN10,congestion_status,NONE,16,15.84
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,D,66,36.46
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,C,44,24.31
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,B,41,22.65
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,A,22,12.15
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,A+,8,4.42
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,BOTH,68,37.57
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,PRE_BREAKOUT,45,24.86
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,FORMING_NOW,37,20.44
-ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,NONE,31,17.13
-ready_now,Double Reclaim READY NOW,NONE,grade,D,63,57.27
-ready_now,Double Reclaim READY NOW,NONE,grade,B,21,19.09
-ready_now,Double Reclaim READY NOW,NONE,grade,C,14,12.73
-ready_now,Double Reclaim READY NOW,NONE,grade,A,6,5.45
-ready_now,Double Reclaim READY NOW,NONE,grade,A+,6,5.45
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,BOTH,72,65.45
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,PRE_BREAKOUT,16,14.55
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,FORMING_NOW,13,11.82
-ready_now,Double Reclaim READY NOW,NONE,congestion_status,NONE,9,8.18
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,D,100,55.56
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,C,49,27.22
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,B,17,9.44
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,A,12,6.67
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,A+,2,1.11
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BULL_CANDLE,60,33.33
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BEAR_CANDLE,42,23.33
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,STRONG_BULL_CANDLE,17,9.44
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,DOJI,15,8.33
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BULLISH_ENGULFING,10,5.56
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,HAMMER,8,4.44
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,STRONG_BEAR_CANDLE,7,3.89
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,HAMMER_BEAR_BODY,6,3.33
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,SHOOTING_STAR_BULL_BODY,5,2.78
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BEARISH_ENGULFING,4,2.22
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,UNKNOWN,4,2.22
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,SHOOTING_STAR,2,1.11
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_side,BULL,106,58.89
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_side,BEAR,55,30.56
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_side,NEUTRAL,19,10.56
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,BOTH,69,38.33
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,PRE_BREAKOUT,49,27.22
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,FORMING_NOW,42,23.33
-reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,NONE,20,11.11
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,D,194,59.69
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,C,86,26.46
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,B,29,8.92
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,A,14,4.31
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,A+,2,0.62
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BULL_CANDLE,107,32.92
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BEAR_CANDLE,63,19.38
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,DOJI,38,11.69
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,STRONG_BULL_CANDLE,37,11.38
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BULLISH_ENGULFING,23,7.08
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,HAMMER_BEAR_BODY,11,3.38
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,HAMMER,10,3.08
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,STRONG_BEAR_CANDLE,10,3.08
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BEARISH_ENGULFING,8,2.46
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,D,67,36.81
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,C,44,24.18
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,B,41,22.53
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,A,22,12.09
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,grade,A+,8,4.4
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,BOTH,68,37.36
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,PRE_BREAKOUT,45,24.73
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,FORMING_NOW,37,20.33
+ready_now,Double Reclaim READY NOW,DOWN10_BEFORE_UP10,congestion_status,NONE,32,17.58
+ready_now,Double Reclaim READY NOW,NONE,grade,D,62,56.88
+ready_now,Double Reclaim READY NOW,NONE,grade,B,21,19.27
+ready_now,Double Reclaim READY NOW,NONE,grade,C,14,12.84
+ready_now,Double Reclaim READY NOW,NONE,grade,A,6,5.5
+ready_now,Double Reclaim READY NOW,NONE,grade,A+,6,5.5
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,BOTH,72,66.06
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,PRE_BREAKOUT,16,14.68
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,FORMING_NOW,13,11.93
+ready_now,Double Reclaim READY NOW,NONE,congestion_status,NONE,8,7.34
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,D,100,55.25
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,C,50,27.62
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,B,17,9.39
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,A,12,6.63
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,grade,A+,2,1.1
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BULL_CANDLE,61,33.7
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BEAR_CANDLE,42,23.2
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,STRONG_BULL_CANDLE,17,9.39
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,DOJI,15,8.29
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BULLISH_ENGULFING,10,5.52
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,HAMMER,8,4.42
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,STRONG_BEAR_CANDLE,7,3.87
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,HAMMER_BEAR_BODY,6,3.31
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,SHOOTING_STAR_BULL_BODY,5,2.76
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,BEARISH_ENGULFING,4,2.21
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,UNKNOWN,4,2.21
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_pattern,SHOOTING_STAR,2,1.1
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_side,BULL,107,59.12
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_side,BEAR,55,30.39
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,candle_side,NEUTRAL,19,10.5
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,BOTH,70,38.67
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,PRE_BREAKOUT,49,27.07
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,FORMING_NOW,42,23.2
+reclaim_breakout,Reclaim Breakout,UP10_BEFORE_DOWN10,congestion_status,NONE,20,11.05
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,D,195,59.82
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,C,86,26.38
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,B,29,8.9
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,A,14,4.29
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,grade,A+,2,0.61
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BULL_CANDLE,108,33.13
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BEAR_CANDLE,63,19.33
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,DOJI,38,11.66
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,STRONG_BULL_CANDLE,37,11.35
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BULLISH_ENGULFING,23,7.06
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,HAMMER_BEAR_BODY,11,3.37
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,HAMMER,10,3.07
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,STRONG_BEAR_CANDLE,10,3.07
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,BEARISH_ENGULFING,8,2.45
 reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,UNKNOWN,7,2.15
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,SHOOTING_STAR_BULL_BODY,6,1.85
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,SHOOTING_STAR,5,1.54
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_side,BULL,194,59.69
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_side,BEAR,86,26.46
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_side,NEUTRAL,45,13.85
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,BOTH,124,38.15
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,PRE_BREAKOUT,82,25.23
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,FORMING_NOW,77,23.69
-reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,NONE,42,12.92
-reclaim_breakout,Reclaim Breakout,NONE,grade,D,163,75.46
-reclaim_breakout,Reclaim Breakout,NONE,grade,C,35,16.2
-reclaim_breakout,Reclaim Breakout,NONE,grade,B,13,6.02
-reclaim_breakout,Reclaim Breakout,NONE,grade,A,3,1.39
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,SHOOTING_STAR_BULL_BODY,6,1.84
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_pattern,SHOOTING_STAR,5,1.53
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_side,BULL,195,59.82
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_side,BEAR,86,26.38
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,candle_side,NEUTRAL,45,13.8
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,BOTH,124,38.04
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,PRE_BREAKOUT,82,25.15
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,FORMING_NOW,77,23.62
+reclaim_breakout,Reclaim Breakout,DOWN10_BEFORE_UP10,congestion_status,NONE,43,13.19
+reclaim_breakout,Reclaim Breakout,NONE,grade,D,163,75.81
+reclaim_breakout,Reclaim Breakout,NONE,grade,C,34,15.81
+reclaim_breakout,Reclaim Breakout,NONE,grade,B,13,6.05
+reclaim_breakout,Reclaim Breakout,NONE,grade,A,3,1.4
 reclaim_breakout,Reclaim Breakout,NONE,grade,A+,2,0.93
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BULL_CANDLE,80,37.04
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BEAR_CANDLE,36,16.67
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,STRONG_BULL_CANDLE,25,11.57
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,UNKNOWN,18,8.33
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BULLISH_ENGULFING,13,6.02
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,DOJI,13,6.02
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BEARISH_ENGULFING,11,5.09
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,STRONG_BEAR_CANDLE,7,3.24
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,HAMMER,5,2.31
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,SHOOTING_STAR_BULL_BODY,5,2.31
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BULL_CANDLE,78,36.28
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BEAR_CANDLE,36,16.74
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,STRONG_BULL_CANDLE,25,11.63
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,UNKNOWN,18,8.37
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BULLISH_ENGULFING,13,6.05
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,DOJI,13,6.05
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,BEARISH_ENGULFING,11,5.12
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,STRONG_BEAR_CANDLE,8,3.72
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,HAMMER,5,2.33
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,SHOOTING_STAR_BULL_BODY,5,2.33
 reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,HAMMER_BEAR_BODY,2,0.93
-reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,SHOOTING_STAR,1,0.46
-reclaim_breakout,Reclaim Breakout,NONE,candle_side,BULL,130,60.19
-reclaim_breakout,Reclaim Breakout,NONE,candle_side,BEAR,55,25.46
-reclaim_breakout,Reclaim Breakout,NONE,candle_side,NEUTRAL,31,14.35
-reclaim_breakout,Reclaim Breakout,NONE,congestion_status,BOTH,96,44.44
-reclaim_breakout,Reclaim Breakout,NONE,congestion_status,PRE_BREAKOUT,76,35.19
-reclaim_breakout,Reclaim Breakout,NONE,congestion_status,FORMING_NOW,29,13.43
-reclaim_breakout,Reclaim Breakout,NONE,congestion_status,NONE,15,6.94
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,grade,B,154,48.12
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,grade,C,102,31.88
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,grade,A,64,20.0
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_grade,C,155,48.44
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_grade,B,127,39.69
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_grade,A,38,11.88
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,volume_contracting,False,207,64.69
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,volume_contracting,True,113,35.31
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,range_contracting,True,203,63.44
-pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,range_contracting,False,117,36.56
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,grade,B,308,52.03
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,grade,C,152,25.68
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,grade,A,132,22.3
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_grade,C,265,44.76
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_grade,B,242,40.88
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_grade,A,85,14.36
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,volume_contracting,False,356,60.14
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,volume_contracting,True,236,39.86
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,range_contracting,True,413,69.76
-pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,range_contracting,False,179,30.24
-pre_entry,Pre-Entry Watch,NONE,grade,B,225,52.69
-pre_entry,Pre-Entry Watch,NONE,grade,C,120,28.1
-pre_entry,Pre-Entry Watch,NONE,grade,A,82,19.2
-pre_entry,Pre-Entry Watch,NONE,compression_grade,B,192,44.96
-pre_entry,Pre-Entry Watch,NONE,compression_grade,C,146,34.19
-pre_entry,Pre-Entry Watch,NONE,compression_grade,A,89,20.84
-pre_entry,Pre-Entry Watch,NONE,volume_contracting,False,316,74.0
-pre_entry,Pre-Entry Watch,NONE,volume_contracting,True,111,26.0
-pre_entry,Pre-Entry Watch,NONE,range_contracting,True,280,65.57
-pre_entry,Pre-Entry Watch,NONE,range_contracting,False,147,34.43
+reclaim_breakout,Reclaim Breakout,NONE,candle_pattern,SHOOTING_STAR,1,0.47
+reclaim_breakout,Reclaim Breakout,NONE,candle_side,BULL,128,59.53
+reclaim_breakout,Reclaim Breakout,NONE,candle_side,BEAR,56,26.05
+reclaim_breakout,Reclaim Breakout,NONE,candle_side,NEUTRAL,31,14.42
+reclaim_breakout,Reclaim Breakout,NONE,congestion_status,BOTH,95,44.19
+reclaim_breakout,Reclaim Breakout,NONE,congestion_status,PRE_BREAKOUT,77,35.81
+reclaim_breakout,Reclaim Breakout,NONE,congestion_status,FORMING_NOW,29,13.49
+reclaim_breakout,Reclaim Breakout,NONE,congestion_status,NONE,14,6.51
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,grade,B,154,47.98
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,grade,C,103,32.09
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,grade,A,64,19.94
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_grade,C,156,48.6
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_grade,B,127,39.56
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,compression_grade,A,38,11.84
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,volume_contracting,False,208,64.8
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,volume_contracting,True,113,35.2
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,range_contracting,True,204,63.55
+pre_entry,Pre-Entry Watch,UP10_BEFORE_DOWN10,range_contracting,False,117,36.45
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,grade,B,310,52.19
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,grade,C,152,25.59
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,grade,A,132,22.22
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_grade,C,266,44.78
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_grade,B,243,40.91
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,compression_grade,A,85,14.31
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,volume_contracting,False,358,60.27
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,volume_contracting,True,236,39.73
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,range_contracting,True,414,69.7
+pre_entry,Pre-Entry Watch,DOWN10_BEFORE_UP10,range_contracting,False,180,30.3
+pre_entry,Pre-Entry Watch,NONE,grade,B,224,52.58
+pre_entry,Pre-Entry Watch,NONE,grade,C,120,28.17
+pre_entry,Pre-Entry Watch,NONE,grade,A,82,19.25
+pre_entry,Pre-Entry Watch,NONE,compression_grade,B,192,45.07
+pre_entry,Pre-Entry Watch,NONE,compression_grade,C,145,34.04
+pre_entry,Pre-Entry Watch,NONE,compression_grade,A,89,20.89
+pre_entry,Pre-Entry Watch,NONE,volume_contracting,False,315,73.94
+pre_entry,Pre-Entry Watch,NONE,volume_contracting,True,111,26.06
+pre_entry,Pre-Entry Watch,NONE,range_contracting,True,279,65.49
+pre_entry,Pre-Entry Watch,NONE,range_contracting,False,147,34.51
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,grade,A,67,70.53
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,grade,B,28,29.47
 compression,Pre-Breakout Compression,UP10_BEFORE_DOWN10,compression_grade,A,60,63.16
@@ -243,11 +243,11 @@ compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,volume_contracting,False
 compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,volume_contracting,True,66,37.93
 compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,range_contracting,True,122,70.11
 compression,Pre-Breakout Compression,DOWN10_BEFORE_UP10,range_contracting,False,52,29.89
-compression,Pre-Breakout Compression,NONE,grade,A,122,61.93
-compression,Pre-Breakout Compression,NONE,grade,B,75,38.07
-compression,Pre-Breakout Compression,NONE,compression_grade,A,126,63.96
-compression,Pre-Breakout Compression,NONE,compression_grade,B,71,36.04
-compression,Pre-Breakout Compression,NONE,volume_contracting,False,135,68.53
-compression,Pre-Breakout Compression,NONE,volume_contracting,True,62,31.47
-compression,Pre-Breakout Compression,NONE,range_contracting,True,113,57.36
-compression,Pre-Breakout Compression,NONE,range_contracting,False,84,42.64
+compression,Pre-Breakout Compression,NONE,grade,A,122,61.62
+compression,Pre-Breakout Compression,NONE,grade,B,76,38.38
+compression,Pre-Breakout Compression,NONE,compression_grade,A,126,63.64
+compression,Pre-Breakout Compression,NONE,compression_grade,B,72,36.36
+compression,Pre-Breakout Compression,NONE,volume_contracting,False,136,68.69
+compression,Pre-Breakout Compression,NONE,volume_contracting,True,62,31.31
+compression,Pre-Breakout Compression,NONE,range_contracting,True,113,57.07
+compression,Pre-Breakout Compression,NONE,range_contracting,False,85,42.93
