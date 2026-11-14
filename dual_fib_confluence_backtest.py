@@ -174,18 +174,37 @@ def build_legs(
     min_leg_atr: float,
     max_leg_bars: int,
 ) -> tuple[list[Leg], list[Leg]]:
+    # Convert raw local highs/lows into one alternating pivot chain.  Keeping
+    # every possible high/low combination creates thousands of overlapping
+    # legs per stock and also lets hindsight choose an arbitrary anchor.  The
+    # alternating chain matches how a swing is drawn on a chart: consecutive
+    # pivots of the same kind collapse to the more extreme one, and a leg uses
+    # the next confirmed opposite pivot.
+    pivots = sorted(highs + lows, key=lambda p: (p.index, p.kind))
+    chain: list[Pivot] = []
+    for pivot in pivots:
+        if chain and pivot.index == chain[-1].index:
+            continue
+        if chain and pivot.kind == chain[-1].kind:
+            more_extreme = (
+                pivot.price > chain[-1].price
+                if pivot.kind == "H"
+                else pivot.price < chain[-1].price
+            )
+            if more_extreme:
+                chain[-1] = pivot
+            continue
+        chain.append(pivot)
+
     bearish: list[Leg] = []
     bullish: list[Leg] = []
-    for h in highs:
-        candidates = [l for l in lows if h.index < l.index <= h.index + max_leg_bars]
-        for l in candidates:
-            if h.price > l.price and valid_leg(df, h, l, min_leg_pct, min_leg_atr, max_leg_bars):
-                bearish.append(Leg(h, l))
-    for l in lows:
-        candidates = [h for h in highs if l.index < h.index <= l.index + max_leg_bars]
-        for h in candidates:
-            if h.price > l.price and valid_leg(df, l, h, min_leg_pct, min_leg_atr, max_leg_bars):
-                bullish.append(Leg(l, h))
+    for start, end in zip(chain, chain[1:]):
+        if not valid_leg(df, start, end, min_leg_pct, min_leg_atr, max_leg_bars):
+            continue
+        if start.kind == "H" and end.kind == "L" and start.price > end.price:
+            bearish.append(Leg(start, end))
+        elif start.kind == "L" and end.kind == "H" and end.price > start.price:
+            bullish.append(Leg(start, end))
     return bearish, bullish
 
 
