@@ -2,7 +2,7 @@ import argparse
 
 import pandas as pd
 
-from dual_fib_confluence_backtest import evaluate_outcome, fib_price, relative_gap
+from dual_fib_confluence_backtest import evaluate_outcome, fib_price, normalize_ohlcv, relative_gap
 
 
 def test_dec_geometry():
@@ -47,3 +47,20 @@ def test_target_before_stop_is_success():
     result = evaluate_outcome(df, 0, 13.67, 12.66, 16.31, 90)
     assert result["outcome"] == "SUCCESS_TARGET"
     assert result["holding_days"] == 3
+
+
+def test_yahoo_close_and_adjusted_close_do_not_collide():
+    df = pd.DataFrame(
+        {
+            "Date": pd.date_range("2026-01-01", periods=2),
+            "Open": [10.0, 10.2],
+            "High": [10.5, 10.6],
+            "Low": [9.8, 10.0],
+            "Close": [10.3, 10.4],
+            "Adj Close": [10.1, 10.2],
+            "Volume": [100, 120],
+        }
+    )
+    result = normalize_ohlcv(df)
+    assert result["close"].tolist() == [10.3, 10.4]
+    assert result["adj_close"].tolist() == [10.1, 10.2]

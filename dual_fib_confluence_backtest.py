@@ -92,13 +92,17 @@ def relative_gap(a: float, b: float) -> float:
 def normalize_ohlcv(raw: pd.DataFrame) -> pd.DataFrame:
     df = raw.copy()
     df.columns = [str(c).strip().lower().replace(" ", "_") for c in df.columns]
-    aliases = {
-        "datetime": "date",
-        "timestamp": "date",
-        "adj_close": "close",
-        "adjclose": "close",
-    }
+    aliases = {"datetime": "date", "timestamp": "date"}
     df = df.rename(columns={k: v for k, v in aliases.items() if k in df.columns})
+    # Yahoo commonly supplies both Close and Adj Close.  Renaming Adj Close
+    # while Close already exists creates duplicate columns, and selecting
+    # df["close"] then returns a DataFrame instead of a Series.  Use adjusted
+    # close only as a fallback when a regular close is absent.
+    if "close" not in df.columns:
+        if "adj_close" in df.columns:
+            df = df.rename(columns={"adj_close": "close"})
+        elif "adjclose" in df.columns:
+            df = df.rename(columns={"adjclose": "close"})
     if "date" not in df.columns:
         if isinstance(df.index, pd.DatetimeIndex):
             df = df.reset_index().rename(columns={df.index.name or "index": "date"})
@@ -447,11 +451,15 @@ def main(argv: Optional[list[str]] = None) -> int:
     source = read_csvs(args.input, args.symbol) if args.input else download_universe(args.universe, args.period)
     all_trades: list[Trade] = []
     errors: list[str] = []
+    processed_symbols = 0
+    successful_symbols = 0
     for symbol_number, (symbol, raw) in enumerate(source, start=1):
         if args.max_symbols > 0 and symbol_number > args.max_symbols:
             break
+        processed_symbols += 1
         try:
             trades = backtest_symbol(symbol, raw, args)
+            successful_symbols += 1
             all_trades.extend(trades)
             print(f"{symbol}: {len(trades)} independent signals", file=sys.stderr)
         except Exception as exc:
@@ -464,6 +472,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     all_trades.sort(key=lambda t: (t.entry_date, t.symbol))
     write_outputs(all_trades, args.output, errors)
     print(json.dumps(summarize(all_trades, errors), ensure_ascii=False, indent=2))
+    if processed_symbols > 0 and successful_symbols == 0:
+        print("ERROR: every processed symbol failed; results are invalid", file=sys.stderr)
+        return 2
     return 0
 
 
