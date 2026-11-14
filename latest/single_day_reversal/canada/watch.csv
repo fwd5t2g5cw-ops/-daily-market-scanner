@@ -1,2 +1,1 @@
 symbol,market,status,delay,entry_price,stop,risk_pct,target_1R,target_2R,both_highs,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
-SPB.TO,CANADA,WATCH,0,,5.110000133514404,,,,,False,2026-11-12,5.420000076293945,5.485000133514404,5.110000133514404,6.260000228881836,0.826666514078776,0.4533335367838542,2.335324979054479,True,False,False,6
