@@ -1,0 +1,76 @@
+name: Dual Fib Confluence Backtest
+
+on:
+  workflow_dispatch:
+    inputs:
+      market:
+        description: Market universe
+        required: true
+        default: us
+        type: choice
+        options:
+          - us
+          - hk
+      period:
+        description: Historical period accepted by yfinance
+        required: true
+        default: 10y
+        type: string
+      max_symbols:
+        description: Maximum symbols to process (0 means all)
+        required: true
+        default: "1000"
+        type: string
+      min_rr:
+        description: Minimum planned reward/risk ratio
+        required: true
+        default: "0"
+        type: string
+      max_events:
+        description: Maximum independent events in report
+        required: true
+        default: "500"
+        type: string
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade pandas numpy yfinance
+
+      - name: Select universe
+        id: universe
+        shell: bash
+        run: |
+          if [ "${{ inputs.market }}" = "hk" ]; then
+            echo "path=data/hk_5b_universe.txt" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=data/us_1b_universe.txt" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run dual-Fib backtest
+        run: |
+          python dual_fib_confluence_backtest.py \
+            --universe "${{ steps.universe.outputs.path }}" \
+            --period "${{ inputs.period }}" \
+            --max-symbols "${{ inputs.max_symbols }}" \
+            --min-rr "${{ inputs.min_rr }}" \
+            --max-events "${{ inputs.max_events }}" \
+            --output dual_fib_output
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dual-fib-backtest-results-${{ inputs.market }}
+          path: dual_fib_output/
+          if-no-files-found: warn
