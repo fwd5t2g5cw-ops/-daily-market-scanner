@@ -924,6 +924,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **CG** | 2026-08-20 | 2026-08-23 | 48.9 | 49.37 (2026-08-23) | **0.96%** | 2026-08-31 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACG) |
 | Canada | **WN.TO** | 2026-11-03 | 2026-11-04 | 111.49 | 112.54 (2026-11-13) | **0.94%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AWN) |
 | US | **VRTX** | 2026-08-20 | 2026-09-02 | 553.69 | 558.88 (2026-10-30) | **0.94%** | 2026-09-08 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AVRTX) |
+| HK | **1876.HK** | 2026-11-14 | 2026-11-14 | 6.39 | 6.45 (2026-11-14) | **0.94%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1876) |
 | US | **UTZ** | 2026-08-20 | 2026-08-25 | 14.19 | 14.32 (2026-10-16) | **0.92%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AUTZ) |
 | US | **FLS** | 2026-08-23 | 2026-11-13 | 82.34 | 83.1 (2026-11-13) | **0.92%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AFLS) |
 | US | **ETV** | 2026-09-02 | 2026-09-02 | 15.3 | 15.44 (2026-09-21) | **0.92%** | 2026-09-09 (BREAKOUT) | 2026-09-18 | 2026-09-21 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AETV) |
@@ -942,6 +943,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **CCNE** | 2026-09-03 | 2026-11-05 | 35.967 | 36.28 (2026-11-09) | **0.87%** | 2026-11-06 (BREAKOUT) | 2026-11-09 | 2026-11-09 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACCNE) |
 | US | **MGNI** | 2026-09-02 | 2026-09-17 | 25.45 | 25.67 (2026-09-29) | **0.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AMGNI) |
 | US | **ANET** | 2026-08-20 | 2026-10-07 | 214.89 | 216.74 (2026-10-09) | **0.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AANET) |
+| HK | **2460.HK** | 2026-11-14 | 2026-11-14 | 7.55 | 7.615 (2026-11-14) | **0.86%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A2460) |
 | US | **ELE** | 2026-09-14 | 2026-09-21 | 21.55 | 21.73 (2026-09-21) | **0.84%** | 2026-09-22 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AELE) |
 | US | **WPP** | 2026-08-25 | 2026-11-05 | 27.78 | 28.01 (2026-11-10) | **0.83%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AWPP) |
 | US | **NEE** | 2026-11-10 | 2026-11-10 | 85.57 | 86.275 (2026-11-10) | **0.82%** | 2026-11-12 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ANEE) |
