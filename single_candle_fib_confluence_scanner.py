@@ -97,6 +97,10 @@ def scan_symbol(symbol: str, raw: pd.DataFrame, args) -> dict | None:
             bl, bh = float(df.at[j, "low"]), float(df.at[j, "high"])
             if bl >= al or ah <= al or bh <= bl:
                 continue
+            # The user's anchor is the highest candle of the whole decline,
+            # not an earlier local high that is exceeded before the low.
+            if float(df.loc[i:j, "high"].max()) > ah + 1e-9:
+                continue
             a382 = fib_a(al, ah, 0.382)
             a1618 = fib_a(al, ah, 1.618)
             bneg = fib_b(bl, bh, -1.618)
@@ -114,6 +118,9 @@ def scan_symbol(symbol: str, raw: pd.DataFrame, args) -> dict | None:
                 if close > a382 and (prior <= a382 or k == available):
                     signal = k
                     break
+            # The second anchor must remain the lowest candle before reclaim.
+            if signal is not None and float(df.loc[j:signal, "low"].min()) < bl - 1e-9:
+                continue
             entry_idx = signal + 1 if signal is not None and signal + 1 < len(df) else signal
             entry = float(df.at[entry_idx, "open"]) if entry_idx is not None else math.nan
             rr = (target-entry)/(entry-bl) if entry_idx is not None and entry > bl else math.nan
