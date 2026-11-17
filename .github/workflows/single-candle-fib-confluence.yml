@@ -1,0 +1,121 @@
+name: Single Candle Fib Confluence Scanner
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: Maximum symbols per market (0 means all)
+        required: true
+        default: "0"
+        type: string
+  schedule:
+    - cron: "0 23 * * 1-5"
+    - cron: "0 0 * * 2-6"
+  push:
+    branches: [main]
+    paths:
+      - single_candle_fib_confluence_scanner.py
+      - .github/workflows/single-candle-fib-confluence.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: single-candle-fib-confluence
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Gate duplicate DST schedules
+        id: gate
+        shell: bash
+        env:
+          TRIGGER_CRON: ${{ github.event.schedule }}
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run_scan=true" >> "$GITHUB_OUTPUT"
+          else
+            OFFSET=$(TZ=America/Toronto date +%z)
+            case "$TRIGGER_CRON:$OFFSET" in
+              "0 23 * * 1-5:-0400"|"0 0 * * 2-6:-0500") echo "run_scan=true" >> "$GITHUB_OUTPUT" ;;
+              *) echo "run_scan=false" >> "$GITHUB_OUTPUT" ;;
+            esac
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.run_scan == 'true'
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.run_scan == 'true'
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        if: steps.gate.outputs.run_scan == 'true'
+        run: pip install -r requirements.txt
+
+      - name: Build three market universes
+        if: steps.gate.outputs.run_scan == 'true'
+        run: |
+          python build_us_1b_universe.py --min-market-cap 1000000000
+          python build_universes.py --markets tsx,hk
+
+      - name: Add benchmark symbols
+        if: steps.gate.outputs.run_scan == 'true'
+        run: |
+          grep -qxF AGCO data/us_1b_universe.txt || echo AGCO >> data/us_1b_universe.txt
+          grep -qxF DEC data/us_1b_universe.txt || echo DEC >> data/us_1b_universe.txt
+
+      - name: Scan US
+        if: steps.gate.outputs.run_scan == 'true'
+        run: python single_candle_fib_confluence_scanner.py --symbols data/us_1b_universe.txt --market us --limit "${{ inputs.limit || '0' }}" --output latest/single_candle_fib/us
+
+      - name: Scan Canada
+        if: steps.gate.outputs.run_scan == 'true'
+        run: python single_candle_fib_confluence_scanner.py --symbols data/tsx_universe.txt --market canada --limit "${{ inputs.limit || '0' }}" --output latest/single_candle_fib/canada
+
+      - name: Scan Hong Kong
+        if: steps.gate.outputs.run_scan == 'true'
+        run: python single_candle_fib_confluence_scanner.py --symbols data/hk_universe.txt --market hk --limit "${{ inputs.limit || '0' }}" --output latest/single_candle_fib/hk
+
+      - name: Verify DEC benchmark
+        if: steps.gate.outputs.run_scan == 'true'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import pandas as pd
+          p = "latest/single_candle_fib/us/results.csv"
+          df = pd.read_csv(p)
+          dec = df[df["symbol"] == "DEC"]
+          if dec.empty:
+              raise SystemExit("DEC benchmark missing: scanner definition or market data needs review")
+          gap = float(dec.iloc[0]["extension_gap_pct"])
+          if gap > 2.0:
+              raise SystemExit(f"DEC benchmark gap {gap:.2f}% exceeds 2%")
+          print(dec.to_string(index=False))
+          PY
+
+      - name: Commit latest reports
+        if: steps.gate.outputs.run_scan == 'true'
+        shell: bash
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add latest/single_candle_fib
+          if git diff --cached --quiet; then
+            echo "No report changes"
+          else
+            git commit -m "Update single-candle Fib confluence scan"
+            git push
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.run_scan == 'true' && always()
+        with:
+          name: single-candle-fib-confluence-${{ github.run_number }}
+          path: latest/single_candle_fib/
+          retention-days: 30
