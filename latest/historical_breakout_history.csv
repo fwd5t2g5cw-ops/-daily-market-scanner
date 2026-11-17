@@ -80,6 +80,7 @@ US,IDXX,2026-11-04,586.0,2026-11-04,2026-11-04,699.88,2026-11-04,699.88,19.43,NA
 Canada,VLE.TO,2026-09-03,14.52,2026-09-03,2026-09-11,14.7,2026-10-30,17.33,19.35,TSX:VLE,https://www.tradingview.com/chart/?symbol=TSX%3AVLE
 US,NAT,2026-08-20,7.1,2026-08-20,2026-09-03,7.11,2026-10-09,8.47,19.3,NYSE:NAT,https://www.tradingview.com/chart/?symbol=NYSE%3ANAT
 US,INSW,2026-08-20,100.5,2026-08-20,2026-09-02,101.19,2026-10-09,119.82,19.22,NYSE:INSW,https://www.tradingview.com/chart/?symbol=NYSE%3AINSW
+Canada,BLCO.TO,2026-08-31,25.1,2026-08-31,2026-10-30,27.94,2026-11-16,29.89,19.08,TSX:BLCO,https://www.tradingview.com/chart/?symbol=TSX%3ABLCO
 Canada,HMM-A.TO,2026-08-23,23.95,2026-08-23,2026-09-28,28.15,2026-10-13,28.48,18.91,TSX:HMM.A,https://www.tradingview.com/chart/?symbol=TSX%3AHMM.A
 US,VIA,2026-10-02,29.11,2026-10-02,2026-10-02,29.29,2026-10-21,34.61,18.89,NYSE:VIA,https://www.tradingview.com/chart/?symbol=NYSE%3AVIA
 US,INBX,2026-08-31,106.4,2026-08-31,2026-08-31,126.44,2026-08-31,126.44,18.83,NASDAQ:INBX,https://www.tradingview.com/chart/?symbol=NASDAQ%3AINBX
@@ -147,7 +148,6 @@ HK,1735.HK,2026-09-24,8.7,2026-09-24,2026-09-24,9.98,2026-09-24,9.98,14.71,HKEX:
 US,GILD,2026-08-20,148.97,2026-08-20,2026-09-01,149.9,2026-11-10,170.87,14.7,NASDAQ:GILD,https://www.tradingview.com/chart/?symbol=NASDAQ%3AGILD
 US,WAY,2026-09-21,25.87,2026-09-21,2026-10-05,26.53,2026-11-04,29.66,14.65,NASDAQ:WAY,https://www.tradingview.com/chart/?symbol=NASDAQ%3AWAY
 US,GIB,2026-08-20,72.671,2026-08-20,2026-08-20,74.25,2026-11-06,83.31,14.64,NYSE:GIB,https://www.tradingview.com/chart/?symbol=NYSE%3AGIB
-Canada,BLCO.TO,2026-08-31,25.1,2026-08-31,2026-10-30,27.94,2026-11-04,28.77,14.62,TSX:BLCO,https://www.tradingview.com/chart/?symbol=TSX%3ABLCO
 US,YOU,2026-11-06,48.65,2026-11-06,2026-11-06,55.76,2026-11-06,55.76,14.61,NYSE:YOU,https://www.tradingview.com/chart/?symbol=NYSE%3AYOU
 US,WK,2026-09-04,74.64,2026-09-04,2026-09-04,76.66,2026-11-05,85.53,14.59,NYSE:WK,https://www.tradingview.com/chart/?symbol=NYSE%3AWK
 US,APLE,2026-08-20,17.28,2026-08-20,2026-10-22,18.16,2026-11-11,19.8,14.58,NYSE:APLE,https://www.tradingview.com/chart/?symbol=NYSE%3AAPLE
@@ -218,6 +218,7 @@ US,STNG,2026-09-01,82.838,2026-09-01,2026-09-11,84.52,2026-10-30,92.6,11.78,NYSE
 US,EHC,2026-08-20,127.5,2026-09-01,2026-10-16,127.87,2026-11-10,142.51,11.77,NYSE:EHC,https://www.tradingview.com/chart/?symbol=NYSE%3AEHC
 US,LLY,2026-08-20,1292.65,2026-08-20,2026-10-22,1306.69,2026-11-13,1444.615,11.76,NYSE:LLY,https://www.tradingview.com/chart/?symbol=NYSE%3ALLY
 US,ZYME,2026-08-20,27.833,2026-08-20,2026-09-02,31.08,2026-09-02,31.08,11.67,NASDAQ:ZYME,https://www.tradingview.com/chart/?symbol=NASDAQ%3AZYME
+Canada,GFR.TO,2026-10-27,9.86,2026-10-27,2026-11-16,11.01,2026-11-16,11.01,11.66,TSX:GFR,https://www.tradingview.com/chart/?symbol=TSX%3AGFR
 US,NDAQ,2026-08-20,98.66,2026-08-20,2026-08-24,98.79,2026-11-10,110.02,11.51,NASDAQ:NDAQ,https://www.tradingview.com/chart/?symbol=NASDAQ%3ANDAQ
 US,COP,2026-08-24,135.88,2026-08-24,2026-09-09,136.57,2026-10-26,151.37,11.4,NYSE:COP,https://www.tradingview.com/chart/?symbol=NYSE%3ACOP
 HK,2005.HK,2026-08-21,2.46,2026-08-21,2026-08-24,2.475,2026-09-01,2.74,11.38,HKEX:2005,https://www.tradingview.com/chart/?symbol=HKEX%3A2005
@@ -237,11 +238,11 @@ Canada,IPO.TO,2026-09-11,18.63,2026-09-11,2026-10-22,19.91,2026-10-28,20.67,10.9
 US,DOCU,2026-08-25,74.065,2026-10-08,2026-10-14,75.24,2026-10-30,82.17,10.94,NASDAQ:DOCU,https://www.tradingview.com/chart/?symbol=NASDAQ%3ADOCU
 US,MTCH,2026-08-20,41.4,2026-08-20,2026-08-26,42.07,2026-10-22,45.92,10.92,NASDAQ:MTCH,https://www.tradingview.com/chart/?symbol=NASDAQ%3AMTCH
 US,RSG,2026-08-26,228.22,2026-08-26,2026-10-20,232.96,2026-11-12,253.0,10.86,NYSE:RSG,https://www.tradingview.com/chart/?symbol=NYSE%3ARSG
+Canada,NWC.TO,2026-09-21,53.77,2026-09-25,2026-09-28,54.35,2026-11-16,59.58,10.81,TSX:NWC,https://www.tradingview.com/chart/?symbol=TSX%3ANWC
 Canada,DXT.TO,2026-10-09,18.17,2026-10-09,2026-10-30,18.47,2026-11-11,20.13,10.79,TSX:DXT,https://www.tradingview.com/chart/?symbol=TSX%3ADXT
 US,PCVX,2026-08-20,63.83,2026-08-20,2026-10-12,70.675,2026-10-12,70.675,10.72,NASDAQ:PCVX,https://www.tradingview.com/chart/?symbol=NASDAQ%3APCVX
 US,COIN,2026-09-21,181.49,2026-09-21,2026-09-21,200.95,2026-09-21,200.95,10.72,NASDAQ:COIN,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACOIN
 US,VERX,2026-11-13,16.23,2026-11-13,2026-11-13,17.969,2026-11-13,17.969,10.71,NASDAQ:VERX,https://www.tradingview.com/chart/?symbol=NASDAQ%3AVERX
-Canada,NWC.TO,2026-09-21,53.77,2026-09-25,2026-09-28,54.35,2026-11-06,59.52,10.69,TSX:NWC,https://www.tradingview.com/chart/?symbol=TSX%3ANWC
 US,PI,2026-09-14,173.83,2026-09-14,2026-09-15,174.42,2026-10-14,192.31,10.63,NASDAQ:PI,https://www.tradingview.com/chart/?symbol=NASDAQ%3API
 Canada,LGD.TO,2026-08-28,2.0,2026-08-28,2026-09-11,2.07,2026-09-25,2.21,10.5,TSX:LGD,https://www.tradingview.com/chart/?symbol=TSX%3ALGD
 US,SWK,2026-08-20,104.68,2026-08-23,2026-11-11,115.59,2026-11-11,115.59,10.42,NYSE:SWK,https://www.tradingview.com/chart/?symbol=NYSE%3ASWK
@@ -250,6 +251,7 @@ US,BRK-B,2026-10-16,537.74,2026-10-16,2026-10-23,542.19,2026-11-13,593.12,10.3,N
 US,NUTX,2026-08-28,204.0,2026-08-28,2026-09-18,208.61,2026-10-05,225.0,10.29,NASDAQ:NUTX,https://www.tradingview.com/chart/?symbol=NASDAQ%3ANUTX
 HK,1828.HK,2026-09-16,32.64,2026-09-16,2026-09-16,33.48,2026-09-21,36.0,10.29,HKEX:1828,https://www.tradingview.com/chart/?symbol=HKEX%3A1828
 US,JOYY,2026-08-20,76.68,2026-08-20,2026-09-11,77.26,2026-10-21,84.56,10.28,NASDAQ:JOYY,https://www.tradingview.com/chart/?symbol=NASDAQ%3AJOYY
+Canada,SAP.TO,2026-11-10,42.04,2026-11-10,2026-11-10,44.32,2026-11-16,46.36,10.28,TSX:SAP,https://www.tradingview.com/chart/?symbol=TSX%3ASAP
 US,ANF,2026-08-31,155.22,2026-10-14,2026-10-23,155.82,2026-11-04,171.14,10.26,NYSE:ANF,https://www.tradingview.com/chart/?symbol=NYSE%3AANF
 US,BRK-A,2026-10-16,806103.0,2026-10-16,2026-10-23,813595.0,2026-11-13,888675.0,10.24,NYSE:BRK-A,https://www.tradingview.com/chart/?symbol=NYSE%3ABRK-A
 US,PAYC,2026-09-02,243.28,2026-09-02,2026-10-27,261.94,2026-11-04,268.16,10.23,NYSE:PAYC,https://www.tradingview.com/chart/?symbol=NYSE%3APAYC
@@ -312,6 +314,7 @@ Canada,PRL.TO,2026-10-30,26.57,2026-10-30,2026-11-09,28.92,2026-11-09,28.92,8.84
 US,ZLAB,2026-08-23,24.065,2026-08-23,2026-08-23,26.01,2026-08-25,26.19,8.83,NASDAQ:ZLAB,https://www.tradingview.com/chart/?symbol=NASDAQ%3AZLAB
 US,CTAS,2026-10-09,210.513,2026-10-09,2026-10-19,212.24,2026-11-04,229.07,8.82,NASDAQ:CTAS,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACTAS
 US,ASIC,2026-08-20,26.0,2026-08-20,2026-08-24,26.33,2026-09-16,28.29,8.81,NYSE:ASIC,https://www.tradingview.com/chart/?symbol=NYSE%3AASIC
+Canada,CGX.TO,2026-08-24,13.28,2026-08-24,2026-11-05,13.64,2026-11-16,14.45,8.81,TSX:CGX,https://www.tradingview.com/chart/?symbol=TSX%3ACGX
 US,TM,2026-11-09,200.86,2026-11-09,2026-11-09,218.53,2026-11-09,218.53,8.8,NYSE:TM,https://www.tradingview.com/chart/?symbol=NYSE%3ATM
 Canada,KEL.TO,2026-08-28,10.94,2026-08-28,2026-09-16,11.0,2026-10-26,11.9,8.78,TSX:KEL,https://www.tradingview.com/chart/?symbol=TSX%3AKEL
 US,FRHC,2026-08-28,172.235,2026-08-28,2026-08-31,175.01,2026-11-02,187.3,8.75,NASDAQ:FRHC,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFRHC
@@ -347,8 +350,6 @@ Canada,CXI.TO,2026-08-20,30.5,2026-08-20,2026-09-11,31.01,2026-11-10,33.01,8.23,
 US,CTSH,2026-08-28,59.74,2026-08-28,2026-08-28,64.04,2026-09-03,64.645,8.21,NASDAQ:CTSH,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACTSH
 US,AIZ,2026-08-20,297.76,2026-11-02,2026-11-04,308.66,2026-11-10,322.16,8.19,NYSE:AIZ,https://www.tradingview.com/chart/?symbol=NYSE%3AAIZ
 US,STVN,2026-08-20,20.99,2026-08-20,2026-08-20,22.35,2026-09-17,22.71,8.19,NYSE:STVN,https://www.tradingview.com/chart/?symbol=NYSE%3ASTVN
-Canada,SAP.TO,2026-11-10,42.04,2026-11-10,2026-11-10,44.32,2026-11-13,45.47,8.16,TSX:SAP,https://www.tradingview.com/chart/?symbol=TSX%3ASAP
-Canada,CGX.TO,2026-08-24,13.28,2026-08-24,2026-11-05,13.64,2026-11-10,14.36,8.13,TSX:CGX,https://www.tradingview.com/chart/?symbol=TSX%3ACGX
 US,SNPS,2026-10-12,464.98,2026-10-12,2026-10-12,502.509,2026-10-12,502.509,8.07,NASDAQ:SNPS,https://www.tradingview.com/chart/?symbol=NASDAQ%3ASNPS
 US,WST,2026-09-17,385.748,2026-09-17,2026-10-22,394.03,2026-11-13,416.67,8.02,NYSE:WST,https://www.tradingview.com/chart/?symbol=NYSE%3AWST
 US,CLF,2026-10-27,13.22,2026-10-27,2026-10-27,13.9,2026-10-29,14.28,8.02,NYSE:CLF,https://www.tradingview.com/chart/?symbol=NYSE%3ACLF
@@ -370,6 +371,7 @@ US,URBN,2026-09-07,85.43,2026-10-05,2026-10-16,86.57,2026-10-29,92.19,7.91,NASDA
 US,SNOW,2026-08-23,341.95,2026-08-23,2026-09-03,356.64,2026-10-09,368.92,7.89,NYSE:SNOW,https://www.tradingview.com/chart/?symbol=NYSE%3ASNOW
 US,TRUP,2026-08-23,29.54,2026-08-23,2026-08-23,31.12,2026-08-25,31.87,7.89,NASDAQ:TRUP,https://www.tradingview.com/chart/?symbol=NASDAQ%3ATRUP
 US,NET,2026-09-16,334.6,2026-09-16,2026-09-28,353.99,2026-10-09,360.93,7.87,NYSE:NET,https://www.tradingview.com/chart/?symbol=NYSE%3ANET
+Canada,VBNK.TO,2026-09-15,32.384,2026-09-15,2026-09-22,32.41,2026-11-16,34.93,7.86,TSX:VBNK,https://www.tradingview.com/chart/?symbol=TSX%3AVBNK
 HK,0019.HK,2026-08-21,105.7,2026-08-21,2026-09-04,106.9,2026-11-11,114.0,7.85,HKEX:0019,https://www.tradingview.com/chart/?symbol=HKEX%3A0019
 US,OVV,2026-08-23,67.39,2026-08-23,2026-10-21,69.86,2026-10-30,72.62,7.76,NYSE:OVV,https://www.tradingview.com/chart/?symbol=NYSE%3AOVV
 Canada,TVE.TO,2026-08-24,13.98,2026-08-24,2026-10-13,14.14,2026-10-23,15.06,7.73,TSX:TVE,https://www.tradingview.com/chart/?symbol=TSX%3ATVE
@@ -403,6 +405,7 @@ US,AWK,2026-08-24,140.317,2026-08-24,2026-09-03,140.89,2026-11-10,150.36,7.16,NY
 US,HMC,2026-08-24,33.45,2026-08-24,2026-10-19,34.05,2026-11-09,35.84,7.14,NYSE:HMC,https://www.tradingview.com/chart/?symbol=NYSE%3AHMC
 US,LTC,2026-08-20,42.607,2026-08-28,2026-09-14,42.64,2026-11-05,45.65,7.14,NYSE:LTC,https://www.tradingview.com/chart/?symbol=NYSE%3ALTC
 US,SID,2026-10-09,1.19,2026-10-09,2026-10-09,1.275,2026-10-09,1.275,7.14,NYSE:SID,https://www.tradingview.com/chart/?symbol=NYSE%3ASID
+Canada,WCN.TO,2026-10-26,263.33,2026-11-03,2026-11-05,268.18,2026-11-16,282.12,7.14,TSX:WCN,https://www.tradingview.com/chart/?symbol=TSX%3AWCN
 Canada,AIF.TO,2026-08-20,48.6,2026-08-20,2026-11-10,52.07,2026-11-10,52.07,7.14,TSX:AIF,https://www.tradingview.com/chart/?symbol=TSX%3AAIF
 HK,0325.HK,2026-09-02,71.95,2026-09-02,2026-09-02,72.8,2026-09-04,77.05,7.09,HKEX:0325,https://www.tradingview.com/chart/?symbol=HKEX%3A0325
 US,CHD,2026-10-19,105.54,2026-10-19,2026-10-30,107.23,2026-11-13,113.01,7.08,NYSE:CHD,https://www.tradingview.com/chart/?symbol=NYSE%3ACHD
@@ -428,6 +431,7 @@ Canada,CEU.TO,2026-09-01,19.64,2026-09-09,2026-09-11,20.08,2026-10-30,20.96,6.72
 US,JOE,2026-08-25,70.41,2026-08-25,2026-11-09,75.13,2026-11-09,75.13,6.7,NYSE:JOE,https://www.tradingview.com/chart/?symbol=NYSE%3AJOE
 US,GRFS,2026-11-10,8.3,2026-11-10,2026-11-10,8.76,2026-11-11,8.855,6.69,NASDAQ:GRFS,https://www.tradingview.com/chart/?symbol=NASDAQ%3AGRFS
 Canada,VET.TO,2026-08-28,17.93,2026-08-28,2026-09-01,18.35,2026-10-30,19.13,6.69,TSX:VET,https://www.tradingview.com/chart/?symbol=TSX%3AVET
+Canada,MTL.TO,2026-09-29,28.628,2026-09-29,2026-10-30,28.82,2026-11-16,30.54,6.68,TSX:MTL,https://www.tradingview.com/chart/?symbol=TSX%3AMTL
 US,IQV,2026-08-25,261.88,2026-08-25,2026-09-02,263.87,2026-10-23,279.36,6.67,NYSE:IQV,https://www.tradingview.com/chart/?symbol=NYSE%3AIQV
 US,BTE,2026-09-11,5.12,2026-09-14,2026-09-15,5.175,2026-10-28,5.46,6.64,NYSE:BTE,https://www.tradingview.com/chart/?symbol=NYSE%3ABTE
 US,RDNT,2026-08-20,72.385,2026-08-20,2026-08-20,77.05,2026-09-15,77.16,6.6,NASDAQ:RDNT,https://www.tradingview.com/chart/?symbol=NASDAQ%3ARDNT
@@ -463,7 +467,6 @@ US,FIZZ,2026-10-21,35.47,2026-10-21,2026-10-26,35.82,2026-11-04,37.67,6.2,NASDAQ
 US,ERIC,2026-10-23,10.265,2026-10-23,2026-10-23,10.66,2026-10-26,10.9,6.19,NASDAQ:ERIC,https://www.tradingview.com/chart/?symbol=NASDAQ%3AERIC
 US,FSV,2026-11-09,147.92,2026-11-09,2026-11-09,157.06,2026-11-09,157.06,6.18,NASDAQ:FSV,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFSV
 US,IR,2026-11-09,81.82,2026-11-09,2026-11-09,86.88,2026-11-09,86.88,6.18,NYSE:IR,https://www.tradingview.com/chart/?symbol=NYSE%3AIR
-Canada,VBNK.TO,2026-09-15,32.384,2026-09-15,2026-09-22,32.41,2026-11-12,34.38,6.16,TSX:VBNK,https://www.tradingview.com/chart/?symbol=TSX%3AVBNK
 US,PR,2026-08-25,24.09,2026-08-25,2026-09-15,24.49,2026-10-29,25.57,6.14,NYSE:PR,https://www.tradingview.com/chart/?symbol=NYSE%3APR
 Canada,CYB.TO,2026-09-02,97.98,2026-09-10,2026-10-29,99.74,2026-11-13,104.0,6.14,TSX:CYB,https://www.tradingview.com/chart/?symbol=TSX%3ACYB
 Canada,POU.TO,2026-09-01,32.98,2026-09-11,2026-09-15,33.23,2026-10-30,34.99,6.09,TSX:POU,https://www.tradingview.com/chart/?symbol=TSX%3APOU
@@ -482,7 +485,6 @@ US,TX,2026-08-20,55.66,2026-08-20,2026-08-28,55.83,2026-10-14,58.99,5.98,NYSE:TX
 US,THG,2026-08-20,236.07,2026-08-24,2026-10-23,237.73,2026-11-10,250.18,5.98,NYSE:THG,https://www.tradingview.com/chart/?symbol=NYSE%3ATHG
 US,INSM,2026-08-20,119.54,2026-08-20,2026-08-20,125.075,2026-09-03,126.68,5.97,NASDAQ:INSM,https://www.tradingview.com/chart/?symbol=NASDAQ%3AINSM
 US,DLTR,2026-08-20,134.88,2026-08-20,2026-11-11,142.9,2026-11-11,142.9,5.95,NASDAQ:DLTR,https://www.tradingview.com/chart/?symbol=NASDAQ%3ADLTR
-Canada,MTL.TO,2026-09-29,28.628,2026-09-29,2026-10-30,28.82,2026-11-13,30.33,5.95,TSX:MTL,https://www.tradingview.com/chart/?symbol=TSX%3AMTL
 US,IFF,2026-08-20,89.32,2026-08-24,2026-10-16,90.68,2026-11-02,94.625,5.94,NYSE:IFF,https://www.tradingview.com/chart/?symbol=NYSE%3AIFF
 US,SCL,2026-08-20,66.75,2026-08-20,2026-10-30,69.61,2026-11-04,70.71,5.93,NYSE:SCL,https://www.tradingview.com/chart/?symbol=NYSE%3ASCL
 HK,3968.HK,2026-08-21,51.45,2026-08-21,2026-09-01,51.5,2026-11-10,54.5,5.93,HKEX:3968,https://www.tradingview.com/chart/?symbol=HKEX%3A3968
@@ -517,6 +519,7 @@ US,BL,2026-08-25,31.54,2026-08-25,2026-08-25,31.63,2026-08-31,33.24,5.39,NASDAQ:
 US,GSL,2026-08-23,44.046,2026-08-23,2026-08-24,44.66,2026-09-04,46.41,5.37,NYSE:GSL,https://www.tradingview.com/chart/?symbol=NYSE%3AGSL
 US,MAR,2026-10-19,407.34,2026-10-30,2026-11-03,416.38,2026-11-11,429.2,5.37,NASDAQ:MAR,https://www.tradingview.com/chart/?symbol=NASDAQ%3AMAR
 US,LYFT,2026-08-20,16.8,2026-08-20,2026-08-20,17.38,2026-08-28,17.7,5.36,NASDAQ:LYFT,https://www.tradingview.com/chart/?symbol=NASDAQ%3ALYFT
+Canada,EMA.TO,2026-11-06,70.43,2026-11-06,2026-11-06,71.64,2026-11-16,74.2,5.35,TSX:EMA,https://www.tradingview.com/chart/?symbol=TSX%3AEMA
 US,YUMC,2026-11-12,48.291,2026-11-12,2026-11-12,49.2,2026-11-13,50.87,5.34,NYSE:YUMC,https://www.tradingview.com/chart/?symbol=NYSE%3AYUMC
 US,EXE,2026-08-28,94.94,2026-08-28,2026-08-28,98.18,2026-09-01,99.99,5.32,NASDAQ:EXE,https://www.tradingview.com/chart/?symbol=NASDAQ%3AEXE
 Canada,HWX.TO,2026-08-24,14.35,2026-08-24,2026-08-31,14.46,2026-10-26,15.11,5.3,TSX:HWX,https://www.tradingview.com/chart/?symbol=TSX%3AHWX
@@ -545,7 +548,6 @@ US,SENEB,2026-08-20,196.63,2026-08-20,2026-09-02,206.48,2026-09-02,206.48,5.01,N
 US,TSCO,2026-08-23,34.87,2026-08-23,2026-08-23,34.98,2026-11-12,36.615,5.0,NASDAQ:TSCO,https://www.tradingview.com/chart/?symbol=NASDAQ%3ATSCO
 US,PANW,2026-08-28,398.88,2026-08-28,2026-10-05,406.76,2026-10-09,418.78,4.99,NASDAQ:PANW,https://www.tradingview.com/chart/?symbol=NASDAQ%3APANW
 US,FAST,2026-08-20,52.92,2026-08-20,2026-11-04,53.21,2026-11-12,55.55,4.97,NASDAQ:FAST,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFAST
-Canada,WCN.TO,2026-10-26,263.33,2026-11-03,2026-11-05,268.18,2026-11-13,276.35,4.94,TSX:WCN,https://www.tradingview.com/chart/?symbol=TSX%3AWCN
 US,CIG-C,2026-09-10,3.44,2026-09-10,2026-10-05,3.609,2026-10-05,3.609,4.91,NYSE:CIG-C,https://www.tradingview.com/chart/?symbol=NYSE%3ACIG-C
 US,LNT,2026-11-03,70.373,2026-11-03,2026-11-03,72.1,2026-11-04,73.8,4.87,NASDAQ:LNT,https://www.tradingview.com/chart/?symbol=NASDAQ%3ALNT
 HK,6198.HK,2026-09-16,7.7,2026-09-17,2026-10-09,7.78,2026-10-14,8.075,4.87,HKEX:6198,https://www.tradingview.com/chart/?symbol=HKEX%3A6198
@@ -619,6 +621,7 @@ US,NGG,2026-11-02,82.67,2026-11-02,2026-11-02,84.42,2026-11-05,85.91,3.92,NYSE:N
 Canada,ALS.TO,2026-08-20,66.05,2026-08-20,2026-08-26,66.2,2026-09-22,68.63,3.91,TSX:ALS,https://www.tradingview.com/chart/?symbol=TSX%3AALS
 US,TECK,2026-08-20,68.46,2026-08-20,2026-08-26,71.12,2026-08-26,71.12,3.89,NYSE:TECK,https://www.tradingview.com/chart/?symbol=NYSE%3ATECK
 US,ASX,2026-10-01,45.75,2026-10-01,2026-10-06,46.78,2026-10-12,47.53,3.89,NYSE:ASX,https://www.tradingview.com/chart/?symbol=NYSE%3AASX
+Canada,DOL.TO,2026-10-28,212.92,2026-11-03,2026-11-05,218.7,2026-11-16,221.17,3.87,TSX:DOL,https://www.tradingview.com/chart/?symbol=TSX%3ADOL
 US,DVN,2026-08-23,49.72,2026-08-28,2026-09-10,50.02,2026-10-27,51.64,3.86,NYSE:DVN,https://www.tradingview.com/chart/?symbol=NYSE%3ADVN
 US,GEHC,2026-08-20,72.04,2026-08-20,2026-08-20,74.05,2026-08-23,74.815,3.85,NASDAQ:GEHC,https://www.tradingview.com/chart/?symbol=NASDAQ%3AGEHC
 Canada,BNE.TO,2026-10-20,6.75,2026-10-20,2026-10-27,6.8,2026-10-30,7.01,3.85,TSX:BNE,https://www.tradingview.com/chart/?symbol=TSX%3ABNE
@@ -642,9 +645,7 @@ US,AAMI,2026-08-20,93.82,2026-08-20,2026-08-26,95.67,2026-11-11,97.22,3.62,NYSE:
 US,XP,2026-09-02,20.75,2026-09-18,2026-09-21,20.78,2026-10-05,21.5,3.61,NASDAQ:XP,https://www.tradingview.com/chart/?symbol=NASDAQ%3AXP
 US,CE,2026-11-12,49.639,2026-11-12,2026-11-12,51.26,2026-11-13,51.42,3.59,NYSE:CE,https://www.tradingview.com/chart/?symbol=NYSE%3ACE
 US,FUTU,2026-09-01,117.81,2026-09-01,2026-09-01,119.25,2026-09-03,122.03,3.58,NASDAQ:FUTU,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFUTU
-Canada,EMA.TO,2026-11-06,70.43,2026-11-06,2026-11-06,71.64,2026-11-13,72.95,3.58,TSX:EMA,https://www.tradingview.com/chart/?symbol=TSX%3AEMA
 US,MDLZ,2026-08-20,65.22,2026-10-30,2026-11-05,66.82,2026-11-13,67.55,3.57,NASDAQ:MDLZ,https://www.tradingview.com/chart/?symbol=NASDAQ%3AMDLZ
-Canada,DOL.TO,2026-10-28,212.92,2026-11-03,2026-11-05,218.7,2026-11-12,220.45,3.54,TSX:DOL,https://www.tradingview.com/chart/?symbol=TSX%3ADOL
 Canada,RCH.TO,2026-10-12,37.02,2026-10-12,2026-10-12,37.645,2026-11-03,38.33,3.54,TSX:RCH,https://www.tradingview.com/chart/?symbol=TSX%3ARCH
 US,ING,2026-08-23,35.98,2026-08-23,2026-09-07,37.165,2026-09-11,37.25,3.53,NYSE:ING,https://www.tradingview.com/chart/?symbol=NYSE%3AING
 US,CAE,2026-11-13,26.95,2026-11-13,2026-11-13,27.9,2026-11-13,27.9,3.53,NASDAQ:CAE,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACAE
@@ -691,6 +692,7 @@ US,MATX,2026-08-20,230.313,2026-08-23,2026-09-16,235.62,2026-10-20,237.34,3.05,N
 US,STZ,2026-11-13,141.3,2026-11-13,2026-11-13,145.6,2026-11-13,145.6,3.04,NYSE:STZ,https://www.tradingview.com/chart/?symbol=NYSE%3ASTZ
 US,FERG,2026-11-13,249.0,2026-11-13,2026-11-13,256.56,2026-11-13,256.56,3.04,NYSE:FERG,https://www.tradingview.com/chart/?symbol=NYSE%3AFERG
 US,TRV,2026-09-14,397.341,2026-09-14,2026-11-02,398.8,2026-11-04,409.31,3.01,NYSE:TRV,https://www.tradingview.com/chart/?symbol=NYSE%3ATRV
+Canada,H.TO,2026-11-09,56.28,2026-11-09,2026-11-09,57.19,2026-11-16,57.96,2.99,TSX:H,https://www.tradingview.com/chart/?symbol=TSX%3AH
 US,ADUS,2026-08-20,123.14,2026-08-24,2026-11-02,125.75,2026-11-05,126.81,2.98,NASDAQ:ADUS,https://www.tradingview.com/chart/?symbol=NASDAQ%3AADUS
 US,TWLO,2026-09-17,258.353,2026-09-17,2026-09-21,266.03,2026-09-21,266.03,2.97,NYSE:TWLO,https://www.tradingview.com/chart/?symbol=NYSE%3ATWLO
 US,HCI,2026-08-20,198.543,2026-10-12,2026-10-19,198.55,2026-10-21,204.42,2.96,NYSE:HCI,https://www.tradingview.com/chart/?symbol=NYSE%3AHCI
@@ -720,6 +722,7 @@ HK,0696.HK,2026-10-01,9.005,2026-10-01,2026-10-01,9.025,2026-10-13,9.25,2.72,HKE
 HK,0002.HK,2026-11-03,79.35,2026-11-03,2026-11-11,81.5,2026-11-11,81.5,2.71,HKEX:0002,https://www.tradingview.com/chart/?symbol=HKEX%3A0002
 US,CENT,2026-11-03,47.36,2026-11-03,2026-11-05,47.94,2026-11-09,48.64,2.7,NASDAQ:CENT,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACENT
 US,OUT,2026-11-04,32.79,2026-11-04,2026-11-10,32.88,2026-11-11,33.675,2.7,NYSE:OUT,https://www.tradingview.com/chart/?symbol=NYSE%3AOUT
+Canada,WN.TO,2026-11-03,111.49,2026-11-03,2026-11-04,111.53,2026-11-16,114.5,2.7,TSX:WN,https://www.tradingview.com/chart/?symbol=TSX%3AWN
 US,UTHR,2026-10-23,590.79,2026-10-23,2026-10-26,592.91,2026-11-04,606.69,2.69,NASDAQ:UTHR,https://www.tradingview.com/chart/?symbol=NASDAQ%3AUTHR
 HK,1508.HK,2026-09-05,1.3,2026-09-05,2026-09-05,1.335,2026-09-05,1.335,2.69,HKEX:1508,https://www.tradingview.com/chart/?symbol=HKEX%3A1508
 US,ADI,2026-10-05,421.7,2026-10-05,2026-10-27,425.45,2026-10-29,433.01,2.68,NASDAQ:ADI,https://www.tradingview.com/chart/?symbol=NASDAQ%3AADI
@@ -771,7 +774,6 @@ US,KARO,2026-08-23,67.14,2026-08-23,2026-08-28,67.2,2026-09-17,68.71,2.34,NASDAQ
 US,GLIBK,2026-08-26,25.74,2026-08-26,2026-08-26,26.34,2026-08-26,26.34,2.33,NASDAQ:GLIBK,https://www.tradingview.com/chart/?symbol=NASDAQ%3AGLIBK
 Canada,TWM.TO,2026-09-25,25.28,2026-09-25,2026-10-14,25.87,2026-10-14,25.87,2.33,TSX:TWM,https://www.tradingview.com/chart/?symbol=TSX%3ATWM
 US,TWFG,2026-08-20,29.59,2026-08-20,2026-08-24,30.275,2026-08-24,30.275,2.31,NASDAQ:TWFG,https://www.tradingview.com/chart/?symbol=NASDAQ%3ATWFG
-Canada,IFC.TO,2026-11-11,273.871,2026-11-11,2026-11-11,279.16,2026-11-12,280.21,2.31,TSX:IFC,https://www.tradingview.com/chart/?symbol=TSX%3AIFC
 US,COST,2026-11-05,1081.55,2026-11-06,2026-11-12,1092.37,2026-11-13,1106.41,2.3,NASDAQ:COST,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACOST
 US,KNTK,2026-08-20,55.34,2026-08-20,2026-10-14,55.55,2026-10-30,56.6,2.28,NYSE:KNTK,https://www.tradingview.com/chart/?symbol=NYSE%3AKNTK
 US,DOO,2026-08-23,66.64,2026-08-23,2026-08-23,68.155,2026-08-23,68.155,2.27,NASDAQ:DOO,https://www.tradingview.com/chart/?symbol=NASDAQ%3ADOO
@@ -791,7 +793,6 @@ US,SIGI,2026-10-30,101.25,2026-11-02,2026-11-04,103.22,2026-11-12,103.36,2.08,NA
 US,H,2026-11-02,186.32,2026-11-02,2026-11-11,190.18,2026-11-11,190.18,2.07,NYSE:H,https://www.tradingview.com/chart/?symbol=NYSE%3AH
 US,WRB,2026-11-02,75.88,2026-11-02,2026-11-09,75.92,2026-11-13,77.44,2.06,NYSE:WRB,https://www.tradingview.com/chart/?symbol=NYSE%3AWRB
 US,JCAP,2026-08-20,21.865,2026-08-20,2026-08-20,22.31,2026-08-20,22.31,2.04,NASDAQ:JCAP,https://www.tradingview.com/chart/?symbol=NASDAQ%3AJCAP
-Canada,H.TO,2026-11-09,56.28,2026-11-09,2026-11-09,57.19,2026-11-10,57.43,2.04,TSX:H,https://www.tradingview.com/chart/?symbol=TSX%3AH
 US,AGM-A,2026-08-28,154.28,2026-08-28,2026-09-03,157.4,2026-09-03,157.4,2.02,NYSE:AGM-A,https://www.tradingview.com/chart/?symbol=NYSE%3AAGM-A
 US,OPLN,2026-11-03,38.15,2026-11-03,2026-11-03,38.92,2026-11-03,38.92,2.02,NYSE:OPLN,https://www.tradingview.com/chart/?symbol=NYSE%3AOPLN
 US,RL,2026-11-02,403.96,2026-11-02,2026-11-04,412.06,2026-11-04,412.06,2.01,NYSE:RL,https://www.tradingview.com/chart/?symbol=NYSE%3ARL
@@ -916,7 +917,6 @@ US,AWR,2026-08-20,90.21,2026-08-20,2026-08-24,91.105,2026-08-24,91.105,0.99,NYSE
 US,GEF-B,2026-08-20,113.99,2026-08-20,2026-10-22,114.38,2026-10-30,115.11,0.98,NYSE:GEF-B,https://www.tradingview.com/chart/?symbol=NYSE%3AGEF-B
 US,CG,2026-08-20,48.9,2026-08-20,2026-08-23,49.37,2026-08-23,49.37,0.96,NASDAQ:CG,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACG
 US,VRTX,2026-08-20,553.69,2026-08-20,2026-09-02,556.9,2026-10-30,558.88,0.94,NASDAQ:VRTX,https://www.tradingview.com/chart/?symbol=NASDAQ%3AVRTX
-Canada,WN.TO,2026-11-03,111.49,2026-11-03,2026-11-04,111.53,2026-11-13,112.54,0.94,TSX:WN,https://www.tradingview.com/chart/?symbol=TSX%3AWN
 US,UTZ,2026-08-20,14.19,2026-08-20,2026-08-25,14.25,2026-10-16,14.32,0.92,NYSE:UTZ,https://www.tradingview.com/chart/?symbol=NYSE%3AUTZ
 US,FLS,2026-08-23,82.34,2026-08-23,2026-11-13,83.1,2026-11-13,83.1,0.92,NYSE:FLS,https://www.tradingview.com/chart/?symbol=NYSE%3AFLS
 US,BAM,2026-08-20,51.05,2026-08-20,2026-08-20,51.52,2026-08-20,51.52,0.92,NYSE:BAM,https://www.tradingview.com/chart/?symbol=NYSE%3ABAM
@@ -1056,6 +1056,7 @@ Canada,ACQ.TO,2026-10-28,29.46,2026-10-28,,,2026-11-09,29.45,-0.03,TSX:ACQ,https
 US,NGL-PB,2026-08-23,26.0,2026-08-23,,,2026-08-31,25.99,-0.04,NYSE:NGL-PB,https://www.tradingview.com/chart/?symbol=NYSE%3ANGL-PB
 US,KYN,2026-08-26,15.077,2026-08-26,,,2026-09-01,15.07,-0.05,NYSE:KYN,https://www.tradingview.com/chart/?symbol=NYSE%3AKYN
 US,PBI-PB,2026-08-28,21.86,2026-09-01,,,2026-08-28,21.85,-0.05,NYSE:PBI-PB,https://www.tradingview.com/chart/?symbol=NYSE%3APBI-PB
+Canada,L.TO,2026-10-23,71.06,2026-10-23,,,2026-11-16,71.02,-0.06,TSX:L,https://www.tradingview.com/chart/?symbol=TSX%3AL
 US,CART,2026-08-23,51.815,2026-08-23,,,2026-08-24,51.78,-0.07,NASDAQ:CART,https://www.tradingview.com/chart/?symbol=NASDAQ%3ACART
 US,TS,2026-10-29,61.35,2026-10-30,,,2026-10-29,61.31,-0.07,NYSE:TS,https://www.tradingview.com/chart/?symbol=NYSE%3ATS
 Canada,CUP-U.TO,2026-10-06,15.01,2026-10-06,,,2026-10-06,15.0,-0.07,TSX:CUP.U,https://www.tradingview.com/chart/?symbol=TSX%3ACUP.U
@@ -1135,6 +1136,7 @@ US,OKE,2026-08-26,97.9,2026-08-26,,,2026-09-08,97.51,-0.4,NYSE:OKE,https://www.t
 US,FIVN,2026-08-28,34.64,2026-08-28,,,2026-09-17,34.5,-0.4,NASDAQ:FIVN,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFIVN
 US,SBUX,2026-08-28,109.879,2026-08-28,,,2026-11-09,109.44,-0.4,NASDAQ:SBUX,https://www.tradingview.com/chart/?symbol=NASDAQ%3ASBUX
 HK,0392.HK,2026-08-26,31.346,2026-08-26,,,2026-09-01,31.22,-0.4,HKEX:0392,https://www.tradingview.com/chart/?symbol=HKEX%3A0392
+Canada,IS.TO,2026-11-16,19.2,2026-11-16,,,2026-11-16,19.12,-0.42,TSX:IS,https://www.tradingview.com/chart/?symbol=TSX%3AIS
 US,BCPC,2026-08-20,182.07,2026-08-20,,,2026-08-23,181.28,-0.43,NASDAQ:BCPC,https://www.tradingview.com/chart/?symbol=NASDAQ%3ABCPC
 US,EPR,2026-08-20,61.5,2026-11-09,,,2026-08-20,61.23,-0.44,NYSE:EPR,https://www.tradingview.com/chart/?symbol=NYSE%3AEPR
 US,EE,2026-08-24,40.402,2026-08-24,,,2026-09-02,40.22,-0.45,NYSE:EE,https://www.tradingview.com/chart/?symbol=NYSE%3AEE
@@ -1146,6 +1148,7 @@ US,STEW,2026-08-20,19.05,2026-08-26,,,2026-11-13,18.96,-0.47,NYSE:STEW,https://w
 US,IHS,2026-11-02,8.52,2026-11-02,,,2026-11-02,8.48,-0.47,NYSE:IHS,https://www.tradingview.com/chart/?symbol=NYSE%3AIHS
 US,GHC,2026-11-05,1249.94,2026-11-05,,,2026-11-13,1244.05,-0.47,NYSE:GHC,https://www.tradingview.com/chart/?symbol=NYSE%3AGHC
 US,AEE,2026-11-09,115.31,2026-11-13,,,2026-11-13,114.77,-0.47,NYSE:AEE,https://www.tradingview.com/chart/?symbol=NYSE%3AAEE
+Canada,PMZ-UN.TO,2026-08-20,23.56,2026-11-10,,,2026-11-16,23.45,-0.47,TSX:PMZ.UN,https://www.tradingview.com/chart/?symbol=TSX%3APMZ.UN
 Canada,FFH.TO,2026-11-06,2788.03,2026-11-12,,,2026-11-13,2775.0,-0.47,TSX:FFH,https://www.tradingview.com/chart/?symbol=TSX%3AFFH
 HK,3600.HK,2026-08-21,8.49,2026-08-21,,,2026-08-26,8.45,-0.47,HKEX:3600,https://www.tradingview.com/chart/?symbol=HKEX%3A3600
 US,ARGX,2026-08-28,1061.57,2026-08-28,,,2026-09-02,1056.43,-0.48,NASDAQ:ARGX,https://www.tradingview.com/chart/?symbol=NASDAQ%3AARGX
@@ -1174,13 +1177,13 @@ HK,1997.HK,2026-10-30,32.722,2026-10-30,,,2026-11-06,32.54,-0.56,HKEX:1997,https
 US,FTI,2026-08-23,80.55,2026-08-23,,,2026-09-03,80.08,-0.58,NYSE:FTI,https://www.tradingview.com/chart/?symbol=NYSE%3AFTI
 US,CNR,2026-08-28,101.83,2026-08-28,,,2026-09-01,101.24,-0.58,NYSE:CNR,https://www.tradingview.com/chart/?symbol=NYSE%3ACNR
 HK,1138.HK,2026-09-18,20.68,2026-10-05,,,2026-09-21,20.56,-0.58,HKEX:1138,https://www.tradingview.com/chart/?symbol=HKEX%3A1138
+Canada,FTS.TO,2026-11-02,86.35,2026-11-06,,,2026-11-16,85.84,-0.59,TSX:FTS,https://www.tradingview.com/chart/?symbol=TSX%3AFTS
 HK,3877.HK,2026-09-16,2.525,2026-09-17,,,2026-10-13,2.51,-0.59,HKEX:3877,https://www.tradingview.com/chart/?symbol=HKEX%3A3877
 US,EC,2026-08-20,18.18,2026-08-20,,,2026-09-10,18.07,-0.61,NYSE:EC,https://www.tradingview.com/chart/?symbol=NYSE%3AEC
 US,MCB,2026-11-02,98.281,2026-11-02,,,2026-11-04,97.68,-0.61,NYSE:MCB,https://www.tradingview.com/chart/?symbol=NYSE%3AMCB
 US,NDSN,2026-08-23,336.7,2026-08-23,,,2026-08-26,334.58,-0.63,NASDAQ:NDSN,https://www.tradingview.com/chart/?symbol=NASDAQ%3ANDSN
 US,SAP,2026-08-20,245.23,2026-11-12,,,2026-11-05,243.68,-0.63,NYSE:SAP,https://www.tradingview.com/chart/?symbol=NYSE%3ASAP
 US,ACEL,2026-11-09,14.08,2026-11-13,,,2026-11-11,13.99,-0.64,NYSE:ACEL,https://www.tradingview.com/chart/?symbol=NYSE%3AACEL
-Canada,PMZ-UN.TO,2026-08-20,23.56,2026-11-10,,,2026-11-12,23.41,-0.64,TSX:PMZ.UN,https://www.tradingview.com/chart/?symbol=TSX%3APMZ.UN
 US,WLY,2026-10-22,54.406,2026-10-22,,,2026-10-22,54.05,-0.65,NYSE:WLY,https://www.tradingview.com/chart/?symbol=NYSE%3AWLY
 US,OGN,2026-11-05,13.88,2026-11-05,,,2026-11-05,13.79,-0.65,NYSE:OGN,https://www.tradingview.com/chart/?symbol=NYSE%3AOGN
 Canada,WEF.TO,2026-08-20,19.87,2026-08-20,,,2026-08-23,19.74,-0.65,TSX:WEF,https://www.tradingview.com/chart/?symbol=TSX%3AWEF
@@ -1188,6 +1191,8 @@ US,RHP,2026-08-24,137.46,2026-08-24,,,2026-11-12,136.55,-0.66,NYSE:RHP,https://w
 US,PLUS,2026-10-02,97.833,2026-10-02,,,2026-11-11,97.19,-0.66,NASDAQ:PLUS,https://www.tradingview.com/chart/?symbol=NASDAQ%3APLUS
 Canada,MFC.TO,2026-08-20,63.054,2026-09-02,,,2026-09-21,62.64,-0.66,TSX:MFC,https://www.tradingview.com/chart/?symbol=TSX%3AMFC
 Canada,TECK-A.TO,2026-09-08,99.57,2026-09-08,,,2026-09-08,98.91,-0.66,TSX:TECK.A,https://www.tradingview.com/chart/?symbol=TSX%3ATECK.A
+Canada,CTC-A.TO,2026-08-20,222.71,2026-11-13,,,2026-11-16,221.25,-0.66,TSX:CTC.A,https://www.tradingview.com/chart/?symbol=TSX%3ACTC.A
+Canada,TOY.TO,2026-11-16,22.3,2026-11-16,,,2026-11-16,22.15,-0.67,TSX:TOY,https://www.tradingview.com/chart/?symbol=TSX%3ATOY
 HK,0941.HK,2026-11-06,81.65,2026-11-06,,,2026-11-06,81.1,-0.67,HKEX:0941,https://www.tradingview.com/chart/?symbol=HKEX%3A0941
 HK,0003.HK,2026-09-04,7.471,2026-09-24,,,2026-11-11,7.42,-0.68,HKEX:0003,https://www.tradingview.com/chart/?symbol=HKEX%3A0003
 HK,0639.HK,2026-09-16,2.945,2026-09-16,,,2026-09-16,2.925,-0.68,HKEX:0639,https://www.tradingview.com/chart/?symbol=HKEX%3A0639
@@ -1208,7 +1213,6 @@ US,NATL,2026-08-23,48.6,2026-11-05,,,2026-11-12,48.24,-0.74,NYSE:NATL,https://ww
 US,FBK,2026-08-20,59.075,2026-08-20,,,2026-08-23,58.64,-0.74,NYSE:FBK,https://www.tradingview.com/chart/?symbol=NYSE%3AFBK
 Canada,ECOR.TO,2026-09-04,3.39,2026-09-04,,,2026-09-09,3.365,-0.74,TSX:ECOR,https://www.tradingview.com/chart/?symbol=TSX%3AECOR
 HK,1963.HK,2026-08-26,8.74,2026-08-26,,,2026-09-05,8.675,-0.74,HKEX:1963,https://www.tradingview.com/chart/?symbol=HKEX%3A1963
-Canada,FTS.TO,2026-11-02,86.35,2026-11-06,,,2026-11-05,85.7,-0.75,TSX:FTS,https://www.tradingview.com/chart/?symbol=TSX%3AFTS
 US,FLR,2026-09-01,57.93,2026-09-01,,,2026-09-03,57.49,-0.76,NYSE:FLR,https://www.tradingview.com/chart/?symbol=NYSE%3AFLR
 US,BCC,2026-08-20,83.09,2026-08-20,,,2026-08-23,82.46,-0.76,NYSE:BCC,https://www.tradingview.com/chart/?symbol=NYSE%3ABCC
 US,MTG,2026-08-20,31.715,2026-08-20,,,2026-09-03,31.47,-0.77,NYSE:MTG,https://www.tradingview.com/chart/?symbol=NYSE%3AMTG
@@ -1226,7 +1230,6 @@ US,DCI,2026-08-20,96.029,2026-08-20,,,2026-08-26,95.23,-0.83,NYSE:DCI,https://ww
 US,ARCC,2026-08-20,20.23,2026-08-20,,,2026-08-31,20.06,-0.84,NASDAQ:ARCC,https://www.tradingview.com/chart/?symbol=NASDAQ%3AARCC
 US,CDLR,2026-09-02,26.2,2026-09-09,,,2026-09-21,25.98,-0.84,NYSE:CDLR,https://www.tradingview.com/chart/?symbol=NYSE%3ACDLR
 US,ITW,2026-08-20,287.94,2026-08-20,,,2026-08-26,285.525,-0.84,NYSE:ITW,https://www.tradingview.com/chart/?symbol=NYSE%3AITW
-Canada,L.TO,2026-10-23,71.06,2026-10-23,,,2026-11-04,70.46,-0.84,TSX:L,https://www.tradingview.com/chart/?symbol=TSX%3AL
 US,RELY,2026-08-23,27.15,2026-08-23,,,2026-09-03,26.92,-0.85,NASDAQ:RELY,https://www.tradingview.com/chart/?symbol=NASDAQ%3ARELY
 US,FNV,2026-08-28,272.76,2026-08-28,,,2026-09-03,270.42,-0.86,NYSE:FNV,https://www.tradingview.com/chart/?symbol=NYSE%3AFNV
 Canada,MAU.TO,2026-08-26,20.85,2026-08-26,,,2026-09-22,20.67,-0.86,TSX:MAU,https://www.tradingview.com/chart/?symbol=TSX%3AMAU
@@ -1269,7 +1272,6 @@ US,CET,2026-08-23,57.39,2026-11-09,,,2026-11-11,56.78,-1.06,AMEX:CET,https://www
 US,PRGO,2026-09-02,17.02,2026-11-10,,,2026-11-10,16.84,-1.06,NYSE:PRGO,https://www.tradingview.com/chart/?symbol=NYSE%3APRGO
 HK,6186.HK,2026-08-21,3.3,2026-08-21,,,2026-08-26,3.265,-1.06,HKEX:6186,https://www.tradingview.com/chart/?symbol=HKEX%3A6186
 US,CP,2026-08-20,95.86,2026-08-20,,,2026-08-20,94.83,-1.07,NYSE:CP,https://www.tradingview.com/chart/?symbol=NYSE%3ACP
-Canada,CTC-A.TO,2026-08-20,222.71,2026-11-13,,,2026-11-13,220.32,-1.07,TSX:CTC.A,https://www.tradingview.com/chart/?symbol=TSX%3ACTC.A
 US,MSGS,2026-10-30,316.31,2026-10-30,,,2026-10-30,312.9,-1.08,NYSE:MSGS,https://www.tradingview.com/chart/?symbol=NYSE%3AMSGS
 Canada,APR-UN.TO,2026-11-10,13.01,2026-11-10,,,2026-11-13,12.87,-1.08,TSX:APR.UN,https://www.tradingview.com/chart/?symbol=TSX%3AAPR.UN
 HK,0622.HK,2026-09-16,3.23,2026-09-23,,,2026-10-30,3.195,-1.08,HKEX:0622,https://www.tradingview.com/chart/?symbol=HKEX%3A0622
@@ -1281,6 +1283,7 @@ Canada,SFC.TO,2026-09-09,9.1,2026-09-09,,,2026-09-10,9.0,-1.1,TSX:SFC,https://ww
 US,ROST,2026-08-20,244.22,2026-08-20,,,2026-08-24,241.5,-1.11,NASDAQ:ROST,https://www.tradingview.com/chart/?symbol=NASDAQ%3AROST
 US,CBZ,2026-09-03,55.56,2026-09-03,,,2026-10-26,54.94,-1.12,NYSE:CBZ,https://www.tradingview.com/chart/?symbol=NYSE%3ACBZ
 HK,1193.HK,2026-10-15,16.879,2026-10-15,,,2026-10-16,16.69,-1.12,HKEX:1193,https://www.tradingview.com/chart/?symbol=HKEX%3A1193
+Canada,TRP.TO,2026-11-16,92.77,2026-11-16,,,2026-11-16,91.72,-1.13,TSX:TRP,https://www.tradingview.com/chart/?symbol=TSX%3ATRP
 US,EPC,2026-08-20,29.95,2026-08-23,,,2026-11-10,29.61,-1.14,NYSE:EPC,https://www.tradingview.com/chart/?symbol=NYSE%3AEPC
 US,UHAL-B,2026-08-28,61.2,2026-08-28,,,2026-08-28,60.5,-1.14,NYSE:UHAL-B,https://www.tradingview.com/chart/?symbol=NYSE%3AUHAL-B
 Canada,SSRM.TO,2026-09-02,54.5,2026-09-02,,,2026-09-22,53.88,-1.14,TSX:SSRM,https://www.tradingview.com/chart/?symbol=TSX%3ASSRM
@@ -1307,6 +1310,7 @@ US,BSTZ,2026-08-20,31.89,2026-08-20,,,2026-09-09,31.49,-1.25,NYSE:BSTZ,https://w
 Canada,FRX.TO,2026-08-26,17.64,2026-08-26,,,2026-09-04,17.42,-1.25,TSX:FRX,https://www.tradingview.com/chart/?symbol=TSX%3AFRX
 US,ACAD,2026-08-23,30.96,2026-08-23,,,2026-08-25,30.57,-1.26,NASDAQ:ACAD,https://www.tradingview.com/chart/?symbol=NASDAQ%3AACAD
 US,FTS,2026-11-02,61.71,2026-11-06,,,2026-11-04,60.93,-1.26,NYSE:FTS,https://www.tradingview.com/chart/?symbol=NYSE%3AFTS
+Canada,AW.TO,2026-11-16,37.94,2026-11-16,,,2026-11-16,37.46,-1.27,TSX:AW,https://www.tradingview.com/chart/?symbol=TSX%3AAW
 US,LLYVK,2026-08-20,109.75,2026-08-20,,,2026-11-05,108.34,-1.28,NASDAQ:LLYVK,https://www.tradingview.com/chart/?symbol=NASDAQ%3ALLYVK
 HK,0005.HK,2026-08-21,169.595,2026-08-24,,,2026-09-07,167.4,-1.29,HKEX:0005,https://www.tradingview.com/chart/?symbol=HKEX%3A0005
 US,OSBC,2026-08-20,26.06,2026-08-20,,,2026-09-04,25.72,-1.3,NASDAQ:OSBC,https://www.tradingview.com/chart/?symbol=NASDAQ%3AOSBC
@@ -1323,6 +1327,7 @@ Canada,EDV.TO,2026-09-03,91.44,2026-09-03,,,2026-09-22,90.22,-1.33,TSX:EDV,https
 US,VIR,2026-09-22,11.94,2026-09-22,,,2026-10-05,11.78,-1.34,NASDAQ:VIR,https://www.tradingview.com/chart/?symbol=NASDAQ%3AVIR
 US,KEX,2026-10-29,147.98,2026-10-29,,,2026-10-29,146.0,-1.34,NYSE:KEX,https://www.tradingview.com/chart/?symbol=NYSE%3AKEX
 US,RLJ-PA,2026-11-06,24.944,2026-11-06,,,2026-11-06,24.61,-1.34,NYSE:RLJ-PA,https://www.tradingview.com/chart/?symbol=NYSE%3ARLJ-PA
+Canada,CNR.TO,2026-08-20,185.25,2026-08-20,,,2026-11-16,182.77,-1.34,TSX:CNR,https://www.tradingview.com/chart/?symbol=TSX%3ACNR
 US,DAR,2026-08-20,68.77,2026-08-20,,,2026-08-20,67.84,-1.35,NYSE:DAR,https://www.tradingview.com/chart/?symbol=NYSE%3ADAR
 US,NWG,2026-08-20,19.21,2026-08-23,,,2026-09-03,18.95,-1.35,NYSE:NWG,https://www.tradingview.com/chart/?symbol=NYSE%3ANWG
 US,RMD,2026-09-02,234.14,2026-09-02,,,2026-09-02,230.99,-1.35,NYSE:RMD,https://www.tradingview.com/chart/?symbol=NYSE%3ARMD
@@ -1371,10 +1376,10 @@ US,DNOW,2026-09-02,16.93,2026-10-21,,,2026-10-29,16.66,-1.59,NYSE:DNOW,https://w
 US,PECO,2026-11-06,41.9,2026-11-13,,,2026-11-12,41.23,-1.6,NASDAQ:PECO,https://www.tradingview.com/chart/?symbol=NASDAQ%3APECO
 US,HIW,2026-11-05,32.24,2026-11-05,,,2026-11-05,31.72,-1.61,NYSE:HIW,https://www.tradingview.com/chart/?symbol=NYSE%3AHIW
 US,USFD,2026-08-20,111.42,2026-08-20,,,2026-08-23,109.62,-1.62,NYSE:USFD,https://www.tradingview.com/chart/?symbol=NYSE%3AUSFD
-Canada,GFR.TO,2026-10-27,9.86,2026-10-27,,,2026-10-28,9.7,-1.62,TSX:GFR,https://www.tradingview.com/chart/?symbol=TSX%3AGFR
 Canada,GDC.TO,2026-11-12,3.7,2026-11-12,,,2026-11-12,3.64,-1.62,TSX:GDC,https://www.tradingview.com/chart/?symbol=TSX%3AGDC
 US,OSK,2026-08-20,160.092,2026-08-20,,,2026-08-26,157.48,-1.63,NYSE:OSK,https://www.tradingview.com/chart/?symbol=NYSE%3AOSK
 US,DD,2026-11-06,159.48,2026-11-12,,,2026-11-10,156.85,-1.65,NYSE:DD,https://www.tradingview.com/chart/?symbol=NYSE%3ADD
+Canada,MRD.TO,2026-11-09,19.4,2026-11-09,,,2026-11-16,19.08,-1.65,TSX:MRD,https://www.tradingview.com/chart/?symbol=TSX%3AMRD
 US,ERIE,2026-08-31,262.7,2026-08-31,,,2026-09-03,258.3,-1.67,NASDAQ:ERIE,https://www.tradingview.com/chart/?symbol=NASDAQ%3AERIE
 US,UFPT,2026-09-17,279.49,2026-09-17,,,2026-09-17,274.78,-1.69,NASDAQ:UFPT,https://www.tradingview.com/chart/?symbol=NASDAQ%3AUFPT
 US,UNP,2026-08-20,315.99,2026-08-20,,,2026-08-26,310.63,-1.7,NYSE:UNP,https://www.tradingview.com/chart/?symbol=NYSE%3AUNP
@@ -1404,6 +1409,7 @@ Canada,CG.TO,2026-08-20,33.69,2026-08-28,,,2026-09-22,33.06,-1.87,TSX:CG,https:/
 US,ELVN,2026-08-23,62.32,2026-08-23,,,2026-08-24,61.15,-1.88,NASDAQ:ELVN,https://www.tradingview.com/chart/?symbol=NASDAQ%3AELVN
 US,ALSN,2026-08-24,134.14,2026-08-24,,,2026-08-25,131.62,-1.88,NYSE:ALSN,https://www.tradingview.com/chart/?symbol=NYSE%3AALSN
 US,WDS,2026-09-01,24.42,2026-09-01,,,2026-09-15,23.96,-1.88,NYSE:WDS,https://www.tradingview.com/chart/?symbol=NYSE%3AWDS
+Canada,IFC.TO,2026-11-11,285.63,2026-11-16,,,2026-11-12,280.21,-1.9,TSX:IFC,https://www.tradingview.com/chart/?symbol=TSX%3AIFC
 Canada,TCS.TO,2026-10-07,39.71,2026-10-07,,,2026-11-05,38.95,-1.91,TSX:TCS,https://www.tradingview.com/chart/?symbol=TSX%3ATCS
 Canada,JAG.TO,2026-09-22,8.35,2026-09-22,,,2026-09-22,8.19,-1.92,TSX:JAG,https://www.tradingview.com/chart/?symbol=TSX%3AJAG
 Canada,FTT.TO,2026-10-06,114.19,2026-10-06,,,2026-10-06,112.0,-1.92,TSX:FTT,https://www.tradingview.com/chart/?symbol=TSX%3AFTT
@@ -1427,7 +1433,6 @@ US,HCA,2026-10-23,521.48,2026-11-09,,,2026-11-04,510.85,-2.04,NYSE:HCA,https://w
 US,AKO-B,2026-08-23,32.016,2026-08-23,,,2026-08-23,31.36,-2.05,NYSE:AKO-B,https://www.tradingview.com/chart/?symbol=NYSE%3AAKO-B
 US,NBTB,2026-08-20,54.076,2026-09-03,,,2026-11-05,52.97,-2.05,NASDAQ:NBTB,https://www.tradingview.com/chart/?symbol=NASDAQ%3ANBTB
 US,HQY,2026-08-20,107.62,2026-08-20,,,2026-08-25,105.4,-2.06,NASDAQ:HQY,https://www.tradingview.com/chart/?symbol=NASDAQ%3AHQY
-Canada,MRD.TO,2026-11-09,19.4,2026-11-09,,,2026-11-09,19.0,-2.06,TSX:MRD,https://www.tradingview.com/chart/?symbol=TSX%3AMRD
 US,PCAR,2026-08-20,133.915,2026-08-20,,,2026-08-23,131.13,-2.08,NASDAQ:PCAR,https://www.tradingview.com/chart/?symbol=NASDAQ%3APCAR
 Canada,ATH.TO,2026-10-12,12.49,2026-10-14,,,2026-10-13,12.23,-2.08,TSX:ATH,https://www.tradingview.com/chart/?symbol=TSX%3AATH
 Canada,LFE.TO,2026-09-17,9.529,2026-09-17,,,2026-09-21,9.33,-2.09,TSX:LFE,https://www.tradingview.com/chart/?symbol=TSX%3ALFE
@@ -1628,7 +1633,6 @@ Canada,EPRX.TO,2026-09-29,12.29,2026-09-29,,,2026-09-29,11.86,-3.5,TSX:EPRX,http
 US,ASB,2026-09-03,32.205,2026-09-03,,,2026-09-04,31.07,-3.52,NYSE:ASB,https://www.tradingview.com/chart/?symbol=NYSE%3AASB
 US,SPOT,2026-09-04,635.0,2026-11-09,,,2026-11-13,612.63,-3.52,NYSE:SPOT,https://www.tradingview.com/chart/?symbol=NYSE%3ASPOT
 US,UHAL,2026-08-20,74.18,2026-08-20,,,2026-08-20,71.57,-3.52,NYSE:UHAL,https://www.tradingview.com/chart/?symbol=NYSE%3AUHAL
-Canada,CNR.TO,2026-08-20,185.25,2026-08-20,,,2026-08-23,178.73,-3.52,TSX:CNR,https://www.tradingview.com/chart/?symbol=TSX%3ACNR
 US,PRU,2026-08-20,127.72,2026-08-24,,,2026-09-03,123.21,-3.53,NYSE:PRU,https://www.tradingview.com/chart/?symbol=NYSE%3APRU
 US,ITUB,2026-10-07,10.2,2026-10-20,,,2026-10-08,9.84,-3.53,NYSE:ITUB,https://www.tradingview.com/chart/?symbol=NYSE%3AITUB
 US,TILE,2026-08-20,40.5,2026-08-20,,,2026-08-20,39.067,-3.54,NASDAQ:TILE,https://www.tradingview.com/chart/?symbol=NASDAQ%3ATILE
@@ -1730,6 +1734,7 @@ US,BGC,2026-09-04,12.757,2026-09-04,,,2026-09-10,12.22,-4.21,NASDAQ:BGC,https://
 US,ETN,2026-08-20,437.683,2026-08-20,,,2026-08-23,419.24,-4.21,NYSE:ETN,https://www.tradingview.com/chart/?symbol=NYSE%3AETN
 US,NSP,2026-08-20,55.9,2026-08-28,,,2026-08-28,53.54,-4.22,NYSE:NSP,https://www.tradingview.com/chart/?symbol=NYSE%3ANSP
 US,HOMB,2026-09-04,31.54,2026-09-04,,,2026-09-15,30.21,-4.22,NYSE:HOMB,https://www.tradingview.com/chart/?symbol=NYSE%3AHOMB
+Canada,CGY.TO,2026-11-16,89.87,2026-11-16,,,2026-11-16,86.08,-4.22,TSX:CGY,https://www.tradingview.com/chart/?symbol=TSX%3ACGY
 US,SRCE,2026-08-20,91.24,2026-09-04,,,2026-09-14,87.37,-4.24,NASDAQ:SRCE,https://www.tradingview.com/chart/?symbol=NASDAQ%3ASRCE
 US,ARIS,2026-09-03,21.465,2026-09-03,,,2026-09-03,20.55,-4.26,NYSE:ARIS,https://www.tradingview.com/chart/?symbol=NYSE%3AARIS
 US,BAX,2026-09-11,24.92,2026-09-11,,,2026-09-14,23.855,-4.27,NYSE:BAX,https://www.tradingview.com/chart/?symbol=NYSE%3ABAX
@@ -1791,6 +1796,7 @@ US,BTG,2026-09-04,5.9,2026-09-04,,,2026-09-04,5.61,-4.92,AMEX:BTG,https://www.tr
 US,NWN,2026-11-13,54.81,2026-11-13,,,2026-11-13,52.11,-4.93,NYSE:NWN,https://www.tradingview.com/chart/?symbol=NYSE%3ANWN
 US,MLKN,2026-08-28,24.71,2026-08-28,,,2026-08-28,23.49,-4.94,NASDAQ:MLKN,https://www.tradingview.com/chart/?symbol=NASDAQ%3AMLKN
 US,NESR,2026-08-31,36.94,2026-08-31,,,2026-08-31,35.11,-4.95,NASDAQ:NESR,https://www.tradingview.com/chart/?symbol=NASDAQ%3ANESR
+Canada,ESI.TO,2026-11-16,4.65,2026-11-16,,,2026-11-16,4.42,-4.95,TSX:ESI,https://www.tradingview.com/chart/?symbol=TSX%3AESI
 US,APO,2026-08-31,143.723,2026-08-31,,,2026-08-31,136.58,-4.97,NYSE:APO,https://www.tradingview.com/chart/?symbol=NYSE%3AAPO
 US,QCRH,2026-08-20,108.11,2026-09-03,,,2026-09-03,102.735,-4.97,NASDAQ:QCRH,https://www.tradingview.com/chart/?symbol=NASDAQ%3AQCRH
 US,PNFP,2026-08-20,107.443,2026-08-20,,,2026-08-20,101.95,-5.11,NYSE:PNFP,https://www.tradingview.com/chart/?symbol=NYSE%3APNFP
