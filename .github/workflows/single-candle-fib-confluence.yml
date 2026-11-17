@@ -58,11 +58,25 @@ jobs:
         if: steps.gate.outputs.run_scan == 'true'
         run: pip install -r requirements.txt
 
-      - name: Build three market universes
+      - name: Build three market universes with saved-list fallback
         if: steps.gate.outputs.run_scan == 'true'
+        shell: bash
         run: |
-          python build_us_1b_universe.py --min-market-cap 1000000000
-          python build_universes.py --markets tsx,hk
+          if ! python build_us_1b_universe.py --min-market-cap 1000000000; then
+            echo "US universe refresh failed; using committed data/us_1b_universe.txt"
+          fi
+          test -s data/us_1b_universe.txt
+
+          if ! python build_universes.py --markets tsx,hk; then
+            echo "TSX/HK universe refresh partially failed; checking fallbacks"
+          fi
+          if [ ! -s data/hk_universe.txt ]; then
+            cp data/hk_5b_universe.txt data/hk_universe.txt
+          fi
+          if [ ! -s data/tsx_universe.txt ]; then
+            printf '%s\n' KNT.TO > data/tsx_universe.txt
+            echo "TSX builder unavailable; using benchmark-only fallback for this run"
+          fi
 
       - name: Add benchmark symbols
         if: steps.gate.outputs.run_scan == 'true'
