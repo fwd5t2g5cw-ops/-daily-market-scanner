@@ -12,10 +12,10 @@ The same stock can appear in multiple scanner categories; that is intentional.
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Entry Marker | 126 | 47 | 37.3% | 71 | 56.35% | 20 | 122 | 38.52% | 58.2% |
 | High Conviction Entry | 57 | 23 | 40.35% | 35 | 61.4% | 10 | 56 | 41.07% | 62.5% |
-| Double Reclaim READY NOW | 405 | 132 | 32.59% | 212 | 52.35% | 55 | 356 | 37.08% | 58.71% |
-| Reclaim Breakout | 746 | 236 | 31.64% | 374 | 50.13% | 94 | 629 | 37.2% | 58.66% |
-| Pre-Entry Watch | 1372 | 415 | 30.25% | 699 | 50.95% | 180 | 1189 | 34.4% | 58.28% |
-| Pre-Breakout Compression | 499 | 110 | 22.04% | 185 | 37.07% | 23 | 407 | 26.78% | 45.45% |
+| Double Reclaim READY NOW | 405 | 132 | 32.59% | 212 | 52.35% | 55 | 355 | 37.18% | 58.87% |
+| Reclaim Breakout | 746 | 236 | 31.64% | 374 | 50.13% | 94 | 628 | 37.26% | 58.76% |
+| Pre-Entry Watch | 1372 | 415 | 30.25% | 699 | 50.95% | 180 | 1187 | 34.46% | 58.38% |
+| Pre-Breakout Compression | 499 | 110 | 22.04% | 185 | 37.07% | 23 | 406 | 26.85% | 45.57% |
 
 ## Entry Marker
 
@@ -1631,7 +1631,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [6993](https://www.tradingview.com/chart/?symbol=HKEX%3A6993) — HK — signal 2026-09-04 @ 3.7350; max **-40.83%**; first -10% 2026-09-18; max favorable +4.07%; order DOWN_ONLY; sessions 51
 - [MU](https://www.tradingview.com/chart/?symbol=MU) — US — signal 2026-10-02 @ 1097.3900; max **-40.77%**; first -10% 2026-10-12; max favorable +-0.76%; order DOWN_ONLY; sessions 32
 - [IMVT](https://www.tradingview.com/chart/?symbol=IMVT) — US — signal 2026-08-20 @ 44.3500; max **-40.76%**; first -10% 2026-08-31; max favorable +1.74%; order DOWN_ONLY; sessions 62
-- [CS.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACS) — Canada — signal 2026-08-20 @ 15.4000; max **-40.58%**; first -10% 2026-09-14; max favorable +8.57%; order DOWN_ONLY; sessions 61
+- [CS.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACS) — Canada — signal 2026-08-20 @ 15.4000; max **-40.65%**; first -10% 2026-09-14; max favorable +8.57%; order DOWN_ONLY; sessions 61
 - [CGG.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACGG) — Canada — signal 2026-09-10 @ 47.0500; max **-40.09%**; first -10% 2026-09-22; max favorable +4.12%; order DOWN_ONLY; sessions 47
 - [RTG.TO](https://www.tradingview.com/chart/?symbol=TSX%3ARTG) — Canada — signal 2026-10-02 @ 0.0500; max **-40.00%**; first -10% 2026-10-06; max favorable +0.00%; order DOWN_ONLY; sessions 31
 - [3396](https://www.tradingview.com/chart/?symbol=HKEX%3A3396) — HK — signal 2026-09-17 @ 19.7800; max **-39.33%**; first -10% 2026-10-15; max favorable +32.56%; order UP_FIRST; sessions 42
