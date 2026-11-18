@@ -1373,6 +1373,7 @@ US,NOV,2026-08-31,21.67,2026-08-31,,,2026-09-01,21.36,-1.43,NYSE:NOV,https://www
 US,OBK,2026-08-20,55.316,2026-08-26,,,2026-09-04,54.52,-1.44,NYSE:OBK,https://www.tradingview.com/chart/?symbol=NYSE%3AOBK
 US,DFIN,2026-09-04,53.56,2026-09-04,,,2026-10-22,52.79,-1.44,NYSE:DFIN,https://www.tradingview.com/chart/?symbol=NYSE%3ADFIN
 Canada,COP-U.TO,2026-09-29,12.54,2026-09-29,,,2026-09-29,12.36,-1.44,TSX:COP.U,https://www.tradingview.com/chart/?symbol=TSX%3ACOP.U
+Canada,WRG.TO,2026-10-30,4.15,2026-10-30,,,2026-11-17,4.09,-1.45,TSX:WRG,https://www.tradingview.com/chart/?symbol=TSX%3AWRG
 HK,3369.HK,2026-09-03,2.75,2026-11-11,,,2026-11-18,2.71,-1.45,HKEX:3369,https://www.tradingview.com/chart/?symbol=HKEX%3A3369
 US,RDY,2026-10-19,15.08,2026-11-10,,,2026-11-10,14.86,-1.46,NYSE:RDY,https://www.tradingview.com/chart/?symbol=NYSE%3ARDY
 HK,1501.HK,2026-09-03,35.5,2026-09-03,,,2026-09-03,34.98,-1.46,HKEX:1501,https://www.tradingview.com/chart/?symbol=HKEX%3A1501
@@ -1672,7 +1673,6 @@ US,NEM,2026-09-03,135.29,2026-09-03,,,2026-09-03,130.43,-3.59,NYSE:NEM,https://w
 US,CFR,2026-09-03,169.712,2026-09-03,,,2026-09-08,163.61,-3.6,NYSE:CFR,https://www.tradingview.com/chart/?symbol=NYSE%3ACFR
 US,AYA,2026-09-04,30.24,2026-09-04,,,2026-09-08,29.15,-3.6,NASDAQ:AYA,https://www.tradingview.com/chart/?symbol=NASDAQ%3AAYA
 US,WOR,2026-10-06,67.54,2026-10-16,,,2026-10-21,65.1,-3.61,NYSE:WOR,https://www.tradingview.com/chart/?symbol=NYSE%3AWOR
-Canada,WRG.TO,2026-10-30,4.15,2026-10-30,,,2026-10-30,4.0,-3.61,TSX:WRG,https://www.tradingview.com/chart/?symbol=TSX%3AWRG
 US,BANR,2026-08-20,74.84,2026-08-20,,,2026-09-15,72.13,-3.62,NASDAQ:BANR,https://www.tradingview.com/chart/?symbol=NASDAQ%3ABANR
 US,ROCK,2026-08-20,48.27,2026-08-20,,,2026-08-23,46.52,-3.63,NASDAQ:ROCK,https://www.tradingview.com/chart/?symbol=NASDAQ%3AROCK
 US,FOX,2026-09-15,62.621,2026-09-15,,,2026-09-15,60.34,-3.64,NASDAQ:FOX,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFOX
