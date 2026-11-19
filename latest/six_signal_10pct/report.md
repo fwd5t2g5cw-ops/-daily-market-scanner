@@ -12,10 +12,10 @@ The same stock can appear in multiple scanner categories; that is intentional.
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Entry Marker | 126 | 47 | 37.3% | 72 | 57.14% | 20 | 125 | 37.6% | 57.6% |
 | High Conviction Entry | 57 | 23 | 40.35% | 36 | 63.16% | 10 | 57 | 40.35% | 63.16% |
-| Double Reclaim READY NOW | 414 | 132 | 31.88% | 216 | 52.17% | 55 | 359 | 36.77% | 59.05% |
-| Reclaim Breakout | 761 | 236 | 31.01% | 379 | 49.8% | 95 | 638 | 36.99% | 58.31% |
-| Pre-Entry Watch | 1383 | 416 | 30.08% | 713 | 51.55% | 184 | 1201 | 34.22% | 58.62% |
-| Pre-Breakout Compression | 517 | 111 | 21.47% | 187 | 36.17% | 25 | 411 | 26.76% | 45.5% |
+| Double Reclaim READY NOW | 414 | 132 | 31.88% | 216 | 52.17% | 55 | 360 | 36.67% | 58.89% |
+| Reclaim Breakout | 761 | 236 | 31.01% | 379 | 49.8% | 95 | 639 | 36.93% | 58.22% |
+| Pre-Entry Watch | 1383 | 416 | 30.08% | 713 | 51.55% | 184 | 1202 | 34.19% | 58.57% |
+| Pre-Breakout Compression | 517 | 111 | 21.47% | 187 | 36.17% | 25 | 412 | 26.7% | 45.39% |
 
 ## Entry Marker
 
@@ -288,7 +288,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [JOYY](https://www.tradingview.com/chart/?symbol=JOYY) — US — signal 2026-08-20 @ 73.8400; max **+15.32%**; first +10% 2026-10-06; max adverse -3.30%; order UP_ONLY; sessions 63
 - [OLLI](https://www.tradingview.com/chart/?symbol=OLLI) — US — signal 2026-10-12 @ 86.4300; max **+15.31%**; first +10% 2026-10-15; max adverse -3.38%; order UP_ONLY; sessions 27
 - [GCT](https://www.tradingview.com/chart/?symbol=GCT) — US — signal 2026-10-30 @ 58.4700; max **+15.27%**; first +10% 2026-11-05; max adverse -7.87%; order UP_ONLY; sessions 13
-- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **+14.79%**; first +10% 2026-10-14; max adverse -13.49%; order UP_FIRST; sessions 32
+- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **+14.79%**; first +10% 2026-10-14; max adverse -13.55%; order UP_FIRST; sessions 32
 - [GIB](https://www.tradingview.com/chart/?symbol=GIB) — US — signal 2026-08-26 @ 73.2000; max **+14.73%**; first +10% 2026-10-22; max adverse -9.13%; order UP_ONLY; sessions 59
 - [XOM](https://www.tradingview.com/chart/?symbol=XOM) — US — signal 2026-09-16 @ 163.3300; max **+14.69%**; first +10% 2026-10-23; max adverse -5.18%; order UP_ONLY; sessions 45
 - [AIZ](https://www.tradingview.com/chart/?symbol=AIZ) — US — signal 2026-08-25 @ 285.1500; max **+14.67%**; first +10% 2026-11-04; max adverse -8.60%; order UP_ONLY; sessions 60
@@ -424,8 +424,8 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [BMRN](https://www.tradingview.com/chart/?symbol=BMRN) — US — signal 2026-08-25 @ 66.1200; max **-21.36%**; first -10% 2026-09-28; max favorable +2.39%; order DOWN_ONLY; sessions 60
 - [DMC](https://www.tradingview.com/chart/?symbol=DMC) — US — signal 2026-09-07 @ 32.1400; max **-21.22%**; first -10% 2026-10-07; max favorable +1.76%; order DOWN_ONLY; sessions 52
 - [PAY](https://www.tradingview.com/chart/?symbol=PAY) — US — signal 2026-09-14 @ 37.0800; max **-21.04%**; first -10% 2026-09-22; max favorable +1.00%; order DOWN_ONLY; sessions 47
+- [2190](https://www.tradingview.com/chart/?symbol=HKEX%3A2190) — HK — signal 2026-10-06 @ 21.8800; max **-20.93%**; first -10% 2026-10-22; max favorable +0.55%; order DOWN_ONLY; sessions 31
 - [1093](https://www.tradingview.com/chart/?symbol=HKEX%3A1093) — HK — signal 2026-09-21 @ 9.6050; max **-20.87%**; first -10% 2026-10-13; max favorable +3.63%; order DOWN_ONLY; sessions 41
-- [2190](https://www.tradingview.com/chart/?symbol=HKEX%3A2190) — HK — signal 2026-10-06 @ 21.8800; max **-20.84%**; first -10% 2026-10-22; max favorable +0.55%; order DOWN_ONLY; sessions 31
 - [SNOW](https://www.tradingview.com/chart/?symbol=SNOW) — US — signal 2026-08-23 @ 332.8000; max **-20.72%**; first -10% 2026-10-30; max favorable +15.55%; order UP_FIRST; sessions 62
 - [ANET](https://www.tradingview.com/chart/?symbol=ANET) — US — signal 2026-09-17 @ 199.5350; max **-20.64%**; first -10% 2026-10-15; max favorable +8.96%; order DOWN_ONLY; sessions 44
 - [PCOR](https://www.tradingview.com/chart/?symbol=PCOR) — US — signal 2026-09-02 @ 59.5200; max **-20.58%**; first -10% 2026-09-10; max favorable +34.07%; order DOWN_FIRST; sessions 54
@@ -505,8 +505,8 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [KSPI](https://www.tradingview.com/chart/?symbol=KSPI) — US — signal 2026-09-14 @ 100.4000; max **-13.62%**; first -10% 2026-10-22; max favorable +0.25%; order DOWN_ONLY; sessions 47
 - [JCAP](https://www.tradingview.com/chart/?symbol=JCAP) — US — signal 2026-09-08 @ 21.7100; max **-13.59%**; first -10% 2026-09-23; max favorable +1.01%; order DOWN_ONLY; sessions 51
 - [BWLP](https://www.tradingview.com/chart/?symbol=BWLP) — US — signal 2026-09-08 @ 23.9100; max **-13.55%**; first -10% 2026-11-10; max favorable +11.71%; order UP_FIRST; sessions 51
+- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **-13.55%**; first -10% 2026-11-09; max favorable +14.79%; order UP_FIRST; sessions 32
 - [6690](https://www.tradingview.com/chart/?symbol=HKEX%3A6690) — HK — signal 2026-08-29 @ 21.2800; max **-13.53%**; first -10% 2026-10-22; max favorable +6.39%; order DOWN_ONLY; sessions 57
-- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **-13.49%**; first -10% 2026-11-09; max favorable +14.79%; order UP_FIRST; sessions 32
 - [RJF](https://www.tradingview.com/chart/?symbol=RJF) — US — signal 2026-08-26 @ 176.7100; max **-13.46%**; first -10% 2026-09-22; max favorable +2.30%; order DOWN_ONLY; sessions 59
 - [TRIN](https://www.tradingview.com/chart/?symbol=TRIN) — US — signal 2026-09-17 @ 18.0200; max **-13.46%**; first -10% 2026-10-16; max favorable +-0.18%; order DOWN_ONLY; sessions 44
 - [SWK](https://www.tradingview.com/chart/?symbol=SWK) — US — signal 2026-08-20 @ 98.9100; max **-13.35%**; first -10% 2026-09-10; max favorable +24.03%; order DOWN_FIRST; sessions 63
@@ -699,7 +699,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [GIC](https://www.tradingview.com/chart/?symbol=GIC) — US — signal 2026-10-12 @ 43.6500; max **+15.03%**; first +10% 2026-11-04; max adverse -4.64%; order UP_ONLY; sessions 27
 - [0669](https://www.tradingview.com/chart/?symbol=HKEX%3A669) — HK — signal 2026-09-04 @ 134.8000; max **+14.91%**; first +10% 2026-11-05; max adverse -8.46%; order UP_ONLY; sessions 52
 - [RUSHB](https://www.tradingview.com/chart/?symbol=RUSHB) — US — signal 2026-09-28 @ 55.0600; max **+14.88%**; first +10% 2026-10-28; max adverse -3.71%; order UP_ONLY; sessions 37
-- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **+14.79%**; first +10% 2026-10-14; max adverse -13.49%; order UP_FIRST; sessions 32
+- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **+14.79%**; first +10% 2026-10-14; max adverse -13.55%; order UP_FIRST; sessions 32
 - [GIB](https://www.tradingview.com/chart/?symbol=GIB) — US — signal 2026-08-26 @ 73.2000; max **+14.73%**; first +10% 2026-10-22; max adverse -9.13%; order UP_ONLY; sessions 59
 - [9858](https://www.tradingview.com/chart/?symbol=HKEX%3A9858) — HK — signal 2026-08-28 @ 4.0350; max **+14.62%**; first +10% 2026-09-01; max adverse -21.69%; order UP_FIRST; sessions 57
 - [STE](https://www.tradingview.com/chart/?symbol=STE) — US — signal 2026-08-28 @ 233.6200; max **+14.45%**; first +10% 2026-11-05; max adverse -12.97%; order DOWN_FIRST; sessions 57
@@ -946,7 +946,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [DMC](https://www.tradingview.com/chart/?symbol=DMC) — US — signal 2026-09-04 @ 32.1400; max **-21.22%**; first -10% 2026-10-07; max favorable +1.76%; order DOWN_ONLY; sessions 52
 - [6618](https://www.tradingview.com/chart/?symbol=HKEX%3A6618) — HK — signal 2026-11-12 @ 41.1200; max **-21.21%**; first -10% 2026-11-18; max favorable +2.72%; order DOWN_ONLY; sessions 5
 - [TRMD](https://www.tradingview.com/chart/?symbol=TRMD) — US — signal 2026-11-03 @ 40.2600; max **-21.06%**; first -10% 2026-11-04; max favorable +-6.67%; order DOWN_ONLY; sessions 11
-- [2190](https://www.tradingview.com/chart/?symbol=HKEX%3A2190) — HK — signal 2026-10-06 @ 21.8800; max **-20.84%**; first -10% 2026-10-22; max favorable +0.55%; order DOWN_ONLY; sessions 31
+- [2190](https://www.tradingview.com/chart/?symbol=HKEX%3A2190) — HK — signal 2026-10-06 @ 21.8800; max **-20.93%**; first -10% 2026-10-22; max favorable +0.55%; order DOWN_ONLY; sessions 31
 - [TNK](https://www.tradingview.com/chart/?symbol=TNK) — US — signal 2026-10-02 @ 103.1200; max **-20.79%**; first -10% 2026-11-04; max favorable +7.30%; order DOWN_ONLY; sessions 33
 - [ARHS](https://www.tradingview.com/chart/?symbol=ARHS) — US — signal 2026-08-25 @ 8.9150; max **-20.73%**; first -10% 2026-09-10; max favorable +70.16%; order DOWN_FIRST; sessions 60
 - [SNOW](https://www.tradingview.com/chart/?symbol=SNOW) — US — signal 2026-08-23 @ 332.8000; max **-20.72%**; first -10% 2026-10-30; max favorable +15.55%; order UP_FIRST; sessions 62
@@ -1089,8 +1089,8 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [CJ.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACJ) — Canada — signal 2026-10-05 @ 12.4500; max **-13.65%**; first -10% 2026-11-05; max favorable +9.46%; order DOWN_ONLY; sessions 31
 - [BWLP](https://www.tradingview.com/chart/?symbol=BWLP) — US — signal 2026-09-08 @ 23.9100; max **-13.55%**; first -10% 2026-11-10; max favorable +11.71%; order UP_FIRST; sessions 51
 - [HPQ](https://www.tradingview.com/chart/?symbol=HPQ) — US — signal 2026-09-08 @ 31.1850; max **-13.55%**; first -10% 2026-10-30; max favorable +16.18%; order UP_FIRST; sessions 51
+- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **-13.55%**; first -10% 2026-11-09; max favorable +14.79%; order UP_FIRST; sessions 32
 - [6690](https://www.tradingview.com/chart/?symbol=HKEX%3A6690) — HK — signal 2026-08-25 @ 21.2800; max **-13.53%**; first -10% 2026-10-22; max favorable +6.39%; order DOWN_ONLY; sessions 60
-- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-10-02 @ 15.3500; max **-13.49%**; first -10% 2026-11-09; max favorable +14.79%; order UP_FIRST; sessions 32
 - [DVN](https://www.tradingview.com/chart/?symbol=DVN) — US — signal 2026-08-25 @ 46.9200; max **-13.47%**; first -10% 2026-11-06; max favorable +11.42%; order UP_FIRST; sessions 60
 - [1179](https://www.tradingview.com/chart/?symbol=HKEX%3A1179) — HK — signal 2026-09-01 @ 36.9400; max **-13.43%**; first -10% 2026-09-14; max favorable +17.16%; order DOWN_FIRST; sessions 55
 - [SWK](https://www.tradingview.com/chart/?symbol=SWK) — US — signal 2026-08-20 @ 98.9100; max **-13.35%**; first -10% 2026-09-10; max favorable +24.03%; order DOWN_FIRST; sessions 63
@@ -1273,7 +1273,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [CHR.TO](https://www.tradingview.com/chart/?symbol=TSX%3ACHR) — Canada — signal 2026-08-23 @ 29.2500; max **+26.15%**; first +10% 2026-11-09; max adverse -6.35%; order UP_ONLY; sessions 61
 - [IDT](https://www.tradingview.com/chart/?symbol=IDT) — US — signal 2026-08-20 @ 67.1900; max **+25.85%**; first +10% 2026-09-29; max adverse -2.16%; order UP_ONLY; sessions 63
 - [USPH](https://www.tradingview.com/chart/?symbol=USPH) — US — signal 2026-09-14 @ 80.5200; max **+25.84%**; first +10% 2026-10-26; max adverse -2.33%; order UP_ONLY; sessions 47
-- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-09-03 @ 14.0100; max **+25.77%**; first +10% 2026-09-16; max adverse -5.21%; order UP_ONLY; sessions 52
+- [VLE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AVLE) — Canada — signal 2026-09-03 @ 14.0100; max **+25.77%**; first +10% 2026-09-16; max adverse -5.28%; order UP_ONLY; sessions 52
 - [KNSA](https://www.tradingview.com/chart/?symbol=KNSA) — US — signal 2026-08-23 @ 79.0300; max **+25.66%**; first +10% 2026-10-27; max adverse -10.58%; order DOWN_FIRST; sessions 62
 - [LFST](https://www.tradingview.com/chart/?symbol=LFST) — US — signal 2026-08-23 @ 12.4700; max **+25.58%**; first +10% 2026-10-30; max adverse -8.02%; order UP_ONLY; sessions 62
 - [DT](https://www.tradingview.com/chart/?symbol=DT) — US — signal 2026-09-01 @ 52.8600; max **+25.43%**; first +10% 2026-09-23; max adverse -20.72%; order UP_FIRST; sessions 55
@@ -1507,7 +1507,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [THG](https://www.tradingview.com/chart/?symbol=THG) — US — signal 2026-08-24 @ 227.4700; max **+12.87%**; first +10% 2026-11-02; max adverse -6.08%; order UP_ONLY; sessions 61
 - [SDE.TO](https://www.tradingview.com/chart/?symbol=TSX%3ASDE) — Canada — signal 2026-09-01 @ 13.4100; max **+12.83%**; first +10% 2026-10-19; max adverse -20.95%; order DOWN_FIRST; sessions 54
 - [AER](https://www.tradingview.com/chart/?symbol=AER) — US — signal 2026-11-03 @ 162.4100; max **+12.81%**; first +10% 2026-11-13; max adverse -0.85%; order UP_ONLY; sessions 11
-- [1258](https://www.tradingview.com/chart/?symbol=HKEX%3A1258) — HK — signal 2026-08-25 @ 15.8100; max **+12.78%**; first +10% 2026-08-26; max adverse -38.77%; order UP_FIRST; sessions 60
+- [1258](https://www.tradingview.com/chart/?symbol=HKEX%3A1258) — HK — signal 2026-08-25 @ 15.8100; max **+12.78%**; first +10% 2026-08-26; max adverse -38.46%; order UP_FIRST; sessions 60
 - [1308](https://www.tradingview.com/chart/?symbol=HKEX%3A1308) — HK — signal 2026-09-01 @ 46.2400; max **+12.78%**; first +10% 2026-10-12; max adverse -13.97%; order UP_FIRST; sessions 55
 - [BTE.TO](https://www.tradingview.com/chart/?symbol=TSX%3ABTE) — Canada — signal 2026-09-14 @ 6.9800; max **+12.75%**; first +10% 2026-10-19; max adverse -19.77%; order DOWN_FIRST; sessions 46
 - [MX.TO](https://www.tradingview.com/chart/?symbol=TSX%3AMX) — Canada — signal 2026-09-15 @ 89.6300; max **+12.75%**; first +10% 2026-10-30; max adverse -9.61%; order UP_ONLY; sessions 45
@@ -1654,9 +1654,9 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [ELE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AELE) — Canada — signal 2026-09-17 @ 30.2400; max **-39.32%**; first -10% 2026-10-01; max favorable +4.34%; order DOWN_ONLY; sessions 43
 - [CAI](https://www.tradingview.com/chart/?symbol=CAI) — US — signal 2026-10-23 @ 31.7100; max **-39.20%**; first -10% 2026-11-05; max favorable +15.11%; order UP_FIRST; sessions 18
 - [RUSHB](https://www.tradingview.com/chart/?symbol=RUSHB) — US — signal 2026-08-23 @ 79.1600; max **-38.99%**; first -10% 2026-08-24; max favorable +-20.10%; order DOWN_ONLY; sessions 62
-- [1258](https://www.tradingview.com/chart/?symbol=HKEX%3A1258) — HK — signal 2026-08-25 @ 15.8100; max **-38.77%**; first -10% 2026-10-15; max favorable +12.78%; order UP_FIRST; sessions 60
 - [IAU.TO](https://www.tradingview.com/chart/?symbol=TSX%3AIAU) — Canada — signal 2026-09-22 @ 2.6200; max **-38.55%**; first -10% 2026-09-28; max favorable +-2.67%; order DOWN_ONLY; sessions 40
 - [DC-A.TO](https://www.tradingview.com/chart/?symbol=TSX%3ADC.A) — Canada — signal 2026-09-22 @ 5.4300; max **-38.49%**; first -10% 2026-09-28; max favorable +-0.00%; order DOWN_ONLY; sessions 40
+- [1258](https://www.tradingview.com/chart/?symbol=HKEX%3A1258) — HK — signal 2026-08-25 @ 15.8100; max **-38.46%**; first -10% 2026-10-15; max favorable +12.78%; order UP_FIRST; sessions 60
 - [ELVN](https://www.tradingview.com/chart/?symbol=ELVN) — US — signal 2026-08-23 @ 59.8200; max **-38.22%**; first -10% 2026-09-15; max favorable +3.64%; order DOWN_ONLY; sessions 62
 - [ALNT](https://www.tradingview.com/chart/?symbol=ALNT) — US — signal 2026-10-06 @ 117.2400; max **-38.08%**; first -10% 2026-10-13; max favorable +-1.15%; order DOWN_ONLY; sessions 31
 - [DNTH](https://www.tradingview.com/chart/?symbol=DNTH) — US — signal 2026-08-25 @ 112.1100; max **-38.07%**; first -10% 2026-09-17; max favorable +0.02%; order DOWN_ONLY; sessions 60
