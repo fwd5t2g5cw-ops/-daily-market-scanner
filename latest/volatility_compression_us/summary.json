@@ -1,15 +1,15 @@
 {
-  "generated_utc": "2026-11-18T04:43:22.627080+00:00",
+  "generated_utc": "2026-11-19T04:30:41.151537+00:00",
   "provider": "yahoo",
   "requested_symbols": 2791,
   "symbols_with_data": 2791,
   "coverage": 1.0,
-  "ranked": 2707,
-  "compression_watch": 272,
-  "actionable_prebreakout_watch": 30,
-  "rejected_compression": 242,
-  "coiled": 64,
-  "confirmed_expansions": 370,
-  "tradingview_watchlist_symbols": 30,
+  "ranked": 2705,
+  "compression_watch": 262,
+  "actionable_prebreakout_watch": 42,
+  "rejected_compression": 220,
+  "coiled": 54,
+  "confirmed_expansions": 307,
+  "tradingview_watchlist_symbols": 42,
   "tradingview_exchange_missing": 0
 }
