@@ -1,17 +1,17 @@
 category,category_label,market,signals,up10_count,down10_count,both_count
-entry_marker,Entry Marker,US,111,43,65,17
+entry_marker,Entry Marker,US,111,43,68,17
 entry_marker,Entry Marker,Canada,6,0,1,0
 entry_marker,Entry Marker,HK,9,4,6,3
-high_conviction,High Conviction Entry,US,57,23,36,10
-ready_now,Double Reclaim READY NOW,US,311,99,169,39
+high_conviction,High Conviction Entry,US,57,23,37,10
+ready_now,Double Reclaim READY NOW,US,319,100,175,42
 ready_now,Double Reclaim READY NOW,Canada,47,15,23,7
 ready_now,Double Reclaim READY NOW,HK,57,18,25,9
-reclaim_breakout,Reclaim Breakout,US,575,185,296,69
+reclaim_breakout,Reclaim Breakout,US,586,187,305,73
 reclaim_breakout,Reclaim Breakout,Canada,83,19,43,8
 reclaim_breakout,Reclaim Breakout,HK,106,31,45,17
-pre_entry,Pre-Entry Watch,US,1030,303,540,128
-pre_entry,Pre-Entry Watch,Canada,243,80,120,40
+pre_entry,Pre-Entry Watch,US,1037,303,549,131
+pre_entry,Pre-Entry Watch,Canada,243,79,120,39
 pre_entry,Pre-Entry Watch,HK,121,34,58,17
-compression,Pre-Breakout Compression,US,390,80,161,16
+compression,Pre-Breakout Compression,US,393,80,163,16
 compression,Pre-Breakout Compression,Canada,83,22,21,8
-compression,Pre-Breakout Compression,HK,52,9,9,1
+compression,Pre-Breakout Compression,HK,52,10,10,1
