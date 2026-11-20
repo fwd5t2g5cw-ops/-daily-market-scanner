@@ -1,7 +1,7 @@
 category,category_label,signals_with_price_data,signals_with_future_sessions,up10_count,up10_rate_pct,down10_count,down10_rate_pct,both_count,up_only_count,down_only_count,up_first_count,down_first_count,both_same_day_count,eligible_10_sessions,eligible10_up_count,eligible10_up_rate_pct,eligible10_down_count,eligible10_down_rate_pct
 entry_marker,Entry Marker,126,126,47,37.3,75,59.52,20,27,55,10,10,0,125,47,37.6,75,60.0
 high_conviction,High Conviction Entry,57,57,23,40.35,37,64.91,10,13,27,6,4,0,57,23,40.35,37,64.91
-ready_now,Double Reclaim READY NOW,439,423,133,31.44,223,52.72,58,75,165,26,32,0,360,133,36.94,219,60.83
-reclaim_breakout,Reclaim Breakout,793,775,237,30.58,393,50.71,98,139,295,44,54,0,646,237,36.69,387,59.91
-pre_entry,Pre-Entry Watch,1424,1401,416,29.69,727,51.89,187,229,540,97,90,0,1242,413,33.25,717,57.73
-compression,Pre-Breakout Compression,534,528,112,21.21,194,36.74,25,87,169,10,15,0,426,111,26.06,194,45.54
+ready_now,Double Reclaim READY NOW,439,438,133,30.37,227,51.83,60,73,167,28,32,0,371,133,35.85,222,59.84
+reclaim_breakout,Reclaim Breakout,793,792,237,29.92,401,50.63,102,135,299,48,54,0,669,237,35.43,394,58.89
+pre_entry,Pre-Entry Watch,1424,1420,416,29.3,746,52.54,196,220,550,106,90,0,1263,413,32.7,736,58.27
+compression,Pre-Breakout Compression,534,532,112,21.05,201,37.78,27,85,174,12,15,0,433,112,25.87,200,46.19
