@@ -1,33 +1,37 @@
 # US Volatility Compression — TradingView Links
 
-27 actionable pre-breakout candidates.
+31 actionable pre-breakout candidates.
 
 | Symbol | TradingView chart |
 |---|---|
+| PAG | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APAG) |
 | CCC | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACCC) |
-| QGEN | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AQGEN) |
 | VRNS | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AVRNS) |
 | BOW | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ABOW) |
-| AZO | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AAZO) |
-| PPL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APPL) |
 | ABM | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AABM) |
-| BJ | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ABJ) |
-| DHR | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ADHR) |
+| AZO | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AAZO) |
+| CZR | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ACZR) |
+| LNTH | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ALNTH) |
 | EXC | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AEXC) |
-| LIN | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ALIN) |
-| WMG | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AWMG) |
+| PEN | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APEN) |
+| L | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AL) |
 | RTO | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ARTO) |
+| UVE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AUVE) |
+| BIIB | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ABIIB) |
 | IMKTA | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AIMKTA) |
 | FE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AFE) |
-| L | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AL) |
-| PSN | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APSN) |
-| ROKU | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AROKU) |
-| A | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AA) |
-| PGR | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APGR) |
 | XEL | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AXEL) |
+| DRH | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3ADRH) |
+| ROKU | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AROKU) |
+| PGR | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APGR) |
 | ZIM | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AZIM) |
-| ADP | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AADP) |
+| GSAT | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AGSAT) |
+| KNSL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AKNSL) |
 | CMS | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ACMS) |
-| ORLY | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AORLY) |
-| ESQ | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AESQ) |
-| BEKE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ABEKE) |
+| AFL | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AAFL) |
+| TRP | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ATRP) |
+| CNA | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ACNA) |
+| PEG | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APEG) |
+| RGA | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ARGA) |
+| WMG | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AWMG) |
+| CWT | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ACWT) |
