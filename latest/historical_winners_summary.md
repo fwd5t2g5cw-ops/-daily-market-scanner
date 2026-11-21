@@ -509,7 +509,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **PR** | 2026-08-25 | 2026-09-15 | 24.09 | 25.57 (2026-10-29) | **6.14%** | 2026-09-16 (BREAKOUT+EMA20) | 2026-09-17 | 2026-10-14 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APR) |
 | Canada | **CYB.TO** | 2026-09-02 | 2026-10-29 | 97.98 | 104.0 (2026-11-13) | **6.14%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3ACYB) |
 | US | **MSCI** | 2026-10-22 | 2026-11-02 | 626.1 | 664.41 (2026-11-16) | **6.12%** | 2026-11-17 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMSCI) |
-| HK | **1579.HK** | 2026-08-25 | 2026-11-06 | 16.06 | 17.04 (2026-11-20) | **6.1%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1579) |
+| HK | **1579.HK** | 2026-08-25 | 2026-11-06 | 16.06 | 17.04 (2026-11-20) | **6.1%** | 2026-11-21 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A1579) |
 | Canada | **POU.TO** | 2026-09-01 | 2026-09-15 | 32.98 | 34.99 (2026-10-30) | **6.09%** | 2026-09-21 (BREAKOUT+EMA20) | 2026-10-28 | 2026-10-28 | [Open](https://www.tradingview.com/chart/?symbol=TSX%3APOU) |
 | Canada | **EMA.TO** | 2026-11-06 | 2026-11-06 | 70.43 | 74.71 (2026-11-20) | **6.08%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AEMA) |
 | HK | **9959.HK** | 2026-11-10 | 2026-11-10 | 2.47 | 2.62 (2026-11-11) | **6.07%** | 2026-11-20 (BREAKOUT+EMA20) | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A9959) |
