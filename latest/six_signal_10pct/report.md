@@ -1794,11 +1794,11 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [TNZ.TO](https://www.tradingview.com/chart/?symbol=TSX%3ATNZ) — Canada — signal 2026-08-25 @ 60.0700; max **-33.88%**; first -10% 2026-11-05; max favorable +27.68%; order UP_FIRST; sessions 63
 - [WDO.TO](https://www.tradingview.com/chart/?symbol=TSX%3AWDO) — Canada — signal 2026-08-26 @ 34.7400; max **-33.74%**; first -10% 2026-10-13; max favorable +7.14%; order DOWN_ONLY; sessions 62
 - [PAGS](https://www.tradingview.com/chart/?symbol=PAGS) — US — signal 2026-10-15 @ 10.8300; max **-33.70%**; first -10% 2026-10-26; max favorable +8.59%; order DOWN_ONLY; sessions 28
+- [3908](https://www.tradingview.com/chart/?symbol=HKEX%3A3908) — HK — signal 2026-08-28 @ 22.6400; max **-33.22%**; first -10% 2026-09-08; max favorable +-0.34%; order DOWN_ONLY; sessions 61
 - [SCCO](https://www.tradingview.com/chart/?symbol=SCCO) — US — signal 2026-08-20 @ 198.7300; max **-33.21%**; first -10% 2026-10-30; max favorable +10.00%; order DOWN_ONLY; sessions 67
 - [1501](https://www.tradingview.com/chart/?symbol=HKEX%3A1501) — HK — signal 2026-09-03 @ 34.9800; max **-33.05%**; first -10% 2026-10-12; max favorable +1.77%; order DOWN_ONLY; sessions 57
 - [JOY.TO](https://www.tradingview.com/chart/?symbol=TSX%3AJOY) — Canada — signal 2026-09-11 @ 6.1300; max **-32.95%**; first -10% 2026-09-21; max favorable +1.79%; order DOWN_ONLY; sessions 51
 - [ITUB](https://www.tradingview.com/chart/?symbol=ITUB) — US — signal 2026-10-21 @ 9.7000; max **-32.89%**; first -10% 2026-10-26; max favorable +-0.04%; order DOWN_ONLY; sessions 24
-- [3908](https://www.tradingview.com/chart/?symbol=HKEX%3A3908) — HK — signal 2026-08-28 @ 22.6400; max **-32.77%**; first -10% 2026-09-08; max favorable +-0.34%; order DOWN_ONLY; sessions 61
 - [ORE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AORE) — Canada — signal 2026-09-16 @ 2.9100; max **-32.65%**; first -10% 2026-10-30; max favorable +16.84%; order UP_FIRST; sessions 48
 - [OBE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AOBE) — Canada — signal 2026-09-14 @ 17.3700; max **-32.64%**; first -10% 2026-09-25; max favorable +2.99%; order DOWN_ONLY; sessions 50
 - [ALS.TO](https://www.tradingview.com/chart/?symbol=TSX%3AALS) — Canada — signal 2026-08-20 @ 63.1200; max **-32.41%**; first -10% 2026-10-16; max favorable +10.19%; order UP_FIRST; sessions 66
