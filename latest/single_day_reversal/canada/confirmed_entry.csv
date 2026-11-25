@@ -1,1 +1,2 @@
-
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
+WCN.TO,CANADA,CONFIRMED_ENTRY,1,262.3299865722656,253.8000030517578,0.03251623511274799,False,2026-11-23,260.9200134277344,261.3550109863281,253.8000030517578,282.17999267578125,0.9424226205503661,0.7902065135066902,0.8234228918481744,False,False,False,5,270.85997009277344,279.38995361328125,False
