@@ -3,15 +3,15 @@ entry_marker,Entry Marker,US,111,43,71,18
 entry_marker,Entry Marker,Canada,6,0,1,0
 entry_marker,Entry Marker,HK,9,4,6,3
 high_conviction,High Conviction Entry,US,57,24,38,11
-ready_now,Double Reclaim READY NOW,US,349,103,192,47
+ready_now,Double Reclaim READY NOW,US,349,103,193,47
 ready_now,Double Reclaim READY NOW,Canada,49,15,26,8
 ready_now,Double Reclaim READY NOW,HK,58,18,26,9
-reclaim_breakout,Reclaim Breakout,US,624,191,325,80
+reclaim_breakout,Reclaim Breakout,US,624,191,326,80
 reclaim_breakout,Reclaim Breakout,Canada,87,20,44,8
 reclaim_breakout,Reclaim Breakout,HK,107,31,47,17
-pre_entry,Pre-Entry Watch,US,1065,304,583,140
-pre_entry,Pre-Entry Watch,Canada,250,79,130,44
-pre_entry,Pre-Entry Watch,HK,123,34,59,17
+pre_entry,Pre-Entry Watch,US,1065,304,587,141
+pre_entry,Pre-Entry Watch,Canada,251,79,130,44
+pre_entry,Pre-Entry Watch,HK,123,35,59,18
 compression,Pre-Breakout Compression,US,403,81,176,16
-compression,Pre-Breakout Compression,Canada,86,22,23,9
-compression,Pre-Breakout Compression,HK,53,10,10,1
+compression,Pre-Breakout Compression,Canada,87,22,23,9
+compression,Pre-Breakout Compression,HK,55,10,11,1
