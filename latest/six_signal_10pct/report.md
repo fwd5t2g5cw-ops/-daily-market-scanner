@@ -12,10 +12,10 @@ The same stock can appear in multiple scanner categories; that is intentional.
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Entry Marker | 126 | 47 | 37.3% | 79 | 62.7% | 21 | 125 | 37.6% | 63.2% |
 | High Conviction Entry | 57 | 24 | 42.11% | 38 | 66.67% | 11 | 57 | 42.11% | 66.67% |
-| Double Reclaim READY NOW | 456 | 136 | 29.82% | 247 | 54.17% | 64 | 385 | 34.81% | 62.34% |
-| Reclaim Breakout | 819 | 242 | 29.55% | 420 | 51.28% | 105 | 706 | 33.85% | 58.5% |
-| Pre-Entry Watch | 1445 | 418 | 28.93% | 777 | 53.77% | 203 | 1297 | 32.0% | 59.29% |
-| Pre-Breakout Compression | 551 | 113 | 20.51% | 210 | 38.11% | 26 | 448 | 25.22% | 46.21% |
+| Double Reclaim READY NOW | 456 | 136 | 29.82% | 247 | 54.17% | 64 | 384 | 34.9% | 62.5% |
+| Reclaim Breakout | 819 | 242 | 29.55% | 420 | 51.28% | 105 | 705 | 33.9% | 58.58% |
+| Pre-Entry Watch | 1445 | 418 | 28.93% | 777 | 53.77% | 203 | 1296 | 32.02% | 59.34% |
+| Pre-Breakout Compression | 551 | 113 | 20.51% | 210 | 38.11% | 26 | 447 | 25.28% | 46.31% |
 
 ## Entry Marker
 
