@@ -1,7 +1,7 @@
 symbol,setup,grade,score,compression_setup,compression_grade,compression_score,current_price,breakout_level,distance_to_breakout_pct,ema20,ema50,sma200,pct_above_ema20,rs_pct,pct_below_52w_high,volume_contracting,range_contracting
+SGR-UN.TO,PRE_ENTRY,A,11,True,A,11,17.99,18.0,0.06,17.749,17.311,16.281,1.36,18.31,0.06,True,True
 DOL.TO,PRE_ENTRY,A,10,True,A,9,224.97,226.77,0.79,216.528,205.76,187.286,3.9,32.52,0.79,False,True
-AW.TO,PRE_ENTRY,A,8,True,A,9,37.45,37.94,1.29,36.946,36.482,35.836,1.36,10.25,1.29,False,True
-FTS.TO,PRE_ENTRY,A,9,True,A,9,84.42,85.69,1.48,83.329,80.82,77.47,1.31,15.96,1.48,False,True
 CGX.TO,PRE_ENTRY,A,10,True,A,9,14.3,14.54,1.65,13.84,13.317,11.772,3.32,19.56,1.65,True,True
 CCL-A.TO,PRE_ENTRY,A,9,True,A,8,104.49,105.99,1.42,100.773,97.871,90.569,3.69,16.77,1.42,False,True
 ACO-X.TO,PRE_ENTRY,A,9,True,A,8,88.72,90.01,1.43,86.36,82.458,72.738,2.73,22.84,1.43,False,True
+MEQ.TO,PRE_ENTRY,B,7,True,A,8,180.09,183.32,1.76,177.877,174.739,173.537,1.24,13.69,5.08,False,True
