@@ -1,6 +1,6 @@
 # US Volatility Compression — TradingView Links
 
-79 actionable pre-breakout candidates.
+78 actionable pre-breakout candidates.
 
 | Symbol | TradingView chart |
 |---|---|
@@ -56,7 +56,6 @@
 | PRGO | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3APRGO) |
 | OGE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AOGE) |
 | WRB | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3AWRB) |
-| ROKU | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AROKU) |
 | NOC | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ANOC) |
 | CHE | [Open chart](https://www.tradingview.com/chart/?symbol=NYSE%3ACHE) |
 | FIZZ | [Open chart](https://www.tradingview.com/chart/?symbol=NASDAQ%3AFIZZ) |
