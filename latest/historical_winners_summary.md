@@ -938,7 +938,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **SCHW** | 2026-08-20 | 2026-08-23 | 112.2 | 113.65 (2026-08-24) | **1.29%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ASCHW) |
 | US | **PAGS** | 2026-10-12 | 2026-10-26 | 11.295 | 11.44 (2026-10-26) | **1.28%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APAGS) |
 | US | **APAM** | 2026-08-20 | 2026-08-26 | 42.979 | 43.53 (2026-08-26) | **1.28%** | 2026-08-31 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAPAM) |
-| US | **PAC** | 2026-11-16 | 2026-11-16 | 231.171 | 234.1 (2026-11-16) | **1.27%** | 2026-11-18 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APAC) |
+| US | **PAC** | 2026-11-16 | 2026-11-16 | 231.171 | 234.1 (2026-11-16) | **1.27%** | 2026-11-18 (BREAKOUT) | 2026-11-26 | 2026-11-26 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APAC) |
 | US | **APD** | 2026-08-26 | 2026-11-02 | 314.87 | 318.87 (2026-11-04) | **1.27%** | 2026-11-09 (BREAKOUT) | 2026-11-10 | 2026-11-11 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAPD) |
 | HK | **0013.HK** | 2026-08-21 | 2026-11-11 | 23.56 | 23.86 (2026-11-11) | **1.27%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0013) |
 | US | **EXPE** | 2026-08-20 | 2026-08-24 | 335.0 | 339.21 (2026-08-24) | **1.26%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AEXPE) |
@@ -1458,6 +1458,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **AEP** | 2026-11-05 (BREAKOUT+EMA20) | 2026-11-10 | 2026-11-11 | **1.34%** | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AAEP) |
 | HK | **0386.HK** | 2026-11-10 (BREAKOUT) | 2026-11-18 | 2026-11-18 | **1.34%** | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A0386) |
 | US | **CCK** | 2026-11-17 (BREAKOUT) | 2026-11-25 | 2026-11-25 | **1.3%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ACCK) |
+| US | **PAC** | 2026-11-18 (BREAKOUT) | 2026-11-26 | 2026-11-26 | **1.27%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APAC) |
 | US | **APD** | 2026-11-09 (BREAKOUT) | 2026-11-10 | 2026-11-11 | **1.27%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AAPD) |
 | US | **BST** | 2026-09-24 (BREAKOUT) | 2026-09-29 | 2026-10-01 | **1.19%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3ABST) |
 | US | **ETV** | 2026-09-09 (BREAKOUT) | 2026-09-18 | 2026-09-21 | **0.92%** | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AETV) |
