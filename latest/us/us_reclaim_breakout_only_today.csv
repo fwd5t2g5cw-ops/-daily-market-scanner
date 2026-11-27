@@ -1,11 +1,11 @@
 symbol,status,grade,quality_score,current_price,day_low,breakout_level,ema20_live,ema20_breakout_distance_pct,rs_vs_spy_pct,pct_below_52w_high,breakout_age_days,undercut_vs_breakout_pct,shallow_bonus,headroom_bonus,congestion_score,congestion_status,touched_breakout_today,touched_ema20_today,above_both_now,entry_marker,double_reclaim,reclaim_breakout,reclaim_breakout_only,candle_pattern,candle_side,high_conviction_score,high_conviction_entry,high_conviction_reasons
 GIC,RECLAIM_PENDING,A,8,44.05,42.765,43.95,44.133,0.418,21.2,12.27,15,-2.7,0,0,2,PRE_BREAKOUT,True,True,False,False,False,True,True,HAMMER,BULL,8,False,RECLAIM_BREAKOUT|RS20+|GRADE_A|BULL_CANDLE
-LAMR,RECLAIM_PENDING,B,10,156.28,155.265,155.68,156.489,0.52,11.93,4.97,24,-0.27,2,1,3,BOTH,True,True,False,False,False,True,True,BEAR_CANDLE,BEAR,6,False,RECLAIM_BREAKOUT|RS10+|GRADE_B
+LAMR,RECLAIM_PENDING,B,10,156.25,155.265,155.68,156.487,0.518,11.91,4.99,24,-0.27,2,1,3,BOTH,True,True,False,False,False,True,True,BEAR_CANDLE,BEAR,6,False,RECLAIM_BREAKOUT|RS10+|GRADE_B
 CCI,RECLAIM_PENDING,C,5,83.64,83.01,83.26,84.658,1.679,18.27,10.55,23,-0.3,2,0,1,PRE_BREAKOUT,True,True,False,False,False,True,True,SHOOTING_STAR_BULL_BODY,BULL,4,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
 MTD,RECLAIM_PENDING,D,2,1663.08,1635.0,1659.7,1693.766,2.053,25.74,7.94,25,-1.49,0,1,1,FORMING_NOW,True,True,False,False,False,True,True,BEAR_CANDLE,BEAR,4,False,RECLAIM_BREAKOUT|RS20+
 HCSG,WATCH_CLUSTER,A+,11,25.42,24.92,24.89,24.806,0.336,20.1,6.03,23,0.12,2,1,0,NONE,True,False,True,False,False,True,True,DOJI,NEUTRAL,7,False,RECLAIM_BREAKOUT|RS20+|GRADE_A+
 UNFI,WATCH_CLUSTER,B,8,50.56,49.47,49.46,49.09,0.748,17.22,11.33,6,0.02,2,0,2,BOTH,True,False,True,False,False,True,True,HAMMER,BULL,6,False,RECLAIM_BREAKOUT|RS10+|GRADE_B|BULL_CANDLE
-HTHT,WATCH_CLUSTER,C,7,51.72,51.02,51.16,50.591,1.112,17.08,7.28,7,-0.27,2,1,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
+HTHT,WATCH_CLUSTER,C,7,51.715,51.02,51.16,50.591,1.113,17.06,7.29,7,-0.27,2,1,2,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
 OHI,WATCH_CLUSTER,C,7,47.37,47.14,47.336,46.777,1.182,11.27,7.07,15,-0.41,2,1,2,BOTH,True,False,True,False,False,True,True,BEAR_CANDLE,BEAR,3,False,RECLAIM_BREAKOUT|RS10+
 HAYW,WATCH_CLUSTER,C,6,16.67,16.0,16.15,15.936,1.327,24.63,4.28,17,-0.93,1,1,2,FORMING_NOW,True,False,True,False,False,True,True,BULL_CANDLE,BULL,6,False,RECLAIM_BREAKOUT|RS20+|BULL_CANDLE
 AOS,WATCH_CLUSTER,C,6,67.26,65.02,65.65,64.351,1.979,18.89,16.38,15,-0.96,1,0,3,BOTH,True,False,True,False,False,True,True,BULL_CANDLE,BULL,4,False,RECLAIM_BREAKOUT|RS10+|BULL_CANDLE
