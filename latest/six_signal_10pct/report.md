@@ -12,10 +12,10 @@ The same stock can appear in multiple scanner categories; that is intentional.
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | Entry Marker | 126 | 47 | 37.3% | 80 | 63.49% | 21 | 126 | 37.3% | 63.49% |
 | High Conviction Entry | 57 | 25 | 43.86% | 38 | 66.67% | 12 | 57 | 43.86% | 66.67% |
-| Double Reclaim READY NOW | 474 | 136 | 28.69% | 251 | 52.95% | 65 | 388 | 34.54% | 62.89% |
-| Reclaim Breakout | 834 | 241 | 28.9% | 427 | 51.2% | 106 | 718 | 33.15% | 58.5% |
-| Pre-Entry Watch | 1456 | 423 | 29.05% | 783 | 53.78% | 205 | 1314 | 31.81% | 59.13% |
-| Pre-Breakout Compression | 557 | 114 | 20.47% | 211 | 37.88% | 27 | 454 | 25.11% | 45.81% |
+| Double Reclaim READY NOW | 474 | 136 | 28.69% | 251 | 52.95% | 65 | 387 | 34.63% | 63.05% |
+| Reclaim Breakout | 834 | 241 | 28.9% | 427 | 51.2% | 106 | 717 | 33.19% | 58.58% |
+| Pre-Entry Watch | 1456 | 423 | 29.05% | 783 | 53.78% | 205 | 1313 | 31.84% | 59.18% |
+| Pre-Breakout Compression | 557 | 114 | 20.47% | 211 | 37.88% | 27 | 453 | 25.17% | 45.92% |
 
 ## Entry Marker
 
@@ -1823,7 +1823,7 @@ The same stock can appear in multiple scanner categories; that is intentional.
 - [PAGS](https://www.tradingview.com/chart/?symbol=PAGS) — US — signal 2026-10-15 @ 10.8300; max **-33.70%**; first -10% 2026-10-26; max favorable +8.59%; order DOWN_ONLY; sessions 29
 - [E.TO](https://www.tradingview.com/chart/?symbol=TSX%3AE) — Canada — signal 2026-10-29 @ 1.8300; max **-33.33%**; first -10% 2026-11-12; max favorable +0.55%; order DOWN_ONLY; sessions 20
 - [OBE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AOBE) — Canada — signal 2026-09-14 @ 17.3700; max **-33.05%**; first -10% 2026-09-25; max favorable +2.99%; order DOWN_ONLY; sessions 52
-- [1501](https://www.tradingview.com/chart/?symbol=HKEX%3A1501) — HK — signal 2026-09-03 @ 34.9800; max **-33.05%**; first -10% 2026-10-12; max favorable +1.77%; order DOWN_ONLY; sessions 58
+- [1501](https://www.tradingview.com/chart/?symbol=HKEX%3A1501) — HK — signal 2026-09-03 @ 34.9800; max **-33.05%**; first -10% 2026-10-12; max favorable +1.77%; order DOWN_ONLY; sessions 59
 - [ITUB](https://www.tradingview.com/chart/?symbol=ITUB) — US — signal 2026-10-21 @ 9.7000; max **-32.89%**; first -10% 2026-10-26; max favorable +-0.04%; order DOWN_ONLY; sessions 25
 - [SKE](https://www.tradingview.com/chart/?symbol=SKE) — US — signal 2026-08-26 @ 34.7200; max **-32.72%**; first -10% 2026-09-01; max favorable +1.96%; order DOWN_ONLY; sessions 64
 - [ORE.TO](https://www.tradingview.com/chart/?symbol=TSX%3AORE) — Canada — signal 2026-09-16 @ 2.9100; max **-32.65%**; first -10% 2026-10-30; max favorable +16.84%; order UP_FIRST; sessions 50
