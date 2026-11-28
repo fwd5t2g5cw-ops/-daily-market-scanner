@@ -1,2 +1,1 @@
-symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score,target_1R,target_2R,both_highs
-3774.HK,HK,CONFIRMED_ENTRY,1,40.560001373291016,34.880001068115234,0.14003945051432107,False,2026-11-26,39.79999923706055,40.47999954223633,34.880001068115234,44.5,0.8785713409890695,0.5,1.3986775903314412,True,True,False,7,46.2400016784668,51.92000198364258,False
+symbol,market,status,delay,entry_price,stop,risk_pct,us_high_quality,reversal_date,reversal_close,reversal_high,reversal_low,prev5_high,clv,body_frac,vol_ratio20,vol_expand,ema20_reclaim_on_day1,prev5_high_reclaim_on_day1,score
