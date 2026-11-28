@@ -698,6 +698,7 @@ US,PVH,2026-11-03,94.72,2026-11-03,2026-11-18,97.85,2026-11-27,98.2,3.67,NYSE:PV
 US,MKL,2026-11-06,1922.22,2026-11-06,2026-11-06,1938.07,2026-11-16,1992.82,3.67,NYSE:MKL,https://www.tradingview.com/chart/?symbol=NYSE%3AMKL
 US,MUFG,2026-08-20,23.25,2026-08-26,2026-09-04,24.09,2026-09-07,24.1,3.66,NYSE:MUFG,https://www.tradingview.com/chart/?symbol=NYSE%3AMUFG
 US,PPC,2026-08-28,30.58,2026-08-28,2026-08-28,31.7,2026-08-28,31.7,3.66,NASDAQ:PPC,https://www.tradingview.com/chart/?symbol=NASDAQ%3APPC
+HK,6288.HK,2026-11-06,41.1,2026-11-06,2026-11-28,42.6,2026-11-28,42.6,3.65,HKEX:6288,https://www.tradingview.com/chart/?symbol=HKEX%3A6288
 US,FISV,2026-11-18,59.38,2026-11-18,2026-11-18,60.48,2026-11-27,61.54,3.64,NASDAQ:FISV,https://www.tradingview.com/chart/?symbol=NASDAQ%3AFISV
 Canada,MKZ-UN.TO,2026-09-25,0.55,2026-09-25,2026-11-25,0.57,2026-11-25,0.57,3.64,TSX:MKZ.UN,https://www.tradingview.com/chart/?symbol=TSX%3AMKZ.UN
 US,AAMI,2026-08-20,93.82,2026-08-20,2026-08-26,95.67,2026-11-11,97.22,3.62,NYSE:AAMI,https://www.tradingview.com/chart/?symbol=NYSE%3AAAMI
@@ -1155,7 +1156,6 @@ US,TXRH,2026-08-20,205.5,2026-08-20,,,2026-08-24,205.23,-0.13,NASDAQ:TXRH,https:
 US,STC,2026-08-25,70.0,2026-08-25,,,2026-08-28,69.91,-0.13,NYSE:STC,https://www.tradingview.com/chart/?symbol=NYSE%3ASTC
 US,EXLS,2026-08-28,44.36,2026-11-13,,,2026-11-10,44.3,-0.14,NASDAQ:EXLS,https://www.tradingview.com/chart/?symbol=NASDAQ%3AEXLS
 HK,2602.HK,2026-09-17,19.98,2026-10-09,,,2026-10-07,19.95,-0.15,HKEX:2602,https://www.tradingview.com/chart/?symbol=HKEX%3A2602
-HK,6288.HK,2026-11-06,41.1,2026-11-06,,,2026-11-18,41.04,-0.15,HKEX:6288,https://www.tradingview.com/chart/?symbol=HKEX%3A6288
 US,NWS,2026-08-20,35.31,2026-08-20,,,2026-08-26,35.25,-0.17,NASDAQ:NWS,https://www.tradingview.com/chart/?symbol=NASDAQ%3ANWS
 US,WCC,2026-10-01,384.81,2026-10-01,,,2026-10-06,384.09,-0.19,NYSE:WCC,https://www.tradingview.com/chart/?symbol=NYSE%3AWCC
 US,NATL,2026-08-23,48.6,2026-11-05,,,2026-11-23,48.51,-0.19,NYSE:NATL,https://www.tradingview.com/chart/?symbol=NYSE%3ANATL

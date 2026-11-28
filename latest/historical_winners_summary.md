@@ -706,6 +706,7 @@ Max gain uses the highest **published scanner snapshot price**, not intraday hig
 | US | **MKL** | 2026-11-06 | 2026-11-06 | 1922.22 | 1992.82 (2026-11-16) | **3.67%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMKL) |
 | US | **PPC** | 2026-08-28 | 2026-08-28 | 30.58 | 31.7 (2026-08-28) | **3.66%** | 2026-09-03 (BREAKOUT) | — | — | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3APPC) |
 | US | **MUFG** | 2026-08-20 | 2026-09-04 | 23.25 | 24.1 (2026-09-07) | **3.66%** | 2026-09-09 (BREAKOUT) | 2026-09-11 | 2026-09-11 | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3AMUFG) |
+| HK | **6288.HK** | 2026-11-06 | 2026-11-28 | 41.1 | 42.6 (2026-11-28) | **3.65%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=HKEX%3A6288) |
 | Canada | **MKZ-UN.TO** | 2026-09-25 | 2026-11-25 | 0.55 | 0.57 (2026-11-25) | **3.64%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=TSX%3AMKZ.UN) |
 | US | **FISV** | 2026-11-18 | 2026-11-18 | 59.38 | 61.54 (2026-11-27) | **3.64%** | 2026-11-19 (BREAKOUT+EMA20) | 2026-11-25 | 2026-11-25 | [Open](https://www.tradingview.com/chart/?symbol=NASDAQ%3AFISV) |
 | US | **PSN** | 2026-11-25 | 2026-11-25 | 51.74 | 53.615 (2026-11-27) | **3.62%** | — | — | — | [Open](https://www.tradingview.com/chart/?symbol=NYSE%3APSN) |
